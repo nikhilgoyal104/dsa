@@ -1,20 +1,20 @@
 # T=mn,S=1
-def v(grid, tar):
+def v(grid, target):
     for row in grid:
-        if tar in row:
+        if target in row:
             return True
     return False
 
 
 # T=mlogn,S=1
-def w(grid, tar):
+def w(grid, target):
     def search(nums):
         low, high = 0, len(nums) - 1
         while low <= high:
             mid = low + (high - low) // 2
-            if tar == mid:
+            if target == mid:
                 return True
-            elif tar > mid:
+            elif target > mid:
                 low = mid + 1
             else:
                 high = mid - 1
@@ -27,13 +27,13 @@ def w(grid, tar):
 
 
 # T=m+n,S=1
-def x(grid, tar):
+def x(grid, target):
     m, n = len(grid), len(grid[0])
     ri, ci = 0, n - 1
     while ri < m and ci > -1:
-        if tar == grid[ri][ci]:
+        if target == grid[ri][ci]:
             return True
-        elif tar > grid[ri][ci]:
+        elif target > grid[ri][ci]:
             ri += 1
         else:
             ci -= 1
@@ -41,42 +41,42 @@ def x(grid, tar):
 
 
 # T=log(mn),S=1
-def y(grid, tar):
+def y(grid, target):
     m, n = len(grid), len(grid[0])
     low, high = 0, m * n - 1
     while low <= high:
         mid = low + (high - low) // 2
         val = grid[mid // n][mid % n]
-        if tar == val:
+        if target == val:
             return True
-        elif tar > val:
+        elif target > val:
             low = mid + 1
         else:
             high = mid - 1
     return False
 
 
-def potential(grid, tar):
+def potential(grid, target):
     low, high = 0, len(grid) - 1
     while low <= high:
         mid = low + (high - low) // 2
-        if grid[mid][0] <= tar <= grid[mid][-1]:
+        if grid[mid][0] <= target <= grid[mid][-1]:
             return mid
-        if tar < grid[mid][0]:
+        if target < grid[mid][0]:
             high = mid - 1
-        elif tar > grid[mid][-1]:
+        elif target > grid[mid][-1]:
             low = mid + 1
     return -1
 
 
-def search(grid, tar, ri):
+def search(grid, target, ri):
     nums = grid[ri]
     low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
-        if tar == nums[mid]:
+        if target == nums[mid]:
             return True
-        elif tar > nums[mid]:
+        elif target > nums[mid]:
             low = mid + 1
         else:
             high = mid - 1
@@ -84,17 +84,17 @@ def search(grid, tar, ri):
 
 
 # T=log(mn),S=1
-def z(grid, tar):
-    ri = potential(grid, tar)
-    return search(grid, tar, ri) if ri != -1 else False
+def z(grid, target):
+    ri = potential(grid, target)
+    return search(grid, target, ri) if ri != -1 else False
 
 
-for grid, tar in [
+for grid, target in [
     ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3),
     ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13)
 ]:
-    print(v(grid, tar), end=' ')
-    print(w(grid, tar), end=' ')
-    print(x(grid, tar), end=' ')
-    print(y(grid, tar), end=' ')
-    print(z(grid, tar))
+    print(v(grid, target), end=' ')
+    print(w(grid, target), end=' ')
+    print(x(grid, target), end=' ')
+    print(y(grid, target), end=' ')
+    print(z(grid, target))

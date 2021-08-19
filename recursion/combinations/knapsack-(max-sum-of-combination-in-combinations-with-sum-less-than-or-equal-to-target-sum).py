@@ -1,13 +1,13 @@
 from math import inf
 
 
-def x(nums, tar):
+def x(nums, total):
     n = len(nums)
 
     def dfs(i, sum):
-        if sum > tar:
+        if sum > total:
             return -inf
-        if sum == tar or i == n:
+        if sum == total or i == n:
             return 0
         inc = nums[i] + dfs(i + 1, sum + nums[i])
         exc = dfs(i + 1, sum)
@@ -16,13 +16,13 @@ def x(nums, tar):
     return dfs(0, 0)
 
 
-def y(nums, tar):
+def y(nums, total):
     n, dp = len(nums), {}
 
     def dfs(i, sum):
-        if sum > tar:
+        if sum > total:
             return -inf
-        if sum == tar or i == n:
+        if sum == total or i == n:
             return 0
         key = i, sum
         if key in dp:
@@ -35,11 +35,11 @@ def y(nums, tar):
     return dfs(0, 0)
 
 
-def z(nums, tar):
+def z(nums, total):
     n, dp = len(nums), {}
 
     def dfs(start, sum):
-        if sum > tar:
+        if sum > total:
             return -inf
         key = start, sum
         if key in dp:
@@ -52,7 +52,7 @@ def z(nums, tar):
     return dfs(0, 0)
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 3], 5),
     ([2, 5, 1, 3, 4], 7),
     ([1, 2, 3, 8, 7, 4], 10),
@@ -60,6 +60,6 @@ for nums, tar in [
     ([1, 2, 3], 10),
     ([7, 3, 5], 8)
 ]:
-    print(x(nums, tar), end=' ')
-    print(y(nums, tar), end=' ')
-    print(z(nums, tar))
+    print(x(nums, total), end=' ')
+    print(y(nums, total), end=' ')
+    print(z(nums, total))

@@ -7,7 +7,7 @@ def x(coins, n):
     return dp[-1]
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 5], 4),
     ([1, 2, 3], 4),
     ([1, 3], 4),
@@ -30,4 +30,4 @@ for nums, tar in [
       4858, 4875, 4892, 4909, 4926, 4943, 4960, 4977, 4994]
      , 3999)
 ]:
-    print(x(nums, tar), end=' ')
+    print(x(nums, total), end=' ')

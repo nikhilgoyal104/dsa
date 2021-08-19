@@ -3,14 +3,14 @@ def x(nums, k):
     total = sum(nums)
     if total % k != 0:
         return False
-    n, tar, vis = len(nums), total // k, set()
+    n, total, vis = len(nums), total // k, set()
 
     def dfs(start, sum, k):
         if k == 1:
             return True
-        if sum == tar:
+        if sum == total:
             return dfs(0, 0, k - 1)
-        if sum > tar:
+        if sum > total:
             return False
         for i in range(start, n):
             if i in vis:

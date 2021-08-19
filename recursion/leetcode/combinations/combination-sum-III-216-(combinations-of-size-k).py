@@ -1,11 +1,11 @@
 # T=kⁿcₖ,S=kⁿcₖ
 def x(k, n):
-    tar, nums = n, [i for i in range(1, 10)]
+    total, nums = n, [i for i in range(1, 10)]
 
     def dfs(start, sum, k):
-        if sum == tar and not k:
+        if sum == total and not k:
             return [[]]
-        if sum > tar:
+        if sum > total:
             return []
         res = []
         for i in range(start, 9):

@@ -2,35 +2,35 @@ from math import inf
 from collections import deque
 
 
-def v(nums, tar):
-    def dfs(start, tar, dp):
-        if not tar:
+def v(nums, total):
+    def dfs(start, total, dp):
+        if not total:
             return 0
-        if tar < 0:
+        if total < 0:
             return 0
-        key = start, tar
+        key = start, total
         if key in dp:
             return dp[key]
         dp[key] = inf
         for i in range(start, len(nums)):
-            dp[key] = min(dp[key], 1 + dfs(i, tar - nums[i], dp))
+            dp[key] = min(dp[key], 1 + dfs(i, total - nums[i], dp))
         return dp[key]
 
-    return dfs(0, tar, {})
+    return dfs(0, total, {})
 
 
-def w(nums, tar):
-    def dfs(tar, dp):
-        if tar < 0:
+def w(nums, total):
+    def dfs(total, dp):
+        if total < 0:
             return 0
-        if tar in dp:
-            return dp[tar]
-        dp[tar] = inf
+        if total in dp:
+            return dp[total]
+        dp[total] = inf
         for val in nums:
-            dp[tar] = min(dp[tar], 1 + dfs(tar - val, dp))
-        return dp[tar]
+            dp[total] = min(dp[total], 1 + dfs(total - val, dp))
+        return dp[total]
 
-    return dfs(tar, {0: 0})
+    return dfs(total, {0: 0})
 
 
 def x(coins, n):
@@ -52,8 +52,8 @@ def y(coins, n):
     return dp[-1]
 
 
-def z(nums, tar):
-    queue = deque([(tar, 0)])
+def z(nums, total):
+    queue = deque([(total, 0)])
     while queue:
         total, count = queue.popleft()
         if not total:
@@ -62,12 +62,12 @@ def z(nums, tar):
             queue.append((total - val, count + 1))
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 3], 4),
     ([1, 2, 5], 11)
 ]:
-    print(v(nums, tar), end=' ')
-    print(w(nums, tar), end=' ')
-    print(x(nums, tar), end=' ')
-    print(y(nums, tar), end=' ')
-    print(z(nums, tar))
+    print(v(nums, total), end=' ')
+    print(w(nums, total), end=' ')
+    print(x(nums, total), end=' ')
+    print(y(nums, total), end=' ')
+    print(z(nums, total))

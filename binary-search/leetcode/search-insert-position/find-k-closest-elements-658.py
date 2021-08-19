@@ -29,13 +29,13 @@ def q(nums, k, x):
     return sorted(-val for _, val in heap)
 
 
-def index(nums, tar):
+def index(nums, target):
     low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
-        if tar == nums[mid]:
+        if target == nums[mid]:
             return mid
-        elif tar > nums[mid]:
+        elif target > nums[mid]:
             low = mid + 1
         else:
             high = mid - 1

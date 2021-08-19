@@ -1,10 +1,10 @@
-def w(nums, tar):
+def w(nums, total):
     n, nums, path = len(nums), sorted(nums), []
 
     def dfs(start, sum):
-        if sum == tar:
+        if sum == total:
             return [path[:]]
-        if sum > tar:
+        if sum > total:
             return []
         res = []
         for i in range(start, n):
@@ -18,13 +18,13 @@ def w(nums, tar):
     return dfs(0, 0)
 
 
-def x(nums, tar):
+def x(nums, total):
     n, nums = len(nums), sorted(nums)
 
     def dfs(start, sum, path):
-        if sum == tar:
+        if sum == total:
             return [path]
-        if sum > tar:
+        if sum > total:
             return []
         res = []
         for i in range(start, n):
@@ -36,13 +36,13 @@ def x(nums, tar):
     return dfs(0, 0, [])
 
 
-def y(nums, tar):
+def y(nums, total):
     n = len(nums)
 
     def dfs(i, sum, path):
-        if sum == tar:
+        if sum == total:
             return [path]
-        if sum > tar or i == n:
+        if sum > total or i == n:
             return []
         inc = dfs(i + 1, sum + nums[i], path + [nums[i]])
         while i < n - 1 and nums[i] == nums[i + 1]:
@@ -53,13 +53,13 @@ def y(nums, tar):
     return dfs(0, 0, [])
 
 
-def z(nums, tar):
+def z(nums, total):
     n = len(nums)
 
     def dfs(i, sum, path):
-        if sum == tar:
+        if sum == total:
             return [path[:]]
-        if sum > tar or i == n:
+        if sum > total or i == n:
             return []
         path.append(nums[i])
         inc = dfs(i + 1, sum + nums[i], path)
@@ -72,11 +72,11 @@ def z(nums, tar):
     return dfs(0, 0, [])
 
 
-for nums, tar in [
+for nums, total in [
     ([10, 1, 2, 7, 6, 1, 5], 8),
     ([2, 5, 2, 1, 2], 5)
 ]:
-    print(w(nums, tar))
-    print(x(nums, tar))
-    print(y(nums, tar))
-    print(z(nums, tar))
+    print(w(nums, total))
+    print(x(nums, total))
+    print(y(nums, total))
+    print(z(nums, total))

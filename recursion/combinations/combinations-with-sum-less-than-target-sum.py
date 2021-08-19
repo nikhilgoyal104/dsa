@@ -1,8 +1,8 @@
-def x(nums, tar):
+def x(nums, total):
     n = len(nums)
 
     def dfs(i, sum, path):
-        if sum >= tar:
+        if sum >= total:
             return []
         if i == n:
             return [path]
@@ -13,11 +13,11 @@ def x(nums, tar):
     return dfs(0, 0, [])
 
 
-def y(nums, tar):
+def y(nums, total):
     n = len(nums)
 
     def dfs(i, sum):
-        if sum >= tar:
+        if sum >= total:
             return []
         if i == n:
             return [[]]
@@ -31,12 +31,12 @@ def y(nums, tar):
     return dfs(0, 0)
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 3], 5),
     ([2, 5, 1, 3, 4], 7),
     ([1, 2, 3, 8, 7, 4], 10),
     ([1, 2, 3], 6),
     ([7, 3, 5], 8)
 ]:
-    print(x(nums, tar))
-    print(y(nums, tar))
+    print(x(nums, total))
+    print(y(nums, total))

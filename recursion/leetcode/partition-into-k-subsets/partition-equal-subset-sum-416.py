@@ -3,12 +3,12 @@ def x(nums):
     total = sum(nums)
     if total % 2:
         return False
-    n, tar, dp = len(nums), total // 2, {}
+    n, total, dp = len(nums), total // 2, {}
 
     def dfs(start, sum):
-        if sum == tar:
+        if sum == total:
             return True
-        if sum > tar:
+        if sum > total:
             return False
         key = start, sum
         if key in dp:
@@ -28,12 +28,12 @@ def y(nums):
     total = sum(nums)
     if total % 2:
         return False
-    n, tar, dp = len(nums), total // 2, {}
+    n, total, dp = len(nums), total // 2, {}
 
     def dfs(i, sum):
-        if sum == tar:
+        if sum == total:
             return True
-        if sum > tar or i == n:
+        if sum > total or i == n:
             return False
         key = i, sum
         if key in dp:
@@ -45,19 +45,20 @@ def y(nums):
 
 
 # T=nxsum,S=nxsum
-# dp[i][j] = is sum of numbers till index i = j+1
+# dp[i][j] = is sum of numbers till index i equal to j
 def z(nums):
-    total = sum(nums)
-    if total % 2:
+    if sum(nums) % 2:
         return False
-    n, tar = len(nums), total // 2
-    rows, cols = n, tar
-    dp = [[False for _ in range(cols)] for _ in range(rows)]
-    for j in range(cols):
-        dp[0][j] = j + 1 == nums[0]
-    for i in range(1, rows):
-        for j in range(cols):
-            dp[i][j] = dp[i - 1][j] or (dp[i - 1][j - nums[i]] if j - nums[i] >= 0 else False)
+    n, total = len(nums), sum(nums) // 2
+    dp = [[False for _ in range(total + 1)] for _ in range(n)]
+    for i in range(n):
+        for j in range(total + 1):
+            if not i:
+                dp[0][j] = nums[0]
+            elif not j:
+                pass
+            else:
+                pass
     return dp[-1][-1]
 
 

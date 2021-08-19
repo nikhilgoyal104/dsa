@@ -1,13 +1,13 @@
 # T=n²,S=n
 def w(nums):
-    tar = len(nums) - 1
-    dp = {tar: True}
+    target = len(nums) - 1
+    dp = {target: True}
 
     def dfs(i):
         if i in dp:
             return dp[i]
         dp[i] = False
-        for val in range(min(nums[i], tar - i), 0, -1):
+        for val in range(min(nums[i], target - i), 0, -1):
             if dfs(i + val):
                 dp[i] = True
                 return True

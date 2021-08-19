@@ -1,9 +1,9 @@
-# T=ntar,S=tar
-def x(nums, tar):
-    dp = {tar: 1}
+# T=ntar,S=total
+def x(nums, total):
+    dp = {total: 1}
 
     def dfs(sum):
-        if sum > tar:
+        if sum > total:
             return 0
         if sum in dp:
             return dp[sum]
@@ -15,7 +15,7 @@ def x(nums, tar):
     return dfs(0)
 
 
-# T=ntar,S=tar
+# T=ntar,S=total
 def y(coins, n):
     dp = [0] * (n + 1)
     dp[0] = 1
@@ -26,9 +26,9 @@ def y(coins, n):
     return dp[-1]
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 3], 4),
     ([9], 3)
 ]:
-    print(x(nums, tar), end=' ')
-    print(y(nums, tar))
+    print(x(nums, total), end=' ')
+    print(y(nums, total))

@@ -1,23 +1,23 @@
-def x(nums, tar):
-    if not tar:
+def x(nums, total):
+    if not total:
         return 1
-    if tar < 0:
+    if total < 0:
         return 0
     count = 0
     for val in nums:
-        count += x(nums, tar - val)
+        count += x(nums, total - val)
     return count
 
 
-def y(nums, tar, dp):
-    if tar < 0:
+def y(nums, total, dp):
+    if total < 0:
         return 0
-    if tar in dp:
-        return dp[tar]
-    dp[tar] = 0
+    if total in dp:
+        return dp[total]
+    dp[total] = 0
     for val in nums:
-        dp[tar] += y(nums, tar - val, dp)
-    return dp[tar]
+        dp[total] += y(nums, total - val, dp)
+    return dp[total]
 
 
 def z(coins, n):
@@ -30,46 +30,46 @@ def z(coins, n):
     return dp[-1]
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 3], 4),
     ([1, 2, 5], 11),
 ]:
-    print(x(nums, tar), end=' ')
-    print(y(nums, tar, {0: 1}), end=' ')
-    print(z(nums, tar))
+    print(x(nums, total), end=' ')
+    print(y(nums, total, {0: 1}), end=' ')
+    print(z(nums, total))
 
 print()
 
 
-def x(nums, tar):
-    if not tar:
+def x(nums, total):
+    if not total:
         return [[]]
-    if tar < 0:
+    if total < 0:
         return []
     res = []
     for val in nums:
-        for path in x(nums, tar - val):
+        for path in x(nums, total - val):
             res.append([val] + path)
     return res
 
 
-def y(nums, tar, dp):
-    if not tar:
+def y(nums, total, dp):
+    if not total:
         return [[]]
-    if tar < 0:
+    if total < 0:
         return []
-    if tar in dp:
-        return dp[tar]
-    dp[tar] = []
+    if total in dp:
+        return dp[total]
+    dp[total] = []
     for val in nums:
-        for path in y(nums, tar - val, dp):
-            dp[tar].append([val] + path)
-    return dp[tar]
+        for path in y(nums, total - val, dp):
+            dp[total].append([val] + path)
+    return dp[total]
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 3], 4),
     ([2, 3, 5], 7),
 ]:
-    print(x(nums, tar))
-    print(y(nums, tar, {}))
+    print(x(nums, total))
+    print(y(nums, total, {}))

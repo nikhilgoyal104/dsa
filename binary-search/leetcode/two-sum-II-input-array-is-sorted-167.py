@@ -1,18 +1,18 @@
-def x(nums, tar):
+def x(nums, target):
     low, high = 0, len(nums) - 1
     while low < high:
         sum = nums[low] + nums[high]
-        if tar == sum:
+        if target == sum:
             return [low + 1, high + 1]
-        if tar > sum:
+        if target > sum:
             low += 1
         else:
             high -= 1
 
 
-for nums, tar in [
+for nums, target in [
     ([2, 7, 11, 15], 9),
     ([2, 3, 4], 6),
     ([-1, 0], -1)
 ]:
-    print(x(nums, tar))
+    print(x(nums, target))

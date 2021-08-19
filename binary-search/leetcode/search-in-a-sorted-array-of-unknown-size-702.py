@@ -8,24 +8,24 @@ class ArrayReader:
 
 
 # T=logT,S=1
-def x(reader, tar):
+def x(reader, target):
     low, high = 0, 1
-    while reader.get(high) < tar:
+    while reader.get(high) < target:
         low, high = high, 2 * high
     while low <= high:
         mid = low + (high - low) // 2
         val = reader.get(mid)
-        if tar == val:
+        if target == val:
             return mid
-        elif tar > val:
+        elif target > val:
             low = mid + 1
         else:
             high = mid - 1
     return -1
 
 
-for nums, tar in [
+for nums, target in [
     ([-1, 0, 3, 5, 9, 12], 9),
     ([-1, 0, 3, 5, 9, 12], 2),
 ]:
-    print(x(ArrayReader(nums), tar))
+    print(x(ArrayReader(nums), target))

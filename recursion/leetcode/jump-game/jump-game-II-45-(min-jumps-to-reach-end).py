@@ -3,14 +3,14 @@ from math import inf
 
 # T=n²,S=n
 def x(nums):
-    tar = len(nums) - 1
-    dp = {tar: 0}
+    target = len(nums) - 1
+    dp = {target: 0}
 
     def dfs(i):
         if i in dp:
             return dp[i]
         dp[i] = inf
-        for val in range(min(nums[i], tar - i), 0, -1):
+        for val in range(min(nums[i], target - i), 0, -1):
             dp[i] = min(dp[i], 1 + dfs(i + val))
         return dp[i]
 

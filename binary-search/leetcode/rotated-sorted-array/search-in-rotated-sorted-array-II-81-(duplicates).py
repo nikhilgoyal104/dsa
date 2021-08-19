@@ -14,28 +14,28 @@ def pivot(nums):
     return low
 
 
-def search(low, high, nums, tar):
+def search(low, high, nums, target):
     while low <= high:
         mid = low + (high - low) // 2
-        if tar == nums[mid]:
+        if target == nums[mid]:
             return True
-        elif tar > nums[mid]:
+        elif target > nums[mid]:
             low = mid + 1
         else:
             high = mid - 1
     return False
 
 
-def x(nums, tar):
+def x(nums, target):
     n, pi = len(nums), pivot(nums)
-    if nums[pi] == tar:
+    if nums[pi] == target:
         return True
-    return True if search(0, pi - 1, nums, tar) else search(pi + 1, n - 1, nums, tar)
+    return True if search(0, pi - 1, nums, target) else search(pi + 1, n - 1, nums, target)
 
 
-for nums, tar in [
+for nums, target in [
     ([2, 5, 6, 0, 0, 1, 2], 0),
     ([2, 5, 6, 0, 0, 1, 2], 3),
     ([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1], 2])
 ]:
-    print(x(nums, tar), end=' ')
+    print(x(nums, target), end=' ')

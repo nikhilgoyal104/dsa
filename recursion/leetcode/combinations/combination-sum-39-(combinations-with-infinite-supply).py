@@ -1,10 +1,10 @@
-def x(nums, tar):
+def x(nums, total):
     n = len(nums)
 
     def dfs(start, sum):
-        if sum == tar:
+        if sum == total:
             return [[]]
-        if sum > tar:
+        if sum > total:
             return []
         res = []
         for i in range(start, n):
@@ -15,15 +15,15 @@ def x(nums, tar):
     return dfs(0, 0)
 
 
-# T=(tar/m)nᵗ/ᵐ,S=tar/m(nᵗ/ᵐ)
-def y(nums, tar):
+# T=(total/m)nᵗ/ᵐ,S=total/m(nᵗ/ᵐ)
+def y(nums, total):
     n, path, res = len(nums), [], []
 
     def dfs(start, sum):
-        if sum == tar:
+        if sum == total:
             res.append(path[:])
             return
-        if sum > tar:
+        if sum > total:
             return
         for i in range(start, n):
             path.append(nums[i])
@@ -34,10 +34,10 @@ def y(nums, tar):
     return res
 
 
-for nums, tar in [
+for nums, total in [
     ([2, 3, 6, 7], 7),
     ([2, 3, 5], 8),
     ([2], 1),
 ]:
-    print(x(nums, tar))
-    print(y(nums, tar))
+    print(x(nums, total))
+    print(y(nums, total))

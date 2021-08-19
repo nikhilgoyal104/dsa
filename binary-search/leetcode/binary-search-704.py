@@ -1,17 +1,17 @@
-def x(nums, tar):
+def x(nums, target):
     low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
-        if tar == nums[mid]:
+        if target == nums[mid]:
             return mid
-        elif tar > nums[mid]:
+        elif target > nums[mid]:
             low = mid + 1
         else:
             high = mid - 1
     return -1
 
 
-for nums, tar in [
+for nums, target in [
     ([-1, 0, 3, 5, 9, 12], 9),
     ([-1, 0, 3, 5, 9, 12], 2),
     ([4, 5], 2),
@@ -19,4 +19,4 @@ for nums, tar in [
     ([5], 2),
     ([5], 5),
 ]:
-    print(x(nums, tar))
+    print(x(nums, target))

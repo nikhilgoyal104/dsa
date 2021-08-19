@@ -1,10 +1,10 @@
 # T=log(w)log(n)
 def x(nums, k):
-    def count(tar):
+    def count(target):
         low, high = 0, len(nums) - 1
         while low <= high:
             mid = low + (high - low) // 2
-            if tar >= nums[mid]:
+            if target >= nums[mid]:
                 low = mid + 1
             else:
                 high = mid - 1
@@ -22,9 +22,9 @@ def x(nums, k):
 
 # T=log(w)n
 def y(nums, k):
-    def count(tar):
+    def count(target):
         i, count = 0, 0
-        while i < len(nums) and nums[i] <= tar:
+        while i < len(nums) and nums[i] <= target:
             i, count = i + 1, count + 1
         return count
 

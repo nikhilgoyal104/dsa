@@ -1,39 +1,39 @@
-def x(nums, tar, vis):
-    if not tar:
+def x(nums, total, vis):
+    if not total:
         return 1
-    if tar < 0:
+    if total < 0:
         return 0
     count = 0
     for val in nums:
         if val not in vis:
             vis.add(val)
-            count += x(nums, tar - val, vis)
+            count += x(nums, total - val, vis)
             vis.remove(val)
     return count
 
 
-for nums, tar in [
+for nums, total in [
     ([2, 3, 5, 6, 7], 12),
 ]:
-    print(x(nums, tar, set()))
+    print(x(nums, total, set()))
 
 
-def y(nums, tar, vis):
-    if not tar:
+def y(nums, total, vis):
+    if not total:
         return [[]]
-    if tar < 0:
+    if total < 0:
         return []
     res = []
     for val in nums:
         if val not in vis:
             vis.add(val)
-            for path in y(nums, tar - val, vis):
+            for path in y(nums, total - val, vis):
                 res.append([val] + path)
             vis.remove(val)
     return res
 
 
-for nums, tar in [
+for nums, total in [
     ([2, 3, 5, 6, 7], 12),
 ]:
-    print(y(nums, tar, set()))
+    print(y(nums, total, set()))

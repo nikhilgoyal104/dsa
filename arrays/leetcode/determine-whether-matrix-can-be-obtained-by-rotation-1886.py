@@ -20,26 +20,26 @@ def rotate(grid):
 
 
 # T=n²,S=1
-def x(grid, tar):
+def x(grid, target):
     for _ in range(4):
         rotate(grid)
-        if grid == tar:
+        if grid == target:
             return True
     return False
 
 
-for grid, tar in [
+for grid, target in [
     ([[0, 1], [1, 0]], [[1, 0], [0, 1]]),
     ([[0, 1], [1, 1]], [[1, 0], [0, 1]]),
     ([[0, 0, 0], [0, 1, 0], [1, 1, 1]], [[1, 1, 1], [0, 1, 0], [0, 0, 0]])
 ]:
-    print(x(grid, tar))
+    print(x(grid, target))
 
 print()
 
 
 # T=n²,S=1
-def x(grid, tar):
+def x(grid, target):
     n = len(grid)
     for _ in range(4):
         for i in range(n):
@@ -47,14 +47,14 @@ def x(grid, tar):
                 grid[i][j], grid[j][i] = grid[j][i], grid[i][j]
         for row in grid:
             row.reverse()
-        if grid == tar:
+        if grid == target:
             return True
     return False
 
 
-for grid, tar in [
+for grid, target in [
     ([[0, 1], [1, 0]], [[1, 0], [0, 1]]),
     ([[0, 1], [1, 1]], [[1, 0], [0, 1]]),
     ([[0, 0, 0], [0, 1, 0], [1, 1, 1]], [[1, 1, 1], [0, 1, 0], [0, 0, 0]])
 ]:
-    print(x(grid, tar))
+    print(x(grid, target))

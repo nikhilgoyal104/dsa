@@ -5,41 +5,41 @@ sys.setrecursionlimit(10000)
 
 
 # T=sn,S=n
-def w(nums, tar):
+def w(nums, total):
     dp, n = {}, len(nums)
 
-    def dfs(start, tar):
-        if not tar:
+    def dfs(start, total):
+        if not total:
             return 0
-        if tar < 0:
+        if total < 0:
             return inf
-        key = start, tar
+        key = start, total
         if key in dp:
             return dp[key]
         dp[key] = inf
         for i in range(start, n):
-            dp[key] = min(dp[key], 1 + dfs(i, tar - nums[i]))
+            dp[key] = min(dp[key], 1 + dfs(i, total - nums[i]))
         return dp[key]
 
-    res = dfs(0, tar)
+    res = dfs(0, total)
     return -1 if res == inf else res
 
 
 # T=sn,S=n
-def x(nums, tar):
+def x(nums, total):
     dp, n = {0: 0}, len(nums)
 
-    def dfs(tar):
-        if tar < 0:
+    def dfs(total):
+        if total < 0:
             return inf
-        if tar in dp:
-            return dp[tar]
-        dp[tar] = inf
+        if total in dp:
+            return dp[total]
+        dp[total] = inf
         for val in nums:
-            dp[tar] = min(dp[tar], 1 + dfs(tar - val))
-        return dp[tar]
+            dp[total] = min(dp[total], 1 + dfs(total - val))
+        return dp[total]
 
-    res = dfs(tar)
+    res = dfs(total)
     return -1 if res == inf else res
 
 
@@ -64,7 +64,7 @@ def z(coins, n):
     return -1 if dp[-1] == inf else dp[-1]
 
 
-for nums, tar in [
+for nums, total in [
     ([1, 2, 5], 11),
     ([2], 3),
     ([1], 0),
@@ -72,7 +72,7 @@ for nums, tar in [
     ([3, 7, 405, 436], 8839),
     ([474, 83, 404, 3], 264)
 ]:
-    print(w(nums, tar), end=' ')
-    print(x(nums, tar), end=' ')
-    print(y(nums, tar), end=' ')
-    print(z(nums, tar))
+    print(w(nums, total), end=' ')
+    print(x(nums, total), end=' ')
+    print(y(nums, total), end=' ')
+    print(z(nums, total))

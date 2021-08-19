@@ -1,8 +1,8 @@
-def x(nums, tar):
+def x(nums, total):
     n, nums = len(nums), sorted(nums)
 
     def dfs(start, sum):
-        if sum == tar:
+        if sum == total:
             return [[]]
         res = []
         for i in range(start, len(nums)):
@@ -15,8 +15,8 @@ def x(nums, tar):
     return dfs(0, 0)
 
 
-for nums, tar in [
+for nums, total in [
     ([10, 1, 2, 7, 6, 1, 5], 8),
     ([2, 5, 2, 1, 2], 5)
 ]:
-    print(x(nums, tar))
+    print(x(nums, total))
