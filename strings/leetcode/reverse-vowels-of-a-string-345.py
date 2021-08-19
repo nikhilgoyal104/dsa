@@ -1,0 +1,20 @@
+# T=n,S=n
+def x(s):
+    n, s = len(s), list(s)
+    low, high = 0, n - 1
+    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+    while low < high:
+        while low < n and s[low] not in vowels:
+            low += 1
+        while high > -1 and s[high] not in vowels:
+            high -= 1
+        if low < high:
+            s[low], s[high] = s[high], s[low]
+            low, high = low + 1, high - 1
+    return ''.join(s)
+
+
+for s in [
+    'xyz', 'hello', 'leetcode', 'aA', 'a.b,.', '.,'
+]:
+    print(x(s))
