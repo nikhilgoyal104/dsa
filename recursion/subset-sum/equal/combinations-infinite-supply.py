@@ -35,16 +35,16 @@ def y(nums, total):
 def z(nums, total):
     n = len(nums)
 
-    def dfs(i, total, path):
-        if not total:
+    def dfs(i, sum, path):
+        if sum == total:
             return [path]
-        if total < 0 or i == n:
+        if sum > total or i == n:
             return []
-        inc = dfs(i, total - nums[i], path + [nums[i]])
-        exc = dfs(i + 1, total, path)
+        inc = dfs(i, sum + nums[i], path + [nums[i]])
+        exc = dfs(i + 1, sum, path)
         return inc + exc
 
-    return dfs(0, total, [])
+    return dfs(0, 0, [])
 
 
 for nums, total in [

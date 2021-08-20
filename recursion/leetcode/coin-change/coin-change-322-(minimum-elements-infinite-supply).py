@@ -1,45 +1,45 @@
-from math import inf
 import sys
+from math import inf
 
 sys.setrecursionlimit(10000)
 
 
 # T=sn,S=n
 def x(nums, total):
-    dp, n = {}, len(nums)
+    n, dp = len(nums), {}
 
-    def dfs(start, total):
-        if not total:
+    def dfs(start, sum):
+        if sum == total:
             return 0
-        if total < 0:
+        if sum > total:
             return inf
-        key = start, total
+        key = start, sum
         if key in dp:
             return dp[key]
         dp[key] = inf
         for i in range(start, n):
-            dp[key] = min(dp[key], 1 + dfs(i, total - nums[i]))
+            dp[key] = min(dp[key], 1 + dfs(i, sum + nums[i]))
         return dp[key]
 
-    res = dfs(0, total)
+    res = dfs(0, 0)
     return -1 if res == inf else res
 
 
 # T=sn,S=n
 def y(nums, total):
-    dp, n = {0: 0}, len(nums)
+    dp = {total: 0}
 
-    def dfs(total):
-        if total < 0:
+    def dfs(sum):
+        if sum > total:
             return inf
-        if total in dp:
-            return dp[total]
-        dp[total] = inf
+        if sum in dp:
+            return dp[sum]
+        dp[sum] = inf
         for val in nums:
-            dp[total] = min(dp[total], 1 + dfs(total - val))
-        return dp[total]
+            dp[sum] = min(dp[sum], 1 + dfs(sum + val))
+        return dp[sum]
 
-    res = dfs(total)
+    res = dfs(0)
     return -1 if res == inf else res
 
 
@@ -48,13 +48,14 @@ def z(nums, total):
     n = len(nums)
     dp = [[inf] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
-        dp[0][j] = j // nums[0] if not j % nums[0] else 0
+        quot, rem = divmod(j, nums[0])
+        dp[0][j] = quot if not rem else inf
     for i in range(n):
         dp[i][0] = 0
     for i in range(1, n):
         for j in range(1, total + 1):
-            dp[i][j] = min(dp[i - 1][j], 1 + (dp[i][j - nums[i]] if j >= nums[i] else 0))
-    return dp[-1][-1]
+            dp[i][j] = min(dp[i - 1][j], 1 + (dp[i][j - nums[i]] if j >= nums[i] else inf))
+    return -1 if dp[-1][-1] == inf else dp[-1][-1]
 
 
 for nums, total in [

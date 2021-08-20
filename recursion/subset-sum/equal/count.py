@@ -6,10 +6,10 @@ def x(nums, total):
             return 1
         if sum > total:
             return 0
-        count = 0
+        res = 0
         for i in range(start, n):
-            count += dfs(i + 1, sum + nums[i])
-        return count
+            res += dfs(i + 1, sum + nums[i])
+        return res
 
     return dfs(0, 0)
 

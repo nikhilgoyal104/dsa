@@ -25,7 +25,7 @@ def y(nums, total):
         inc = dfs(i + 1, sum + nums[i])
         for path in inc:
             res.append([nums[i]] + path)
-        exc = dfs(i + 1, total)
+        exc = dfs(i + 1, sum)
         return res + exc
 
     return dfs(0, 0)

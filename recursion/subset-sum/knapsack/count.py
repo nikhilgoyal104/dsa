@@ -1,14 +1,16 @@
 def x(nums, total):
     n = len(nums)
 
-    def dfs(i, path):
-        if i == n:
-            return [path] if sum(path) > total else []
-        inc = dfs(i + 1, path + [nums[i]])
-        exc = dfs(i + 1, path)
+    def dfs(i, sum):
+        if sum > total:
+            return 0
+        if sum == total or i == n:
+            return 1
+        inc = dfs(i + 1, sum + nums[i])
+        exc = dfs(i + 1, sum)
         return inc + exc
 
-    return dfs(0, [])
+    return dfs(0, 0)
 
 
 for nums, total in [
