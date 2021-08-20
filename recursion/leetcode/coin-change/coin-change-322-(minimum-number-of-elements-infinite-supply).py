@@ -5,7 +5,7 @@ sys.setrecursionlimit(10000)
 
 
 # T=sn,S=n
-def w(nums, total):
+def x(nums, total):
     dp, n = {}, len(nums)
 
     def dfs(start, total):
@@ -26,7 +26,7 @@ def w(nums, total):
 
 
 # T=sn,S=n
-def x(nums, total):
+def y(nums, total):
     dp, n = {0: 0}, len(nums)
 
     def dfs(total):
@@ -43,27 +43,18 @@ def x(nums, total):
     return -1 if res == inf else res
 
 
-# T=sn,S=n
-# permutations
-def y(coins, n):
-    dp = [inf] * (n + 1)
-    dp[0] = 0
-    for target in range(1, n + 1):
-        for coin in coins:
-            if target >= coin:
-                dp[target] = min(dp[target], 1 + dp[target - coin])
-    return -1 if dp[-1] == inf else dp[-1]
-
-
-# T=sn,S=n
-# combinations
-def z(coins, n):
-    dp = [inf] * (n + 1)
-    dp[0] = 0
-    for coin in coins:
-        for target in range(coin, n + 1):
-            dp[target] = min(dp[target], 1 + dp[target - coin])
-    return -1 if dp[-1] == inf else dp[-1]
+# T=ns,S=ns
+def z(nums, total):
+    n = len(nums)
+    dp = [[inf] * (total + 1) for _ in range(n)]
+    for j in range(total + 1):
+        dp[0][j] = j // nums[0] if not j % nums[0] else 0
+    for i in range(n):
+        dp[i][0] = 0
+    for i in range(1, n):
+        for j in range(1, total + 1):
+            dp[i][j] = min(dp[i - 1][j], 1 + (dp[i][j - nums[i]] if j >= nums[i] else 0))
+    return dp[-1][-1]
 
 
 for nums, total in [
@@ -74,7 +65,6 @@ for nums, total in [
     ([3, 7, 405, 436], 8839),
     ([474, 83, 404, 3], 264)
 ]:
-    print(w(nums, total), end=' ')
     print(x(nums, total), end=' ')
     print(y(nums, total), end=' ')
     print(z(nums, total))

@@ -1,11 +1,15 @@
-# combinations
-def x(coins, n):
-    dp = [0] * (n + 1)
-    dp[0] = 1
-    for coin in coins:
-        for target in range(coin, n + 1):
-            dp[target] += dp[target - coin]
-    return dp[-1]
+# T=ns,S=ns
+def x(nums, total):
+    n = len(nums)
+    dp = [[0] * (total + 1) for _ in range(n)]
+    for j in range(total + 1):
+        dp[0][j] = int(j % nums[0] == 0)
+    for i in range(n):
+        dp[i][0] = 1
+    for i in range(1, n):
+        for j in range(1, total + 1):
+            dp[i][j] = dp[i - 1][j] + (dp[i][j - nums[i]] if j >= nums[i] else 0)
+    return dp[-1][-1]
 
 
 for nums, total in [

@@ -5,7 +5,7 @@ def x(nums, total):
         if sum == total:
             return [[]]
         res = []
-        for i in range(start, len(nums)):
+        for i in range(start, n):
             if i != start and nums[i] == nums[i - 1]:
                 continue
             for path in dfs(i + 1, sum + nums[i]):
