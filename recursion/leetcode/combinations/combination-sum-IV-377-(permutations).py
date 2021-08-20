@@ -1,4 +1,4 @@
-# T=ntotal,S=total
+# T=ns,S=s
 def x(nums, total):
     dp = {total: 1}
 

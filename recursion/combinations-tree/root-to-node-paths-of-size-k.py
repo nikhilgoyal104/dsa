@@ -1,15 +1,20 @@
-def x(nums, start, k):
-    if not k:
-        return [[]]
-    res = []
-    for i in range(start, len(nums)):
-        for path in x(nums, i + 1, k - 1):
-            res.append([nums[i]] + path)
-    return res
+def x(nums, k):
+    n = len(nums)
+
+    def dfs(start, count):
+        if count == k:
+            return [[]]
+        res = []
+        for i in range(start, n):
+            for path in dfs(i + 1, count + 1):
+                res.append([nums[i]] + path)
+        return res
+
+    return dfs(0, 0)
 
 
 for nums, k in [
     ([1, 2, 3], 2),
     ([1, 2, 3, 4], 2)
 ]:
-    print(x(nums, 0, k))
+    print(x(nums, k))

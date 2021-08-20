@@ -2,18 +2,18 @@
 def x(k, n):
     total, nums = n, [i for i in range(1, 10)]
 
-    def dfs(start, sum, k):
-        if sum == total and not k:
+    def dfs(start, sum, count):
+        if sum == total and count == k:
             return [[]]
         if sum > total:
             return []
         res = []
         for i in range(start, 9):
-            for path in dfs(i + 1, sum + nums[i], k - 1):
+            for path in dfs(i + 1, sum + nums[i], count + 1):
                 res.append([nums[i]] + path)
         return res
 
-    return dfs(0, 0, k)
+    return dfs(0, 0, 0)
 
 
 for k, n in [
