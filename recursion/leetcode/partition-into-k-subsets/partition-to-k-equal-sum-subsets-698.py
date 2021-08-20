@@ -1,9 +1,8 @@
 # S=n
 def x(nums, k):
-    total = sum(nums)
-    if total % k != 0:
+    if sum(nums) % k != 0:
         return False
-    n, total, vis = len(nums), total // k, set()
+    n, total, vis = len(nums), sum(nums) // k, set()
 
     def dfs(start, sum, k):
         if k == 1:
