@@ -44,6 +44,7 @@ def x(nums, total):
 
 
 # T=sn,S=n
+# permutations
 def y(coins, n):
     dp = [inf] * (n + 1)
     dp[0] = 0
@@ -55,6 +56,7 @@ def y(coins, n):
 
 
 # T=sn,S=n
+# combinations
 def z(coins, n):
     dp = [inf] * (n + 1)
     dp[0] = 0
