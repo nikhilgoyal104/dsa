@@ -74,9 +74,12 @@ def z(nums, total):
 
 for nums, total in [
     ([10, 1, 2, 7, 6, 1, 5], 8),
-    ([2, 5, 2, 1, 2], 5)
+    ([2, 5, 2, 1, 2], 5),
+    ([1, 1, 1, 1, 1], 4)
+
 ]:
     print(w(nums, total))
     print(x(nums, total))
     print(y(nums, total))
     print(z(nums, total))
+    print()

@@ -1,7 +1,7 @@
 from math import inf
 
 
-def x(nums, total):
+def w(nums, total):
     n = len(nums)
 
     def dfs(i, sum):
@@ -16,7 +16,7 @@ def x(nums, total):
     return dfs(0, 0)
 
 
-def y(nums, total):
+def x(nums, total):
     n, dp = len(nums), {}
 
     def dfs(i, sum):
@@ -35,7 +35,7 @@ def y(nums, total):
     return dfs(0, 0)
 
 
-def z(nums, total):
+def y(nums, total):
     n, dp = len(nums), {}
 
     def dfs(start, sum):
@@ -50,6 +50,10 @@ def z(nums, total):
         return dp[key]
 
     return dfs(0, 0)
+
+
+def z(nums, total):
+    pass
 
 
 for nums, total in [

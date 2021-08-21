@@ -56,3 +56,4 @@ for nums, total in [
     print(x(nums, total))
     print(y(nums, total))
     print(z(nums, total))
+    print()
