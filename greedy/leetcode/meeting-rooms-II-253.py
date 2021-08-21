@@ -7,11 +7,11 @@ def x(nums):
         lst.append((start, 1))
         lst.append((end, -1))
     lst.sort()
-    count, maximum = 0, 0
+    count, res = 0, 0
     for pair in lst:
         count += pair[1]
-        maximum = max(maximum, count)
-    return maximum
+        res = max(res, count)
+    return res
 
 
 for nums in [

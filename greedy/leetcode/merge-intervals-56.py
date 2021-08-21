@@ -1,7 +1,7 @@
 def x(nums):
     nums.sort()
-    stack = [nums[0]]
-    for i in range(1, len(nums)):
+    n, stack = len(nums), [nums[0]]
+    for i in range(1, n):
         curr, next = stack[-1], nums[i]
         if next[0] <= curr[1]:
             curr[1] = max(next[1], curr[1])
