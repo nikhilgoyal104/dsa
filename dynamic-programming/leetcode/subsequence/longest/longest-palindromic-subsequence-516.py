@@ -12,8 +12,8 @@ def x(s):
             return dp[key]
         if s[i] == s[j]:
             dp[key] = 2 + dfs(i + 1, j - 1)
-        else:
-            dp[key] = max(dfs(i + 1, j), dfs(i, j - 1))
+            return dp[key]
+        dp[key] = max(dfs(i + 1, j), dfs(i, j - 1))
         return dp[key]
 
     return dfs(0, n - 1)

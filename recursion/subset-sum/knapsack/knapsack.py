@@ -52,10 +52,6 @@ def y(nums, total):
     return dfs(0, 0)
 
 
-def z(nums, total):
-    pass
-
-
 for nums, total in [
     ([1, 2, 3], 5),
     ([2, 5, 1, 3, 4], 7),
@@ -65,5 +61,4 @@ for nums, total in [
     ([7, 3, 5], 8)
 ]:
     print(x(nums, total), end=' ')
-    print(y(nums, total), end=' ')
-    print(z(nums, total))
+    print(y(nums, total))
