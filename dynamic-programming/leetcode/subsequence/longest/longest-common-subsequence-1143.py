@@ -24,8 +24,8 @@ def y(s1, s2):
             return dp[key]
         if s1[i] == s2[j]:
             dp[key] = 1 + dfs(i + 1, j + 1)
-        else:
-            dp[key] = max(dfs(i + 1, j), dfs(i, j + 1))
+            return dp[key]
+        dp[key] = max(dfs(i + 1, j), dfs(i, j + 1))
         return dp[key]
 
     return dfs(0, 0)

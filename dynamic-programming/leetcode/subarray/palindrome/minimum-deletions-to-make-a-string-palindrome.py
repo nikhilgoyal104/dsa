@@ -31,6 +31,12 @@ def y(s):
     return dfs(0, n - 1)
 
 
+# f(s) = len(s) - LPS(s)
+# LPS(s) = LCS(s,reverse(s))
+def z(s):
+    pass
+
+
 for s in [
     'geeksforgeeks',
     'aebcbda',

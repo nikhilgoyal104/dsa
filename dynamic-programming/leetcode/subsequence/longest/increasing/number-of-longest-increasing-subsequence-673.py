@@ -1,21 +1,21 @@
 # T=n²,S=n
-# lis[i] = length of LIS ending with nums[i]
-# lisCount[i] = count of LIS ending with nums[i]
+# length[i] = length of LIS ending with nums[i]
+# count[i] = count of LIS ending with nums[i]
 def x(nums):
-    n = len(nums)
-    res = maxLen = 0
-    lis, lisCount = [1] * n, [1] * n
+    n, maxLen = len(nums), 0
+    length, count = [1] * n, [1] * n
     for i in range(n):
-        lis[i] = 1 + max((lis[j] for j in range(i) if nums[j] < nums[i]), default=0)
-        lisCount[i] = sum(lisCount[j] for j in range(i) if nums[j] < nums[i] and lis[i] - lis[j] == 1) or 1
-        maxLen = max(maxLen, lis[i])
-    for i in range(n):
-        if lis[i] == maxLen:
-            res += sum(lisCount[j] for j in range(i) if nums[j] < nums[i] and maxLen - lis[j] == 1) or 1
-    return res
+        for j in range(i):
+            if nums[j] < nums[i]:
+                length[i] = max(length[i], 1 + length[j])
+        count[i] = sum(count[j] for j in range(i) if nums[j] < nums[i] and length[i] - length[j] == 1) or 1
+        maxLen = max(maxLen, length[i])
+    return sum(count[i] for i in range(n) if length[i] == maxLen)
 
 
 for nums in [
+    [1, 2, 3],
+    [5, 4, 3],
     [1, 2],
     [1, 3, 5, 4, 7],
     [1, 2, 4, 3, 5, 4, 7, 2],

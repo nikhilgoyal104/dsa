@@ -32,11 +32,12 @@ def y(nums):
 # dp[i] length of LIS ending with nums[i]
 def z(nums):
     n = len(nums)
-    res, dp = 1, [1] * n
-    for i in range(n):
-        dp[i] = 1 + max((dp[j] for j in range(i) if nums[j] < nums[i]), default=0)
-        res = max(res, dp[i])
-    return res
+    dp = [1] * n
+    for i in range(1, n):
+        for j in range(i):
+            if nums[j] < nums[i]:
+                dp[i] = max(dp[i], 1 + dp[j])
+    return max(dp)
 
 
 for nums in [
