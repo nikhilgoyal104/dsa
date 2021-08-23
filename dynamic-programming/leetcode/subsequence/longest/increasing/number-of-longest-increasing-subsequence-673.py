@@ -8,7 +8,11 @@ def x(nums):
         for j in range(i):
             if nums[j] < nums[i]:
                 length[i] = max(length[i], 1 + length[j])
-        count[i] = sum(count[j] for j in range(i) if nums[j] < nums[i] and length[i] - length[j] == 1) or 1
+        total = 0
+        for j in range(i):
+            if nums[j] < nums[i] and length[i] - length[j] == 1:
+                total += count[j]
+        count[i] = total if total else 1
         maxLen = max(maxLen, length[i])
     return sum(count[i] for i in range(n) if length[i] == maxLen)
 
