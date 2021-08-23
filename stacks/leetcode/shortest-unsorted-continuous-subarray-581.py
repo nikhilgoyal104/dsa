@@ -11,14 +11,14 @@ def x(nums):
 
 # T=nlogn,S=n
 def y(nums):
-    n, nums = len(nums), sorted(nums)
+    n, sortedNums = len(nums), sorted(nums)
     left, right = 0, 0
     for i in range(n):
-        if nums[i] != nums[i]:
+        if nums[i] != sortedNums[i]:
             left = i
             break
     for i in range(n - 1, -1, -1):
-        if nums[i] != nums[i]:
+        if nums[i] != sortedNums[i]:
             right = i
             break
     return 0 if left is right else right - left + 1
