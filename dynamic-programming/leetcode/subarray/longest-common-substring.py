@@ -30,12 +30,25 @@ def y(s1, s2):
     return dfs(0, 0, 0)
 
 
+# T=mn,S=mn
+def z(s1, s2):
+    m, n, res = len(s1), len(s2), 0
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m + 1):
+        for j in range(n + 1):
+            dp[i][j] = 1 + dp[i - 1][j - 1] if s1[i - 1] == s2[j - 1] else 0
+            res = max(res, dp[i][j])
+    return res
+
+
 for s1, s2 in [
     ('abdca', 'cbda'),
     ('passport', 'ppsspt'),
     ('GeeksforGeeks', 'GeeksQuiz'),
     ('abcdxyz', 'xyzabcd'),
-    ('zxabcdezy', 'yzabcdezx')
+    ('zxabcdezy', 'yzabcdezx'),
+    ('pqabcxy', 'xyzabcp')
 ]:
     print(x(s1, s2), end=' ')
-    print(y(s1, s2))
+    print(y(s1, s2), end=' ')
+    print(z(s1, s2))
