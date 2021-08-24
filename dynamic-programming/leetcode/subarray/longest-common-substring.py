@@ -31,6 +31,7 @@ def y(s1, s2):
 
 
 # T=mn,S=mn
+# dp[i][j] = longest common suffix of s1[:i] and s2[:j]
 def z(s1, s2):
     m, n, res = len(s1), len(s2), 0
     dp = [[0] * (n + 1) for _ in range(m + 1)]
