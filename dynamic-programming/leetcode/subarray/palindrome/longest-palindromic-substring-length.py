@@ -1,4 +1,4 @@
-# T=3ⁿ,S=n
+# T=2ⁿ,S=n
 def x(s):
     n = len(s)
 

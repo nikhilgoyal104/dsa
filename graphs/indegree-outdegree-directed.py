@@ -3,8 +3,8 @@ def main(n, edges):
     for u, v in edges:
         outdegrees[u] += 1
         indegrees[v] += 1
-    print(indegrees)
-    print(outdegrees)
+    print('ind->' + str(indegrees))
+    print('out->' + str(outdegrees))
 
 
 for n, edges in [
