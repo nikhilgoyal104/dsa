@@ -26,9 +26,9 @@ def z(nums):
     numsSet, res = set(nums), 0
     for val in nums:
         if val - 1 not in numsSet:
-            nextVal, size = val + 1, 1
-            while nextVal in numsSet:
-                nextVal, size = nextVal + 1, size + 1
+            size = 1
+            while val + 1 in numsSet:
+                val, size = val + 1, size + 1
             res = max(res, size)
     return res
 

@@ -3,8 +3,8 @@ from collections import Counter
 
 
 def x(words, k):
-    frequency = Counter(words)
-    return nsmallest(k, frequency.keys(), lambda x: (-frequency[x], x))
+    freq = Counter(words)
+    return nsmallest(k, freq.keys(), lambda x: (-freq[x], x))
 
 
 # T=nlogk,S=n

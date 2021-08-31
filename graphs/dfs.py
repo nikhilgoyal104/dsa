@@ -9,12 +9,15 @@ def add(graph, u, v):
 def dfs(graph, src, vis):
     vis.add(src)
     print(src, end=' ')
-    [dfs(graph, nbr, vis) for nbr in graph[src] if nbr not in vis]
+    for nbr in graph[src]:
+        if nbr not in vis:
+            dfs(graph, nbr, vis)
 
 
 def main(edges):
     graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
+    for u, v in edges:
+        add(graph, u, v)
     vis = set()
     for src in graph.keys():
         if src not in vis:

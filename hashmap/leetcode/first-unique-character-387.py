@@ -3,9 +3,9 @@ from math import inf
 
 
 def x(s):
-    frequency = Counter(s)
+    freq = Counter(s)
     for i, ch in enumerate(s):
-        if frequency[ch] == 1:
+        if freq[ch] == 1:
             return i
     return -1
 

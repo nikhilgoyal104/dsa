@@ -3,8 +3,8 @@ from collections import Counter
 
 # T=n,S=n
 def x(nums):
-    frequency = Counter(nums)
-    for key, val in frequency.items():
+    freq = Counter(nums)
+    for key, val in freq.items():
         if val == 1:
             return key
 

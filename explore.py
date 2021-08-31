@@ -35,3 +35,5 @@ s = s.strip()
 print(s)
 
 print('b' * 0)
+
+

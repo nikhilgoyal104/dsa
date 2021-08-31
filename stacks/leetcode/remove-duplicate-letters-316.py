@@ -3,11 +3,11 @@ from collections import Counter
 
 # T=n,S=1
 def x(s):
-    frequency, stack = Counter(s), []
+    freq, stack = Counter(s), []
     for char in s:
-        frequency[char] -= 1
+        freq[char] -= 1
         if char not in stack:
-            while stack and stack[-1] > char and frequency[stack[-1]] > 0:
+            while stack and stack[-1] > char and freq[stack[-1]] > 0:
                 stack.pop()
             stack.append(char)
     return ''.join(stack)

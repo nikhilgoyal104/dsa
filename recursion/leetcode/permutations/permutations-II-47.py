@@ -2,18 +2,18 @@ from collections import Counter
 
 
 def w(nums):
-    frequency = Counter(nums)
+    freq = Counter(nums)
 
     def dfs():
-        if not sum(frequency.values()):
+        if not sum(freq.values()):
             return [[]]
         res = []
-        for val in frequency:
-            if frequency[val]:
-                frequency[val] -= 1
+        for val in freq:
+            if freq[val]:
+                freq[val] -= 1
                 for path in dfs():
                     res.append([val] + path)
-                frequency[val] += 1
+                freq[val] += 1
         return res
 
     return dfs()

@@ -60,14 +60,14 @@ for grid in [
 
 
 def construct(live):
-    frequency = Counter()
+    freq = Counter()
     for x, y in live:
         for i in range(x - 1, x + 2):
             for j in range(y - 1, y + 2):
                 if i == x and j == y:
                     continue
-                frequency[i, j] += 1
-    return {ij for ij in frequency if frequency[ij] == 3 or (frequency[ij] == 2 and ij in live)}
+                freq[i, j] += 1
+    return {ij for ij in freq if freq[ij] == 3 or (freq[ij] == 2 and ij in live)}
 
 
 def z(grid):

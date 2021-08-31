@@ -4,14 +4,14 @@ from collections import Counter
 
 # T=nlogn,S=1
 def x(nums, k):
-    frequency = Counter(nums)
-    return sorted(frequency.keys(), key=frequency.get, reverse=True)[:k]
+    freq = Counter(nums)
+    return sorted(freq.keys(), key=freq.get, reverse=True)[:k]
 
 
 # T=nlogk,S=k
 def y(nums, k):
-    frequency = Counter(nums)
-    return nlargest(k, frequency.keys(), key=frequency.get)
+    freq = Counter(nums)
+    return nlargest(k, freq.keys(), key=freq.get)
 
 
 # T=nlogk,S=k

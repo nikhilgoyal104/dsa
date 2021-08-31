@@ -3,21 +3,21 @@ from collections import Counter
 
 # T=m+n,S=min(m,n)
 def x(nums1, nums2):
-    frequency, res = Counter(nums1), []
+    freq, res = Counter(nums1), []
     for val in nums2:
-        if val in frequency and frequency[val]:
+        if val in freq and freq[val]:
             res.append(val)
-            frequency[val] -= 1
+            freq[val] -= 1
     return res
 
 
 # T=m+n,S=min(m,n)
 def y(nums1, nums2):
-    frequency, res = Counter(nums2), []
+    freq, res = Counter(nums2), []
     for val in nums1:
-        if val in frequency and frequency[val]:
+        if val in freq and freq[val]:
             res.append(val)
-            frequency[val] -= 1
+            freq[val] -= 1
     return res
 
 

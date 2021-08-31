@@ -5,7 +5,7 @@ def x(s1, s2, s3):
         return False
 
     def dfs(i, j, k):
-        if i == m and j == n:
+        if k == o:
             return True
         key = i, j
         if key in dp:

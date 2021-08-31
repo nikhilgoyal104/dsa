@@ -3,16 +3,16 @@ from operator import itemgetter, attrgetter
 
 
 def w(s):
-    frequency = {}
+    freq = {}
     for ch in s:
-        frequency[ch] = frequency.get(ch, 0) + 1
-    nums = sorted(frequency.items(), key=lambda x: -x[1])
+        freq[ch] = freq.get(ch, 0) + 1
+    nums = sorted(freq.items(), key=lambda x: -x[1])
     return ''.join((ch * f for ch, f in nums))
 
 
 def x(s):
-    frequency = Counter(s)
-    return ''.join(sorted(s, key=lambda x: (-frequency[x], x)))
+    freq = Counter(s)
+    return ''.join(sorted(s, key=lambda x: (-freq[x], x)))
 
 
 def y(s):

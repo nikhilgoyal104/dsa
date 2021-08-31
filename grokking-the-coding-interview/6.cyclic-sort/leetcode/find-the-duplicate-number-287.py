@@ -21,11 +21,11 @@ print('\n')
 
 # T=n,S=n
 def w(nums):
-    frequency = {}
+    freq = {}
     for val in nums:
-        if val in frequency:
+        if val in freq:
             return val
-        frequency[val] = frequency.get(val, 0) + 1
+        freq[val] = freq.get(val, 0) + 1
 
 
 # T=n,S=n
