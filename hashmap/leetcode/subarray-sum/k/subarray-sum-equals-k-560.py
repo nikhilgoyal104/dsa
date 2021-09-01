@@ -13,12 +13,12 @@ def x(nums, k):
 # T=n,S=n
 def y(nums, k):
     res, n = 0, len(nums)
-    sum, freq = 0, {0: 1}
+    sum, prefixSumFreq = 0, {0: 1}
     for i in range(n):
         sum += nums[i]
-        if sum - k in freq:
-            res += freq[sum - k]
-        freq[sum] = freq.get(sum, 0) + 1
+        if sum - k in prefixSumFreq:
+            res += prefixSumFreq[sum - k]
+        prefixSumFreq[sum] = prefixSumFreq.get(sum, 0) + 1
     return res
 
 
