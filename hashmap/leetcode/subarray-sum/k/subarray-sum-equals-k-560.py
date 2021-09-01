@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 # T=n²,S=1
 def x(nums, k):
     res, n = 0, len(nums)
@@ -13,11 +16,11 @@ def x(nums, k):
 # T=n,S=n
 def y(nums, k):
     res, n = 0, len(nums)
-    sum, sumFreq = 0, {0: 1}
+    sum, sumFreq = 0, Counter({0: 1})
     for i in range(n):
         sum += nums[i]
-        res += sumFreq.get(sum - k, 0)
-        sumFreq[sum] = sumFreq.get(sum, 0) + 1
+        res += sumFreq[sum - k]
+        sumFreq[sum] += 1
     return res
 
 
