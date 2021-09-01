@@ -16,8 +16,7 @@ def y(nums, k):
     sum, sumFreq = 0, {0: 1}
     for i in range(n):
         sum += nums[i]
-        if sum - k in sumFreq:
-            res += sumFreq[sum - k]
+        res += sumFreq.get(sum - k, 0)
         sumFreq[sum] = sumFreq.get(sum, 0) + 1
     return res
 
