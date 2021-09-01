@@ -59,7 +59,7 @@ def y(s):
             nbr = s[:i] + s[i + 1:]
             if nbr not in vis:
                 vis.add(nbr)
-                dfs(s[:i] + s[i + 1:], k - 1)
+                dfs(nbr, k - 1)
 
     dfs(s, k)
     return res
