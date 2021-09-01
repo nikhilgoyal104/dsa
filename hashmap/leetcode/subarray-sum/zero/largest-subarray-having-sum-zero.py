@@ -13,13 +13,13 @@ def x(nums):
 # T=n,S=n
 def y(nums):
     res, n = 0, len(nums)
-    sum, prefixSumToIndex = 0, {0: -1}
+    sum, sumToIndex = 0, {0: -1}
     for i in range(n):
         sum += nums[i]
-        if sum in prefixSumToIndex:
-            res = max(res, i - prefixSumToIndex[sum])
-        else:
-            prefixSumToIndex[sum] = i
+        if sum in sumToIndex:
+            res = max(res, i - sumToIndex[sum])
+        if sum not in sumToIndex:
+            sumToIndex[sum] = i
     return res
 
 

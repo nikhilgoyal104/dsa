@@ -13,19 +13,21 @@ def x(nums, k):
 # T=n,S=n
 def y(nums, k):
     res, n = 0, len(nums)
-    sum, prefixSumToIndex = 0, {0: -1}
+    sum, sumToIndex = 0, {0: -1}
     for i in range(n):
         sum += nums[i]
-        if sum - k in prefixSumToIndex:
-            res = max(res, i - prefixSumToIndex[sum - k])
-        else:
-            prefixSumToIndex[sum] = i
+        if sum - k in sumToIndex:
+            res = max(res, i - sumToIndex[sum - k])
+        if sum not in sumToIndex:
+            sumToIndex[sum] = i
     return res
 
 
 for nums, k in [
     ([10, 5, 2, 7, 1, 9], 15),
     ([-5, 8, -14, 2, 4, 12], -5),
+    ([1, -1, 5, -2, 3], 3),
+    ([-2, -1, 2, 1], 1)
 ]:
     print(x(nums, k), end=' ')
     print(y(nums, k))
