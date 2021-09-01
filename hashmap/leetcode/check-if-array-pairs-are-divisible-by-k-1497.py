@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 
+# T=n,S=n
 def main(nums, k):
     freq = defaultdict(int)
     for val in nums:
