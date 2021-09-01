@@ -3,6 +3,8 @@ from collections import Counter
 nums = [1, 2, 3, 4, 4, 5, 5, 5, 5, 7, 1, 1, 2, 4, 7, 8, 9, 6, 6, 6]
 hm = Counter(nums)
 print(hm)
+print(hm[100])
+print(hm)
 print(hm.most_common(3))
 
 print(sorted(hm.keys(), key=hm.get, reverse=True))
