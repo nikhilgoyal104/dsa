@@ -1,4 +1,4 @@
-from collections import Counter, defaultdict
+from collections import Counter
 from math import inf
 
 

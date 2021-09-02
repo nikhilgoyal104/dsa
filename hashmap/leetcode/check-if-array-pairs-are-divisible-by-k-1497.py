@@ -1,15 +1,15 @@
-from collections import defaultdict
+from collections import Counter
 
 
 # T=n,S=n
 def main(nums, k):
-    freq = defaultdict(int)
+    freq = Counter()
     for val in nums:
         freq[val % k] += 1
-    if 0 in freq and freq[0] % 2:
+    if freq[0] % 2:
         return False
     for rem in freq:
-        if rem and freq[rem] != freq.get(k - rem, 0):
+        if rem and freq[rem] != freq[k - rem]:
             return False
     return True
 

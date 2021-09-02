@@ -1,18 +1,16 @@
-from collections import defaultdict
+from collections import Counter
 
 
 # T=n,S=n
 def main(nums, k):
-    n, freq = len(nums), defaultdict(int)
-    for i in range(k):
-        freq[nums[i]] += 1
+    n, freq = len(nums), Counter(nums[:k])
     res = [len(freq)]
     for i in range(k, n):
-        outgoing, incoming = nums[i - k], nums[i]
+        outgoing = nums[i - k]
         freq[outgoing] -= 1
         if not freq[outgoing]:
             del freq[outgoing]
-        freq[incoming] += 1
+        freq[nums[i]] += 1
         res.append(len(freq))
     return res
 
