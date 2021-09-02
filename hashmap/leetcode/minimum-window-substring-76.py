@@ -5,27 +5,25 @@ from collections import Counter
 def main(s, t):
     m, n = len(s), len(t)
     res, sMap, tMap = '', Counter(), Counter(t)
-    matchCount = right = left = 0
+    matchCount = i = j = 0
     while True:
         f1 = f2 = False
-        while right < m and matchCount < n:
-            ch = s[right]
+        while i < m and matchCount < n:
+            ch = s[i]
             sMap[ch] += 1
             if sMap[ch] <= tMap[ch]:
                 matchCount += 1
-            right += 1
+            i += 1
             f1 = True
-        while left < right and matchCount == n:
-            candidate = s[left:right]
+        while j < i and matchCount == n:
+            candidate = s[j:i]
             if not res or len(candidate) < len(res):
                 res = candidate
-            ch = s[left]
+            ch = s[j]
             sMap[ch] -= 1
-            if not sMap[ch]:
-                del sMap[ch]
             if sMap[ch] < tMap[ch]:
                 matchCount -= 1
-            left += 1
+            j += 1
             f2 = True
         if not f1 and not f2:
             break

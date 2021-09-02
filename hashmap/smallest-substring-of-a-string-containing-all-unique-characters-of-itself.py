@@ -5,21 +5,20 @@ from collections import Counter
 def main(s):
     m, n = len(s), len(set(s))
     res, freq = m, Counter()
-    right = left = 0
+    i = j = 0
     while True:
         f1 = f2 = False
-        while right < m and len(freq) < n:
-            ch = s[right]
-            freq[ch] += 1
-            right += 1
+        while i < m and len(freq) < n:
+            freq[s[i]] += 1
+            i += 1
             f1 = True
-        while left < right and len(freq) == n:
-            res = min(res, right - left)
-            ch = s[left]
+        while j < i and len(freq) == n:
+            res = min(res, i - j)
+            ch = s[j]
             freq[ch] -= 1
             if not freq[ch]:
                 del freq[ch]
-            left += 1
+            j += 1
             f2 = True
         if not f1 and not f2:
             break
