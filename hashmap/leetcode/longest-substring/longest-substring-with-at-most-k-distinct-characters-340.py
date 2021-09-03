@@ -18,6 +18,7 @@ def main(s, k):
 
 
 for s, k in [
+    ('aaabc', 2),
     ('eceba', 2),
     ('aa', 1),
 ]:
