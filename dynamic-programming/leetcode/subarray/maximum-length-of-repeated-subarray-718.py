@@ -17,6 +17,7 @@ def x(nums1, nums2):
 
 
 # T=mn,S=mn
+# dp[i][j] = longest common suffix of nums1[:i] and nums2[:j]
 def y(nums1, nums2):
     m, n = len(nums1), len(nums2)
     res, dp = 0, [[0] * (n + 1) for _ in range(m + 1)]

@@ -4,9 +4,8 @@ from collections import Counter
 # T=n,S=n
 def main(s):
     m, n = len(s), len(set(s))
-    res, freq = m, Counter()
-    i = j = 0
-    while i < m:
+    res, freq, j = m, Counter(), 0
+    for i in range(m):
         freq[s[i]] += 1
         while len(freq) == n:
             res = min(res, i - j + 1)
@@ -14,7 +13,6 @@ def main(s):
             if not freq[s[j]]:
                 del freq[s[j]]
             j += 1
-        i += 1
     return res
 
 

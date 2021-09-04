@@ -1,14 +1,15 @@
 from collections import deque
+from math import inf
 
 
 # T=nk
 def x(nums, k):
     n, res = len(nums), []
     for i in range(n - k + 1):
-        maxVal = nums[i]
-        for j in range(1, k):
-            maxVal = max(maxVal, nums[i + j])
-        res.append(maxVal)
+        largest = -inf
+        for j in range(k):
+            largest = max(largest, nums[i + j])
+        res.append(largest)
     return res
 
 
@@ -18,7 +19,7 @@ def push(queue, nums, i):
     queue.append(i)
 
 
-# T=n,S=n
+# T=n,S=k
 def y(nums, k):
     n, queue = len(nums), deque()
     for i in range(k):

@@ -7,7 +7,7 @@ def x(s):
     for i in range(n):
         for j in range(i, n):
             if j - i + 1 == len(set(s[i:j + 1])):
-                res = max(res, j - i + 1)
+                res += 1
     return res
 
 
@@ -21,26 +21,26 @@ def y(s):
                 break
             vis.add(s[j])
             if j - i + 1 == len(vis):
-                res = max(res, j - i + 1)
+                res += 1
     return res
 
 
 # T=n,S=1
 def z(s):
-    n, freq = len(s), Counter()
-    res = i = j = 0
-    while i < n:
+    res, n = 0, len(s)
+    freq, j = Counter(), 0
+    for i in range(n):
         freq[s[i]] += 1
         while freq[s[i]] > 1:
             freq[s[j]] -= 1
             j += 1
-        res = max(res, i - j + 1)
-        i += 1
+        res += (i - j + 1)
     return res
 
 
 for s in [
     'aaaaaa',
+    'aabcbcdbca',
     'abbacbcdbadbdbbdcb',
     'abcddef',
     'abcabcbb',
