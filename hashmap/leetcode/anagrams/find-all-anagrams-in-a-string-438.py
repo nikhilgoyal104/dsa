@@ -10,10 +10,9 @@ def main(s, p):
     if sMap == pMap:
         res.append(0)
     for i in range(n, m):
-        outgoing = s[i - n]
-        sMap[outgoing] -= 1
-        if not sMap[outgoing]:
-            del sMap[outgoing]
+        sMap[s[i - n]] -= 1
+        if not sMap[s[i - n]]:
+            del sMap[s[i - n]]
         sMap[s[i]] += 1
         if sMap == pMap:
             res.append(i - n + 1)

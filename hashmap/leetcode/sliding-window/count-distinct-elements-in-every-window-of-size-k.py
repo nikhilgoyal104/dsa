@@ -6,10 +6,9 @@ def main(nums, k):
     n, freq = len(nums), Counter(nums[:k])
     res = [len(freq)]
     for i in range(k, n):
-        outgoing = nums[i - k]
-        freq[outgoing] -= 1
-        if not freq[outgoing]:
-            del freq[outgoing]
+        freq[nums[i - k]] -= 1
+        if not freq[nums[i - k]]:
+            del freq[nums[i - k]]
         freq[nums[i]] += 1
         res.append(len(freq))
     return res

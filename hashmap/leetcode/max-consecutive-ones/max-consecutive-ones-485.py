@@ -14,11 +14,18 @@ def x(nums):
 
 # T=n,S=1
 def y(nums):
+    res = count = 0
     for val in nums:
-        pass
+        if val:
+            count += 1
+        else:
+            res = max(res, count)
+            count = 0
+    return max(res, count)
 
 
 for nums in [
+    [1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1],
     [1, 1, 0, 1, 1, 1],
     [1, 0, 1, 1, 0, 1],
     [0, 0, 0],
