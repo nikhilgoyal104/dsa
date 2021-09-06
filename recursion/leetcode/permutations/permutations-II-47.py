@@ -40,7 +40,7 @@ def x(nums):
             return [[]]
         res = []
         for i in range(n):
-            if (i in vis) or (i > 0 and i - 1 not in vis and nums[i] == nums[i - 1]):
+            if (i in vis) or (i and i - 1 not in vis and nums[i] == nums[i - 1]):
                 continue
             vis.add(i)
             for path in dfs():
@@ -59,7 +59,7 @@ def y(nums):
             res.append(path[:])
             return
         for i in range(n):
-            if i in vis or (i > 0 and i - 1 not in vis and nums[i] == nums[i - 1]):
+            if (i in vis) or (i and i - 1 not in vis and nums[i] == nums[i - 1]):
                 continue
             vis.add(i)
             path.append(nums[i])

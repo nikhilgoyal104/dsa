@@ -22,6 +22,7 @@ def y(words):
 
 for words in [
     ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'],
+    ['pepcoding', 'codingpep', 'pepper', 'rapper', 'repepp'],
     ['a'],
     ['']
 ]:

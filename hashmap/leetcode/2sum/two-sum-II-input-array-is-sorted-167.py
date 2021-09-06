@@ -1,13 +1,14 @@
+# T=n,S=1
 def x(nums, target):
     low, high = 0, len(nums) - 1
     while low < high:
         sum = nums[low] + nums[high]
-        if target == sum:
+        if sum == target:
             return [low + 1, high + 1]
-        if target > sum:
-            low += 1
-        else:
+        if sum > target:
             high -= 1
+        else:
+            low += 1
 
 
 for nums, target in [

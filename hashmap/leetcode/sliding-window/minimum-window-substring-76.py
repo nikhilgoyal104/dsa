@@ -5,18 +5,18 @@ from math import inf
 # T=m+n,S=m+n
 def main(s, t):
     m, n = len(s), len(t)
-    sMap, tMap = Counter(), Counter(t)
+    map1, map2 = Counter(), Counter(t)
     start = matched = j = 0
     minLen = inf
     for i in range(m):
-        sMap[s[i]] += 1
-        if sMap[s[i]] <= tMap[s[i]]:
+        map1[s[i]] += 1
+        if map1[s[i]] <= map2[s[i]]:
             matched += 1
         while matched == n:
             if i - j + 1 < minLen:
                 start, minLen = j, i - j + 1
-            sMap[s[j]] -= 1
-            if sMap[s[j]] < tMap[s[j]]:
+            map1[s[j]] -= 1
+            if map1[s[j]] < map2[s[j]]:
                 matched -= 1
             j += 1
     return s[start:start + minLen if minLen != inf else 0]
