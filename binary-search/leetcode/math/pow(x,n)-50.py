@@ -1,4 +1,4 @@
-def p(x, n):
+def main(x, n):
     if n < 0:
         n, x = -n, 1 / x
 
@@ -18,4 +18,4 @@ for x, n in [
     (2.10000, 3),
     (2.00000, -2)
 ]:
-    print(p(x, n))
+    print(main(x, n))

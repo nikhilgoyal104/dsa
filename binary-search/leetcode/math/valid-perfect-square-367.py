@@ -1,4 +1,4 @@
-def x(n):
+def main(n):
     if n == 1:
         return True
     low, high = 1, n // 2
@@ -15,4 +15,4 @@ def x(n):
 
 
 for n in [1, 14, 16]:
-    print(x(n))
+    print(main(n))

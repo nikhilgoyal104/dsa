@@ -1,4 +1,5 @@
 from collections import Counter
+from math import inf
 
 print(-4 % 3)
 
@@ -11,3 +12,7 @@ freq = Counter(w)
 print(freq)
 
 print(ord('c') - ord('a'))
+
+print(inf - 8)
+print(abs(8 - inf))
+print(abs(inf - 8))

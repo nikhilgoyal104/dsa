@@ -1,4 +1,4 @@
-def x(target):
+def main(target):
     low, high = 0, target
     while low <= high:
         mid = low + (high - low) // 2
@@ -13,4 +13,4 @@ def x(target):
 for target in [
     0, 1, 4, 8, 9, 10, 2 ** 31 - 1
 ]:
-    print(x(target), end=' ')
+    print(main(target), end=' ')
