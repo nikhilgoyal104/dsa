@@ -6,12 +6,12 @@ def x(s):
     def dfs(s):
         if not s:
             return 1
-        count = 0
+        res = 0
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if isPalindrome(prefix):
-                count += dfs(suffix)
-        return count
+                res += dfs(suffix)
+        return res
 
     return dfs(s)
 

@@ -10,20 +10,20 @@ def x(nums, target):
 # T=n,S=n
 def y(nums, target):
     n = len(nums)
-    hm = {nums[i]: i for i in range(n)}
+    valToIndex = {nums[i]: i for i in range(n)}
     for i in range(n):
         key = target - nums[i]
-        if key in hm and hm[key] != i:
-            return [i, hm[key]]
+        if key in valToIndex and valToIndex[key] != i:
+            return [i, valToIndex[key]]
 
 
 # T=n,S=n
 def z(nums, target):
-    hm = {}
+    valToIndex = {}
     for i, val in enumerate(nums):
-        if target - val in hm:
-            return [hm[target - val], i]
-        hm[val] = i
+        if target - val in valToIndex:
+            return [valToIndex[target - val], i]
+        valToIndex[val] = i
 
 
 for nums, target in [
