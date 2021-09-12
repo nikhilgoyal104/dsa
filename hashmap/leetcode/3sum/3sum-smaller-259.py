@@ -2,7 +2,7 @@
 def main(nums, target):
     res, n = 0, len(nums)
     nums = sorted(nums)
-    for i in range(n):
+    for i in range(n - 2):
         low, high = i + 1, n - 1
         while low < high:
             sum = nums[i] + nums[low] + nums[high]

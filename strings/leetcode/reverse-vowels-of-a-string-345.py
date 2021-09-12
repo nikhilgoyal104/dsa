@@ -4,13 +4,12 @@ def x(s):
     low, high = 0, n - 1
     vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
     while low < high:
-        while low < n and s[low] not in vowels:
+        while low < high and s[low] not in vowels:
             low += 1
-        while high > -1 and s[high] not in vowels:
+        while low < high and s[high] not in vowels:
             high -= 1
-        if low < high:
-            s[low], s[high] = s[high], s[low]
-            low, high = low + 1, high - 1
+        s[low], s[high] = s[high], s[low]
+        low, high = low + 1, high - 1
     return ''.join(s)
 
 

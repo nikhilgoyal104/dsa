@@ -17,7 +17,16 @@ def y(s):
 
 # T=n,S=1
 def z(s):
-    pass
+    low, high = 0, len(s) - 1
+    while low < high:
+        while low < high and not s[low].isalnum():
+            low += 1
+        while low < high and not s[high].isalnum():
+            high -= 1
+        if s[low].lower() != s[high].lower():
+            return False
+        low, high = low + 1, high - 1
+    return True
 
 
 for s in [
@@ -26,4 +35,5 @@ for s in [
     '0P'
 ]:
     print(x(s), end=' ')
-    print(y(s))
+    print(y(s), end=' ')
+    print(z(s))

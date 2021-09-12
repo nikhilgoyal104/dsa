@@ -5,7 +5,7 @@ from math import inf
 def main(nums, target):
     n = len(nums)
     nums, res = sorted(nums), inf
-    for i in range(n):
+    for i in range(n - 2):
         low, high = i + 1, n - 1
         while low < high:
             sum = nums[i] + nums[low] + nums[high]

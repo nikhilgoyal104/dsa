@@ -1,30 +1,41 @@
 # T=n²,S=n
-def main(nums):
+def x(nums):
+    n = len(nums)
+    res, nums = set(), sorted(nums)
+    for i in range(n - 2):
+        low, high = i + 1, n - 1
+        while low < high:
+            sum = nums[i] + nums[low] + nums[high]
+            if sum == 0:
+                res.add((nums[i], nums[low], nums[high]))
+                low, high = low + 1, high - 1
+            elif sum > 0:
+                high -= 1
+            else:
+                low += 1
+    return list(map(list, res))
+
+
+# T=n²,S=n
+def y(nums):
     n = len(nums)
     res, nums = [], sorted(nums)
-    for i in range(n):
-        if nums[i] > 0:
-            break
+    for i in range(n - 2):
         if i and nums[i] == nums[i - 1]:
             continue
-        twoSum(i, nums, res)
-    return res
-
-
-def twoSum(i, nums, res):
-    low, high = i + 1, len(nums) - 1
-    while low < high:
-        sum = nums[i] + nums[low] + nums[high]
-        if sum < 0:
-            low += 1
-        elif sum > 0:
-            high -= 1
-        else:
-            res.append([nums[i], nums[low], nums[high]])
-            low += 1
-            high -= 1
-            while low < high and nums[low] == nums[low - 1]:
+        low, high = i + 1, n - 1
+        while low < high:
+            sum = nums[i] + nums[low] + nums[high]
+            if sum == 0:
+                res.append([nums[i], nums[low], nums[high]])
+                low, high = low + 1, high - 1
+                while low < high and nums[low] == nums[low - 1]:
+                    low += 1
+            elif sum > 0:
+                high -= 1
+            else:
                 low += 1
+    return res
 
 
 for nums in [
@@ -33,4 +44,6 @@ for nums in [
     [0],
     [],
 ]:
-    print(main(nums))
+    print(x(nums))
+    print(y(nums))
+    print()
