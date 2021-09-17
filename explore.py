@@ -1,3 +1,5 @@
+import os
+
 print(1 << 0)
 print(1 << 1)
 print(1 << 2)
@@ -33,7 +35,3 @@ print(nums + b)
 s = ' hello  world'
 s = s.strip()
 print(s)
-
-print('b' * 0)
-
-
