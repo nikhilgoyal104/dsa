@@ -29,13 +29,13 @@ def y(nums):
 # T=n,S=n
 def z(nums):
     res, n = 0, len(nums)
-    count, countToIndex = 0, {0: -1}
+    sum, sumToIndex = 0, {0: -1}
     for i in range(n):
-        count += -1 if nums[i] == 0 else 1
-        if count in countToIndex:
-            res = max(res, i - countToIndex[count])
-        if count not in countToIndex:
-            countToIndex[count] = i
+        sum += -1 if nums[i] == 0 else 1
+        if sum in sumToIndex:
+            res = max(res, i - sumToIndex[sum])
+        if sum not in sumToIndex:
+            sumToIndex[sum] = i
     return res
 
 

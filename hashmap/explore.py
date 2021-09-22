@@ -24,3 +24,5 @@ print(quot, rem)
 
 a = ['1', '2', '3']
 print(''.join(a))
+
+print(-1 % 7)

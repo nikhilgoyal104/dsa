@@ -8,8 +8,9 @@ def main(nums, k):
         freq[val % k] += 1
     if freq[0] % 2:
         return False
-    for rem in freq:
-        if rem and freq[rem] != freq[k - rem]:
+    del freq[0]
+    for remainder in freq:
+        if freq[remainder] != freq[k - remainder]:
             return False
     return True
 
