@@ -2,28 +2,8 @@ from collections import Counter
 from math import inf
 
 
+# T=n²,S=1
 def x(s):
-    freq = Counter(s)
-    for i, ch in enumerate(s):
-        if freq[ch] == 1:
-            return i
-    return -1
-
-
-def y(s):
-    map = {}
-    for i, ch in enumerate(s):
-        if ch not in map:
-            map[ch] = (0, i)
-        map[ch] = (map[ch][0] + 1, map[ch][1])
-    res = inf
-    for _, (count, firstOccurenceIndex) in map.items():
-        if count == 1:
-            res = min(res, firstOccurenceIndex)
-    return -1 if res == inf else res
-
-
-def bf(s):
     n = len(s)
     for i in range(n):
         repeated = False
@@ -36,8 +16,27 @@ def bf(s):
     return -1
 
 
+# T=n,S=1
+def y(s):
+    freq = Counter(s)
+    for i, ch in enumerate(s):
+        if freq[ch] == 1:
+            return i
+    return -1
+
+
+# T=n,S=n
+def z(s):
+    res, map = inf, {}
+    for i, ch in enumerate(s):
+        map[ch] = i if ch not in map else -1
+    for ch, index in map.items():
+        if index != -1:
+            res = min(res, index)
+    return -1 if res == inf else res
+
+
 for s in ['leetcode', 'loveleetcode', 'aabb']:
-    print(bf(s), end=' ')
     print(x(s), end=' ')
     print(y(s), end=' ')
-    print()
+    print(z(s))

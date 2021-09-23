@@ -10,10 +10,11 @@ def nCr(n, r):
 def x(nums, target):
     res, freq = 0, Counter(nums)
     for val in freq:
-        if val == target - val and freq[val] > 1:
+        complement = target - val
+        if val == complement and freq[val] > 1:
             res += 2 * nCr(freq[val], 2)
         else:
-            res += freq[val] * freq[target - val]
+            res += freq[val] * freq[complement]
     return res // 2
 
 
@@ -21,8 +22,9 @@ def x(nums, target):
 def y(nums, target):
     res, freq = 0, Counter(nums)
     for val in nums:
-        res += freq[target - val]
-        if val == target - val:
+        complement = target - val
+        res += freq[complement]
+        if val == complement:
             res -= 1
     return res // 2
 

@@ -26,3 +26,12 @@ a = ['1', '2', '3']
 print(''.join(a))
 
 print(-1 % 7)
+
+s = '4 abc'
+
+x, y = s.split(' ')
+print(x, y)
+
+subdomains = ['discuss', 'leetcode', 'com']
+for i in range(len(subdomains)):
+    print('.'.join(subdomains[i:]))
