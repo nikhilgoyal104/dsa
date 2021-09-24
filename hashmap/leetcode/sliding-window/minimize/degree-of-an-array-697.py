@@ -5,9 +5,9 @@ from collections import Counter
 # T=n,S=n
 def main(nums):
     res, count = inf, Counter(nums)
-    degree = max(count.values())
+    n, degree = len(nums), max(count.values())
     j, freq = 0, Counter()
-    for i in range(len(nums)):
+    for i in range(n):
         freq[nums[i]] += 1
         while freq[nums[i]] == degree:
             res = min(res, i - j + 1)
@@ -18,6 +18,7 @@ def main(nums):
 
 for nums in [
     [1, 2, 2, 3, 1],
-    [1, 2, 2, 3, 1, 4, 2]
+    [1, 2, 2, 3, 1, 4, 2],
+    [1, 3, 2, 4, 2, 3, 4, 2, 5, 6, 5, 5, 7]
 ]:
     print(main(nums))

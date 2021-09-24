@@ -30,10 +30,7 @@ def z(s):
     res, map = inf, {}
     for i, ch in enumerate(s):
         map[ch] = i if ch not in map else -1
-    for ch, index in map.items():
-        if index != -1:
-            res = min(res, index)
-    return -1 if res == inf else res
+    return min((index for index in map.values() if index != -1), -1)
 
 
 for s in ['leetcode', 'loveleetcode', 'aabb']:

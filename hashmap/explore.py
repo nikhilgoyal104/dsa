@@ -35,3 +35,5 @@ print(x, y)
 subdomains = ['discuss', 'leetcode', 'com']
 for i in range(len(subdomains)):
     print('.'.join(subdomains[i:]))
+
+print(1 / 7)

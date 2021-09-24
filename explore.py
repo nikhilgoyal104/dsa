@@ -35,3 +35,8 @@ print(nums + b)
 s = ' hello  world'
 s = s.strip()
 print(s)
+
+print(0 * '0' + 'abc')
+
+print(ord('Z'))
+print(ord('Z') - ord('A'))
