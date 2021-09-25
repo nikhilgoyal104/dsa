@@ -4,8 +4,8 @@ from collections import Counter
 
 # T=n,S=n
 def main(nums):
-    res, count = inf, Counter(nums)
-    n, degree = len(nums), max(count.values())
+    res, n = inf, len(nums)
+    degree = max(Counter(nums).values())
     j, freq = 0, Counter()
     for i in range(n):
         freq[nums[i]] += 1

@@ -10,8 +10,8 @@ def x(words, k):
 # T=nlogk,S=n
 def y(words, k):
     heap = []
-    for word, f in Counter(words).items():
-        heappush(heap, (f, word))
+    for word, count in Counter(words).items():
+        heappush(heap, (count, word))
         if len(heap) > k:
             heappop(heap)
     return [word for _, word in heap]

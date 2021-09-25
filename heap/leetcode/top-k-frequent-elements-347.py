@@ -17,8 +17,8 @@ def y(nums, k):
 # T=nlogk,S=k
 def z(nums, k):
     heap = []
-    for val, f in Counter(nums).items():
-        heappush(heap, (f, val))
+    for val, count in Counter(nums).items():
+        heappush(heap, (count, val))
         if len(heap) > k:
             heappop(heap)
     return [val for _, val in heap]

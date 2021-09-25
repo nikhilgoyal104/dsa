@@ -1,4 +1,5 @@
 from collections import Counter
+from heapq import *
 
 
 # T=n,S=1
@@ -7,10 +8,10 @@ def main(tasks, n):
     for task in tasks:
         freq[ord(task) - ord('A')] += 1
     freq.sort()
-    maxFreq = freq.pop()
-    spaces = (maxFreq - 1) * n
+    highest = freq.pop()
+    spaces = (highest - 1) * n
     while freq:
-        spaces -= min(maxFreq - 1, freq.pop())
+        spaces -= min(highest - 1, freq.pop())
     return max(0, spaces) + len(tasks)
 
 
@@ -62,6 +63,5 @@ for tasks, n in [
       'F', 'I', 'D', 'A', 'F', 'F', 'J', 'E', 'I', 'J', 'D', 'D', 'G', 'A', 'C', 'G', 'G', 'I', 'E', 'G', 'E', 'H', 'E',
       'D', 'E', 'J', 'B', 'G', 'I', 'J', 'C', 'H', 'C', 'C', 'A', 'A', 'B', 'C', 'G', 'B', 'D', 'I', 'D', 'E', 'H', 'J',
       'J', 'B', 'F', 'E', 'J', 'H', 'H', 'I', 'G', 'B', 'D']
-     , 1)
-]:
+     , 1)]:
     print(main(tasks, n))

@@ -1,13 +1,10 @@
-from heapq import *
-
-
-def x(nums):
+def main(nums):
     lst = []
     for start, end in nums:
         lst.append((start, 1))
         lst.append((end, -1))
     lst.sort()
-    count, res = 0, 0
+    count = res = 0
     for pair in lst:
         count += pair[1]
         res = max(res, count)
@@ -19,4 +16,4 @@ for nums in [
     [[7, 10], [2, 4]],
     [[1, 10], [2, 7], [3, 19], [8, 12], [10, 20], [11, 30]]
 ]:
-    print(x(nums))
+    print(main(nums))
