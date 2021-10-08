@@ -40,3 +40,7 @@ print(0 * '0' + 'abc')
 
 print(ord('Z'))
 print(ord('Z') - ord('A'))
+
+data = [{'a': 1, 'b': 2}, {'a': 3, 'd': 4}, {'e': 5, 'a': 6}]
+
+print(sorted(data, key=lambda x: x['a']))
