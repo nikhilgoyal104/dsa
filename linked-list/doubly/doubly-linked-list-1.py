@@ -7,20 +7,19 @@ class Node:
 
 class DoublyLinkedList:
     def __init__(self):
-        self.head = self.tail = None
+        self.head = None
 
-    def add(self, val):
+    def addAtFront(self, val):
         if not self.head:
-            self.head = self.tail = Node(val)
+            self.head = Node(val)
             return
-        self.tail.next = Node(val, self.tail)
-        self.tail = self.tail.next
+        node = Node(val, next=self.head)
+        self.head.prev = node
+        self.head = node
 
-    def remove(self, node):
+    def delete(self, node):
         if node is self.head:
             self.head = node.next
-        if node is self.tail:
-            self.tail = node.prev
         if node.next:
             node.next.prev = node.prev
         if node.prev:
@@ -36,9 +35,9 @@ class DoublyLinkedList:
 
 dll = DoublyLinkedList()
 for val in [1, 2, 3, 4, 5]:
-    dll.add(val)
-
+    dll.addAtFront(val)
 dll.display()
-
-dll.remove(dll.head.next.next.next.next)
+dll.delete(dll.head.next.next.next.next)
+dll.display()
+dll.delete(dll.head)
 dll.display()
