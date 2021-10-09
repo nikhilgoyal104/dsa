@@ -49,9 +49,7 @@ class LRUCache:
     def put(self, key, value):
         if key in self.cache:
             del self.cache[self.dll.delete(self.cache[key])]
-            self.cache[key] = self.dll.addAtFront(key, value)
-            return
-        if len(self.cache) == self.capacity:
+        elif len(self.cache) == self.capacity:
             del self.cache[self.dll.delete(self.dll.tail)]
         self.cache[key] = self.dll.addAtFront(key, value)
 
