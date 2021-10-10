@@ -19,7 +19,6 @@ class DoublyLinkedList:
             node.next.prev = node.prev
         if node.prev:
             node.prev.next = node.next
-        return node.key
 
     def addAtFront(self, key, value):
         if not self.head:
@@ -42,16 +41,32 @@ class LRUCache:
         if key not in self.cache:
             return -1
         value = self.cache[key].val
-        del self.cache[self.dll.delete(self.cache[key])]
-        self.cache[key] = self.dll.addAtFront(key, value)
+        self.moveToFront(key, value)
         return value
 
     def put(self, key, value):
         if key in self.cache:
-            del self.cache[self.dll.delete(self.cache[key])]
-        elif len(self.cache) == self.capacity:
-            del self.cache[self.dll.delete(self.dll.tail)]
+            self.moveToFront(key, value)
+        elif self.isFull():
+            self.evictAndAdd(key, value)
+        else:
+            self.add(key, value)
+
+    def moveToFront(self, key, value):
+        self.dll.delete(self.cache[key])
+        del self.cache[key]
+        self.add(key, value)
+
+    def evictAndAdd(self, key, value):
+        del self.cache[self.dll.tail.key]
+        self.dll.delete(self.dll.tail)
+        self.add(key, value)
+
+    def add(self, key, value):
         self.cache[key] = self.dll.addAtFront(key, value)
+
+    def isFull(self):
+        return len(self.cache) == self.capacity
 
 
 lru = LRUCache(2)

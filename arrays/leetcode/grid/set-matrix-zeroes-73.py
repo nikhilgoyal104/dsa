@@ -7,7 +7,6 @@ def x(grid):
             if not grid[i][j]:
                 rows.add(i)
                 cols.add(j)
-
     for i in range(m):
         for j in range(n):
             if i in rows or j in cols:
@@ -27,16 +26,13 @@ def y(grid):
                 if not j:
                     fc = True
                 grid[i][0] = grid[0][j] = 0
-
     for i in range(1, m):
         for j in range(1, n):
             if not grid[i][0] or not grid[0][j]:
                 grid[i][j] = 0
-
     if fr:
         for j in range(n):
             grid[0][j] = 0
-
     if fc:
         for i in range(m):
             grid[i][0] = 0
