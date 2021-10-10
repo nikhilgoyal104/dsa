@@ -26,3 +26,8 @@ print(vis)
 
 print(type([1, 2, 3]) == list)
 print(type([1, 2, 3]) is list)
+
+a = iter([1, 4, 7])
+print(next(a))
+print(next(a))
+print(next(a))
