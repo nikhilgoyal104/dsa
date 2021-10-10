@@ -23,3 +23,6 @@ print(vis)
 
 vis.difference_update({(1, 2), (3, 4), (5, 6)})
 print(vis)
+
+print(type([1, 2, 3]) == list)
+print(type([1, 2, 3]) is list)
