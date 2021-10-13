@@ -12,9 +12,8 @@ def y(nums):
     low, high = 0, len(nums) - 1
     res = 0
     while low < high:
-        minHeight = min(nums[low], nums[high])
-        res = max(res, (high - low) * minHeight)
-        if minHeight == nums[low]:
+        res = max(res, (high - low) * min(nums[low], nums[high]))
+        if nums[low] < nums[high]:
             low += 1
         else:
             high -= 1
