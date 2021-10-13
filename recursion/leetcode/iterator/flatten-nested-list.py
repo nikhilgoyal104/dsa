@@ -1,4 +1,5 @@
-def flatten1(nums):
+# T=n
+def x(nums):
     def dfs(nums):
         if not nums:
             return []
@@ -9,7 +10,8 @@ def flatten1(nums):
     return dfs(nums)
 
 
-def flatten2(nums):
+# T=n
+def y(nums):
     def dfs(nums):
         res = []
         for val in nums:
@@ -29,5 +31,5 @@ for nums in [
     [[1, 1], 2, [1, 1]],
     [1, 2, [3, 4, [5, 6]], 7, 8, [9, [10]]]
 ]:
-    print(flatten1(nums))
-    print(flatten2(nums))
+    print(x(nums))
+    print(y(nums))

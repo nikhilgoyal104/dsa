@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def x(dri, dci):
+def main(dri, dci):
     queue, vis = deque([(0, 0, 0)]), {(0, 0)}
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
     while queue:
@@ -19,4 +19,4 @@ def x(dri, dci):
 for dri, dci in [
     (2, 1), (5, 5)
 ]:
-    print(x(dri, dci))
+    print(main(dri, dci))

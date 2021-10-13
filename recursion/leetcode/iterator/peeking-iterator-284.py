@@ -11,7 +11,7 @@ class Iterator:
 
 # T=1,S=1
 class PeekingIterator:
-    def __init__(self, iterator: Iterator):
+    def __init__(self, iterator):
         self.iterator = iterator
         self.curr = self.iterator.next()
 
@@ -31,7 +31,7 @@ iter1 = PeekingIterator(Iterator(nums=[1, 2, 3]))
 
 
 class PeekingIterator:
-    def __init__(self, iterator: Iterator):
+    def __init__(self, iterator):
         self.iterator = iterator
         self.top = None
         self.hasPeeked = False
