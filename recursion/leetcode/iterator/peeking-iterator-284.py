@@ -9,21 +9,22 @@ class Iterator:
         pass
 
 
+# T=1,S=1
 class PeekingIterator:
     def __init__(self, iterator: Iterator):
         self.iterator = iterator
-        self.peeked = self.iterator.next()
-
-    def peek(self):
-        return self.peeked
+        self.curr = self.iterator.next()
 
     def next(self):
-        res = self.peeked
-        self.peeked = self.iterator.next() if self.iterator.hasNext() else None
+        res = self.curr
+        self.curr = self.iterator.next() if self.iterator.hasNext() else None
         return res
 
     def hasNext(self):
-        return self.peeked is not None
+        return self.curr is not None
+
+    def peek(self):
+        return self.curr
 
 
 iter1 = PeekingIterator(Iterator(nums=[1, 2, 3]))
@@ -32,20 +33,20 @@ iter1 = PeekingIterator(Iterator(nums=[1, 2, 3]))
 class PeekingIterator:
     def __init__(self, iterator: Iterator):
         self.iterator = iterator
-        self.peeked = None
+        self.top = None
         self.hasPeeked = False
 
     def peek(self):
         if not self.hasPeeked:
             self.hasPeeked = True
-            self.peeked = self.iterator.next()
-        return self.peeked
+            self.top = self.iterator.next()
+        return self.top
 
     def next(self):
         if not self.hasPeeked:
             return self.iterator.next()
-        res = self.peeked
-        self.peeked = None
+        res = self.top
+        self.top = None
         self.hasPeeked = False
         return res
 

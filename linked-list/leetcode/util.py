@@ -24,7 +24,7 @@ def add(head, val):
     return head
 
 
-def b(nums):
+def build(nums):
     head = None
     for val in nums:
         head = add(head, val)

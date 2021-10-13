@@ -1,4 +1,4 @@
-from util import b
+from util import build
 
 
 # T=n,S=1
@@ -10,9 +10,9 @@ def x(head):
 
 
 for head in [
-    b([1]),
-    b([1, 2, 3, 4, 5]),
-    b([1, 2])
+    build([1]),
+    build([1, 2, 3, 4, 5]),
+    build([1, 2])
 ]:
     print(x(head))
 
@@ -32,8 +32,8 @@ def y(head):
 
 
 for head in [
-    b([1]),
-    b([1, 2]),
-    b([1, 2, 3, 4, 5]),
+    build([1]),
+    build([1, 2]),
+    build([1, 2, 3, 4, 5]),
 ]:
     print(y(head))

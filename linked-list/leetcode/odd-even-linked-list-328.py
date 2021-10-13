@@ -1,4 +1,4 @@
-from util import b, ListNode
+from util import build, ListNode
 
 
 # T=n,S=1
@@ -17,12 +17,12 @@ def x(head):
 
 
 for head in [
-    b([1, 2, 3, 4, 5]),
-    b([2, 1, 3, 5, 6, 4, 7]),
-    b([1, 2, 3, 4]),
-    b([1, 2, 3, 4, 5, 6, 7, 8]),
-    b([]),
-    b([1, 2]),
-    b([1, 2, 3])
+    build([1, 2, 3, 4, 5]),
+    build([2, 1, 3, 5, 6, 4, 7]),
+    build([1, 2, 3, 4]),
+    build([1, 2, 3, 4, 5, 6, 7, 8]),
+    build([]),
+    build([1, 2]),
+    build([1, 2, 3])
 ]:
     print(x(head))

@@ -1,4 +1,4 @@
-from util import b, ListNode
+from util import build, ListNode
 
 
 # T=m+n,S=m+n
@@ -18,9 +18,9 @@ def x(h1, h2):
 
 
 for h1, h2 in [
-    (b([1, 2, 4]), b([1, 3, 4])),
-    (b([]), b([])),
-    (b([1, 2, 3]), b([]))
+    (build([1, 2, 4]), build([1, 3, 4])),
+    (build([]), build([])),
+    (build([1, 2, 3]), build([]))
 ]:
     print(x(h1, h2))
 
@@ -41,8 +41,8 @@ def y(h1, h2):
 
 
 for h1, h2 in [
-    (b([1, 2, 4]), b([1, 3, 4])),
-    (b([]), b([])),
-    (b([1, 2, 3]), b([]))
+    (build([1, 2, 4]), build([1, 3, 4])),
+    (build([]), build([])),
+    (build([1, 2, 3]), build([]))
 ]:
     print(y(h1, h2))

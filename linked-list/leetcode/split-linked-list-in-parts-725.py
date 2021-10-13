@@ -1,4 +1,4 @@
-from util import b
+from util import build
 
 
 def size(head):
@@ -24,9 +24,9 @@ def x(head, k):
 
 
 for head, k in [
-    (b([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 3),
-    (b([1, 2, 3, 4, 5]), 5),
-    (b([1, 2, 3, 4]), 5),
-    (b([1, 2, 3]), 5),
+    (build([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 3),
+    (build([1, 2, 3, 4, 5]), 5),
+    (build([1, 2, 3, 4]), 5),
+    (build([1, 2, 3]), 5),
 ]:
     print(x(head, k))
