@@ -1,12 +1,13 @@
+# T=nlogn,S=n
 def main(nums):
-    lst = []
+    time = []
     for start, end in nums:
-        lst.append((start, 1))
-        lst.append((end, -1))
-    lst.sort()
+        time.append((start, 1))
+        time.append((end, -1))
+    time.sort()
     count = res = 0
-    for pair in lst:
-        count += pair[1]
+    for _, room in time:
+        count += room
         res = max(res, count)
     return res
 

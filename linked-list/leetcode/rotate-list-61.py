@@ -2,7 +2,7 @@ from util import build, ListNode
 
 
 # T=n,S=1
-def x(head, k):
+def main(head, k):
     if not head:
         return head
     tail, n = head, 1
@@ -21,4 +21,4 @@ for head, k in [
     (build([1]), 3),
     (build([]), 0)
 ]:
-    print(x(head, k), end=' ')
+    print(main(head, k), end=' ')

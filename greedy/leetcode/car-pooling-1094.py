@@ -1,11 +1,12 @@
+# T=nlogn,S=n
 def main(trips, capacity):
-    lst = []
-    for n, start, end in trips:
-        lst.append((start, n))
-        lst.append((end, -n))
-    lst.sort()
-    for pair in lst:
-        capacity -= pair[1]
+    time = []
+    for change, start, end in trips:
+        time.append((start, change))
+        time.append((end, -change))
+    time.sort()
+    for _, change in time:
+        capacity -= change
         if capacity < 0:
             return False
     return True

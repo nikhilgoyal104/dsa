@@ -9,7 +9,7 @@ def size(head):
 
 
 # T=n+k,S=k
-def x(head, k):
+def main(head, k):
     res = []
     width, rem = divmod(size(head), k)
     i, prev, curr = 0, None, head
@@ -29,4 +29,4 @@ for head, k in [
     (build([1, 2, 3, 4]), 5),
     (build([1, 2, 3]), 5),
 ]:
-    print(x(head, k))
+    print(main(head, k))

@@ -2,7 +2,7 @@ from math import inf
 
 
 # T=nlogn
-def x(nums):
+def main(nums):
     if len(nums) < 5:
         return 0
     nums = sorted(nums)
@@ -16,4 +16,4 @@ for nums in [
     [1, 5, 0, 10, 14],
     [6, 6, 0, 1, 1, 4, 6]
 ]:
-    print(x(nums))
+    print(main(nums))

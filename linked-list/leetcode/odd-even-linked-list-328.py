@@ -2,7 +2,7 @@ from util import build, ListNode
 
 
 # T=n,S=1
-def x(head):
+def main(head):
     if not head:
         return None
     oddHead = oddTail = head
@@ -25,4 +25,4 @@ for head in [
     build([1, 2]),
     build([1, 2, 3])
 ]:
-    print(x(head))
+    print(main(head))

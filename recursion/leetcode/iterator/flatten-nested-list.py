@@ -1,35 +1,49 @@
-# T=n
-def x(nums):
-    def dfs(nums):
-        if not nums:
+def x(nested):
+    res = []
+
+    def dfs(nested):
+        for val in nested:
+            if type(val) is list:
+                dfs(val)
+                continue
+            res.append(val)
+
+    dfs(nested)
+    return res
+
+
+def y(nested):
+    def dfs(nested):
+        if not nested:
             return []
-        if type(nums[0]) is list:
-            return dfs(nums[0]) + dfs(nums[1:])
-        return [nums[0]] + dfs(nums[1:])
+        if type(nested[0]) is list:
+            return dfs(nested[0]) + dfs(nested[1:])
+        return [nested[0]] + dfs(nested[1:])
 
-    return dfs(nums)
+    return dfs(nested)
 
 
-# T=n
-def y(nums):
-    def dfs(nums):
+def z(nested):
+    def dfs(nested):
         res = []
-        for val in nums:
+        for val in nested:
             if type(val) is list:
                 res += dfs(val)
                 continue
             res.append(val)
         return res
 
-    return dfs(nums)
+    return dfs(nested)
 
 
-for nums in [
+for nested in [
     [],
     [1, 2, 3, 4, 5],
     [[1, 2], [3], [4]],
     [[1, 1], 2, [1, 1]],
     [1, 2, [3, 4, [5, 6]], 7, 8, [9, [10]]]
 ]:
-    print(x(nums))
-    print(y(nums))
+    print(x(nested))
+    print(y(nested))
+    print(z(nested))
+    print()

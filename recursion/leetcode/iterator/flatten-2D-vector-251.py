@@ -16,8 +16,6 @@ class Vector2D:
 vector = Vector2D([[]])
 print(vector.hasNext())
 
-print()
-
 
 class Vector2D:
 
@@ -25,12 +23,12 @@ class Vector2D:
         self.inner = self.outer = 0
         self.vec = vec
 
-    def skip(self):
+    def skipEmptyLists(self):
         while self.outer < len(self.vec) and self.vec[self.outer] == []:
             self.outer += 1
 
     def next(self):
-        self.skip()
+        self.skipEmptyLists()
         res = self.vec[self.outer][self.inner]
         self.inner += 1
         if self.inner == len(self.vec[self.outer]):
@@ -39,7 +37,7 @@ class Vector2D:
         return res
 
     def hasNext(self):
-        self.skip()
+        self.skipEmptyLists()
         return self.outer < len(self.vec)
 
 

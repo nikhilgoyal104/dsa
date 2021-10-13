@@ -2,6 +2,8 @@ from collections import deque
 
 
 def main(grid):
+    m, n = len(grid), len(grid[0])
+
     def dfs(ri, ci):
         if ri in [m, -1] or ci in [n, -1] or not grid[ri][ci]:
             return
@@ -9,8 +11,13 @@ def main(grid):
         for i, j in (1, 0), (0, 1), (-1, 0), (0, -1):
             dfs(ri + i, ci + j)
 
-    m, n = len(grid), len(grid[0])
-    return len([dfs(ri, ci) for ci in range(n) for ri in range(m) if grid[ri][ci] == 1])
+    res = 0
+    for ri in range(m):
+        for ci in range(n):
+            if grid[ri][ci] == 1:
+                dfs(ri, ci)
+                res += 1
+    return res
 
 
 for grid in [

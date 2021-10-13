@@ -2,7 +2,7 @@ from util import build
 
 
 # T=n,S=1
-def x(head):
+def main(head):
     prev, curr = None, head
     while curr:
         curr.next, prev, curr = prev, curr, curr.next
@@ -14,13 +14,13 @@ for head in [
     build([1, 2, 3, 4, 5]),
     build([1, 2])
 ]:
-    print(x(head))
+    print(main(head))
 
 print()
 
 
 # T=n,S=n
-def y(head):
+def main(head):
     def rec(head):
         if not head or not head.next:
             return head
@@ -36,4 +36,4 @@ for head in [
     build([1, 2]),
     build([1, 2, 3, 4, 5]),
 ]:
-    print(y(head))
+    print(main(head))
