@@ -2,30 +2,30 @@ def knows(a, b):
     return True
 
 
-def isCeleb(i):
-    for j in range(n):
-        if i == j:
+def isCeleb(candidate, n):
+    for person in range(n):
+        if candidate == person:
             continue
-        if knows(i, j) or not knows(j, i):
+        if knows(candidate, person) or not knows(person, candidate):
             return False
         return True
 
 
 # T=n²,S=1
 def x(n):
-    for i in range(n):
-        if isCeleb(i):
-            return i
+    for person in range(n):
+        if isCeleb(person, n):
+            return person
     return -1
 
 
 # T=n,S=1
 def y(n):
     candidate = 0
-    for i in range(1, n):
-        if knows(candidate, i):
-            candidate = i
-    if isCeleb(candidate):
+    for person in range(1, n):
+        if knows(candidate, person):
+            candidate = person
+    if isCeleb(candidate, n):
         return candidate
     return -1
 
