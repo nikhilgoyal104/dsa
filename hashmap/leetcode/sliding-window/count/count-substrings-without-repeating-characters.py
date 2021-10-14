@@ -28,13 +28,13 @@ def y(s):
 # T=n,S=1
 def z(s):
     res, n = 0, len(s)
-    freq, j = Counter(), 0
-    for i in range(n):
-        freq[s[i]] += 1
-        while freq[s[i]] > 1:
-            freq[s[j]] -= 1
-            j += 1
-        res += (i - j + 1)
+    freq, left = Counter(), 0
+    for right in range(n):
+        freq[s[right]] += 1
+        while freq[s[right]] > 1:
+            freq[s[left]] -= 1
+            left += 1
+        res += (right - left + 1)
     return res
 
 

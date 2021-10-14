@@ -1,13 +1,13 @@
-def x(nums):
+# T=nlogn,S=n
+def main(nums):
     nums.sort()
-    n, stack = len(nums), [nums[0]]
-    for i in range(1, n):
-        curr, next = stack[-1], nums[i]
-        if next[0] <= curr[1]:
-            curr[1] = max(next[1], curr[1])
+    res = []
+    for val in nums:
+        if not res or res[-1][1] < val[0]:
+            res.append(val)
         else:
-            stack.append(next)
-    return stack
+            res[-1][1] = max(res[-1][1], val[1])
+    return res
 
 
 for nums in [
@@ -18,5 +18,5 @@ for nums in [
     [[10, 16], [2, 8], [1, 6], [7, 12]],
     [[1, 2], [2, 3], [3, 4], [1, 3]]
 ]:
-    print(x(nums), end='')
+    print(main(nums), end='')
     print()

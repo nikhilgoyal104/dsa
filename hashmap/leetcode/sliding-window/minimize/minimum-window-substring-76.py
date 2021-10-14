@@ -6,19 +6,19 @@ from math import inf
 def main(s, t):
     m, n = len(s), len(t)
     map1, map2 = Counter(), Counter(t)
-    start = matched = j = 0
+    start = matched = left = 0
     minLen = inf
-    for i in range(m):
-        map1[s[i]] += 1
-        if map1[s[i]] <= map2[s[i]]:
+    for right in range(m):
+        map1[s[right]] += 1
+        if map1[s[right]] <= map2[s[right]]:
             matched += 1
         while matched == n:
-            if i - j + 1 < minLen:
-                start, minLen = j, i - j + 1
-            map1[s[j]] -= 1
-            if map1[s[j]] < map2[s[j]]:
+            if right - left + 1 < minLen:
+                start, minLen = left, right - left + 1
+            map1[s[left]] -= 1
+            if map1[s[left]] < map2[s[left]]:
                 matched -= 1
-            j += 1
+            left += 1
     return s[start:start + minLen if minLen != inf else 0]
 
 

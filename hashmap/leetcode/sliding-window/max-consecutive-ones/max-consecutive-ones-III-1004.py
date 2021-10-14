@@ -4,13 +4,13 @@ from collections import Counter
 # T=n,S=1
 def main(nums, k):
     n = len(nums)
-    res = j = zeros = 0
-    for i in range(n):
-        zeros += nums[i] == 0
+    res = left = zeros = 0
+    for right in range(n):
+        zeros += nums[right] == 0
         while zeros > k:
-            zeros -= nums[j] == 0
-            j += 1
-        res = max(res, i - j + 1)
+            zeros -= nums[left] == 0
+            left += 1
+        res = max(res, right - left + 1)
     return res
 
 

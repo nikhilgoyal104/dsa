@@ -5,15 +5,15 @@ from collections import Counter
 def main(nums, k):
     def atMost(k):
         res, n = 0, len(nums)
-        freq, j = Counter(), 0
-        for i in range(n):
-            freq[nums[i]] += 1
+        freq, left = Counter(), 0
+        for right in range(n):
+            freq[nums[right]] += 1
             while len(freq) > k:
-                freq[nums[j]] -= 1
-                if not freq[nums[j]]:
-                    del freq[nums[j]]
-                j += 1
-            res += (i - j + 1)
+                freq[nums[left]] -= 1
+                if not freq[nums[left]]:
+                    del freq[nums[left]]
+                left += 1
+            res += (right - left + 1)
         return res
 
     return atMost(k) - atMost(k - 1)

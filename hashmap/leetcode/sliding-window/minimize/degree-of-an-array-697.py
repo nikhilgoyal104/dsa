@@ -6,13 +6,13 @@ from collections import Counter
 def main(nums):
     res, n = inf, len(nums)
     degree = max(Counter(nums).values())
-    j, freq = 0, Counter()
-    for i in range(n):
-        freq[nums[i]] += 1
-        while freq[nums[i]] == degree:
-            res = min(res, i - j + 1)
-            freq[nums[j]] -= 1
-            j += 1
+    left, freq = 0, Counter()
+    for right in range(n):
+        freq[nums[right]] += 1
+        while freq[nums[right]] == degree:
+            res = min(res, right - left + 1)
+            freq[nums[left]] -= 1
+            left += 1
     return res
 
 
