@@ -8,7 +8,7 @@ def isCeleb(candidate, n):
             continue
         if knows(candidate, person) or not knows(person, candidate):
             return False
-        return True
+    return True
 
 
 # T=n²,S=1

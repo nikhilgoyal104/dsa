@@ -1,7 +1,8 @@
 from math import inf
 
 
-def x(nums):
+# T=nlogn
+def main(nums):
     nums.sort(key=lambda x: x[1])
     res, prevEnd = [], -inf
     for i, (currStart, currEnd) in enumerate(nums):
@@ -15,5 +16,5 @@ for nums in [
     [[10, 20], [12, 25], [20, 30]],
     [[1, 2], [3, 4], [0, 6], [5, 7], [8, 9], [5, 9]],
 ]:
-    print(x(nums), end='')
+    print(main(nums), end='')
     print()
