@@ -1,45 +1,37 @@
 class TrieNode:
-    def __init__(self):
-        self.isEnd = False
+    def __init__(self, val):
+        self.val = val
+        self.word = False
         self.children = [None] * 26
 
 
 class Trie:
     def __init__(self):
-        self.root = TrieNode()
+        self.root = TrieNode('')
 
     def insert(self, word):
-        curr = self.root
+        node = self.root
         for char in word:
             index = ord(char) - ord('a')
-            if not curr.children[index]:
-                curr.children[index] = TrieNode()
-            curr = curr.children[index]
-        curr.isEnd = True
+            if not node.children[index]:
+                node.children[index] = TrieNode(char)
+            node = node.children[index]
+        node.word = True
 
-    def searchPrefix(self, word):
-        curr = self.root
-        for char in word:
-            index = ord(char) - ord('a')
-            if not curr.children[index]:
-                return None
-            curr = curr.children[index]
-        return curr
+    def content(self):
+        path, words = [], []
 
-    def search(self, word):
-        node = self.searchPrefix(word)
-        return node and node.isEnd
-
-    def startsWith(self, prefix):
-        return self.searchPrefix(prefix) is not None
-
-    def display(self):
         def dfs(root):
-            print(root)
-            for child in self.root.children:
-                dfs(child)
+            path.append(root.val)
+            if root.word:
+                words.append(''.join(path))
+            for child in root.children:
+                if child:
+                    dfs(child)
+            path.pop()
 
         dfs(self.root)
+        return words
 
 
 keys = ['the', 'a', 'there', 'their']
@@ -47,4 +39,4 @@ trie = Trie()
 for key in keys:
     trie.insert(key)
 
-trie.display()
+print(trie.content())

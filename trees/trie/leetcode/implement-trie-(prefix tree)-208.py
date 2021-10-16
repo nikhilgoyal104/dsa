@@ -1,6 +1,6 @@
 class TrieNode:
     def __init__(self):
-        self.isEnd = False
+        self.word = False
         self.children = [None] * 26
 
 
@@ -9,26 +9,26 @@ class Trie:
         self.root = TrieNode()
 
     def insert(self, word):
-        curr = self.root
+        node = self.root
         for char in word:
             index = ord(char) - ord('a')
-            if not curr.children[index]:
-                curr.children[index] = TrieNode()
-            curr = curr.children[index]
-        curr.isEnd = True
+            if not node.children[index]:
+                node.children[index] = TrieNode()
+            node = node.children[index]
+        node.word = True
 
     def searchPrefix(self, word):
-        curr = self.root
+        node = self.root
         for char in word:
             index = ord(char) - ord('a')
-            if not curr.children[index]:
+            if not node.children[index]:
                 return None
-            curr = curr.children[index]
-        return curr
+            node = node.children[index]
+        return node
 
     def search(self, word):
         node = self.searchPrefix(word)
-        return node and node.isEnd
+        return node is not None and node.word
 
     def startsWith(self, prefix):
         return self.searchPrefix(prefix) is not None
@@ -38,3 +38,6 @@ keys = ['the', 'a', 'there', 'their']
 trie = Trie()
 for key in keys:
     trie.insert(key)
+
+print(trie.search('the'))
+print(trie.search('trim'))
