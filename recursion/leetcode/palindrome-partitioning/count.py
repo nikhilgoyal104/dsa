@@ -2,7 +2,7 @@ def isPalindrome(s):
     return s == s[::-1]
 
 
-def x(s):
+def main(s):
     def dfs(s):
         if not s:
             return 1
@@ -24,4 +24,4 @@ for s in [
     'aaa',
     'a'
 ]:
-    print(x(s))
+    print(main(s))

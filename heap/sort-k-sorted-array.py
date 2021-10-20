@@ -1,7 +1,7 @@
 from heapq import *
 
 
-def x(nums, k):
+def main(nums, k):
     heap, n = [], len(nums)
     for i in range(n):
         if i < k + 1:
@@ -19,5 +19,5 @@ for nums, k in [
     ([10, 9, 8, 7, 4, 70, 60, 50], 4),
     ([1, 4, 5, 2, 3, 7, 8, 6, 10, 9], 2)
 ]:
-    x(nums, k)
+    main(nums, k)
     print()

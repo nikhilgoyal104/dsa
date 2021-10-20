@@ -3,7 +3,7 @@ from util import b, ListNode
 
 
 # T=nklog(nk),S=nk
-def x(lists):
+def main(lists):
     values = []
     for head in lists:
         while head:
@@ -21,13 +21,13 @@ for lists in [
     [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
     [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
 ]:
-    print(x(lists), end=' ')
+    print(main(lists), end=' ')
 
 print()
 
 
 # T=nk²,S=1
-def x(lists):
+def main(lists):
     def merge(h1, h2):
         if not h1:
             return h2
@@ -49,7 +49,7 @@ for lists in [
     [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
     [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
 ]:
-    print(x(lists), end=' ')
+    print(main(lists), end=' ')
 
 print()
 

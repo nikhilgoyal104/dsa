@@ -8,35 +8,35 @@ def add(data):
     upheapify(len(heap) - 1)
 
 
-def upheapify(i):
-    if i == 0:
+def upheapify(index):
+    if index == 0:
         return
-    pi = (i - 1) // 2
-    if heap[pi] > heap[i]:
-        heap[pi], heap[i] = heap[i], heap[pi]
-        upheapify(pi)
+    parentIndex = (index - 1) // 2
+    if heap[parentIndex] > heap[index]:
+        heap[parentIndex], heap[index] = heap[index], heap[parentIndex]
+        upheapify(parentIndex)
 
 
 def remove():
     if not heap:
         return
-    heap[0], heap[len(heap) - 1] = heap[len(heap) - 1], heap[0]
+    heap[0], heap[-1] = heap[-1], heap[0]
     data = heap.pop()
     downheapify(0)
     return data
 
 
-def downheapify(i):
-    n, mini = len(heap), i
-    lci = 2 * i + 1
-    if lci < n and heap[lci] < heap[mini]:
-        mini = lci
-    rci = 2 * i + 2
-    if rci < n and heap[rci] < heap[mini]:
-        mini = rci
-    if mini != i:
-        heap[i], heap[mini] = heap[mini], heap[i]
-        downheapify(mini)
+def downheapify(index):
+    n, minIndex = len(heap), index
+    leftChildIndex = 2 * index + 1
+    if leftChildIndex < n and heap[leftChildIndex] < heap[minIndex]:
+        minIndex = leftChildIndex
+    rightChildIndex = 2 * index + 2
+    if rightChildIndex < n and heap[rightChildIndex] < heap[minIndex]:
+        minIndex = rightChildIndex
+    if minIndex != index:
+        heap[index], heap[minIndex] = heap[minIndex], heap[index]
+        downheapify(minIndex)
 
 
 def peek():

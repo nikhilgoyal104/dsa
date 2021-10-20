@@ -6,7 +6,7 @@ def reverse(nums, i):
 
 
 # T=n,S=1
-def x(nums):
+def main(nums):
     n = len(nums)
     i = n - 1
     while i >= 1 and nums[i - 1] >= nums[i]:
@@ -37,4 +37,4 @@ for nums in [
     [6, 2, 3, 5, 4, 1, 0],
     [9, 5, 4, 3, 1]
 ]:
-    print(str(nums) + ' -> ' + str(x(nums)))
+    print(str(nums) + ' -> ' + str(main(nums)))

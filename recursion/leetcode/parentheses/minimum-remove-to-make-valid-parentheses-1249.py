@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(s):
+def main(s):
     n, stack, indicesToRemove = len(s), [], set()
     for i in range(n):
         if s[i] != ')':
@@ -21,4 +21,4 @@ for s in [
     '))((',
     '(a(b(c)d)'
 ]:
-    print(x(s))
+    print(main(s))

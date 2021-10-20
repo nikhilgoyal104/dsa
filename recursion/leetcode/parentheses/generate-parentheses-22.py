@@ -1,4 +1,4 @@
-def x(n):
+def main(n):
     res = []
 
     def dfs(open, close, path):
@@ -15,4 +15,4 @@ def x(n):
 
 
 for n in [1, 2, 3]:
-    print(x(n))
+    print(main(n))

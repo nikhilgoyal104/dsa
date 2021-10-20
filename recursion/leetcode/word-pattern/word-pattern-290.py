@@ -1,5 +1,5 @@
 # T=n,S=1
-def x(pattern, s):
+def main(pattern, s):
     words = s.split()
     if len(pattern) != len(words):
         return False
@@ -23,4 +23,4 @@ for pattern, s in [
     ('aaaa', 'dog cat cat dog'),
     ('abba', 'dog dog dog dog')
 ]:
-    print(x(pattern, s))
+    print(main(pattern, s))

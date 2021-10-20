@@ -12,11 +12,11 @@ def x(nums):
         if i < 0 or i > n - 1 or i in vis:
             return inf
         vis.add(i)
-        ans = inf
+        res = inf
         for val in [i + 1, i - 1] + [j for j in range(n) if nums[i] == nums[j] and i != j]:
-            ans = min(ans, 1 + dfs(val))
+            res = min(res, 1 + dfs(val))
         vis.remove(i)
-        return ans
+        return res
 
     return dfs(0)
 

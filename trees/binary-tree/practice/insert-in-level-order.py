@@ -1,8 +1,8 @@
 from collections import deque
-from binarytree import build as b, Node
+from binarytree import build, Node
 
 
-def insetInLevelOrder(root, val):
+def insertInLevelOrder(root, val):
     if not root:
         return Node(val)
     queue = deque([root])
@@ -21,6 +21,6 @@ def insetInLevelOrder(root, val):
 
 
 for root in [
-    b([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None])
+    build([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None])
 ]:
-    print(insetInLevelOrder(root, 12))
+    print(insertInLevelOrder(root, 12))

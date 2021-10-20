@@ -2,7 +2,7 @@ from util import build, ListNode
 
 
 # T=m+n,S=m+n
-def x(h1, h2):
+def main(h1, h2):
     def merge(h1, h2):
         if not h1:
             return h2
@@ -22,13 +22,13 @@ for h1, h2 in [
     (build([]), build([])),
     (build([1, 2, 3]), build([]))
 ]:
-    print(x(h1, h2))
+    print(main(h1, h2))
 
 print()
 
 
 # T=m+n,S=1
-def y(h1, h2):
+def main(h1, h2):
     dummy = tail = ListNode(-1)
     while h1 and h2:
         if h1.val < h2.val:
@@ -45,4 +45,4 @@ for h1, h2 in [
     (build([]), build([])),
     (build([1, 2, 3]), build([]))
 ]:
-    print(y(h1, h2))
+    print(main(h1, h2))

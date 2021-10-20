@@ -2,7 +2,7 @@ from heapq import *
 
 
 # T=nlogk,S=k
-def x(nums, k):
+def main(nums, k):
     heap = []
     for val in nums:
         heappush(heap, -val)
@@ -15,4 +15,4 @@ def x(nums, k):
 for nums, k in [
     ([4, 7, 12, 6, 9, 8, 3, 1, 27, 19, 4, 31], 3)
 ]:
-    x(nums, k)
+    main(nums, k)
