@@ -1,9 +1,18 @@
-def x(graph):
+graphs = [
+    [[1, 2], [3], [3], []],
+    [[4, 3, 1], [3, 2, 4], [3], [4], []],
+    [[1], []],
+    [[1, 2, 3], [2], [3], []],
+    [[1, 3], [2], [3], []]
+]
+
+
+def main(graph):
     dest = len(graph) - 1
 
     def dfs(src):
         if src == dest:
-            return [[dest]]
+            return [[]]
         res = []
         for nbr in graph[src]:
             for path in dfs(nbr):
@@ -13,7 +22,13 @@ def x(graph):
     return dfs(0)
 
 
-def y(graph):
+for graph in graphs:
+    print(main(graph))
+
+print()
+
+
+def main(graph):
     dest = len(graph) - 1
     dp = {dest: [[dest]]}
 
@@ -29,12 +44,5 @@ def y(graph):
     return dfs(0)
 
 
-for graph in [
-    [[1, 2], [3], [3], []],
-    [[4, 3, 1], [3, 2, 4], [3], [4], []],
-    [[1], []],
-    [[1, 2, 3], [2], [3], []],
-    [[1, 3], [2], [3], []]
-]:
-    print(x(graph), end=' ')
-    print(y(graph))
+for graph in graphs:
+    print(main(graph))

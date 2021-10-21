@@ -1,7 +1,7 @@
 from binarytree import build
 
 
-# T=n,S=d
+# T=n,S=logn
 def main(root):
     def dfs(root):
         return 1 + dfs(root.left) + dfs(root.right) if root else 0
@@ -20,7 +20,7 @@ for root in [
 print()
 
 
-def getLeftHeight(root):
+def left(root):
     count = 0
     while root:
         root = root.left
@@ -28,7 +28,7 @@ def getLeftHeight(root):
     return count
 
 
-def getRightHeight(root):
+def right(root):
     count = 0
     while root:
         root = root.right
@@ -36,15 +36,15 @@ def getRightHeight(root):
     return count
 
 
-# T=d²,S=1
+# T=(logn)²,S=1
 def main(root):
     def dfs(root):
         if not root:
             return 0
-        leftHeight = getLeftHeight(root)
-        rightHeight = getRightHeight(root)
-        if leftHeight == rightHeight:
-            return 2 ** leftHeight - 1
+        lh = left(root)
+        rh = right(root)
+        if lh == rh:
+            return 2 ** lh - 1
         return 1 + dfs(root.left) + dfs(root.right)
 
     return dfs(root)

@@ -1,4 +1,4 @@
-def x(nums):
+def main(nums):
     n = len(nums)
 
     def dfs(i):
@@ -14,7 +14,7 @@ for nums in [
     [1, 2, 3, 1],
     [2, 7, 9, 3, 1]
 ]:
-    print(x(nums), end=' ')
+    print(main(nums), end=' ')
 
 print('\n')
 
