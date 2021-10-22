@@ -6,25 +6,22 @@ def outside(m, n, ri, ci):
 
 
 def main(m, n, sri, sci, dri, dci):
-    grid = [[0 for _ in range(n)] for _ in range(m)]
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
+    vis = set()
 
-    def dfs(ri, ci, move):
-        if outside(m, n, ri, ci) or grid[ri][ci]:
+    def dfs(ri, ci):
+        if outside(m, n, ri, ci) or (ri, ci) in vis:
             return inf
         if (ri, ci) == (dri, dci):
-            grid[ri][ci] = move
-            print(grid)
-            grid[ri][ci] = 0
             return 0
-        grid[ri][ci] = move
-        minimum = inf
+        vis.add((ri, ci))
+        res = inf
         for i, j in offsets:
-            minimum = min(1 + dfs(ri + i, ci + j, move + 1), minimum)
-        grid[ri][ci] = 0
-        return minimum
+            res = min(1 + dfs(ri + i, ci + j), res)
+        vis.remove((ri, ci))
+        return res
 
-    print(dfs(sri, sci, 1))
+    print(dfs(sri, sci))
 
 
 for m, n, sri, sci, dri, dci in [

@@ -1,13 +1,17 @@
 from collections import defaultdict, deque
 
 
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
+def construct(edges):
+    graph = defaultdict(list)
+    for src, dest in edges:
+        graph[src].append(dest)
+        graph[dest].append(src)
+    return graph
 
 
-def bfs(graph, src):
-    queue, vis = deque([src]), set()
+def main(edges):
+    graph, vis = construct(edges), set()
+    queue = deque([0])
     while queue:
         src = queue.popleft()
         if src in vis:
@@ -16,12 +20,6 @@ def bfs(graph, src):
         print(src, end=' ')
         for nbr in graph[src]:
             queue.append(nbr)
-
-
-def main(edges):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
-    bfs(graph, 0)
 
 
 for edges in [
