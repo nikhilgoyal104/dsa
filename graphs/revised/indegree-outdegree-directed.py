@@ -1,10 +1,9 @@
 def main(n, edges):
-    indegrees, outdegrees = [0] * n, [0] * n
-    for u, v in edges:
-        outdegrees[u] += 1
-        indegrees[v] += 1
-    print('ind->' + str(indegrees))
-    print('out->' + str(outdegrees))
+    indegree, outdegree = [0] * n, [0] * n
+    for src, dest in edges:
+        outdegree[src] += 1
+        indegree[dest] += 1
+    return indegree, outdegree
 
 
 for n, edges in [
@@ -13,5 +12,4 @@ for n, edges in [
     (5, [(0, 1), (1, 2), (2, 3), (3, 4), (1, 4)]),
     (10, [(0, 1), (2, 3), (3, 4), (4, 5), (6, 7), (7, 8), (8, 9), (9, 6)])
 ]:
-    main(n, edges)
-    print()
+    print(main(n, edges))

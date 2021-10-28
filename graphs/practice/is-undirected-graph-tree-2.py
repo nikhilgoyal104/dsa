@@ -3,7 +3,9 @@ from collections import defaultdict
 
 def dfs(graph, src, vis):
     vis.add(src)
-    [dfs(graph, nbr, vis) for nbr in graph[src] if nbr not in vis]
+    for nbr in graph[src]:
+        if nbr not in vis:
+            dfs(graph, nbr, vis)
 
 
 def main(edges):

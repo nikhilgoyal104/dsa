@@ -10,9 +10,10 @@ def main(n, sri, sci):
     def dfs(ri, ci, move):
         if outside(n, ri, ci) or grid[ri][ci]:
             return 0
-        if move == n * n:
-            return 1
         grid[ri][ci] = move
+        if move == n * n:
+            grid[ri][ci] = 0
+            return 1
         res = 0
         for i, j in offsets:
             res += dfs(ri + i, ci + j, move + 1)
@@ -22,5 +23,10 @@ def main(n, sri, sci):
     return dfs(sri, sci, 1)
 
 
-for n, sri, sci in [(5, 2, 0), (5, 0, 0), (4, 0, 0), (4, 2, 0)]:
+for n, sri, sci in [
+    (5, 2, 0),
+    (5, 0, 0),
+    (4, 0, 0),
+    (4, 2, 0)
+]:
     print(main(n, sri, sci))
