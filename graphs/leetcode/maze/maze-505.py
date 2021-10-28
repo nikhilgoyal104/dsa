@@ -19,6 +19,7 @@ def roll(grid, ri, ci, i, j):
 def bfs(grid, sri, sci, dri, dci):
     heap, vis = [], set()
     heappush(heap, (0, sri, sci))
+    offsets = (-1, 0), (0, 1), (1, 0), (0, -1)
     while heap:
         wsf, ri, ci = heappop(heap)
         if (ri, ci) in vis:
@@ -26,7 +27,7 @@ def bfs(grid, sri, sci, dri, dci):
         vis.add((ri, ci))
         if (ri, ci) == (dri, dci):
             return wsf
-        for i, j in (-1, 0), (0, 1), (1, 0), (0, -1):
+        for i, j in offsets:
             nri, nci, wt = roll(grid, ri, ci, i, j)
             heappush(heap, (wsf + wt, nri, nci))
     return -1

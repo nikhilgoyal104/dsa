@@ -1,7 +1,7 @@
 from binarytree import build
 
 
-# T=n,S=logn
+# T=n
 def main(root):
     def dfs(root):
         return 1 + dfs(root.left) + dfs(root.right) if root else 0

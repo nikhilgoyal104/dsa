@@ -2,7 +2,7 @@ from collections import deque
 from binarytree import build, Node
 
 
-def insertInLevelOrder(root, val):
+def main(root, val):
     if not root:
         return Node(val)
     queue = deque([root])
@@ -23,4 +23,4 @@ def insertInLevelOrder(root, val):
 for root in [
     build([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None])
 ]:
-    print(insertInLevelOrder(root, 12))
+    print(main(root, 12))

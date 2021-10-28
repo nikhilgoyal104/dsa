@@ -1,4 +1,4 @@
-from binarytree import build as b
+from binarytree import build
 
 
 # T=n,S=n
@@ -76,9 +76,9 @@ def z(root, k):
 
 
 for root, k in [
-    (b([3, 1, 4, None, 2]), 1),
-    (b([5, 3, 6, 2, 4, None, None, 1]), 1),
-    (b([5, 3, 6, 2, 4, None, None, 1]), 3),
+    (build([3, 1, 4, None, 2]), 1),
+    (build([5, 3, 6, 2, 4, None, None, 1]), 1),
+    (build([5, 3, 6, 2, 4, None, None, 1]), 3),
 ]:
     print(v(root, k), end=' ')
     print(w(root, k), end=' ')

@@ -23,15 +23,15 @@ class Tree:
         self.root = None
 
 
-def x(root):
+def main(root):
     if not root.children:
         return [root.data]
     totals = []
     for ch in root.children:
-        for total in x(ch):
+        for total in main(ch):
             totals.append(root.data + total)
     return totals
 
 
 root = construct([1, 2, 5, -1, 6, -1, -1, 3, 7, -1, 8, 11, -1, 12, -1, -1, 9, -1, -1, 4, 10, -1, -1, -1])
-print(x(root))
+print(main(root))

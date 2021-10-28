@@ -1,6 +1,7 @@
 from binarytree import build
 
 
+# T=n
 def dfs(root):
     if not root:
         return -1

@@ -1,4 +1,4 @@
-from binarytree import build as b
+from binarytree import build
 
 
 # T=h
@@ -21,8 +21,8 @@ def y(root, target):
 
 
 for root, target in [
-    (b([4, 2, 7, 1, 3]), 2),
-    (b([4, 2, 7, 1, 3]), 5)
+    (build([4, 2, 7, 1, 3]), 2),
+    (build([4, 2, 7, 1, 3]), 5)
 ]:
     print(x(root, target), end=' ')
     print(y(root, target))

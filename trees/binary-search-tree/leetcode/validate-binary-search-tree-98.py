@@ -1,4 +1,4 @@
-from binarytree import build as b
+from binarytree import build
 from math import inf
 
 
@@ -44,11 +44,11 @@ def z(root):
 
 
 for root in [
-    b([2, 1, 3]),
-    b([5, 1, 4, None, None, 3, 6]),
-    b([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]),
-    b([1, 2]),
-    b([2, 1])
+    build([2, 1, 3]),
+    build([5, 1, 4, None, None, 3, 6]),
+    build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]),
+    build([1, 2]),
+    build([2, 1])
 ]:
     print(x(root), end=' ')
     print(y(root), end=' ')

@@ -4,8 +4,9 @@ def cyclic(graph, src, vis, path):
     for nbr in graph[src]:
         if nbr in path:
             return True
-        if nbr not in vis and cyclic(graph, nbr, vis, path):
-            return True
+        if nbr not in vis:
+            if cyclic(graph, nbr, vis, path):
+                return True
     path.remove(src)
     return False
 

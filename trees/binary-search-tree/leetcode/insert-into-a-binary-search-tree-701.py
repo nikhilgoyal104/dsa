@@ -1,4 +1,4 @@
-from binarytree import build as b, Node as TreeNode
+from binarytree import build, Node as TreeNode
 
 
 # T=h,S=h
@@ -16,9 +16,9 @@ def x(root, val):
 
 
 for root, val in [
-    (b([4, 2, 7, 1, 3]), 5),
-    (b([40, 20, 60, 10, 30, 50, 70]), 25),
-    (b([4, 2, 7, 1, 3, None, None, None, None, None, None]), 5)
+    (build([4, 2, 7, 1, 3]), 5),
+    (build([40, 20, 60, 10, 30, 50, 70]), 25),
+    (build([4, 2, 7, 1, 3, None, None, None, None, None, None]), 5)
 ]:
     print(x(root, val))
 
@@ -40,8 +40,8 @@ def y(root, val):
 
 
 for root, val in [
-    (b([4, 2, 7, 1, 3]), 5),
-    (b([40, 20, 60, 10, 30, 50, 70]), 25),
-    (b([4, 2, 7, 1, 3, None, None, None, None, None, None]), 5)
+    (build([4, 2, 7, 1, 3]), 5),
+    (build([40, 20, 60, 10, 30, 50, 70]), 25),
+    (build([4, 2, 7, 1, 3, None, None, None, None, None, None]), 5)
 ]:
     print(y(root, val))

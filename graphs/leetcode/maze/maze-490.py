@@ -12,6 +12,7 @@ def roll(grid, ri, ci, i, j):
 
 def main(grid, sri, sci, dri, dci):
     vis = set()
+    offsets = (-1, 0), (0, 1), (1, 0), (0, -1)
 
     def dfs(ri, ci):
         if (ri, ci) in vis:
@@ -19,7 +20,7 @@ def main(grid, sri, sci, dri, dci):
         if (ri, ci) == (dri, dci):
             return True
         vis.add((ri, ci))
-        for i, j in (-1, 0), (0, 1), (1, 0), (0, -1):
+        for i, j in offsets:
             nri, nci = roll(grid, ri, ci, i, j)
             if dfs(nri, nci):
                 return True

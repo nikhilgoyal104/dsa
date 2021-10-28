@@ -1,4 +1,4 @@
-from binarytree import build as b
+from binarytree import build
 from math import inf
 
 
@@ -39,8 +39,8 @@ def z(root):
 
 
 for root in [
-    b([4, 2, 6, 1, 3]),
-    b([1, 0, 48, None, None, 12, 49])
+    build([4, 2, 6, 1, 3]),
+    build([1, 0, 48, None, None, 12, 49])
 ]:
     print(x(root), end=' ')
     print(y(root), end=' ')

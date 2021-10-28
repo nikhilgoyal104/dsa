@@ -1,4 +1,4 @@
-from binarytree import build as b
+from binarytree import build
 from math import inf
 
 
@@ -83,14 +83,14 @@ def z(root, target):
 
 
 for root, target in [
-    (b([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 62.42),
-    (b([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 75.48),
-    (b([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 10),
-    (b([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 90),
-    (b([4, 2, 5, 1, 3]), 3.714286),
-    (b([1]), 4.428571),
-    (b([1]), -2.424),
-    (b([1]), 1),
+    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 62.42),
+    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 75.48),
+    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 10),
+    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 90),
+    (build([4, 2, 5, 1, 3]), 3.714286),
+    (build([1]), 4.428571),
+    (build([1]), -2.424),
+    (build([1]), 1),
 ]:
     print(u(root, target), end=' ')
     print(v(root, target), end=' ')
