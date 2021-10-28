@@ -1,34 +1,31 @@
 from collections import defaultdict, deque
 
 
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
+def construct(edges):
+    graph = defaultdict(list)
+    for src, dest in edges:
+        graph[src].append(dest)
+        graph[dest].append(src)
+    return graph
 
 
-def bfs(graph, src):
-    queue, vis, count = deque([(src, 0)]), {src}, 1
+def main(edges):
+    graph, vis = construct(edges), {0}
+    queue, res = deque([(0, 0)]), [[], 1]
     while queue:
         src, dist = queue.popleft()
-        print(src, end=' ')
+        res[0].append(src)
         if dist == 2:
             break
         for nbr in graph[src]:
             if nbr not in vis:
                 vis.add(nbr)
                 queue.append((nbr, dist + 1))
-                count += 1
-    print()
-    return count
-
-
-def main(edges):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
-    print(bfs(graph, 6))
+                res[1] += 1
+    return res
 
 
 for edges in [
     [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (0, 3), (4, 6)],
 ]:
-    main(edges)
+    print(main(edges))

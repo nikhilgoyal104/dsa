@@ -16,7 +16,9 @@ def x(mapping):
     res = {}
 
     def dfs(src):
-        res[src] = sum(1 + dfs(nbr) for nbr in graph[src])
+        res[src] = 1
+        for nbr in graph[src]:
+            res[src] += dfs(nbr)
         return res[src]
 
     dfs(src)

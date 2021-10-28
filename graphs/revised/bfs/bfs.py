@@ -64,3 +64,27 @@ def main(edges):
 for edges in edgesList:
     main(edges)
     print()
+
+
+def main(edges):
+    graph, vis = construct(edges), set()
+
+    def bfs(src):
+        queue = deque([src])
+        while queue:
+            src = queue.popleft()
+            if src in vis:
+                continue
+            vis.add(src)
+            print(src, end=' ')
+            for nbr in graph[src]:
+                queue.append(nbr)
+
+    for src in graph:
+        if src not in vis:
+            bfs(src)
+
+
+for edges in edgesList:
+    main(edges)
+    print()

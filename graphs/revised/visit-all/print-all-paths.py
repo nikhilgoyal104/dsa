@@ -9,28 +9,30 @@ def construct(edges):
     return graph
 
 
-def main(graph, n):
+def main(edges, n):
     graph = construct(edges)
     path, vis = [], set()
 
     def dfs(src):
-        if len(vis) == n - 1:
-            path.append(src)
-            return True
         vis.add(src)
         path.append(src)
+        if len(vis) == n:
+            print(path)
+            vis.remove(src)
+            path.pop()
+            return
         for nbr in graph[src]:
-            if nbr not in vis and dfs(nbr):
-                return True
+            if nbr not in vis:
+                dfs(nbr)
         vis.remove(src)
         path.pop()
-        return False
 
     dfs(0)
-    return path
 
 
 for edges, n in [
+    ([(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (0, 3), (2, 5), (4, 6)], 7),
     ([(0, 3), (3, 2), (2, 1), (0, 1), (3, 4), (4, 5), (4, 6), (5, 6)], 7)
 ]:
-    print(main(edges, n))
+    main(edges, n)
+    print()
