@@ -1,6 +1,6 @@
 # T=n²,S=n
 # dp[i] length of LIS ending with nums[i]
-def x(nums):
+def main(nums):
     n = len(nums)
     dp = [1] * n
     for i in range(1, n):
@@ -15,4 +15,4 @@ for nums in [
     [-4, 10, 3, 7, 15],
     [3, 2, 1, 0]
 ]:
-    print(x(nums))
+    print(main(nums))

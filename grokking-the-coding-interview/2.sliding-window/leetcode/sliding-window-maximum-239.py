@@ -1,9 +1,16 @@
 from collections import deque
 from math import inf
 
+inputs = [
+    ([1, 3, -1, -3, 5, 3, 6, 7], 3),
+    ([1], 1),
+    ([1, -1], 1),
+    ([9, 10, 9, -7, -4, -8, 2, -6], 5)
+]
+
 
 # T=nk
-def x(nums, k):
+def main(nums, k):
     n, res = len(nums), []
     for i in range(n - k + 1):
         largest = -inf
@@ -19,8 +26,14 @@ def push(queue, nums, i):
     queue.append(i)
 
 
+for nums, k in inputs:
+    print(main(nums, k))
+
+print()
+
+
 # T=n,S=k
-def y(nums, k):
+def main(nums, k):
     n, queue = len(nums), deque()
     for i in range(k):
         push(queue, nums, i)
@@ -33,11 +46,5 @@ def y(nums, k):
     return res
 
 
-for nums, k in [
-    ([1, 3, -1, -3, 5, 3, 6, 7], 3),
-    ([1], 1),
-    ([1, -1], 1),
-    ([9, 10, 9, -7, -4, -8, 2, -6], 5)
-]:
-    print(x(nums, k), end=' ')
-    print(y(nums, k))
+for nums, k in inputs:
+    print(main(nums, k))
