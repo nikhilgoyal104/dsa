@@ -11,12 +11,16 @@ class TicTacToe:
         self.p2DiagCount = self.p2AntiDiagCount = 0
 
     def p1Wins(self):
-        return self.n in self.p1RowCount or self.n in self.p1ColCount or self.n in [self.p1DiagCount,
-                                                                                    self.p1AntiDiagCount]
+        for countList in [self.p1RowCount, self.p1ColCount, [self.p1DiagCount, self.p1AntiDiagCount]]:
+            if self.n in countList:
+                return True
+        return False
 
     def p2Wins(self):
-        return self.n in self.p2RowCount or self.n in self.p2ColCount or self.n in [self.p2DiagCount,
-                                                                                    self.p2AntiDiagCount]
+        for countList in [self.p2RowCount, self.p2ColCount, [self.p2DiagCount, self.p2AntiDiagCount]]:
+            if self.n in countList:
+                return True
+        return False
 
     def move(self, row, col, player):
         if player == 1:
@@ -44,7 +48,9 @@ tic = TicTacToe(n=3)
 for row, col, player in [
     [0, 0, 1], [0, 2, 2], [2, 2, 1], [1, 1, 2], [2, 0, 1], [1, 0, 2], [2, 1, 1]
 ]:
-    print(tic.move(row, col, player))
+    print(tic.move(row, col, player), end=' ')
+
+print()
 
 
 # T=1,S=2n
@@ -64,7 +70,7 @@ class TicTacToe:
             self.diag += val
         if row + col == self.n - 1:
             self.antiDiag += val
-        if self.n in [abs(self.rowCount[row]), abs(self.colCount[col]), abs(self.diag), abs(self.antiDiag)]:
+        if self.n in (abs(self.rowCount[row]), abs(self.colCount[col]), abs(self.diag), abs(self.antiDiag)):
             return player
         return 0
 
@@ -73,4 +79,4 @@ tic = TicTacToe(n=3)
 for row, col, player in [
     [0, 0, 1], [0, 2, 2], [2, 2, 1], [1, 1, 2], [2, 0, 1], [1, 0, 2], [2, 1, 1]
 ]:
-    print(tic.move(row, col, player))
+    print(tic.move(row, col, player), end=' ')
