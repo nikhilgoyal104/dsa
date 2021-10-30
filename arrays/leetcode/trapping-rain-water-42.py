@@ -1,6 +1,4 @@
 # T=n,S=n
-# left[i] = max till i from left
-# right[i] = max till i from right
 def main(nums):
     n = len(nums)
     left, right = [0] * n, [0] * n

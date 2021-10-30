@@ -55,7 +55,7 @@ print()
 
 
 # T=k+nklogk,S=k
-def x(lists):
+def main(lists):
     heap = [(head.val, i, head) for i, head in enumerate(lists) if head]
     heapify(heap)
     dummy = tail = ListNode(-1)
@@ -72,4 +72,4 @@ for lists in [
     [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
     [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
 ]:
-    print(x(lists), end=' ')
+    print(main(lists), end=' ')
