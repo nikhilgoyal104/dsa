@@ -1,5 +1,6 @@
 from binarytree import build2
 from collections import deque
+from math import inf
 
 inputs = [
     build2([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None]),
@@ -9,8 +10,27 @@ inputs = [
 ]
 
 
+def main(root):
+    def dfs(root):
+        if not root:
+            return 0
+        if not root.left:
+            return 1 + dfs(root.right)
+        if not root.right:
+            return 1 + dfs(root.left)
+        return 1 + min(dfs(root.left), dfs(root.right))
+
+    return dfs(root)
+
+
+for root in inputs:
+    print(main(root), end=' ')
+
+print()
+
+
 # T=n
-def bfs(root):
+def main(root):
     if not root:
         return 0
     queue = deque([(root, 1)])
@@ -25,4 +45,4 @@ def bfs(root):
 
 
 for root in inputs:
-    print(bfs(root), end=' ')
+    print(main(root), end=' ')
