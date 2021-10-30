@@ -1,21 +1,28 @@
-from binarytree import build
+from binarytree import build2
+from collections import deque
 
 inputs = [
-    build([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None])
+    build2([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None]),
+    build2([3, 9, 20, None, None, 15, 7]),
+    build2([2, None, 3, None, 4, None, 5, None, 6]),
+    build2([])
 ]
 
 
 # T=n
-def dfs(root):
+def bfs(root):
     if not root:
         return 0
-    left = right = 0
-    if root.left:
-        left = 1 + dfs(root.left)
-    if root.right:
-        right = 1 + dfs(root.right)
-    return min(left, right)
+    queue = deque([(root, 1)])
+    while queue:
+        node, dist = queue.popleft()
+        if node.left is node.right:
+            return dist
+        if node.left:
+            queue.append((node.left, dist + 1))
+        if node.right:
+            queue.append((node.right, dist + 1))
 
 
 for root in inputs:
-    print(dfs(root))
+    print(bfs(root), end=' ')
