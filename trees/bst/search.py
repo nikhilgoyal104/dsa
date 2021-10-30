@@ -1,7 +1,12 @@
 from binarytree import build
 
+inputs = [
+    (build([4, 2, 7, 1, 3]), 2),
+    (build([4, 2, 7, 1, 3]), 5)
+]
 
-def x(root, target):
+
+def main(root, target):
     def dfs(root):
         if not root:
             return False
@@ -12,7 +17,13 @@ def x(root, target):
     return dfs(root)
 
 
-def y(root, target):
+for root, target in inputs:
+    print(main(root, target))
+
+print()
+
+
+def main(root, target):
     while root:
         if target == root.val:
             return True
@@ -20,9 +31,5 @@ def y(root, target):
     return False
 
 
-for root, target in [
-    (build([4, 2, 7, 1, 3]), 2),
-    (build([4, 2, 7, 1, 3]), 5)
-]:
-    print(x(root, target), end=' ')
-    print(y(root, target))
+for root, target in inputs:
+    print(main(root, target))

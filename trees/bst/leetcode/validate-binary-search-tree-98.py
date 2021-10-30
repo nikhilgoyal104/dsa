@@ -7,7 +7,9 @@ def main(root):
     def dfs(root, low, high):
         if not root:
             return True
-        return low < root.val < high and dfs(root.left, low, root.val) and dfs(root.right, root.val, high)
+        left = dfs(root.left, low, root.val)
+        right = dfs(root.right, root.val, high)
+        return low < root.val < high and left and right
 
     return dfs(root, -inf, inf)
 

@@ -31,7 +31,8 @@ def main(root, val):
         return TreeNode(val)
     node, parent = root, None
     while node:
-        parent, node = node, node.right if val > node.val else node.left
+        parent = node
+        node = node.right if val > node.val else node.left
     if val > parent.val:
         parent.right = TreeNode(val)
     else:
