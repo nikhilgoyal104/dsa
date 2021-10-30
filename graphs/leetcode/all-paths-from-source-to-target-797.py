@@ -12,7 +12,7 @@ def main(graph):
 
     def dfs(src):
         if src == dest:
-            return [[]]
+            return [[dest]]
         res = []
         for nbr in graph[src]:
             for path in dfs(nbr):
