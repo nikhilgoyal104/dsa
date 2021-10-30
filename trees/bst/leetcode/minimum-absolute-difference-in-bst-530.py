@@ -1,9 +1,14 @@
 from binarytree import build
 from math import inf
 
+inputs = [
+    build([4, 2, 6, 1, 3]),
+    build([1, 0, 48, None, None, 12, 49])
+]
+
 
 # T=n,S=n
-def x(root):
+def main(root):
     def dfs(root):
         return dfs(root.left) + [root.val] + dfs(root.right) if root else []
 
@@ -11,23 +16,36 @@ def x(root):
     return min(nums[i + 1] - nums[i] for i in range(len(nums) - 1))
 
 
+for root in inputs:
+    print(main(root), end=' ')
+
+print()
+
+
 # T=n,S=1
-def y(root):
-    p = [-inf, inf]
+def main(root):
+    hm = {'prev': -inf, 'res': inf}
 
     def dfs(root):
         if not root:
             return
         dfs(root.left)
-        p[1], p[0] = min(p[1], root.val - p[0]), root.val
+        hm['res'] = min(hm['res'], root.val - hm['prev'])
+        hm['prev'] = root.val
         dfs(root.right)
 
     dfs(root)
-    return p[1]
+    return hm['res']
+
+
+for root in inputs:
+    print(main(root), end=' ')
+
+print()
 
 
 # T=n,S=1
-def z(root):
+def main(root):
     def dfs(root, low, high):
         if not root:
             return inf
@@ -38,10 +56,5 @@ def z(root):
     return dfs(root, -inf, inf)
 
 
-for root in [
-    build([4, 2, 6, 1, 3]),
-    build([1, 0, 48, None, None, 12, 49])
-]:
-    print(x(root), end=' ')
-    print(y(root), end=' ')
-    print(z(root))
+for root in inputs:
+    print(main(root), end=' ')

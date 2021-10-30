@@ -1,8 +1,13 @@
 from binarytree import build
 
+inputs = [
+    (build([4, 2, 7, 1, 3]), 2),
+    (build([4, 2, 7, 1, 3]), 5)
+]
+
 
 # T=h
-def x(root, target):
+def main(root, target):
     def dfs(root):
         if not root or target == root.val:
             return root
@@ -11,8 +16,14 @@ def x(root, target):
     return dfs(root)
 
 
+for root, target in inputs:
+    print(main(root, target), end=' ')
+
+print()
+
+
 # T=h
-def y(root, target):
+def main(root, target):
     while root:
         if target == root.val:
             return root
@@ -20,9 +31,5 @@ def y(root, target):
     return root
 
 
-for root, target in [
-    (build([4, 2, 7, 1, 3]), 2),
-    (build([4, 2, 7, 1, 3]), 5)
-]:
-    print(x(root, target), end=' ')
-    print(y(root, target))
+for root, target in inputs:
+    print(main(root, target), end=' ')
