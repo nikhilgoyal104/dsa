@@ -1,4 +1,4 @@
-def x(pattern, s):
+def main(pattern, s):
     map, vis = {}, set()
 
     def dfs(pattern, s):
@@ -34,4 +34,4 @@ for pattern, s in [
     ('aabb', 'xyzabcxzyabc'),
     ('abba', 'dogdogdogdog')
 ]:
-    print(x(pattern, s))
+    print(main(pattern, s))

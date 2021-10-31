@@ -1,12 +1,26 @@
 from math import inf
 
+grids = [
+    [[0, 1, -1], [1, 0, -1], [1, 1, 1]],
+    [
+        [1, 1, 1, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 1, 1, 1]
+    ],
+    [[1, 1, -1], [1, -1, 1], [-1, 1, 1]]
+]
+
 
 def invalid(grid, r1, c1, r2, c2):
     m, n = len(grid), len(grid[0])
     return r1 == n or r2 == n or c1 == m or c2 == m or grid[r1][c1] == -1 or grid[r2][c2] == -1
 
 
-def x(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
 
     def dfs(r1, c1, r2, c2):
@@ -23,7 +37,13 @@ def x(grid):
     return 0 if res == -inf else res
 
 
-def y(grid):
+for grid in grids:
+    print(main(grid), end=' ')
+
+print()
+
+
+def main(grid):
     m, n = len(grid), len(grid[0])
     dp = {(m - 1, n - 1, m - 1, n - 1): grid[m - 1][n - 1]}
 
@@ -42,18 +62,5 @@ def y(grid):
     return 0 if res == -inf else res
 
 
-for grid in [
-    [[0, 1, -1], [1, 0, -1], [1, 1, 1]],
-    [
-        [1, 1, 1, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 1],
-        [1, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 1, 1, 1, 1]
-    ],
-    [[1, 1, -1], [1, -1, 1], [-1, 1, 1]]
-]:
-    print(x(grid))
-    print(y(grid))
+for grid in grids:
+    print(main(grid), end=' ')

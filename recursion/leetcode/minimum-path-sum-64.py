@@ -1,8 +1,13 @@
 from math import inf
 
+grids = [
+    [[1, 3, 1], [1, 5, 1], [4, 2, 1]],
+    [[1, 2, 3], [4, 5, 6]]
+]
+
 
 # T=mn,S=mn
-def x(grid):
+def main(grid):
     m, n, dp = len(grid), len(grid[0]), {}
 
     def dfs(ri, ci):
@@ -21,8 +26,14 @@ def x(grid):
     return dfs(0, 0)
 
 
+for grid in grids:
+    print(main(grid), end=' ')
+
+print()
+
+
 # T=mn,S=1
-def y(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     for i in range(1, m):
         grid[i][0] += grid[i - 1][0]
@@ -34,9 +45,5 @@ def y(grid):
     return grid[-1][-1]
 
 
-for grid in [
-    [[1, 3, 1], [1, 5, 1], [4, 2, 1]],
-    [[1, 2, 3], [4, 5, 6]]
-]:
-    print(x(grid), end=' ')
-    print(y(grid))
+for grid in grids:
+    print(main(grid), end=' ')

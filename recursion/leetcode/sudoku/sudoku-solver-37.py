@@ -1,5 +1,5 @@
 # T=nn!,S=n²
-def x(grid):
+def main(grid):
     values, vis, n = '123456789', set(), 9
 
     for i, row in enumerate(grid):
@@ -41,5 +41,5 @@ for grid in [
         ['.', '.', '.', '.', '8', '.', '.', '7', '9']
     ]
 ]:
-    x(grid)
+    main(grid)
     print(grid)

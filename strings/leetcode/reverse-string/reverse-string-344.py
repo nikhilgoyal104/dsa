@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(s):
+def main(s):
     def rec(low, high):
         if low < high:
             s[low], s[high] = s[high], s[low]
@@ -12,12 +12,12 @@ for s in [
     ['h', 'e', 'l', 'l', 'o'],
     ['h', 'a', 'n', 'n', 'a', 'h']
 ]:
-    x(s)
+    main(s)
     print(s)
 
 
 # T=n,S=1
-def y(s):
+def main(s):
     low, high = 0, len(s) - 1
     while low < high:
         s[low], s[high] = s[high], s[low]
@@ -28,5 +28,5 @@ for s in [
     ['h', 'e', 'l', 'l', 'o'],
     ['h', 'a', 'n', 'n', 'a', 'h']
 ]:
-    y(s)
+    main(s)
     print(s)

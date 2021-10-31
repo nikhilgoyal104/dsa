@@ -9,9 +9,13 @@ keypad = {
     '9': 'wxyz'
 }
 
+inputs = [
+    '', '2', '23',
+]
+
 
 # T=4ⁿn,S=n²
-def x(nums):
+def main(nums):
     def dfs(i):
         if i == len(nums):
             return ['']
@@ -24,16 +28,12 @@ def x(nums):
     return dfs(0)
 
 
-for nums in [
-    '',
-    '2',
-    '23',
-]:
-    print(x(nums))
+for nums in inputs:
+    print(main(nums))
 
 
 # T=4ⁿn,S=n
-def y(nums):
+def main(nums):
     def dfs(i, path):
         if len(path) == len(nums):
             print(''.join(path), end=' ')
@@ -46,10 +46,6 @@ def y(nums):
     dfs(0, [])
 
 
-for nums in [
-    '',
-    '2',
-    '23',
-]:
-    y(nums)
+for nums in inputs:
+    main(nums)
     print()

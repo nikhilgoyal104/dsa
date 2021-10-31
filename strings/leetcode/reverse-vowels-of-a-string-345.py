@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(s):
+def main(s):
     n, s = len(s), list(s)
     low, high = 0, n - 1
     vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
@@ -16,4 +16,4 @@ def x(s):
 for s in [
     'xyz', 'hello', 'leetcode', 'aA', 'a.b,.', '.,'
 ]:
-    print(x(s))
+    print(main(s))

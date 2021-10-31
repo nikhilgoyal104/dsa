@@ -1,7 +1,7 @@
 from math import inf
 
 
-def x(grid):
+def main(grid):
     m, n, dp = len(grid), len(grid[0]), {}
 
     def dfs(ri, ci):
@@ -22,4 +22,4 @@ for grid in [
     [[-2, -3, 3], [-5, -10, 1], [10, 30, -5]],
     [[0]]
 ]:
-    print(x(grid))
+    print(main(grid))

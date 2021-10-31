@@ -1,5 +1,5 @@
 # T=n³w
-def x(words):
+def main(words):
     def dfs(s, prewords, dp):
         if s in dp:
             return dp[s]
@@ -25,4 +25,4 @@ for words in [
     ['cat', 'dog', 'catdog'],
     ['']
 ]:
-    print(x(words))
+    print(main(words))
