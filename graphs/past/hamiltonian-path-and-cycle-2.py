@@ -1,11 +1,6 @@
-from collections import defaultdict
+from graphs.util import build
 
 n = 7
-
-
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
 
 
 def dfs(graph, src, vis, psf):
@@ -21,8 +16,7 @@ def dfs(graph, src, vis, psf):
 
 
 def main(edges):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
+    graph = build(edges)
     print(dfs(graph, 0, set(), [0]))
 
 

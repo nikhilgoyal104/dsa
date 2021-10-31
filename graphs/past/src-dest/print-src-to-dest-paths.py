@@ -1,9 +1,4 @@
-from collections import defaultdict
-
-
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
+from graphs.util import build
 
 
 def sdpaths(graph, src, dest, vis, path):
@@ -20,8 +15,7 @@ def sdpaths(graph, src, dest, vis, path):
 
 
 def main(edges, src, dest):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
+    graph = build(edges)
     sdpaths(graph, src, dest, set(), [])
     print()
 

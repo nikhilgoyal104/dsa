@@ -1,10 +1,5 @@
-from collections import defaultdict
+from graphs.util import build
 from math import inf
-
-
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
 
 
 def x(graph, src, dest):
@@ -42,8 +37,7 @@ def y(graph, src, dest):
 
 
 def main(edges, src, dest):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
+    graph = build(edges)
     print(x(graph, src, dest), end=' ')
     print(y(graph, src, dest))
 

@@ -1,21 +1,17 @@
-from collections import defaultdict
-
-
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
+from graphs.util import build
 
 
 def sdpaths(graph, src, dest, vis, psf):
     if src == dest:
         print(psf, end=' ')
         return
-    [sdpaths(graph, nbr, dest, vis | {nbr}, psf + [nbr]) for nbr in graph[src] if nbr not in vis]
+    for nbr in graph[src]:
+        if nbr not in vis:
+            sdpaths(graph, nbr, dest, vis | {nbr}, psf + [nbr])
 
 
 def main(edges, src, dest):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
+    graph = build(edges)
     sdpaths(graph, src, dest, {src}, [src])
     print()
 

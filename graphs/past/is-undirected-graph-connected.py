@@ -1,4 +1,3 @@
-from collections import defaultdict
 from graphs.util import build
 
 
