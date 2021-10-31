@@ -1,12 +1,8 @@
-def construct(n, edges):
-    graph = {i: [] for i in range(n)}
-    for src, dest in edges:
-        graph[src].append(dest)
-    return graph
+from graphs.util import build3
 
 
 def main(n, edges):
-    graph = construct(n, edges)
+    graph = build3(n, edges)
     path, vis = [], set()
 
     def dfs(src):

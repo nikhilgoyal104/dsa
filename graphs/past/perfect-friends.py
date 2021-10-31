@@ -1,9 +1,5 @@
 from collections import defaultdict
-
-
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
+from graphs.util import build
 
 
 def dfs(graph, src, vis):
@@ -16,9 +12,8 @@ def dfs(graph, src, vis):
 
 
 def main(edges):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
-    csl, vis = [], set()
+    graph, vis = build(edges), set()
+    csl = []
     for src in graph.keys():
         if src not in vis:
             csl.append(dfs(graph, src, vis))

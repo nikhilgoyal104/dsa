@@ -1,26 +1,29 @@
-from collections import defaultdict
 from graphs.util import build
+
+edgesList = [
+    [(0, 1), (2, 3), (4, 5), (4, 6), (5, 6)]
+]
 
 
 def main(edges):
     graph, vis = build(edges), set()
+    res = []
 
     def dfs(src):
         vis.add(src)
-        print(src, end=' ')
+        path.append(src)
         for nbr in graph[src]:
             if nbr not in vis:
                 dfs(nbr)
 
     for src in graph:
         if src not in vis:
+            path = []
             dfs(src)
-            print()
+            res.append(path)
+
+    return res
 
 
-for edges in [
-    [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (0, 3), (4, 6)],
-    [(0, 1), (2, 3), (4, 5), (4, 6), (5, 6)]
-]:
-    main(edges)
-    print()
+for edges in edgesList:
+    print(main(edges))

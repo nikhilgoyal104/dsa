@@ -1,4 +1,5 @@
 from collections import defaultdict
+from graphs.util import build2
 
 inputs = [
     (7, [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (0, 3), (4, 6)]),
@@ -7,16 +8,8 @@ inputs = [
 ]
 
 
-def construct(n, edges):
-    graph = {i: [] for i in range(n)}
-    for src, dest in edges:
-        graph[src].append(dest)
-        graph[dest].append(src)
-    return graph
-
-
 def main(n, edges):
-    graph, vis = construct(n, edges), set()
+    graph, vis = build2(n, edges), set()
 
     def dfs(src, parent):
         vis.add(src)
@@ -40,7 +33,7 @@ print()
 
 
 def main(n, edges):
-    graph, vis = construct(n, edges), set()
+    graph, vis = build2(n, edges), set()
 
     def dfs(src):
         vis.add(src)

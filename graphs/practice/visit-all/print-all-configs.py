@@ -1,16 +1,9 @@
 from collections import defaultdict
-
-
-def construct(edges):
-    graph = defaultdict(list)
-    for src, dest in edges:
-        graph[src].append(dest)
-        graph[dest].append(src)
-    return graph
+from graphs.util import build
 
 
 def main(edges, n):
-    graph = construct(edges)
+    graph = build(edges)
     path, vis = [], set()
 
     def dfs(src):

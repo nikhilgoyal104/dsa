@@ -6,7 +6,7 @@ def main(grid, sri, sci):
     m, n = len(grid), len(grid[0])
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
 
-    def dfs(ri, ci):
+    def count(ri, ci):
         res = 0
         for i, j in offsets:
             if outside(ri + i, ci + j, m, n) or grid[ri + i][ci + j]:
@@ -14,7 +14,7 @@ def main(grid, sri, sci):
             res += 1
         return res
 
-    print(dfs(sri, sci))
+    print(count(sri, sci))
 
 
 for grid, sri, sci in [(

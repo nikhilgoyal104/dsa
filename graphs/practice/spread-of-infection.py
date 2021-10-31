@@ -1,27 +1,19 @@
 from collections import defaultdict, deque
-
-
-def construct(edges):
-    graph = defaultdict(list)
-    for src, dest in edges:
-        graph[src].append(dest)
-        graph[dest].append(src)
-    return graph
+from graphs.util import build
 
 
 def main(edges):
-    graph, vis = construct(edges), {0}
-    queue, res = deque([(0, 0)]), [[], 1]
+    graph, vis = build(edges), {0}
+    queue, res = deque([(0, 0)]), 0
     while queue:
         src, dist = queue.popleft()
-        res[0].append(src)
         if dist == 2:
             break
         for nbr in graph[src]:
             if nbr not in vis:
                 vis.add(nbr)
                 queue.append((nbr, dist + 1))
-                res[1] += 1
+                res += 1
     return res
 
 

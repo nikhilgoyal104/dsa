@@ -1,3 +1,6 @@
+from graphs.util import build3
+
+
 def cyclic(graph, src, vis, path):
     vis.add(src)
     path.add(src)
@@ -12,12 +15,12 @@ def cyclic(graph, src, vis, path):
 
 
 def main(n, edges):
-    graph = {i: [] for i in range(n)}
-    [graph[u].append(v) for u, v in edges]
-    vis, path = set(), set()
+    graph, vis = build3(n, edges), set()
+    path = set()
     for src in range(n):
-        if src not in vis and cyclic(graph, src, vis, path):
-            return True
+        if src not in vis:
+            if cyclic(graph, src, vis, path):
+                return True
     return False
 
 

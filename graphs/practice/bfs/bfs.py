@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+from graphs.util import build
 
 edgesList = [
     [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (0, 3), (4, 6)],
@@ -6,16 +7,8 @@ edgesList = [
 ]
 
 
-def construct(edges):
-    graph = defaultdict(list)
-    for src, dest in edges:
-        graph[src].append(dest)
-        graph[dest].append(src)
-    return graph
-
-
 def main(edges):
-    graph, vis = construct(edges), set()
+    graph, vis = build(edges), set()
 
     def bfs(src):
         queue = deque([src])
@@ -41,7 +34,7 @@ print()
 
 
 def main(edges):
-    graph, vis = construct(edges), set()
+    graph, vis = build(edges), set()
 
     def bfs(src):
         queue = deque([src])
@@ -67,7 +60,7 @@ for edges in edgesList:
 
 
 def main(edges):
-    graph, vis = construct(edges), set()
+    graph, vis = build(edges), set()
 
     def bfs(src):
         queue = deque([src])
