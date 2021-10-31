@@ -20,7 +20,7 @@ def display(grid):
 
 
 # T=n²,S=1
-def x(grid):
+def main(grid):
     transpose(grid)
     reverse(grid)
     display(grid)
@@ -34,4 +34,4 @@ for grid in [
         [13, 14, 15, 16]
     ]
 ]:
-    x(grid)
+    main(grid)

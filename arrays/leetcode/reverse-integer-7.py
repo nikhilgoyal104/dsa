@@ -1,5 +1,5 @@
 # T=logn,S=1
-def x(n):
+def main(n):
     res, quot = 0, abs(n)
     while quot:
         quot, rem = divmod(quot, 10)
@@ -12,4 +12,4 @@ def x(n):
 for n in [
     123, -123, 120, 0, 1534236469
 ]:
-    print(x(n))
+    print(main(n))

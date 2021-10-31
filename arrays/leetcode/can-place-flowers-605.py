@@ -1,5 +1,5 @@
 # T=n,S=1
-def x(nums, n):
+def main(nums, n):
     if not n:
         return True
     size = len(nums)
@@ -22,4 +22,4 @@ for nums, n in [
     ([0, 0, 1, 0, 0], 1),
     ([0], 1),
 ]:
-    print(x(nums, n))
+    print(main(nums, n))

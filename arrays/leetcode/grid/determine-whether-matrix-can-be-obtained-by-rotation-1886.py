@@ -20,7 +20,7 @@ def rotate(grid):
 
 
 # T=n²,S=1
-def x(grid, target):
+def main(grid, target):
     for _ in range(4):
         rotate(grid)
         if grid == target:
@@ -33,13 +33,13 @@ for grid, target in [
     ([[0, 1], [1, 1]], [[1, 0], [0, 1]]),
     ([[0, 0, 0], [0, 1, 0], [1, 1, 1]], [[1, 1, 1], [0, 1, 0], [0, 0, 0]])
 ]:
-    print(x(grid, target))
+    print(main(grid, target))
 
 print()
 
 
 # T=n²,S=1
-def x(grid, target):
+def main(grid, target):
     n = len(grid)
     for _ in range(4):
         for i in range(n):
@@ -57,4 +57,4 @@ for grid, target in [
     ([[0, 1], [1, 1]], [[1, 0], [0, 1]]),
     ([[0, 0, 0], [0, 1, 0], [1, 1, 1]], [[1, 1, 1], [0, 1, 0], [0, 0, 0]])
 ]:
-    print(x(grid, target))
+    print(main(grid, target))

@@ -1,5 +1,12 @@
+grids = [
+    [[1, 1, 1], [1, 0, 1], [1, 1, 1]],
+    [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]],
+    [[1, 2, 3, 4], [5, 0, 7, 8], [0, 10, 11, 12], [13, 14, 15, 0]]
+]
+
+
 # T=mn,S=m+n
-def x(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     rows, cols = set(), set()
     for i in range(m):
@@ -14,8 +21,14 @@ def x(grid):
     return grid
 
 
+for grid in grids:
+    print(main(grid))
+
+print()
+
+
 # T=mn,S=1
-def y(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     fr, fc = False, False
     for i in range(m):
@@ -38,9 +51,6 @@ def y(grid):
             grid[i][0] = 0
 
 
-for grid in [
-    [[1, 1, 1], [1, 0, 1], [1, 1, 1]],
-    [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]],
-    [[1, 2, 3, 4], [5, 0, 7, 8], [0, 10, 11, 12], [13, 14, 15, 0]]
-]:
-    print(x(grid))
+for grid in grids:
+    main(grid)
+    print(grid)

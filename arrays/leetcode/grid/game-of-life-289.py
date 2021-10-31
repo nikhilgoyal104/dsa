@@ -2,7 +2,7 @@ from collections import Counter
 
 
 # T=mn,S=mn
-def x(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     gridClone = [[grid[ri][ci] for ci in range(n)] for ri in range(m)]
     offsets = (0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (-1, -1), (1, -1), (-1, 1)
@@ -25,11 +25,11 @@ for grid in [
     [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]],
     [[1, 1], [1, 0]]
 ]:
-    print(x(grid))
+    print(main(grid))
 
 
 # T=mn,S=1
-def y(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     offsets = (0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (-1, -1), (1, -1), (-1, 1)
     for ri in range(m):
@@ -54,7 +54,7 @@ for grid in [
     [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]],
     [[1, 1], [1, 0]]
 ]:
-    print(y(grid))
+    print(main(grid))
 
 
 def getCellsToComeAlive(currentLiveCells):
@@ -72,7 +72,7 @@ def getCellsToComeAlive(currentLiveCells):
     return cellsToComeAlive
 
 
-def z(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     currentLiveCells = {(i, j) for j in range(n) for i in range(m) if grid[i][j]}
     cellsToComeAlive = getCellsToComeAlive(currentLiveCells)
@@ -86,4 +86,4 @@ for grid in [
     [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]],
     [[1, 1], [1, 0]]
 ]:
-    print(z(grid))
+    print(main(grid))
