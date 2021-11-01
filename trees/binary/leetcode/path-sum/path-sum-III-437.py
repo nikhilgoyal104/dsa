@@ -54,7 +54,6 @@ def main(root, target):
         sumFreq[sum] -= 1
 
     dfs(root, 0)
-    print(sumFreq)
     return res
 
 

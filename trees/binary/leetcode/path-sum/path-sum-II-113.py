@@ -1,7 +1,13 @@
 from binarytree import build2
 
+inputs = [
+    (build2([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1]), 22),
+    (build2([1, 2, 3]), 5),
+    (build2([1, 2]), 0)
+]
 
-def main(root):
+
+def main(root, target):
     def dfs(root, sum):
         if not root:
             return []
@@ -16,10 +22,5 @@ def main(root):
     return dfs(root, 0)
 
 
-for root, target in [
-    (build2([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1]), 22),
-    (build2([1, 2, 3]), 5),
-    (build2([1, 2]), 0)
-]:
-    print(root)
-    print(main(root))
+for root, target in inputs:
+    print(main(root, target))
