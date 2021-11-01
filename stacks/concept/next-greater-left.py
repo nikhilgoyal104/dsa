@@ -56,3 +56,4 @@ for nums in [
     print(x(nums), end=' ')
     print(y(nums), end=' ')
     print(z(nums))
+    print()

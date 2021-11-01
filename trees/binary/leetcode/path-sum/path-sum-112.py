@@ -5,9 +5,10 @@ def main(root):
     def dfs(root, sum):
         if not root:
             return False
+        sum += root.val
         if root.left is root.right:
-            return sum + root.val == target
-        return dfs(root.left, sum + root.val) or dfs(root.right, sum + root.val)
+            return sum == target
+        return dfs(root.left, sum) or dfs(root.right, sum)
 
     return dfs(root, 0)
 

@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(num, k):
+def main(num, k):
     if len(num) == k:
         return '0'
     stack = []
@@ -24,4 +24,4 @@ for num, k in [
     ('10', 1),
     ('100', 1)
 ]:
-    print(x(num, k))
+    print(main(num, k))

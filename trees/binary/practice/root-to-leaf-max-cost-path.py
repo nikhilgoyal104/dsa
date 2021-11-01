@@ -9,6 +9,7 @@ def dfs(root):
 
 
 for root in [
-    build([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9])
+    build([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9]),
+    build([-1, -2, -3, -4, -5, -6, -7, None, None, -8, None, None, -9]),
 ]:
     print(dfs(root))

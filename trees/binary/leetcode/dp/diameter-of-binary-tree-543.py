@@ -44,9 +44,9 @@ def main(root):
     def dfs(root):
         if not root:
             return 0
-        leftDia = dfs(root.left)
-        rightDia = dfs(root.right)
-        return max(leftDia, rightDia, dp[root.left] + dp[root.right] + 2)
+        leftDiameter = dfs(root.left)
+        rightDiameter = dfs(root.right)
+        return max(leftDiameter, rightDiameter, dp[root.left] + dp[root.right] + 2)
 
     height(root)
     return dfs(root)
@@ -63,9 +63,9 @@ def main(root):
     def dfs(root):
         if not root:
             return 0, -1
-        leftDia, leftHeight = dfs(root.left)
-        rightDia, rightHeight = dfs(root.right)
-        return max(leftDia, rightDia, leftHeight + rightHeight + 2), 1 + max(leftHeight, rightHeight)
+        leftDiameter, leftHeight = dfs(root.left)
+        rightDiameter, rightHeight = dfs(root.right)
+        return max(leftDiameter, rightDiameter, leftHeight + rightHeight + 2), 1 + max(leftHeight, rightHeight)
 
     return dfs(root)[0]
 

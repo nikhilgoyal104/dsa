@@ -11,11 +11,12 @@ def main(root, target):
     def dfs(root, sum):
         if not root:
             return []
+        sum += root.val
         if root.left is root.right:
-            return [[root.val]] if sum + root.val == target else []
+            return [[root.val]] if sum == target else []
         res = []
         for child in [root.left, root.right]:
-            for path in dfs(child, sum + root.val):
+            for path in dfs(child, sum):
                 res.append([root.val] + path)
         return res
 

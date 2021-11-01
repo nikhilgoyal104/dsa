@@ -6,7 +6,7 @@ def reverse(nums, i):
 
 
 # T=d,S=d
-def x(n):
+def main(n):
     nums = list(str(n))
     size = len(nums)
     i = size - 1
@@ -32,4 +32,4 @@ for n in [
     21,
     2147483486
 ]:
-    print(x(n))
+    print(main(n))
