@@ -12,7 +12,7 @@ def main(root):
             return 0
         left = dfs(root.left)
         right = dfs(root.right)
-        res = max(res, left + root.val, right + root.val, left + right + root.val, root.val)
+        res = max(res, root.val, left + root.val, right + root.val, left + right + root.val)
         return max(root.val, left + root.val, right + root.val)
 
     dfs(root)
