@@ -21,4 +21,5 @@ for root, target in [
     (build2([1, 2, 3]), 5),
     (build2([1, 2]), 0)
 ]:
+    print(root)
     print(main(root))

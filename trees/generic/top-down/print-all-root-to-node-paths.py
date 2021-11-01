@@ -25,7 +25,7 @@ def main(root):
     def dfs(root, path):
         print(path, end=' ')
         for child in root.children:
-            dfs(child, path + [child.data])
+            dfs(child, path + [child.val])
 
     dfs(root, [1])
 
@@ -41,7 +41,7 @@ def main(root):
     def dfs(root):
         print(path, end=' ')
         for child in root.children:
-            path.append(child.data)
+            path.append(child.val)
             dfs(child)
             path.pop()
 
