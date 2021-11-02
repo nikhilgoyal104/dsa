@@ -55,22 +55,3 @@ def main(root):
 
 for root in inputs:
     main(root)
-
-print()
-
-
-def main(root):
-    def dfs(root, path):
-        if not root:
-            return
-        path.append(root.val)
-        print(path)
-        dfs(root.left, path)
-        dfs(root.right, path)
-        path.pop()
-
-    dfs(root, [])
-
-
-for root in inputs:
-    main(root)
