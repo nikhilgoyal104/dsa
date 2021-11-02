@@ -1,4 +1,5 @@
 from binarytree import Node as TreeNode, build2
+from collections import deque
 
 
 # T=n,S=n
@@ -13,15 +14,13 @@ class Codec:
         return ','.join(map(str, dfs(root)))
 
     def deserialize(self, data):
-        i, data = 0, data.split(',')
+        queue = deque(data.split(','))
 
         def dfs():
-            nonlocal i
-            if data[i] == 'None':
-                i += 1
+            if queue[0] == 'None':
+                queue.popleft()
                 return None
-            root = TreeNode(int(data[i]))
-            i += 1
+            root = TreeNode(int(queue.popleft()))
             root.left = dfs()
             root.right = dfs()
             return root
