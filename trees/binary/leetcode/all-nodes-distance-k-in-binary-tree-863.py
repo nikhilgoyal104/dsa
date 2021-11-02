@@ -34,7 +34,7 @@ def getNodesKDistAway(root, blockedNode, k):
 def main(root, target, k):
     res, blockedNode = [], None
     rootToNodePath = getRootToNodePath(root, target)
-    while rootToNodePath and k:
+    while rootToNodePath and k > -1:
         node = rootToNodePath.pop()
         res += getNodesKDistAway(node, blockedNode, k)
         blockedNode = node
@@ -45,6 +45,6 @@ def main(root, target, k):
 for root, target, k in [
     (r1, r1.left, 2),
     (r2, r2.left.right, 1),
-    (r3, r3, 3),
+    (r3, r3, 3)
 ]:
     print(main(root, target, k))
