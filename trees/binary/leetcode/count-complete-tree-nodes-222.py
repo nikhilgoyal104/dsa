@@ -20,7 +20,7 @@ for root in [
 print()
 
 
-def left(root):
+def getLBH(root):
     count = 0
     while root:
         root = root.left
@@ -28,7 +28,7 @@ def left(root):
     return count
 
 
-def right(root):
+def getRBH(root):
     count = 0
     while root:
         root = root.right
@@ -41,10 +41,10 @@ def main(root):
     def dfs(root):
         if not root:
             return 0
-        lh = left(root)
-        rh = right(root)
-        if lh == rh:
-            return 2 ** lh - 1
+        lbh = getLBH(root)
+        rbh = getRBH(root)
+        if lbh == rbh:
+            return 2 ** lbh - 1
         return 1 + dfs(root.left) + dfs(root.right)
 
     return dfs(root)
