@@ -56,7 +56,10 @@ print()
 
 # T=k+nklogk,S=k
 def main(lists):
-    heap = [(head.val, i, head) for i, head in enumerate(lists) if head]
+    heap = []
+    for i, head in enumerate(lists):
+        if head:
+            heap.append((head.val, i, head))
     heapify(heap)
     dummy = tail = ListNode(-1)
     while heap:
