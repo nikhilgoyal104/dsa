@@ -8,7 +8,7 @@ def main(root):
     dummy = tail = TreeNode(-1)
 
     def dfs(root):
-        nonlocal dummy, tail
+        nonlocal tail
         if not root:
             return
         dfs(root.left)
@@ -31,7 +31,6 @@ def display(head):
         print(temp.val, end=' ')
         temp = temp.right
     print(temp.val, end=' ')
-    print()
 
 
 for root in [
@@ -41,3 +40,4 @@ for root in [
     build2([])
 ]:
     display(main(root))
+    print()
