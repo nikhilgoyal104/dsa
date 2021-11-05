@@ -3,12 +3,13 @@ from collections import deque
 
 def main(grid):
     m, n = len(grid), len(grid[0])
+    offsets = (1, 0), (0, 1), (-1, 0), (0, -1)
 
     def dfs(ri, ci):
         if ri in [m, -1] or ci in [n, -1] or not grid[ri][ci]:
             return
         grid[ri][ci] = 0
-        for i, j in (1, 0), (0, 1), (-1, 0), (0, -1):
+        for i, j in offsets:
             dfs(ri + i, ci + j)
 
     res = 0
