@@ -20,6 +20,8 @@ def main(root):
 for root in inputs:
     main(root)
 
+print()
+
 
 def main(root):
     queue = deque([root])
