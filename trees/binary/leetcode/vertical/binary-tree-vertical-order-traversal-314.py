@@ -36,16 +36,16 @@ def main(root):
     if not root:
         return []
     queue = deque([(root, 0)])
-    colIndexToValues = defaultdict(list)
-    minColIndex, maxColIndex = inf, -inf
+    colToValues = defaultdict(list)
+    minCol, maxCol = inf, -inf
     while queue:
-        node, colIndex = queue.popleft()
-        minColIndex, maxColIndex = min(minColIndex, colIndex), max(maxColIndex, colIndex)
-        colIndexToValues[colIndex].append(node.val)
+        node, col = queue.popleft()
+        minCol, maxCol = min(minCol, col), max(maxCol, col)
+        colToValues[col].append(node.val)
         for child, offset in (node.left, -1), (node.right, 1):
             if child:
-                queue.append((child, colIndex + offset))
-    return [colIndexToValues[colIndex] for colIndex in range(minColIndex, maxColIndex + 1)]
+                queue.append((child, col + offset))
+    return [colToValues[col] for col in range(minCol, maxCol + 1)]
 
 
 for root in inputs:
