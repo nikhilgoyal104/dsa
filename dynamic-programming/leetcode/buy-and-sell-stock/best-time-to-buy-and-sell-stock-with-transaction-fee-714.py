@@ -1,4 +1,4 @@
-def x(nums, fee):
+def main(nums, fee):
     n, dp = len(nums), {}
 
     def dfs(i, stock):
@@ -20,4 +20,4 @@ for nums, fee in [
     ([1, 3, 2, 8, 4, 9], 2),
     ([1, 3, 7, 5, 10, 3], 3)
 ]:
-    print(x(nums, fee))
+    print(main(nums, fee))
