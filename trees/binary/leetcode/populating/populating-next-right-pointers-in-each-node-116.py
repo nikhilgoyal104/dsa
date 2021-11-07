@@ -17,16 +17,20 @@ def build():
     return root
 
 
+# T=n,S=1
 def main(root):
-    def dfs(root):
-        if not root.left and not root.right:
-            return root
-        left = dfs(root.left)
-        right = dfs(root.right)
-        left.next = right
-        return root
-
-    return dfs(root)
+    if not root:
+        return None
+    originalRoot = root
+    while root.left:
+        temp = root
+        while temp:
+            temp.left.next = temp.right
+            if temp.next:
+                temp.right.next = temp.next.left
+            temp = temp.next
+        root = root.left
+    return originalRoot
 
 
 print(main(build()))
