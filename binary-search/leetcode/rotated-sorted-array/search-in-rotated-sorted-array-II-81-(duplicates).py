@@ -26,7 +26,8 @@ def search(low, high, nums, target):
     return False
 
 
-def x(nums, target):
+# T=logn,S=1
+def main(nums, target):
     n, pi = len(nums), pivot(nums)
     if nums[pi] == target:
         return True
@@ -38,4 +39,4 @@ for nums, target in [
     ([2, 5, 6, 0, 0, 1, 2], 3),
     ([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1], 2])
 ]:
-    print(x(nums, target), end=' ')
+    print(main(nums, target), end=' ')

@@ -30,23 +30,23 @@ print()
 # T=mn,S=1
 def main(grid):
     m, n = len(grid), len(grid[0])
-    fr, fc = False, False
+    firstRow, firstCol = False, False
     for i in range(m):
         for j in range(n):
             if not grid[i][j]:
                 if not i:
-                    fr = True
+                    firstRow = True
                 if not j:
-                    fc = True
+                    firstCol = True
                 grid[i][0] = grid[0][j] = 0
     for i in range(1, m):
         for j in range(1, n):
             if not grid[i][0] or not grid[0][j]:
                 grid[i][j] = 0
-    if fr:
+    if firstRow:
         for j in range(n):
             grid[0][j] = 0
-    if fc:
+    if firstCol:
         for i in range(m):
             grid[i][0] = 0
 

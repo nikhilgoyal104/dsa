@@ -21,7 +21,8 @@ def search(low, high, nums, target):
     return -1
 
 
-def x(nums, target):
+# T=logn,S=1
+def main(nums, target):
     n, pi = len(nums), pivot(nums)
     if nums[pi] == target:
         return pi
@@ -35,4 +36,4 @@ for nums, target in [
     ([1], 0),
     ([3, 1], 3)
 ]:
-    print(x(nums, target))
+    print(main(nums, target))

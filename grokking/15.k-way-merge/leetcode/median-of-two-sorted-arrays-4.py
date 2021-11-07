@@ -8,20 +8,30 @@ def median(prev, curr, size):
 # T=m+n,S=1
 def x(nums1, nums2):
     m, n = len(nums1), len(nums2)
-    mid, prev, curr, i, j, k = (m + n) // 2, None, None, 0, 0, -1
+    prev = curr = None
+    mid = (m + n) // 2
+    i, j, k = 0, 0, -1
     while i < m and j < n:
         if nums1[i] < nums2[j]:
-            prev, curr, i, k = curr, nums1[i], i + 1, k + 1
+            prev, curr = curr, nums1[i]
+            i += 1
+            k += 1
         else:
-            prev, curr, j, k = curr, nums2[j], j + 1, k + 1
+            prev, curr = curr, nums2[j]
+            j += 1
+            k += 1
         if k == mid:
             return median(prev, curr, m + n)
     while i < m:
-        prev, curr, i, k = curr, nums1[i], i + 1, k + 1
+        prev, curr = curr, nums1[i]
+        i += 1
+        k += 1
         if k == mid:
             return median(prev, curr, m + n)
     while j < n:
-        prev, curr, j, k = curr, nums2[j], j + 1, k + 1
+        prev, curr = curr, nums2[j]
+        j += 1
+        k += 1
         if k == mid:
             return median(prev, curr, m + n)
 
