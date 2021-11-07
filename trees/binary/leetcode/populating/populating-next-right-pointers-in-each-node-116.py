@@ -17,20 +17,38 @@ def build():
     return root
 
 
+# T=n,S=h
+def main(root):
+    if not root:
+        return None
+
+    def dfs(root):
+        if not root or not root.left:
+            return
+        root.left.next = root.right
+        root.right.next = root.next.left if root.next else None
+        dfs(root.left)
+        dfs(root.right)
+
+    dfs(root)
+
+
+print(main(build()))
+
+
 # T=n,S=1
 def main(root):
     if not root:
         return None
-    originalRoot = root
-    while root.left:
-        temp = root
-        while temp:
-            temp.left.next = temp.right
-            if temp.next:
-                temp.right.next = temp.next.left
-            temp = temp.next
-        root = root.left
-    return originalRoot
+    leftMost = root
+    while leftMost.left:
+        head = leftMost
+        while head:
+            head.left.next = head.right
+            head.right.next = head.next.left if head.next else None
+            head = head.next
+        leftMost = leftMost.left
+    return root
 
 
 print(main(build()))
