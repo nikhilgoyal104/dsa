@@ -10,6 +10,35 @@ inputs = [
 ]
 
 
+# T=n,S=n
+def main(root, p, q):
+    count = 0
+
+    def dfs(root):
+        nonlocal count
+        if not root:
+            return None
+        left = dfs(root.left)
+        right = dfs(root.right)
+        if root in [p, q]:
+            count += 1
+            return root
+        if left and right:
+            return root
+        return left or right
+
+    lca = dfs(root)
+    return lca if count == 2 else None
+
+
+for root, p, q in inputs:
+    lca = main(root, p, q)
+    if lca:
+        print(lca.val)
+    else:
+        print(lca)
+
+
 def find(root, target):
     def dfs(root):
         if not root:
@@ -19,6 +48,9 @@ def find(root, target):
         return dfs(root.left) or dfs(root.right)
 
     return dfs(root)
+
+
+print()
 
 
 # T=n,S=n
@@ -38,36 +70,6 @@ def main(root, p, q):
     if lca is q:
         return q if find(q, p) else None
     return lca
-
-
-for root, p, q in inputs:
-    lca = main(root, p, q)
-    if lca:
-        print(lca.val)
-    else:
-        print(lca)
-
-print()
-
-
-def main(root, p, q):
-    count = 0
-
-    def dfs(root):
-        nonlocal count
-        if not root:
-            return None
-        left = dfs(root.left)
-        right = dfs(root.right)
-        if root in [p, q]:
-            count += 1
-            return root
-        if left and right:
-            return root
-        return left or right
-
-    lca = dfs(root)
-    return lca if count == 2 else None
 
 
 for root, p, q in inputs:
