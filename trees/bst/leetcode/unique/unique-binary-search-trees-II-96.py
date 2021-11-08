@@ -7,8 +7,10 @@ def main(n):
             return [None]
         res = []
         for i in range(start, end + 1):
-            for lst in dfs(start, i - 1):
-                for rst in dfs(i + 1, end):
+            left = dfs(start, i - 1)
+            right = dfs(i + 1, end)
+            for lst in left:
+                for rst in right:
                     res.append(TreeNode(i, lst, rst))
         return res
 

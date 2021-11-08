@@ -1,4 +1,7 @@
-class TreeNode:
+from collections import deque
+
+
+class Node:
     def __init__(self, val=0, left=None, right=None, next=None):
         self.val = val
         self.left = left
@@ -7,30 +10,31 @@ class TreeNode:
 
 
 def build():
-    root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
-    root.left.left = TreeNode(4)
-    root.left.right = TreeNode(5)
-    root.right.left = TreeNode(6)
-    root.right.right = TreeNode(7)
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
     return root
 
 
-# T=n,S=h
+# T=n,S=n
 def main(root):
     if not root:
         return None
-
-    def dfs(root):
-        if not root or not root.left:
-            return
-        root.left.next = root.right
-        root.right.next = root.next.left if root.next else None
-        dfs(root.left)
-        dfs(root.right)
-
-    dfs(root)
+    queue = deque([root])
+    while queue:
+        size = len(queue)
+        for i in range(size):
+            node = queue.popleft()
+            if i < size - 1:
+                node.next = queue[0]
+            for child in [node.left, node.right]:
+                if child:
+                    queue.append(child)
+    return root
 
 
 print(main(build()))
@@ -40,14 +44,15 @@ print(main(build()))
 def main(root):
     if not root:
         return None
-    leftMost = root
-    while leftMost.left:
-        head = leftMost
+    leftmost = root
+    while leftmost.left:
+        head = leftmost
         while head:
             head.left.next = head.right
-            head.right.next = head.next.left if head.next else None
+            if head.next:
+                head.right.next = head.next.left
             head = head.next
-        leftMost = leftMost.left
+        leftmost = leftmost.left
     return root
 
 
