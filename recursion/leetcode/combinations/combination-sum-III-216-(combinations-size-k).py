@@ -1,5 +1,5 @@
 # T=kⁿcₖ,S=kⁿcₖ
-def x(k, n):
+def main(k, n):
     total, nums = n, [i for i in range(1, 10)]
 
     def dfs(start, sum, count):
@@ -19,4 +19,4 @@ def x(k, n):
 for k, n in [
     (3, 7), (3, 9), (4, 1), (3, 2), (9, 45)
 ]:
-    print(x(k, n))
+    print(main(k, n))

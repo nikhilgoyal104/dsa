@@ -1,5 +1,5 @@
 # T=ns,S=s
-def x(nums, total):
+def main(nums, total):
     dp = {total: 1}
 
     def dfs(sum):
@@ -19,4 +19,4 @@ for nums, total in [
     ([1, 2, 3], 4),
     ([9], 3)
 ]:
-    print(x(nums, total))
+    print(main(nums, total))

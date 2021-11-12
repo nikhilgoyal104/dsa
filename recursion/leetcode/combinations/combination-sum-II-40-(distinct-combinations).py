@@ -1,4 +1,4 @@
-def x(nums, total):
+def main(nums, total):
     n, nums = len(nums), sorted(nums)
 
     def dfs(start, sum):
@@ -19,4 +19,4 @@ for nums, total in [
     ([10, 1, 2, 7, 6, 1, 5], 8),
     ([2, 5, 2, 1, 2], 5)
 ]:
-    print(x(nums, total))
+    print(main(nums, total))

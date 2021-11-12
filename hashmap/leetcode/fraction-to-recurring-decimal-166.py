@@ -1,4 +1,4 @@
-def x(num, den):
+def main(num, den):
     if not num:
         return '0'
     res = []
@@ -39,4 +39,4 @@ for num, den in [
     (-50, 8),
     (-2147483648, 1)
 ]:
-    print(x(num, den))
+    print(main(num, den))

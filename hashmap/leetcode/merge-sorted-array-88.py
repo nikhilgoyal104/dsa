@@ -1,4 +1,4 @@
-def x(nums1, nums2, m, n):
+def main(nums1, nums2, m, n):
     acopy = nums1[:m]
     i, j, k = 0, 0, 0
     while i < m and j < n:
@@ -25,12 +25,12 @@ for nums1, nums2, m, n in [
     ([4, 5, 6, 0, 0, 0], [1, 2, 3], 3, 3),
     ([0], [1], 0, 1)
 ]:
-    x(nums1, nums2, m, n)
+    main(nums1, nums2, m, n)
 
 print()
 
 
-def y(nums1, nums2, m, n):
+def main(nums1, nums2, m, n):
     i, j, k = m - 1, n - 1, m + n - 1
     while i >= 0 and j >= 0:
         if nums1[i] > nums2[j]:
@@ -56,4 +56,4 @@ for nums1, nums2, m, n in [
     ([4, 5, 6, 0, 0, 0], [1, 2, 3], 3, 3),
     ([0], [1], 0, 1)
 ]:
-    y(nums1, nums2, m, n)
+    main(nums1, nums2, m, n)

@@ -2,10 +2,10 @@ from collections import defaultdict
 from heapq import *
 
 
-def x(edges):
+def main(edges):
     res, graph = [], defaultdict(list)
-    for u, v in edges:
-        heappush(graph[u], v)
+    for src, dest in edges:
+        heappush(graph[src], dest)
 
     def dfs(src):
         while graph[src]:
@@ -21,4 +21,4 @@ for edges in [
     [['JFK', 'SFO'], ['JFK', 'ATL'], ['SFO', 'ATL'], ['ATL', 'JFK'], ['ATL', 'SFO']],
     [['JFK', 'KUL'], ['JFK', 'NRT'], ['NRT', 'JFK']]
 ]:
-    print(x(edges))
+    print(main(edges))

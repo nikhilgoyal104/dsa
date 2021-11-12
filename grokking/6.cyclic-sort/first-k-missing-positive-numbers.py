@@ -1,5 +1,5 @@
 # T=n+k,S=k
-def x(nums, k):
+def main(nums, k):
     res, n = [], len(nums)
     for i in range(n):
         dest = nums[i] - 1
@@ -26,4 +26,4 @@ for nums, k in [
     ([-2, 11, 1, -3, 2, 8, 4], 7),
     ([2, 1, 3, 6, 5], 2)
 ]:
-    print(x(nums, k))
+    print(main(nums, k))

@@ -28,7 +28,7 @@ def getRootToNodePath(root, target):
     return dfs(root)
 
 
-def getNodesKDistAway(root, blockedNode, k):
+def getNodesKDistanceAway(root, blockedNode, k):
     def dfs(root, k):
         if not root or root is blockedNode:
             return []
@@ -44,7 +44,7 @@ def main(root, target, k):
     rootToNodePath = getRootToNodePath(root, target)
     while rootToNodePath and k > -1:
         node = rootToNodePath.pop()
-        res += getNodesKDistAway(node, blockedNode, k)
+        res += getNodesKDistanceAway(node, blockedNode, k)
         blockedNode = node
         k -= 1
     return res

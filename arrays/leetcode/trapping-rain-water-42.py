@@ -1,13 +1,16 @@
 # T=n,S=n
 def main(nums):
     n = len(nums)
-    left, right = [0] * n, [0] * n
-    left[0], right[-1] = nums[0], nums[-1]
+    leftMax, rightMax = [0] * n, [0] * n
+    leftMax[0], rightMax[-1] = nums[0], nums[-1]
     for i in range(1, n):
-        left[i] = max(left[i - 1], nums[i])
+        leftMax[i] = max(leftMax[i - 1], nums[i])
     for i in range(n - 2, -1, -1):
-        right[i] = max(right[i + 1], nums[i])
-    return sum(min(left[i], right[i]) - nums[i] for i in range(1, n))
+        rightMax[i] = max(rightMax[i + 1], nums[i])
+    res = 0
+    for i in range(1, n):
+        res += min(leftMax[i], rightMax[i]) - nums[i]
+    return res
 
 
 for nums in [
