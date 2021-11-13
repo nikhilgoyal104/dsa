@@ -5,16 +5,12 @@ def outside(ri, ci, m, n):
 def main(grid, sri, sci):
     m, n = len(grid), len(grid[0])
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
-
-    def count(ri, ci):
-        res = 0
-        for i, j in offsets:
-            if outside(ri + i, ci + j, m, n) or grid[ri + i][ci + j]:
-                continue
-            res += 1
-        return res
-
-    print(count(sri, sci))
+    res = 0
+    for i, j in offsets:
+        if outside(sri + i, sci + j, m, n) or grid[sri + i][sci + j]:
+            continue
+        res += 1
+    return res
 
 
 for grid, sri, sci in [(
@@ -25,4 +21,4 @@ for grid, sri, sci in [(
             [0, 1, 1, 1]
         ], 2, 2)
 ]:
-    main(grid, sri, sri)
+    print(main(grid, sri, sri))
