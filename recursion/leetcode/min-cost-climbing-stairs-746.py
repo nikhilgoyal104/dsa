@@ -1,8 +1,13 @@
 from math import inf
 
+inputs = [
+    [10, 15, 20],
+    [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+]
+
 
 # T=2ⁿ,S=n
-def p(nums):
+def main(nums):
     n = len(nums)
 
     def dfs(i):
@@ -11,15 +16,19 @@ def p(nums):
         if i > n:
             return inf
         res = inf
-        for val in [1, 2]:
-            res = min(res, nums[i] + dfs(i + val))
+        for jump in [1, 2]:
+            res = min(res, nums[i] + dfs(i + jump))
         return res
 
     return min(dfs(i) for i in [0, 1])
 
 
+for nums in inputs:
+    print(main(nums))
+
+
 # T=n,S=n
-def q(nums):
+def main(nums):
     n = len(nums)
     dp = {n: 0}
 
@@ -29,30 +38,41 @@ def q(nums):
         if i > n:
             return inf
         dp[i] = inf
-        for val in [1, 2]:
-            dp[i] = min(dp[i], nums[i] + dfs(i + val))
+        for jump in [1, 2]:
+            dp[i] = min(dp[i], nums[i] + dfs(i + jump))
         return dp[i]
 
     return min(dfs(i) for i in [0, 1])
 
 
+for nums in inputs:
+    print(main(nums))
+
+
 # T=n,S=n
-def r(nums):
+def main(nums):
+    n = len(nums)
+
     def dfs(i):
         if i in [0, 1]:
             return 0
         if i < 0:
             return inf
         res = inf
-        for val in [1, 2]:
-            res = min(res, nums[i - val] + dfs(i - val))
+        for jump in [1, 2]:
+            res = min(res, nums[i - jump] + dfs(i - jump))
         return res
 
-    return dfs(len(nums))
+    return dfs(n)
+
+
+for nums in inputs:
+    print(main(nums))
 
 
 # T=n,S=n
-def s(nums):
+def main(nums):
+    n = len(nums)
     dp = {0: 0, 1: 0}
 
     def dfs(i):
@@ -61,15 +81,19 @@ def s(nums):
         if i < 0:
             return inf
         dp[i] = inf
-        for val in [1, 2]:
-            dp[i] = min(dp[i], nums[i - val] + dfs(i - val))
+        for jump in [1, 2]:
+            dp[i] = min(dp[i], nums[i - jump] + dfs(i - jump))
         return dp[i]
 
-    return dfs(len(nums))
+    return dfs(n)
+
+
+for nums in inputs:
+    print(main(nums))
 
 
 # T=n,S=n
-def t(nums):
+def main(nums):
     n = len(nums)
     dp = [0] * (n + 1)
     dp[0], dp[1] = 0, 0
@@ -78,12 +102,5 @@ def t(nums):
     return dp[-1]
 
 
-for nums in [
-    [10, 15, 20],
-    [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
-]:
-    print(p(nums), end=' ')
-    print(q(nums), end=' ')
-    print(r(nums), end=' ')
-    print(s(nums), end=' ')
-    print(t(nums))
+for nums in inputs:
+    print(main(nums))

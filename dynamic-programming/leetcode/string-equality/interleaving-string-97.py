@@ -1,5 +1,5 @@
 # T=mn
-def x(s1, s2, s3):
+def main(s1, s2, s3):
     m, n, o, dp = len(s1), len(s2), len(s3), {}
     if m + n != o:
         return False
@@ -58,4 +58,4 @@ for s1, s2, s3 in [
             'babbbabbbaaabbababbbbababaabbabaabaaabbbbabbbaaabbbaaaaabbbbaabbaaabababbaaaaaabababbababaababbababbbababbbbaaaabaabbabbaaaaabbabbaaaabbbaabaaabaababaababbaaabbbbbabbbbaabbabaabbbbabaaabbababbabbabbab'
     )
 ]:
-    print(x(s1, s2, s3))
+    print(main(s1, s2, s3))
