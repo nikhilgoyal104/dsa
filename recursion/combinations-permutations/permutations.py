@@ -1,4 +1,9 @@
-def x(nums, total):
+inputs = [
+    ([2, 3, 5, 6, 7], 12),
+]
+
+
+def main(nums, total):
     n, vis = len(nums), set()
 
     def dfs(sum):
@@ -18,13 +23,11 @@ def x(nums, total):
     return dfs(0)
 
 
-for nums, total in [
-    ([2, 3, 5, 6, 7], 12),
-]:
-    print(x(nums, total))
+for nums, total in inputs:
+    print(main(nums, total))
 
 
-def x(nums, total):
+def main(nums, total):
     n, vis = len(nums), set()
 
     def dfs(sum):
@@ -45,7 +48,5 @@ def x(nums, total):
     return dfs(0)
 
 
-for nums, total in [
-    ([2, 3, 5, 6, 7], 12),
-]:
-    print(x(nums, total))
+for nums, total in inputs:
+    print(main(nums, total))

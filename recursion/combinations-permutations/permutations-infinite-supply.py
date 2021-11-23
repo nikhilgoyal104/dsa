@@ -1,4 +1,15 @@
-def x(nums, total):
+inputs1 = [
+    ([1, 2, 3], 4),
+    ([1, 2, 5], 11),
+]
+
+inputs2 = [
+    ([1, 2, 3], 4),
+    ([2, 3, 5], 7),
+]
+
+
+def main(nums, total):
     def dfs(sum):
         if sum == total:
             return 1
@@ -12,7 +23,13 @@ def x(nums, total):
     return dfs(0)
 
 
-def y(nums, total):
+for nums, total in inputs1:
+    print(main(nums, total), end=' ')
+
+print()
+
+
+def main(nums, total):
     dp = {total: 1}
 
     def dfs(sum):
@@ -28,17 +45,13 @@ def y(nums, total):
     return dfs(0)
 
 
-for nums, total in [
-    ([1, 2, 3], 4),
-    ([1, 2, 5], 11),
-]:
-    print(x(nums, total), end=' ')
-    print(y(nums, total))
+for nums, total in inputs1:
+    print(main(nums, total), end=' ')
 
 print()
 
 
-def x(nums, total):
+def main(nums, total):
     def dfs(sum):
         if sum == total:
             return [[]]
@@ -53,7 +66,13 @@ def x(nums, total):
     return dfs(0)
 
 
-def y(nums, total):
+for nums, total in inputs2:
+    print(main(nums, total), end=' ')
+
+print()
+
+
+def main(nums, total):
     dp = {total: [[]]}
 
     def dfs(sum):
@@ -70,9 +89,5 @@ def y(nums, total):
     return dfs(0)
 
 
-for nums, total in [
-    ([1, 2, 3], 4),
-    ([2, 3, 5], 7),
-]:
-    print(x(nums, total))
-    print(y(nums, total))
+for nums, total in inputs2:
+    print(main(nums, total), end=' ')
