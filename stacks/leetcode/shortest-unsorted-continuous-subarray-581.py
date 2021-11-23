@@ -1,5 +1,13 @@
+inputs = [
+    [2, 6, 4, 8, 10, 9, 15],
+    [1, 2, 3, 4],
+    [2, 1],
+    [1]
+]
+
+
 # T=n²,S=1
-def x(nums):
+def main(nums):
     n = len(nums)
     left, right = n - 1, 0
     for i in range(n - 1):
@@ -9,8 +17,14 @@ def x(nums):
     return 0 if (left == n - 1 and right == 0) else right - left + 1
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=nlogn,S=n
-def y(nums):
+def main(nums):
     n, sortedNums = len(nums), sorted(nums)
     left, right = 0, 0
     for i in range(n):
@@ -24,8 +38,14 @@ def y(nums):
     return 0 if left is right else right - left + 1
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=n
-def z(nums):
+def main(nums):
     n = len(nums)
     left, stack = n - 1, []
     for i in range(n):
@@ -40,12 +60,5 @@ def z(nums):
     return 0 if (left == n - 1 and right == 0) else right - left + 1
 
 
-for nums in [
-    [2, 6, 4, 8, 10, 9, 15],
-    [1, 2, 3, 4],
-    [2, 1],
-    [1]
-]:
-    print(x(nums), end=' ')
-    print(y(nums), end=' ')
-    print(z(nums))
+for nums in inputs:
+    print(main(nums), end=' ')

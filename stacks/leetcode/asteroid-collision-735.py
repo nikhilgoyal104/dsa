@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(nums):
+def main(nums):
     i, n, stack = 0, len(nums), []
     while i < n:
         while stack and i < n and nums[i] < 0 < stack[-1]:
@@ -24,4 +24,4 @@ for nums in [
     [10, 2, -5],
     [8, -8],
 ]:
-    print(x(nums))
+    print(main(nums))

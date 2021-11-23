@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(nums):
+def main(nums):
     n = len(nums)
     stack, res = [], [0] * n
     for i in range(n):
@@ -15,4 +15,4 @@ for nums in [
     [30, 40, 50, 60],
     [30, 60, 90]
 ]:
-    print(x(nums))
+    print(main(nums))

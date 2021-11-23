@@ -12,7 +12,7 @@ def apply(operator, num2, num1):
 
 
 # T=n,S=n
-def x(s):
+def main(s):
     s = s.replace(' ', '')
     if s[0] == '-':
         s = '0' + s
@@ -51,4 +51,4 @@ for s in [
     ' 2-1 + 2 ',
     '(1+(4+5+2)-3)+(6+8)'
 ]:
-    print(str(s) + '->' + str(x(s)))
+    print(str(s) + '->' + str(main(s)))

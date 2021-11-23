@@ -18,7 +18,7 @@ def apply(operator, num2, num1):
 
 
 # T=n,S=n
-def x(s):
+def main(s):
     s = s.replace(' ', '')
     i, n = 0, len(s)
     nums, operators = [], []
@@ -46,4 +46,4 @@ for s in [
     ' 3/2 ',
     ' 3+5 / 2 '
 ]:
-    print(str(s) + '->' + str(x(s)))
+    print(str(s) + '->' + str(main(s)))

@@ -9,7 +9,7 @@ def process(s):
 
 
 # T=m+n,S=m+n
-def x(s, t):
+def main(s, t):
     return process(s) == process(t)
 
 
@@ -20,4 +20,4 @@ for s, t in [
     ('a#c', 'b'),
     ('y#fo##f', 'y#f#o##f')
 ]:
-    print(x(s, t))
+    print(main(s, t))

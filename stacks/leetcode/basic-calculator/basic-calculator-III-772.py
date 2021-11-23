@@ -18,7 +18,7 @@ def apply(operator, num2, num1):
 
 
 # T=n,S=n
-def x(s):
+def main(s):
     s = s.replace(' ', '')
     i, n = 0, len(s)
     nums, operators = [], []
@@ -55,4 +55,4 @@ for s in [
     '(2+6*3+5-(3*14/7+2)*5)+3',
     '0',
 ]:
-    print(str(s) + '->' + str(x(s)))
+    print(str(s) + '->' + str(main(s)))

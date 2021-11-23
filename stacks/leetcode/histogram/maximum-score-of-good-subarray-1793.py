@@ -1,37 +1,4 @@
-# T=n³
-def x(nums, k):
-    n, res = len(nums), 0
-    for i in range(k + 1):
-        for j in range(k, n):
-            res = max(res, min(nums[i:j + 1]) * (j - i + 1))
-    return res
-
-
-# T=n,S=n
-# left[i] = index of first smaller element on left of nums[i]
-# right[i] = index of first smaller element on right of nums[i]
-def y(nums, k):
-    n = len(nums)
-    stack, left = [], [-1] * n
-    for i in range(n):
-        while stack and nums[stack[-1]] >= nums[i]:
-            stack.pop()
-        left[i] = stack[-1] if stack else -1
-        stack.append(i)
-    stack, right = [], [n] * n
-    for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
-            right[stack.pop()] = i
-        stack.append(i)
-    res = 0
-    for i in range(n):
-        if left[i] < k < right[i]:
-            width = right[i] - left[i] - 1
-            res = max(res, nums[i] * width)
-    return res
-
-
-for nums, k in [
+inputs = [
     ([1, 4, 3, 7, 4, 5], 3),
     ([5, 5, 4, 5, 4, 1, 1, 1], 0),
     ([105, 6312, 3772, 4850, 1589, 9163, 119, 6541, 3981, 5138, 8289, 4271, 9336, 8694, 6041, 5864, 5411, 1830, 9557,
@@ -141,6 +108,47 @@ for nums, k in [
       9104, 5318, 8728, 2332, 3943, 2388, 4352, 8537, 199, 1655, 3881, 7058, 3912, 7027, 5721, 9737, 6031, 3265,
       2699,
       8285, 7835], 314)
-]:
-    print(x(nums, k), end=' ')
-    print(y(nums, k))
+]
+
+
+# T=n³
+def main(nums, k):
+    n, res = len(nums), 0
+    for i in range(k + 1):
+        for j in range(k, n):
+            res = max(res, min(nums[i:j + 1]) * (j - i + 1))
+    return res
+
+
+for nums, k in inputs:
+    print(main(nums, k), end=' ')
+
+print()
+
+
+# T=n,S=n
+# left[i] = index of first smaller element on left of nums[i]
+# right[i] = index of first smaller element on right of nums[i]
+def main(nums, k):
+    n = len(nums)
+    stack, left = [], [-1] * n
+    for i in range(n):
+        while stack and nums[stack[-1]] >= nums[i]:
+            stack.pop()
+        left[i] = stack[-1] if stack else -1
+        stack.append(i)
+    stack, right = [], [n] * n
+    for i in range(n):
+        while stack and nums[stack[-1]] > nums[i]:
+            right[stack.pop()] = i
+        stack.append(i)
+    res = 0
+    for i in range(n):
+        if left[i] < k < right[i]:
+            width = right[i] - left[i] - 1
+            res = max(res, nums[i] * width)
+    return res
+
+
+for nums, k in inputs:
+    print(main(nums, k), end=' ')

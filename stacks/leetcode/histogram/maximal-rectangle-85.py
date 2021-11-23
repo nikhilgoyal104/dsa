@@ -22,7 +22,7 @@ def largestRectangle(nums):
 
 
 # T=mn,S=m
-def x(grid):
+def main(grid):
     if not grid:
         return 0
     m, n, heights = len(grid), len(grid[0]), list(map(int, grid[0]))
@@ -55,4 +55,4 @@ for grid in [
         ['1', '0', '1', '1', '1']
     ]
 ]:
-    print(x(grid))
+    print(main(grid))

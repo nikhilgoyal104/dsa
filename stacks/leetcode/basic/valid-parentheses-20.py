@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(s):
+def main(s):
     stack, mapping = [], {'(': ')', '{': '}', '[': ']'}
     for char in s:
         if char in mapping:
@@ -24,4 +24,4 @@ for s in [
     ']',
     '(])'
 ]:
-    print(s + ' -> ' + str(x(s)))
+    print(s + ' -> ' + str(main(s)))

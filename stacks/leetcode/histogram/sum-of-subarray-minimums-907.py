@@ -1,50 +1,6 @@
 from math import inf
 
-
-# T=n³,S=1
-def x(nums):
-    res, n = 0, len(nums)
-    for i in range(n):
-        for j in range(i, n):
-            res += min(nums[i:j + 1])
-    return res % (10 ** 9 + 7)
-
-
-# T=n²,S=1
-def y(nums):
-    res, n = 0, len(nums)
-    for i in range(n):
-        minVal = nums[i]
-        for j in range(i, n):
-            minVal = min(minVal, nums[j])
-            res += minVal
-    return res % (10 ** 9 + 7)
-
-
-# T=n,S=n
-# left[i] = index of first smaller element on left of nums[i]
-# right[i] = index of first smaller element on right of nums[i]
-def z(nums):
-    n = len(nums)
-    stack, left = [], [-1] * n
-    for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
-            stack.pop()
-        left[i] = stack[-1] if stack else -1
-        stack.append(i)
-    stack, right = [], [n] * n
-    for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
-            right[stack.pop()] = i
-        stack.append(i)
-    res = 0
-    for i in range(n):
-        subarrays = (i - left[i]) * (right[i] - i)
-        res += subarrays * nums[i]
-    return res % (10 ** 9 + 7)
-
-
-for nums in [
+inputs = [
     [3, 1, 2, 4],
     [11, 81, 94, 43, 3],
     [71, 55, 82, 55],
@@ -107,7 +63,63 @@ for nums in [
      1851, 18000, 7218, 9944, 26207, 23598, 15463, 26305, 17452, 8408, 29282, 1780, 2070, 26883, 16527, 26288, 23803,
      21979, 28682, 10338, 18774, 27184, 7380, 183, 16370, 12834, 11925, 11541, 20281, 15800, 13256, 20365, 10770, 14711,
      10041]
-]:
-    print(x(nums), end=' ')
-    print(y(nums), end=' ')
-    print(z(nums))
+]
+
+
+# T=n³,S=1
+def main(nums):
+    res, n = 0, len(nums)
+    for i in range(n):
+        for j in range(i, n):
+            res += min(nums[i:j + 1])
+    return res % (10 ** 9 + 7)
+
+
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
+# T=n²,S=1
+def main(nums):
+    res, n = 0, len(nums)
+    for i in range(n):
+        minVal = nums[i]
+        for j in range(i, n):
+            minVal = min(minVal, nums[j])
+            res += minVal
+    return res % (10 ** 9 + 7)
+
+
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
+# T=n,S=n
+# left[i] = index of first smaller element on left of nums[i]
+# right[i] = index of first smaller element on right of nums[i]
+def main(nums):
+    n = len(nums)
+    stack, left = [], [-1] * n
+    for i in range(n):
+        while stack and nums[stack[-1]] > nums[i]:
+            stack.pop()
+        left[i] = stack[-1] if stack else -1
+        stack.append(i)
+    stack, right = [], [n] * n
+    for i in range(n):
+        while stack and nums[stack[-1]] > nums[i]:
+            right[stack.pop()] = i
+        stack.append(i)
+    res = 0
+    for i in range(n):
+        subarrays = (i - left[i]) * (right[i] - i)
+        res += subarrays * nums[i]
+    return res % (10 ** 9 + 7)
+
+
+for nums in inputs:
+    print(main(nums), end=' ')

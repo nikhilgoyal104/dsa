@@ -10,7 +10,7 @@ def apply(operator, num2, num1):
 
 
 # T=n,S=n
-def x(s):
+def main(s):
     stack = []
     for char in s:
         if char not in '+-*/':
@@ -25,4 +25,4 @@ for s in [
     ['4', '13', '5', '/', '+'],
     ['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+']
 ]:
-    print(x(s))
+    print(main(s))

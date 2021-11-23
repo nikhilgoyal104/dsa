@@ -1,7 +1,7 @@
 # T=n,S=n
 # left[i] = index of first smaller element on left of nums[i]
 # right[i] = index of first smaller element on right of nums[i]
-def x(nums):
+def main(nums):
     n = len(nums)
     stack, left = [], [-1] * n
     for i in range(n):
@@ -30,4 +30,4 @@ for nums in [
     [1, 1, 2, 3, 4, 4, 4, 4],
     [6, 2, 5, 4, 5, 1, 6]
 ]:
-    print(str(nums) + '->' + str(x(nums)))
+    print(str(nums) + '->' + str(main(nums)))
