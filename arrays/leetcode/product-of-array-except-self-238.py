@@ -1,5 +1,13 @@
+inputs = [
+    [1, 2, 3, 0, 5, 6, 0],
+    [-1, 1, 0, -3, 3],
+    [4, 5, 1, 8, 2],
+    [1, 2, 3, 4]
+]
+
+
 # T=n,S=1
-def x(nums):
+def main(nums):
     n = len(nums)
     zeros = zeroIndex = 0
     product = 1
@@ -18,8 +26,14 @@ def x(nums):
     return [product // val for val in nums]
 
 
+for nums in inputs:
+    print(main(nums))
+
+print()
+
+
 # T=n,S=n
-def y(nums):
+def main(nums):
     n = len(nums)
     res, left, right = [1] * n, [1] * n, [1] * n
     for i in range(1, n):
@@ -31,8 +45,14 @@ def y(nums):
     return res
 
 
+for nums in inputs:
+    print(main(nums))
+
+print()
+
+
 # T=n,S=1
-def z(nums):
+def main(nums):
     n = len(nums)
     res = [1] * n
     for i in range(1, n):
@@ -44,13 +64,5 @@ def z(nums):
     return res
 
 
-for nums in [
-    [1, 2, 3, 0, 5, 6, 0],
-    [-1, 1, 0, -3, 3],
-    [4, 5, 1, 8, 2],
-    [1, 2, 3, 4]
-]:
-    print(x(nums))
-    print(y(nums))
-    print(z(nums))
-    print()
+for nums in inputs:
+    print(main(nums))
