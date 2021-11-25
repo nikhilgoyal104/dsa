@@ -2,7 +2,7 @@
 def main(logs):
     def sort(log):
         if log[-1].isnumeric():
-            return (1,)
+            return 1,
         identifier, content = log.split(' ', maxsplit=1)
         return 0, content, identifier
 
