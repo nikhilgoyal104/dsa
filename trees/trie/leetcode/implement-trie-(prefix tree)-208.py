@@ -41,3 +41,5 @@ for key in keys:
 
 print(trie.search('the'))
 print(trie.search('trim'))
+print(trie.startsWith('xy'))
+print(trie.startsWith('th'))

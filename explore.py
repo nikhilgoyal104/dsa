@@ -46,3 +46,8 @@ data = [{'a': 1, 'b': 2}, {'a': 3, 'd': 4}, {'e': 5, 'a': 6}]
 print(sorted(data, key=lambda x: x['a']))
 
 print(None and False)
+
+a = 'nikhil'
+
+for i in range(len(a)):
+    print(a[:i + 1], end='|')
