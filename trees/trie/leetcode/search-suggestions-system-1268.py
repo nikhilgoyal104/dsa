@@ -6,15 +6,14 @@ inputs = [
 ]
 
 
-def main(products, word):
-    res = []
-    for i in range(len(word)):
-        subList = []
+def main(products, searchWord):
+    res, products = [], sorted(products)
+    for i in range(len(searchWord)):
+        matching = []
         for product in products:
-            if product.startswith(word[:i + 1]):
-                subList.append(product)
-        subList.sort()
-        res.append(subList[:3])
+            if product.startswith(searchWord[:i + 1]) and len(matching) < 3:
+                matching.append(product)
+        res.append(matching)
     return res
 
 
@@ -31,7 +30,6 @@ class TrieNode:
         self.children = [None] * 26
 
 
-# T=m to build trie where m=total number of characters in products
 class Trie:
     def __init__(self):
         self.root = TrieNode('')
@@ -45,7 +43,7 @@ class Trie:
             node = node.children[index]
         node.word = True
 
-    def searchPrefix(self, word):
+    def getLastNodeInPrefix(self, word):
         node = self.root
         for char in word:
             index = ord(char) - ord('a')
@@ -55,10 +53,8 @@ class Trie:
         return node
 
     def getWordsStartingWithPrefix(self, prefix):
-        node = self.searchPrefix(prefix)
-        if not node:
-            return []
-        return self.content(node, prefix)
+        lastNodeInPrefix = self.getLastNodeInPrefix(prefix)
+        return self.content(lastNodeInPrefix, prefix) if lastNodeInPrefix else []
 
     def content(self, root, prefix):
         res = []
