@@ -18,25 +18,44 @@ class Trie:
             node = node.children[index]
         node.word = True
 
-    def content(self):
-        path, words = [], []
 
-        def dfs(root):
-            path.append(root.val)
-            if root.word:
-                words.append(''.join(path))
-            for child in root.children:
-                if child:
-                    dfs(child)
-            path.pop()
-
-        dfs(self.root)
-        return words
-
-
-keys = ['the', 'a', 'there', 'their']
+keys = ['the', 'a', 'there', 'their', 'nikhil', 'b']
 trie = Trie()
 for key in keys:
     trie.insert(key)
 
-print(trie.content())
+
+def content(root):
+    path, res = [], []
+
+    def dfs(root):
+        path.append(root.val)
+        if root.word:
+            res.append(''.join(path))
+        for child in root.children:
+            if child:
+                dfs(child)
+        path.pop()
+
+    dfs(root)
+    return res
+
+
+print(content(trie.root))
+
+
+def content(root):
+    res = []
+
+    def dfs(root, path):
+        if root.word:
+            res.append(path)
+        for child in root.children:
+            if child:
+                dfs(child, path + child.val)
+
+    dfs(root, '')
+    return res
+
+
+print(content(trie.root))
