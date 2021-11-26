@@ -1,8 +1,15 @@
 from heapq import *
 
+inputs = [
+    ([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 8),
+    ([[-5]], 1),
+    ([[2, 6, 8], [3, 7, 10], [5, 8, 11]], 5),
+    ([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 2)
+]
+
 
 # T=n²logk,S=k
-def x(grid, k):
+def main(grid, k):
     heap = []
     for row in grid:
         for val in row:
@@ -12,9 +19,15 @@ def x(grid, k):
     return -heappop(heap)
 
 
+for grid, k in inputs:
+    print(main(grid, k), end=' ')
+
+print()
+
+
 # Let x=min(k,n)
 # T=x+klogx,S=x
-def y(grid, k):
+def main(grid, k):
     res, n = None, len(grid)
     heap = [(grid[ri][0], ri, 0) for ri in range(min(k, n))]
     heapify(heap)
@@ -26,11 +39,5 @@ def y(grid, k):
 
 
 # 1<=k<=n²
-for grid, k in [
-    ([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 8),
-    ([[-5]], 1),
-    ([[2, 6, 8], [3, 7, 10], [5, 8, 11]], 5),
-    ([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 2)
-]:
-    print(x(grid, k), end=' ')
-    print(y(grid, k))
+for grid, k in inputs:
+    print(main(grid, k), end=' ')
