@@ -4,8 +4,8 @@ def main(words):
         if s in dp:
             return dp[s]
         dp[s] = False
-        for i in range(1, len(s) + 1):
-            prefix, suffix = s[:i], s[i:]
+        for i in range(len(s)):
+            prefix, suffix = s[:i + 1], s[i + 1:]
             if prefix in prewords and dfs(suffix, prewords, dp):
                 dp[s] = True
                 return dp[s]
