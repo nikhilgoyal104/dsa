@@ -13,12 +13,10 @@ def build(edges, directed):
 def main(edges, directed, src, dest):
     graph = build(edges, directed)
     path, vis = [], set()
-    res = []
 
     def dfs(src):
         path.append(src)
         if src == dest:
-            res.append(path[:])
             return True
         vis.add(src)
         for nbr in graph[src]:
@@ -29,7 +27,7 @@ def main(edges, directed, src, dest):
         return False
 
     dfs(src)
-    return res
+    return path
 
 
 for edges, data, directed in [
