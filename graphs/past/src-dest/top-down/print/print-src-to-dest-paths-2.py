@@ -3,21 +3,16 @@ from graphs.util import build
 
 def main(edges, src, dest):
     graph = build(edges)
-    path, vis = [], set()
 
-    def dfs(src):
+    def dfs(src, vis, path):
         if src == dest:
-            print(path + [src], end=' ')
+            print(path, end=' ')
             return
-        vis.add(src)
-        path.append(src)
         for nbr in graph[src]:
             if nbr not in vis:
-                dfs(nbr)
-        path.pop()
-        vis.remove(src)
+                dfs(nbr, vis | {nbr}, path + [nbr])
 
-    dfs(src)
+    dfs(src, {src}, [src])
 
 
 for edges, data in [
