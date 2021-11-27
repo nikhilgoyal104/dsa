@@ -9,12 +9,12 @@ def x(graph, src, dest):
         if src == dest:
             return 1
         vis.add(src)
-        minimum = inf
+        res = inf
         for nbr in graph[src]:
             if nbr not in vis:
-                minimum = min(minimum, 1 + dfs(nbr))
+                res = min(res, 1 + dfs(nbr))
         vis.remove(src)
-        return minimum
+        return res
 
     return dfs(src)
 
