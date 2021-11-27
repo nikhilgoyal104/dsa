@@ -9,11 +9,11 @@ def outside(m, n, ri, ci):
 
 def roll(grid, ri, ci, i, j):
     m, n = len(grid), len(grid[0])
-    nri, nci, wt = ri, ci, 0
+    nri, nci, weight = ri, ci, 0
     while not outside(m, n, nri + i, nci + j) and grid[nri + i][nci + j] == 0:
         nri, nci = nri + i, nci + j
-        wt += 1
-    return nri, nci, wt
+        weight += 1
+    return nri, nci, weight
 
 
 def bfs(grid, sri, sci, dri, dci):
@@ -21,15 +21,15 @@ def bfs(grid, sri, sci, dri, dci):
     heappush(heap, (0, sri, sci))
     offsets = (-1, 0), (0, 1), (1, 0), (0, -1)
     while heap:
-        wsf, ri, ci = heappop(heap)
+        weightSoFar, ri, ci = heappop(heap)
         if (ri, ci) in vis:
             continue
         vis.add((ri, ci))
         if (ri, ci) == (dri, dci):
-            return wsf
+            return weightSoFar
         for i, j in offsets:
-            nri, nci, wt = roll(grid, ri, ci, i, j)
-            heappush(heap, (wsf + wt, nri, nci))
+            nri, nci, weight = roll(grid, ri, ci, i, j)
+            heappush(heap, (weightSoFar + weight, nri, nci))
     return -1
 
 

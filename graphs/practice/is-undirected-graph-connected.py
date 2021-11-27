@@ -1,17 +1,17 @@
 from graphs.util import build
 
 
-def dfs(graph, src, vis):
-    vis.add(src)
-    for nbr in graph[src]:
-        if nbr not in vis:
-            dfs(graph, nbr, vis)
-
-
 def main(edges):
     graph, vis = build(edges), set()
-    dfs(graph, 0, vis)
-    return len(vis) == len(graph.keys())
+
+    def dfs(src):
+        vis.add(src)
+        for nbr in graph[src]:
+            if nbr not in vis:
+                dfs(nbr)
+
+    dfs(0)
+    return len(vis) == len(graph)
 
 
 for edges in [
