@@ -6,11 +6,13 @@ def main(edges, src, dest):
     path, vis = [], set()
 
     def dfs(src):
-        if src == dest:
-            print(path + [src], end=' ')
-            return
         vis.add(src)
         path.append(src)
+        if src == dest:
+            print(path, end=' ')
+            path.pop()
+            vis.remove(src)
+            return
         for nbr in graph[src]:
             if nbr not in vis:
                 dfs(nbr)
