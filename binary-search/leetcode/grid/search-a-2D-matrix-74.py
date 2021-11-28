@@ -69,8 +69,7 @@ def potential(grid, target):
     return -1
 
 
-def search(grid, target, ri):
-    nums = grid[ri]
+def search(nums, target):
     low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
@@ -86,7 +85,7 @@ def search(grid, target, ri):
 # T=log(mn),S=1
 def z(grid, target):
     ri = potential(grid, target)
-    return search(grid, target, ri) if ri != -1 else False
+    return search(grid[ri], target) if ri != -1 else False
 
 
 for grid, target in [

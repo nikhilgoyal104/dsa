@@ -1,4 +1,5 @@
-def x(nums, target):
+# T=logn,S=1
+def main(nums, target):
     low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
@@ -19,4 +20,4 @@ for nums, target in [
     ([5], 2),
     ([5], 5),
 ]:
-    print(x(nums, target))
+    print(main(nums, target))

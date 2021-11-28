@@ -1,5 +1,5 @@
 # T=n²,S=1
-def x(nums):
+def main(nums):
     n = len(nums)
     for i in range(n - 1):
         minIndex = i
@@ -15,4 +15,4 @@ for nums in [
     [64, 25, 12, 22, 11],
     [5, 4, 3, 2, 1]
 ]:
-    print(x(nums))
+    print(main(nums))

@@ -3,9 +3,9 @@ from collections import Counter
 
 # T=n,S=n
 def main(s):
-    m, unique = len(s), len(set(s))
-    res, freq, left = m, Counter(), 0
-    for right in range(m):
+    n, unique = len(s), len(set(s))
+    res, freq, left = n, Counter(), 0
+    for right in range(n):
         freq[s[right]] += 1
         while len(freq) == unique:
             res = min(res, right - left + 1)

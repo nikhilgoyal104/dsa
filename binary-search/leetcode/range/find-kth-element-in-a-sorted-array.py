@@ -1,5 +1,16 @@
+inputs = [
+    ([1, 1, 4, 4], 2),
+    ([1, 3, 5, 6, 8, 10, 13], 4),
+    ([1, 1, 4, 6], 2),
+    ([1, 1, 4, 7], 3),
+    ([1, 1, 4, 7], 4),
+    ([1, 1, 2, 3, 3, 4, 4, 5, 6, 7], 5),
+    ([0, 2, 2], 1)
+]
+
+
 # T=log(w)log(n)
-def x(nums, k):
+def main(nums, k):
     def count(target):
         low, high = 0, len(nums) - 1
         while low <= high:
@@ -18,6 +29,12 @@ def x(nums, k):
         else:
             low = mid + 1
     return low
+
+
+for nums, k in inputs:
+    print(main(nums, k), end=' ')
+
+print()
 
 
 # T=log(w)n
@@ -39,14 +56,5 @@ def y(nums, k):
 
 
 # Let w=max-min
-for nums, k in [
-    ([1, 1, 4, 4], 2),
-    ([1, 3, 5, 6, 8, 10, 13], 4),
-    ([1, 1, 4, 6], 2),
-    ([1, 1, 4, 7], 3),
-    ([1, 1, 4, 7], 4),
-    ([1, 1, 2, 3, 3, 4, 4, 5, 6, 7], 5),
-    ([0, 2, 2], 1)
-]:
-    print(x(nums, k), end=' ')
-    print(y(nums, k))
+for nums, k in inputs:
+    print(main(nums, k), end=' ')

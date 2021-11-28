@@ -8,7 +8,7 @@ class ArrayReader:
 
 
 # T=logT,S=1
-def x(reader, target):
+def main(reader, target):
     low, high = 0, 1
     while reader.get(high) < target:
         low, high = high, 2 * high
@@ -28,4 +28,4 @@ for nums, target in [
     ([-1, 0, 3, 5, 9, 12], 9),
     ([-1, 0, 3, 5, 9, 12], 2),
 ]:
-    print(x(ArrayReader(nums), target))
+    print(main(ArrayReader(nums), target))

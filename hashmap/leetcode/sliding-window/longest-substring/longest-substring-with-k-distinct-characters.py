@@ -8,9 +8,10 @@ def main(s, k):
     for right in range(n):
         freq[s[right]] += 1
         while len(freq) > k:
-            freq[s[left]] -= 1
-            if not freq[s[left]]:
-                del freq[s[left]]
+            char = s[left]
+            freq[char] -= 1
+            if not freq[char]:
+                del freq[char]
             left += 1
         if len(freq) == k:
             res = max(res, right - left + 1)

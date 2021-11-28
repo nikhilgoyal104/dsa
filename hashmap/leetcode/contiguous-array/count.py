@@ -2,7 +2,7 @@ from collections import Counter
 
 
 # T=n,S=n
-def x(nums):
+def main(nums):
     res, n = 0, len(nums)
     nums = [-1 if not val else 1 for val in nums]
     sum, sumFreq = 0, Counter({0: 1})
@@ -21,4 +21,4 @@ for nums in [
     [1, 0, 0, 1, 0, 1, 1],
     [0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1]
 ]:
-    print(x(nums))
+    print(main(nums))

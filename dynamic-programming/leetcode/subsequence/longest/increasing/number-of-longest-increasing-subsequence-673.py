@@ -1,7 +1,7 @@
 # T=n²,S=n
 # length[i] = length of LIS ending with nums[i]
 # count[i] = count of LIS ending with nums[i]
-def x(nums):
+def main(nums):
     n, maxLen = len(nums), 0
     length, count = [1] * n, [1] * n
     for i in range(n):
@@ -84,4 +84,4 @@ for nums in [
      -163, -187, -176, -185, -188, -170, -160, -157, 19, -104, -135, -151, -177, -124, -110, -143, -139, -182, -187,
      -131, -134, -140, -169, -148, -181, -157, -108, 20, -129, -109, -139, 20]
 ]:
-    print(x(nums))
+    print(main(nums))

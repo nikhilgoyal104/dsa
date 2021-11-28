@@ -1,5 +1,5 @@
 # T=n,S=1
-def x(nums, target):
+def main(nums, target):
     low, high = 0, len(nums) - 1
     while low < high:
         sum = nums[low] + nums[high]
@@ -16,4 +16,4 @@ for nums, target in [
     ([2, 3, 4], 6),
     ([-1, 0], -1)
 ]:
-    print(x(nums, target))
+    print(main(nums, target))

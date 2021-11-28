@@ -1,4 +1,4 @@
-def x(n, k):
+def main(n, k):
     n = str(n)
     size = len(n)
 
@@ -20,12 +20,12 @@ for n, k in [
     (25, 2),
     (314159, 2)
 ]:
-    print(x(n, k), end=' ')
+    print(main(n, k), end=' ')
 
 print()
 
 
-def y(n, k):
+def main(n, k):
     n, dp = str(n), {}
     size = len(n)
 
@@ -51,4 +51,4 @@ for n, k in [
     (314159, 2),
     (9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999, 3)
 ]:
-    print(y(n, k), end=' ')
+    print(main(n, k), end=' ')

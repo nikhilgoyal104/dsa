@@ -1,4 +1,4 @@
-def x(n):
+def main(n):
     dp = {n: 1}
 
     def dfs(i):
@@ -15,4 +15,4 @@ def x(n):
 
 
 for d in [1, 2, 3]:
-    print(x(d))
+    print(main(d))

@@ -1,5 +1,5 @@
 # T=nlog(sum),S=1
-def x(nums, m):
+def main(nums, m):
     def count(mid):
         sum, count = 0, 1
         for i in range(len(nums)):
@@ -23,4 +23,4 @@ for nums, m in [
     ([3, 2, 2, 4, 1, 4], 3),
     ([1, 2, 3, 1, 1], 4)
 ]:
-    print(x(nums, m), end=' ')
+    print(main(nums, m), end=' ')

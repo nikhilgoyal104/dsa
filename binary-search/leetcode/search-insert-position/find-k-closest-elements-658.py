@@ -1,26 +1,28 @@
 from heapq import *
 
-
-# T=nlogn,S=k
-def p(nums, k, x):
-    nums.sort(key=lambda val: abs(val - x))
-    return sorted(nums[:k])
-
-
-for nums, k, x in [
+inputs = [
     ([1, 2, 3, 4, 5], 4, 3),
     ([1, 2, 3, 4, 5], 4, -1),
     ([2, 3, 7, 8, 9], 3, 7),
     ([10, 20, 30, 40, 50, 59], 3, 45),
     ([10, 12, 15, 17, 18, 20, 25], 3, 16)
-]:
-    print(p(nums, k, x))
+]
+
+
+# T=nlogn,S=k
+def main(nums, k, x):
+    nums.sort(key=lambda val: abs(val - x))
+    return sorted(nums[:k])
+
+
+for nums, k, x in inputs:
+    print(main(nums, k, x))
 
 print()
 
 
 # T=nlogk,S=k
-def q(nums, k, x):
+def main(nums, k, x):
     heap = []
     for val in nums:
         heappush(heap, (-abs(val - x), -val))
@@ -29,7 +31,13 @@ def q(nums, k, x):
     return sorted(-val for _, val in heap)
 
 
-def index(nums, target):
+for nums, k, x in inputs:
+    print(main(nums, k, x))
+
+print()
+
+
+def getPosition(nums, target):
     low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
@@ -43,9 +51,9 @@ def index(nums, target):
 
 
 # T=logn+k,S=k
-def r(nums, k, x):
-    n, pos = len(nums), index(nums, x)
-    low, high = pos - 1, pos
+def main(nums, k, x):
+    n, position = len(nums), getPosition(nums, x)
+    low, high = position - 1, position
     while low > -1 and high < n and k:
         if abs(nums[high] - x) < abs(nums[low] - x):
             high += 1
@@ -61,12 +69,5 @@ def r(nums, k, x):
     return nums[low + 1:high]
 
 
-for nums, k, x in [
-    ([1, 2, 3, 4, 5], 4, 3),
-    ([1, 2, 3, 4, 5], 4, -1),
-    ([2, 3, 7, 8, 9], 3, 7),
-    ([10, 20, 30, 40, 50, 59], 3, 45),
-    ([10, 12, 15, 17, 18, 20, 25], 3, 16)
-]:
-    print(q(nums, k, x), end=' ')
-    print(r(nums, k, x))
+for nums, k, x in inputs:
+    print(main(nums, k, x))
