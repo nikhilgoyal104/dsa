@@ -1,7 +1,22 @@
 inputs = [
-    ([['A', 'B', 'C', 'E'], ['S', 'F', 'C', 'S'], ['A', 'D', 'E', 'E']], 'ABCCED'),
-    ([['A', 'B', 'C', 'E'], ['S', 'F', 'C', 'S'], ['A', 'D', 'E', 'E']], 'SEE'),
-    ([['A', 'B', 'C', 'E'], ['S', 'F', 'C', 'S'], ['A', 'D', 'E', 'E']], 'ABCB')
+    (
+        [
+            ['A', 'B', 'C', 'E'],
+            ['S', 'F', 'C', 'S'],
+            ['A', 'D', 'E', 'E']
+        ], 'ABCCED'),
+    (
+        [
+            ['A', 'B', 'C', 'E'],
+            ['S', 'F', 'C', 'S'],
+            ['A', 'D', 'E', 'E']
+        ], 'SEE'),
+    (
+        [
+            ['A', 'B', 'C', 'E'],
+            ['S', 'F', 'C', 'S'],
+            ['A', 'D', 'E', 'E']
+        ], 'ABCB')
 ]
 
 
@@ -24,7 +39,9 @@ def main(grid, word):
 
     for i in range(m):
         for j in range(n):
-            if word[0] == grid[i][j] and dfs(i, j, word, set()):
+            if word[0] != grid[i][j]:
+                continue
+            if dfs(i, j, word, set()):
                 return True
     return False
 

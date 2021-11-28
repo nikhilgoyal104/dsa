@@ -14,7 +14,9 @@ def main(words):
     words.sort(key=len)
     res, prewords = [], set()
     for word in words:
-        if word and dfs(word, prewords, {'': True}):
+        if not word:
+            continue
+        if dfs(word, prewords, {'': True}):
             res.append(word)
         prewords.add(word)
     return res

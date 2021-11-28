@@ -37,8 +37,4 @@ for i in range(len(s)):
     prefix, suffix = s[:i + 1], s[i + 1:]
     print(prefix, suffix)
 
-print()
-
-for i in range(1, len(s) + 1):
-    prefix, suffix = s[:i], s[i:]
-    print(prefix, suffix)
+print(''.join([]))
