@@ -22,7 +22,7 @@ for root in [
 print()
 
 
-def getLbh(root):
+def getLeftmostBranchHeight(root):
     res = 0
     while root:
         root = root.left
@@ -30,7 +30,7 @@ def getLbh(root):
     return res
 
 
-def getRbh(root):
+def getRightmostBranchHeight(root):
     res = 0
     while root:
         root = root.right
@@ -43,10 +43,10 @@ def main(root):
     def dfs(root):
         if not root:
             return 0
-        lbh = getLbh(root)
-        rbh = getRbh(root)
-        if lbh == rbh:
-            return 2 ** lbh - 1
+        leftmostBranchHeight = getLeftmostBranchHeight(root)
+        rightmostBranchHeight = getRightmostBranchHeight(root)
+        if leftmostBranchHeight == rightmostBranchHeight:
+            return 2 ** leftmostBranchHeight - 1
         return 1 + dfs(root.left) + dfs(root.right)
 
     return dfs(root)
