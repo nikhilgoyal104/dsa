@@ -1,9 +1,17 @@
 from heapq import *
 from math import inf
 
+inputs = [
+    ([], [1, 2, 3], 2),
+    ([2, 3, 6, 7, 9], [1, 4, 8, 10], 5),
+    ([2, 3, 6, 7, 9], [1, 4, 8, 10], 1),
+    ([2, 3, 6, 7, 9], [1, 4, 8, 10], 9),
+    ([100, 112, 256, 349, 770], [72, 86, 113, 119, 265, 445, 892], 7)
+]
+
 
 # T=k,S=1
-def x(nums1, nums2, k):
+def main(nums1, nums2, k):
     m, n = len(nums1), len(nums2)
     i, j = 0, 0
     while i < m and j < n:
@@ -29,11 +37,17 @@ def x(nums1, nums2, k):
     return -1
 
 
+for nums1, nums2, k in inputs:
+    print(main(nums1, nums2, k), end=' ')
+
+print()
+
+
 # T=log(min(m,n)),S=1
-def y(nums1, nums2, k):
+def main(nums1, nums2, k):
     m, n = len(nums1), len(nums2)
     if n < m:
-        return y(nums2, nums1, k)
+        return main(nums2, nums1, k)
     low, high = max(0, k - n), min(k, m)
     while low <= high:
         nums1LeftCount = low + (high - low) // 2
@@ -50,12 +64,5 @@ def y(nums1, nums2, k):
             return max(nums1LeftMax, nums2LeftMax)
 
 
-for nums1, nums2, k in [
-    ([], [1, 2, 3], 2),
-    ([2, 3, 6, 7, 9], [1, 4, 8, 10], 5),
-    ([2, 3, 6, 7, 9], [1, 4, 8, 10], 1),
-    ([2, 3, 6, 7, 9], [1, 4, 8, 10], 9),
-    ([100, 112, 256, 349, 770], [72, 86, 113, 119, 265, 445, 892], 7)
-]:
-    print(x(nums1, nums2, k), end=' ')
-    print(y(nums1, nums2, k))
+for nums1, nums2, k in inputs:
+    print(main(nums1, nums2, k), end=' ')

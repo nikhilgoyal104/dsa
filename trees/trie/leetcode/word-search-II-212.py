@@ -62,9 +62,7 @@ def main(grid, words):
     for word in words:
         for ri in range(m):
             for ci in range(n):
-                if word[0] != grid[ri][ci]:
-                    continue
-                if dfs(ri, ci, word, set()):
+                if word[0] == grid[ri][ci] and dfs(ri, ci, word, set()):
                     res.add(word)
     return res
 
@@ -332,7 +330,7 @@ class Trie:
         node.word = word
 
 
-# T=N3ᴸ,S=L
+# T=M3ᴸ,S=N
 def main(grid, words):
     m, n = len(grid), len(grid[0])
     offsets = (0, 1), (0, -1), (-1, 0), (1, 0)

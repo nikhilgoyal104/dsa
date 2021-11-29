@@ -1,8 +1,20 @@
 from collections import Counter
 
+inputs = [
+    'aaaaaa',
+    'aabcbcdbca',
+    'abbacbcdbadbdbbdcb',
+    'abcddef',
+    'abcabcbb',
+    'bbbbb',
+    'pwwkew',
+    '',
+    ' '
+]
+
 
 # T=n³,S=1
-def x(s):
+def main(s):
     res, n = 0, len(s)
     for i in range(n):
         for j in range(i, n):
@@ -11,8 +23,14 @@ def x(s):
     return res
 
 
+for s in inputs:
+    print(main(s), end=' ')
+
+print()
+
+
 # T=n²,S=1
-def y(s):
+def main(s):
     res, n = 0, len(s)
     for i in range(n):
         vis = set()
@@ -25,11 +43,17 @@ def y(s):
     return res
 
 
+for s in inputs:
+    print(main(s), end=' ')
+
+print()
+
+
 # T=n,S=1
-def z(s):
-    res, n = 0, len(s)
-    freq, left = Counter(), 0
-    for right in range(n):
+def main(s):
+    res = left = 0
+    freq = Counter()
+    for right in range(len(s)):
         freq[s[right]] += 1
         while freq[s[right]] > 1:
             freq[s[left]] -= 1
@@ -38,17 +62,5 @@ def z(s):
     return res
 
 
-for s in [
-    'aaaaaa',
-    'aabcbcdbca',
-    'abbacbcdbadbdbbdcb',
-    'abcddef',
-    'abcabcbb',
-    'bbbbb',
-    'pwwkew',
-    '',
-    ' '
-]:
-    print(x(s), end=' ')
-    print(y(s), end=' ')
-    print(z(s))
+for s in inputs:
+    print(main(s), end=' ')
