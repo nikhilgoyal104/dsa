@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(nums, start):
+def main(nums, start):
     n, vis = len(nums), set()
 
     def dfs(i):
@@ -18,4 +18,4 @@ for nums, start in [
     ([4, 2, 3, 0, 3, 1, 2], 0),
     ([3, 0, 2, 1, 2], 2)
 ]:
-    print(x(nums, start))
+    print(main(nums, start))

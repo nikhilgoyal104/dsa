@@ -17,8 +17,10 @@ class RandomizedSet:
     def remove(self, val):
         if val not in self.data:
             return False
-        last, index = self.helper[-1], self.data[val]
-        self.helper[index], self.data[last] = last, index
+        last = self.helper[-1]
+        index = self.data[val]
+        self.helper[index] = last
+        self.data[last] = index
         self.helper.pop()
         del self.data[val]
         return True
