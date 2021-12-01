@@ -27,7 +27,7 @@ def main(root):
                 queue.append((child, row + 1, col + offset))
     res = []
     for col in range(minCol, maxCol + 1):
-        res.append([val for row, val in sorted(colToValues[col])])
+        res.append([val for _, val in sorted(colToValues[col])])
     return res
 
 
