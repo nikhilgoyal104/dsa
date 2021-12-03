@@ -37,3 +37,31 @@ for i in range(len(subdomains)):
     print('.'.join(subdomains[i:]))
 
 print(1 / 7)
+
+nums = [1, 20, 10, 15, 3, 2]
+
+nums = sorted(nums)
+print(nums)
+n = len(nums)
+res = 0
+for i in range(1, n):
+    size = 1
+    while i < n and nums[i] - nums[i - 1] == 1:
+        size += 1
+        i += 1
+    res = max(res, size)
+
+print(res)
+
+nums = [1, 20, 10, 15, 3, 2]
+n = len(nums)
+
+numsSet = set(nums)
+for val in numsSet:
+    if val - 1 not in numsSet:
+        size = 1
+        while val + size in numsSet:
+            size += 1
+        res = max(res, size)
+
+print(res)
