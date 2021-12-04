@@ -3,12 +3,11 @@ from collections import Counter
 
 # T=n,S=1
 def main(nums, k):
-    n = len(nums)
     res = left = zeros = 0
-    for right in range(n):
-        zeros += nums[right] == 0
+    for right in range(len(nums)):
+        zeros += (nums[right] == 0)
         while zeros > k:
-            zeros -= nums[left] == 0
+            zeros -= (nums[left] == 0)
             left += 1
         res = max(res, right - left + 1)
     return res
