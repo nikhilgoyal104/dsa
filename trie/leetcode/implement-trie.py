@@ -16,7 +16,7 @@ class Trie:
             node = node.children[char]
         node.word = True
 
-    def searchPrefix(self, word):
+    def getLastNodeInPrefix(self, word):
         node = self.root
         for char in word:
             node = node.children.get(char)
@@ -25,11 +25,11 @@ class Trie:
         return node
 
     def search(self, word):
-        node = self.searchPrefix(word)
-        return node is not None and node.word
+        lastNodeInPrefix = self.getLastNodeInPrefix(word)
+        return lastNodeInPrefix is not None and lastNodeInPrefix.word
 
     def startsWith(self, prefix):
-        return self.searchPrefix(prefix) is not None
+        return self.getLastNodeInPrefix(prefix) is not None
 
 
 trie = Trie()
