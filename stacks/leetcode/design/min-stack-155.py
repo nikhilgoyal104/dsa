@@ -91,7 +91,10 @@ class MinStack:
         self.head = None
 
     def push(self, val):
-        self.head = Node(val, val) if not self.head else Node(val, min(self.head.min, val), self.head)
+        if not self.head:
+            self.head = Node(val, val)
+        else:
+            self.head = Node(val, min(self.head.min, val), self.head)
 
     def pop(self):
         self.head = self.head.next

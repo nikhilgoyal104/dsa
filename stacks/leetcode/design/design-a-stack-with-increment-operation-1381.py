@@ -9,7 +9,9 @@ class CustomStack:
             self.stack.append(val)
 
     def pop(self):
-        return self.stack.pop() if self.stack else -1
+        if not self.stack:
+            return -1
+        return self.stack.pop()
 
     def increment(self, k, val):
         for i in range(min(k, len(self.stack))):
