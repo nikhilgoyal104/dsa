@@ -10,17 +10,17 @@ def build(nums):
         downheapify(i)
 
 
-def downheapify(i):
-    n, mini = len(heap), i
-    lci = 2 * i + 1
-    if lci < n and heap[lci] < heap[mini]:
-        mini = lci
-    rci = 2 * i + 2
-    if rci < n and heap[rci] < heap[mini]:
-        mini = rci
-    if mini != i:
-        heap[i], heap[mini] = heap[mini], heap[i]
-        downheapify(mini)
+def downheapify(index):
+    n, minIndex = len(heap), index
+    leftChildIndex = 2 * index + 1
+    if leftChildIndex < n and heap[leftChildIndex] < heap[minIndex]:
+        minIndex = leftChildIndex
+    rightChildIndex = 2 * index + 2
+    if rightChildIndex < n and heap[rightChildIndex] < heap[minIndex]:
+        minIndex = rightChildIndex
+    if minIndex != index:
+        heap[index], heap[minIndex] = heap[minIndex], heap[index]
+        downheapify(minIndex)
 
 
 build([1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17])

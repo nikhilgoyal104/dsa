@@ -1,23 +1,24 @@
 from heapq import *
 
-
-# T=nklog(nk),S=nk
-def x(arrays):
-    res = []
-    for array in arrays:
-        for val in array:
-            res.append(val)
-    res.sort()
-    return res
-
-
-for arrays in [
+inputs = [
     [[1, 5, 7, 8], [12, 45, 67, 98], [1, 2, 5, 7]],
     [[2, 4], [3, 5, 7], [1, 10, 11, 12]],
     [[3, 5, 7], [0, 6], [0, 6, 28]],
     [[3, 5, 7], [0, 6], [], [0, 6, 28]],
-]:
-    print(x(arrays))
+]
+
+
+# T=nklog(nk),S=nk
+def main(arrays):
+    res = []
+    for array in arrays:
+        for val in array:
+            res.append(val)
+    return sorted(res)
+
+
+for arrays in inputs:
+    print(main(arrays))
 
 print()
 
@@ -42,16 +43,25 @@ def merge(nums, b):
 
 
 # T=nk²,S=nk
-def y(arrays):
+def main(arrays):
     merged = arrays[0]
     for i in range(1, len(arrays)):
         merged = merge(merged, arrays[i])
     return merged
 
 
+for arrays in inputs:
+    print(main(arrays))
+
+print()
+
+
 # T=k+nklogk,S=k+nk
-def z(arrays):
-    res, heap = [], [(arr[0], 0, arr) for arr in arrays if arr]
+def main(arrays):
+    res, heap = [], []
+    for arr in arrays:
+        if arr:
+            heap.append((arr[0], 0, arr))
     heapify(heap)
     while heap:
         val, i, arr = heappop(heap)
@@ -61,11 +71,5 @@ def z(arrays):
     return res
 
 
-for arrays in [
-    [[1, 5, 7, 8], [12, 45, 67, 98], [1, 2, 5, 7]],
-    [[2, 4], [3, 5, 7], [1, 10, 11, 12]],
-    [[3, 5, 7], [0, 6], [0, 6, 28]],
-    [[3, 5, 7], [0, 6], [], [0, 6, 28]],
-]:
-    print(y(arrays))
-    print(z(arrays))
+for arrays in inputs:
+    print(main(arrays))
