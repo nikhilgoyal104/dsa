@@ -64,5 +64,3 @@ def main(products, searchWord):
 
 for products, word in inputs:
     print(main(products, word))
-
-print()
