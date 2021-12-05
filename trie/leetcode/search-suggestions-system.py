@@ -7,32 +7,29 @@ inputs = [
 
 
 class TrieNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self):
         self.word = False
-        self.children = [None] * 26
+        self.children = {}
 
 
 class Trie:
     def __init__(self):
-        self.root = TrieNode('')
+        self.root = TrieNode()
 
     def insert(self, word):
         node = self.root
         for char in word:
-            index = ord(char) - ord('a')
-            if not node.children[index]:
-                node.children[index] = TrieNode(char)
-            node = node.children[index]
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
         node.word = True
 
-    def getLastNodeInPrefix(self, word):
+    def getLastNodeInPrefix(self, prefix):
         node = self.root
-        for char in word:
-            index = ord(char) - ord('a')
-            if not node.children[index]:
+        for char in prefix:
+            if char not in node.children:
                 return None
-            node = node.children[index]
+            node = node.children[char]
         return node
 
     def content(self, root, start):
@@ -44,8 +41,7 @@ class Trie:
             if root.word:
                 res.append(path)
             for child in root.children:
-                if child:
-                    dfs(child, path + child.val)
+                dfs(root.children[child], path + child)
 
         dfs(root, start)
         return res
@@ -70,18 +66,3 @@ for products, word in inputs:
     print(main(products, word))
 
 print()
-
-
-def main(products, searchWord):
-    res, products = [], sorted(products)
-    for i in range(len(searchWord)):
-        matching = []
-        for product in products:
-            if product.startswith(searchWord[:i + 1]) and len(matching) < 3:
-                matching.append(product)
-        res.append(matching)
-    return res
-
-
-for products, word in inputs:
-    print(main(products, word))

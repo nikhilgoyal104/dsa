@@ -17,9 +17,9 @@ class Trie:
             node = node.children[index]
         node.word = True
 
-    def getLastNodeInPrefix(self, word):
+    def getLastNodeInPrefix(self, prefix):
         node = self.root
-        for char in word:
+        for char in prefix:
             index = ord(char) - ord('a')
             if not node.children[index]:
                 return None

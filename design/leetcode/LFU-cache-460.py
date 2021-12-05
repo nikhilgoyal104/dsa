@@ -1,7 +1,7 @@
 class LFUCache:
 
     def __init__(self, capacity):
-        pass
+        self.capacity = capacity
 
     def get(self, key):
         pass

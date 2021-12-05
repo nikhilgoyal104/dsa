@@ -16,12 +16,12 @@ class Trie:
             node = node.children[char]
         node.word = True
 
-    def getLastNodeInPrefix(self, word):
+    def getLastNodeInPrefix(self, prefix):
         node = self.root
-        for char in word:
-            node = node.children.get(char)
-            if not node:
+        for char in prefix:
+            if char not in node.children:
                 return None
+            node = node.children[char]
         return node
 
     def search(self, word):

@@ -1,18 +1,30 @@
-from collections import deque
+from collections import defaultdict, deque
 
 
+def construct(wordList):
+    n = len(wordList[0])
+    graph = defaultdict(set)
+    for word in wordList:
+        for i in range(n):
+            graph[word[:i] + '*' + word[i + 1:]].add(word)
+    return graph
+
+
+# L=length of each word,N=length of list
 # T=NL²26,S=NL²
 def main(beginWord, endWord, wordList):
-    wordList = set(wordList)
+    n = len(beginWord)
+    wordList.append(beginWord)
+    graph = construct(wordList)
     queue, vis = deque([(beginWord, 1)]), set()
     while queue:
-        word, dist = queue.popleft()
-        if word == endWord:
+        src, dist = queue.popleft()
+        if src == endWord:
             return dist
-        for i in range(len(word)):
-            for char in 'abcdefghijklmnopqrstuvwxyz':
-                nbr = word[:i] + char + word[i + 1:]
-                if nbr in wordList and nbr not in vis:
+        for i in range(n):
+            intermediate = src[:i] + '*' + src[i + 1:]
+            for nbr in graph[intermediate]:
+                if nbr not in vis:
                     vis.add(nbr)
                     queue.append((nbr, dist + 1))
     return 0
@@ -21,5 +33,6 @@ def main(beginWord, endWord, wordList):
 for beginWord, endWord, wordList in [
     ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']),
     ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']),
+    ('hot', 'dog', ['hot', 'dog']),
 ]:
     print(main(beginWord, endWord, wordList))
