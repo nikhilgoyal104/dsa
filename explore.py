@@ -51,3 +51,10 @@ a = 'nikhil'
 
 for i in range(len(a)):
     print(a[:i + 1], end='|')
+
+print()
+a = [(5, 'i love you'), (2, 'i love leetcode'), (2, 'i a'), (3, 'island'), (2, 'ironman')]
+
+print(sorted(a, reverse=True))
+print(sorted(a, key=lambda x: -x[0]))
+print(sorted(a, key=lambda x: (-x[0], x[1])))

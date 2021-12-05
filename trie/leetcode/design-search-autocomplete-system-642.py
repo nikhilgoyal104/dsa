@@ -59,8 +59,8 @@ class AutocompleteSystem:
             return []
         self.current += c
         data = self.trie.getSentencesStartingWithPrefix(self.current)
-        data = sorted(data, key=lambda x: (-x[0], x[1]))
-        return [sentence for _, sentence in data[:3]]
+        data = sorted(data, key=lambda x: (-x[0], x[1]))[:3]
+        return [sentence for _, sentence in data]
 
 
 testcases = [
