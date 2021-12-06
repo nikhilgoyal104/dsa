@@ -1,21 +1,45 @@
+inputs = [
+    [1],
+    [0, 2, 2, 1, 1],
+    [4, 5, 6],
+    [1, 2, 3],
+    [1, 2, 0],
+    [3, 4, -1, 1],
+    [7, 8, 9, 11, 12],
+    [-2, 11, 1, -3, 2, 10, 4]
+]
+
+
 # T=n²,S=1
-def w(nums):
+def main(nums):
     res = 1
     while res in nums:
         res += 1
     return res
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=n
-def x(nums):
-    aset, res = set(nums), 1
-    while res in aset:
+def main(nums):
+    numsSet, res = set(nums), 1
+    while res in numsSet:
         res += 1
     return res
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=nlogn,S=1
-def y(nums):
+def main(nums):
     nums, res = sorted(nums), 1
     for i in range(len(nums)):
         if nums[i] > res:
@@ -25,8 +49,14 @@ def y(nums):
     return res
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=1
-def z(nums):
+def main(nums):
     n = len(nums)
     for i in range(n):
         dest = nums[i] - 1
@@ -39,17 +69,5 @@ def z(nums):
     return n + 1
 
 
-for nums in [
-    [1],
-    [0, 2, 2, 1, 1],
-    [4, 5, 6],
-    [1, 2, 3],
-    [1, 2, 0],
-    [3, 4, -1, 1],
-    [7, 8, 9, 11, 12],
-    [-2, 11, 1, -3, 2, 10, 4]
-]:
-    print(w(nums), end=' ')
-    print(x(nums), end=' ')
-    print(y(nums), end=' ')
-    print(z(nums))
+for nums in inputs:
+    print(main(nums), end=' ')
