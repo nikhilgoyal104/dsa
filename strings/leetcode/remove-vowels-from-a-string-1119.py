@@ -1,4 +1,10 @@
-def x(s):
+inputs = [
+    'leetcodeisacommunityforcoders',
+    'aeiou'
+]
+
+
+def main(s):
     vowels, res = 'aeiou', []
     for char in s:
         if char not in vowels:
@@ -6,13 +12,15 @@ def x(s):
     return ''.join(res)
 
 
-def y(s):
+for s in inputs:
+    print(main(s), end=' ')
+
+print()
+
+
+def main(s):
     return ''.join(char for char in s if char not in 'aeiou')
 
 
-for s in [
-    'leetcodeisacommunityforcoders',
-    'aeiou'
-]:
-    print(x(s), end=' ')
-    print(y(s))
+for s in inputs:
+    print(main(s), end=' ')

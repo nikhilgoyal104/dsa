@@ -1,5 +1,12 @@
+inputs = [
+    'A man, a plan, a canal: Panama',
+    'race a car',
+    '0P'
+]
+
+
 # T=n,S=n
-def x(s):
+def main(s):
     s = ''.join(ch for ch in s.lower() if ch.isalnum())
     low, high = 0, len(s) - 1
     while low < high:
@@ -9,14 +16,26 @@ def x(s):
     return True
 
 
+for s in inputs:
+    print(main(s), end=' ')
+
+print()
+
+
 # T=n,S=n
-def y(s):
+def main(s):
     s = ''.join(ch for ch in s.lower() if ch.isalnum())
     return s == s[::-1]
 
 
+for s in inputs:
+    print(main(s), end=' ')
+
+print()
+
+
 # T=n,S=1
-def z(s):
+def main(s):
     low, high = 0, len(s) - 1
     while low < high:
         while low < high and not s[low].isalnum():
@@ -29,11 +48,5 @@ def z(s):
     return True
 
 
-for s in [
-    'A man, a plan, a canal: Panama',
-    'race a car',
-    '0P'
-]:
-    print(x(s), end=' ')
-    print(y(s), end=' ')
-    print(z(s))
+for s in inputs:
+    print(main(s), end=' ')
