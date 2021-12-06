@@ -67,8 +67,12 @@ testcases = [
     ['i', ' ', 'a', '#'],
     ['i', ' ', 'a', '#', 'i', ' ', 'a', '#', 'i', ' ', 'a', '#'],
 ]
+
 for testcase in testcases:
-    autocomplete = AutocompleteSystem(['i love you', 'island', 'ironman', 'i love leetcode'], [5, 3, 2, 2])
+    autocomplete = AutocompleteSystem(
+        ['i love you', 'island', 'ironman', 'i love leetcode'],
+        [5, 3, 2, 2]
+    )
     for prefix in testcase:
         print(autocomplete.input(prefix))
     print()

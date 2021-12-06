@@ -18,8 +18,7 @@ def getSize(graph, beginWord, endWord):
         if src == endWord:
             return dist
         for i in range(n):
-            intermediate = src[:i] + '*' + src[i + 1:]
-            for nbr in graph[intermediate]:
+            for nbr in graph[src[:i] + '*' + src[i + 1:]]:
                 if nbr not in vis:
                     vis.add(nbr)
                     queue.append((nbr, dist + 1))
@@ -39,8 +38,7 @@ def main(beginWord, endWord, wordList):
         vis.add(src)
         res = []
         for i in range(n):
-            intermediate = src[:i] + '*' + src[i + 1:]
-            for nbr in graph[intermediate]:
+            for nbr in graph[src[:i] + '*' + src[i + 1:]]:
                 if nbr not in vis and level < size:
                     for path in dfs(nbr, level + 1):
                         res.append([src] + path)
