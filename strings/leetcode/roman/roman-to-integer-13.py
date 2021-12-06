@@ -10,7 +10,7 @@ def main(s):
     n = len(s)
     while i < n:
         if i < n - 1 and map[s[i]] < map[s[i + 1]]:
-            res += map[s[i + 1]] - map[s[i]]
+            res += (map[s[i + 1]] - map[s[i]])
             i += 2
         else:
             res += map[s[i]]
