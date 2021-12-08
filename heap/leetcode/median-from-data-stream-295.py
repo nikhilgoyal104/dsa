@@ -11,7 +11,9 @@ def add(val):
 
 
 def peek():
-    return -maxhp[0] if len(maxhp) > len(minhp) else (minhp[0] + -maxhp[0]) / 2
+    if len(maxhp) > len(minhp):
+        return -maxhp[0]
+    return (minhp[0] + -maxhp[0]) / 2
 
 
 def main(nums):
