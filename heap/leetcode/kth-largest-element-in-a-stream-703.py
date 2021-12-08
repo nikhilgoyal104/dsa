@@ -1,7 +1,7 @@
 from heapq import *
 
 
-# T=nlogn+mlogk
+# T=nlogk+mlogk,S=k
 class KthLargest:
 
     def __init__(self, k, nums):
