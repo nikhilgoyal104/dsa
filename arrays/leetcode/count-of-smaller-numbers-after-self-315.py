@@ -1,6 +1,6 @@
 # T=nlogn,S=n
 def main(nums):
-    valToIndex = {val: i for i, val in enumerate(nums)}
+    pairs = [(val, i) for i, val in enumerate(nums)]
 
     def merge(nums1, nums2):
         res = []
