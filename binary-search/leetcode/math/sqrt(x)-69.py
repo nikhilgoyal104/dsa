@@ -1,3 +1,4 @@
+# T=logn
 def main(target):
     low, high = 0, target
     while low <= high:

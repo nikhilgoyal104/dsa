@@ -6,7 +6,7 @@ def main(nums, k):
     freq = Counter()
     for val in nums:
         freq[val % k] += 1
-    if freq[0] % 2:
+    if freq[0] % 2 == 1:
         return False
     del freq[0]
     for remainder in freq:

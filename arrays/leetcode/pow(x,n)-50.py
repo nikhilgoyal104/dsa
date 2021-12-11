@@ -2,15 +2,15 @@ def main(x, n):
     if n < 0:
         n, x = -n, 1 / x
 
-    def rec(n):
+    def dfs(n):
         if not n:
             return 1
-        half = rec(n // 2)
-        if n % 2:
-            return x * half * half
-        return half * half
+        subproblem = dfs(n // 2)
+        if n % 2 == 1:
+            return x * subproblem * subproblem
+        return subproblem * subproblem
 
-    return rec(n)
+    return dfs(n)
 
 
 for x, n in [
