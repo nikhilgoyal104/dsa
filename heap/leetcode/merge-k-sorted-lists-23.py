@@ -2,7 +2,7 @@ from heapq import *
 from util import b, ListNode
 
 
-# T=nklog(nk),S=nk
+# T=Nlog(N),S=N
 def main(lists):
     values = []
     for head in lists:
@@ -26,7 +26,7 @@ for lists in [
 print()
 
 
-# T=nk²,S=1
+# T=Nk,S=1
 def main(lists):
     def merge(h1, h2):
         if not h1:
@@ -54,7 +54,7 @@ for lists in [
 print()
 
 
-# T=k+nklogk,S=k
+# T=k+Nlogk,S=k
 def main(lists):
     heap = []
     for i, head in enumerate(lists):

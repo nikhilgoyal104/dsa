@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(nums):
+def main(nums):
     n = len(nums)
     stack, res = [], [-1] * n
     for i in range(2 * n):
@@ -12,4 +12,4 @@ def x(nums):
 for nums in [
     [1, 2, 1], [1, 2, 3, 4, 3]
 ]:
-    print(x(nums))
+    print(main(nums))

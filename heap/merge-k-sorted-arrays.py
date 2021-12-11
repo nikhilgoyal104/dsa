@@ -8,7 +8,7 @@ inputs = [
 ]
 
 
-# T=nklog(nk),S=nk
+# T=Nlog(N),S=N
 def main(arrays):
     res = []
     for array in arrays:
@@ -42,7 +42,7 @@ def merge(nums, b):
     return res
 
 
-# T=nk²,S=nk
+# T=Nk,S=N
 def main(arrays):
     merged = arrays[0]
     for i in range(1, len(arrays)):
@@ -56,7 +56,7 @@ for arrays in inputs:
 print()
 
 
-# T=k+nklogk,S=k+nk
+# T=k+Nlogk,S=k+N
 def main(arrays):
     res, heap = [], []
     for arr in arrays:
