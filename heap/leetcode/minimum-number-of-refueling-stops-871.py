@@ -8,16 +8,16 @@ inputs = [
 
 
 # T=nlogn,S=n
-def main(target, dist, stations):
+def main(target, fuel, stations):
     heap = []
     res = i = 0
-    while dist < target:
-        while i < len(stations) and stations[i][0] <= dist:
+    while fuel < target:
+        while i < len(stations) and stations[i][0] <= fuel:
             heappush(heap, -stations[i][1])
             i += 1
         if not heap:
             return -1
-        dist += -heappop(heap)
+        fuel += -heappop(heap)
         res += 1
     return res
 

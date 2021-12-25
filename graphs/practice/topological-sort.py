@@ -16,8 +16,7 @@ def main(n, edges):
         if src not in vis:
             dfs(src)
 
-    path.reverse()
-    return path
+    return list(reversed(path))
 
 
 for n, edges in [
