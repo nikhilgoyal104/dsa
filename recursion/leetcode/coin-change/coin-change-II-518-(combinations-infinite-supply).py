@@ -1,5 +1,5 @@
 # T=ns,S=ns
-def x(nums, total):
+def main(nums, total):
     n = len(nums)
     dp = [[0] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
@@ -35,4 +35,4 @@ for nums, total in [
       4858, 4875, 4892, 4909, 4926, 4943, 4960, 4977, 4994]
      , 3999)
 ]:
-    print(x(nums, total), end=' ')
+    print(main(nums, total), end=' ')
