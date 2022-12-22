@@ -15,7 +15,7 @@ def x(nums):
 # T=n²,S=1
 def y(nums):
     n = len(nums)
-    minSoFar = [None] * n
+    minSoFar = [0] * n
     minSoFar[0] = nums[0]
     for i in range(1, n - 2):
         minSoFar[i] = min(minSoFar[i - 1], nums[i])
@@ -31,7 +31,7 @@ def z(nums):
     n = len(nums)
     if n < 3:
         return False
-    stack, minSoFar = [], [None] * n
+    stack, minSoFar = [], [0] * n
     minSoFar[0] = nums[0]
     for i in range(1, n - 2):
         minSoFar[i] = min(minSoFar[i - 1], nums[i])

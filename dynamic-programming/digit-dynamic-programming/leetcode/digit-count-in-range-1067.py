@@ -1,4 +1,4 @@
-def x(d, low, high):
+def main(d, low, high):
     def helper(n):
         n, dp = str(n), {}
         size = len(n)
@@ -27,4 +27,4 @@ for d, low, high in [
     (3, 100, 250),
     (0, 1, 10)
 ]:
-    print(x(d, low, high))
+    print(main(d, low, high))

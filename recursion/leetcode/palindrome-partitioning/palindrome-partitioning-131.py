@@ -56,6 +56,7 @@ def z(s):
 
 
 for s in [
+    'abaaba',
     'nitin',
     'geeks',
     'aab',

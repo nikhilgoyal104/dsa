@@ -1,6 +1,5 @@
 from binarytree import build2
 from collections import defaultdict, deque
-from pprint import pprint
 
 r1 = build2([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4])
 r2 = build2([0, 1, None, 3, 2])

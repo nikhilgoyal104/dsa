@@ -1,5 +1,4 @@
 from collections import Counter, defaultdict
-from math import log2
 
 s = 'catsandog'
 

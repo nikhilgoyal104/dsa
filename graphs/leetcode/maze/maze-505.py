@@ -10,7 +10,7 @@ def outside(m, n, ri, ci):
 def roll(grid, ri, ci, i, j):
     m, n = len(grid), len(grid[0])
     nri, nci, weight = ri, ci, 0
-    while not outside(m, n, nri + i, nci + j) and grid[nri + i][nci + j] == 0:
+    while not outside(m, n, nri + i, nci + j) and grid[nri + i][nci + j] != 1:
         nri, nci = nri + i, nci + j
         weight += 1
     return nri, nci, weight
