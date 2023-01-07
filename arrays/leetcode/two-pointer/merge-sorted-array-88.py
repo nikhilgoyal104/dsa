@@ -1,6 +1,7 @@
+# T=m+n,S=m
 def main(nums1, nums2, m, n):
     acopy = nums1[:m]
-    i, j, k = 0, 0, 0
+    i = j = k = 0
     while i < m and j < n:
         if acopy[i] < nums2[j]:
             nums1[k] = acopy[i]
@@ -30,6 +31,7 @@ for nums1, nums2, m, n in [
 print()
 
 
+# T=m+n,S=1
 def main(nums1, nums2, m, n):
     i, j, k = m - 1, n - 1, m + n - 1
     while i >= 0 and j >= 0:

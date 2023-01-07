@@ -1,6 +1,3 @@
-from math import inf
-
-
 # T=nlogn
 def main(nums):
     if len(nums) < 5:

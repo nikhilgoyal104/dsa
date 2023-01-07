@@ -1,6 +1,3 @@
-from collections import Counter
-
-
 # T=n,S=1
 def main(nums, k):
     res = left = zeros = 0

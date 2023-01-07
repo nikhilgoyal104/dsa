@@ -1,4 +1,4 @@
-def x(nums, k):
+def main(nums, k):
     n = len(nums)
 
     def dfs(start, count):
@@ -17,4 +17,4 @@ for nums, k in [
     ([1, 2, 3], 2),
     ([1, 2, 3, 4], 2)
 ]:
-    print(x(nums, k))
+    print(main(nums, k))

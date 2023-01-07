@@ -1,10 +1,7 @@
-from math import inf
-
-
 # T=nlogn
 def x(nums):
     nums.sort()
-    n, least, res = len(nums), inf, []
+    n, least, res = len(nums), float('inf'), []
     for i in range(n - 1):
         least = min(least, nums[i + 1] - nums[i])
     for i in range(n - 1):
@@ -26,5 +23,5 @@ for nums in [
     [1, 3, 6, 10, 15],
     [3, 8, -10, 23, 19, -4, -14, 27]
 ]:
-    print(x(nums), end=' ')
+    print(x(nums))
     print(y(nums))

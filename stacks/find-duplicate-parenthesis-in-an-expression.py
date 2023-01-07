@@ -1,5 +1,5 @@
 # T=n,S=n
-def x(s):
+def main(s):
     stack = []
     for char in s:
         if char != ')':
@@ -16,4 +16,4 @@ def x(s):
 for s in [
     '(a)', '()', '(a+b)', '((a+b))', '((a+b)+((c+d)))', '((a+b)+(c+d))'
 ]:
-    print(x(s))
+    print(main(s))

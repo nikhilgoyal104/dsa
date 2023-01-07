@@ -1,5 +1,5 @@
 # T=n2ⁿ
-def x(nums):
+def main(nums):
     n, res, path = len(nums), [], []
 
     def dfs(start):
@@ -18,4 +18,4 @@ for nums in [
     [1],
     [1, 2, 3]
 ]:
-    print(x(nums))
+    print(main(nums))

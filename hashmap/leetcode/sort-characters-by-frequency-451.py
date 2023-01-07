@@ -1,5 +1,4 @@
 from collections import Counter
-from operator import itemgetter, attrgetter
 
 
 def w(s):

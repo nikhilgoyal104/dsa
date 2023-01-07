@@ -1,4 +1,3 @@
-from collections import defaultdict
 from heapq import heappop, heappush
 
 inputs = [

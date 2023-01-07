@@ -11,7 +11,9 @@ def reverse(s, low, high):
 
 # T=n,S=n
 def y(s):
-    s, n, start = list(s), len(s), 0
+    n = len(s)
+    s = list(s)
+    start = 0
     for end in range(n):
         if s[end] == ' ':
             reverse(s, start, end - 1)
@@ -22,7 +24,9 @@ def y(s):
 
 # T=n,S=n
 def z(s):
-    s, n, start = list(s), len(s), 0
+    n = len(s)
+    s = list(s)
+    start = 0
     for end in range(n + 1):
         if end == n or s[end] == ' ':
             reverse(s, start, end - 1)

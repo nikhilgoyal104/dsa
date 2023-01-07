@@ -1,16 +1,29 @@
 from collections import defaultdict
 
+inputs = [
+    ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'],
+    ['pepcoding', 'codingpep', 'pepper', 'rapper', 'repepp'],
+    ['a'],
+    ['']
+]
+
 
 # T=NKlogK,S=NK
-def x(words):
+def main(words):
     group = defaultdict(list)
     for word in words:
         group[''.join(sorted(word))].append(word)
     return group.values()
 
 
+for words in inputs:
+    print(main(words))
+
+print()
+
+
 # T=NK,S=NK
-def y(words):
+def main(words):
     group = defaultdict(list)
     for word in words:
         count = [0] * 26
@@ -20,11 +33,5 @@ def y(words):
     return group.values()
 
 
-for words in [
-    ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'],
-    ['pepcoding', 'codingpep', 'pepper', 'rapper', 'repepp'],
-    ['a'],
-    ['']
-]:
-    print(x(words), end=' ')
-    print(y(words))
+for words in inputs:
+    print(main(words))

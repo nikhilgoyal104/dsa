@@ -1,7 +1,5 @@
 # T=nlogn,S=n
 def main(nums):
-    pairs = [(val, i) for i, val in enumerate(nums)]
-
     def merge(nums1, nums2):
         res = []
         m, n = len(nums1), len(nums2)

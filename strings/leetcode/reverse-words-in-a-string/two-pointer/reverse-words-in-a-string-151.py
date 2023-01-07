@@ -1,6 +1,20 @@
+inputs = [
+    'the sky is blue',
+    '  hello world  ',
+    'a good   example',
+    '  Bob    Loves  Alice   '
+]
+
+
 # T=n,S=n
-def x(s):
+def main(s):
     return ' '.join(reversed(s.split()))
+
+
+for s in inputs:
+    print(main(s))
+
+print()
 
 
 def clean(s):
@@ -26,7 +40,7 @@ def reverse(s, low, high):
 
 
 # T=n,S=n
-def y(s):
+def main(s):
     s = clean(s)
     n, start = len(s), 0
     for end in range(n + 1):
@@ -37,11 +51,5 @@ def y(s):
     return ''.join(s)
 
 
-for s in [
-    'the sky is blue',
-    '  hello world  ',
-    'a good   example',
-    '  Bob    Loves  Alice   '
-]:
-    print(x(s), end=' ')
-    print(y(s))
+for s in inputs:
+    print(main(s))

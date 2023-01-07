@@ -5,7 +5,7 @@ def reverse(s, low, high):
 
 
 # T=n,S=1
-def x(s):
+def main(s):
     n, start = len(s), 0
     for end in range(n + 1):
         if end == n or s[end] == ' ':
@@ -18,5 +18,5 @@ for s in [
     ['t', 'h', 'e', ' ', 's', 'k', 'y', ' ', 'i', 's', ' ', 'b', 'l', 'u', 'e'],
     ['a']
 ]:
-    x(s)
+    main(s)
     print(s)

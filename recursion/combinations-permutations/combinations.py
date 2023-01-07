@@ -85,11 +85,11 @@ def y(nums, total):
             return [[]]
         if sum > total:
             return []
-        key = start, total
+        key = start, sum
         if key in dp:
             return dp[key]
         dp[key] = []
-        for i in range(start, len(nums)):
+        for i in range(start, n):
             for path in dfs(i + 1, sum + nums[i]):
                 dp[key].append([nums[i]] + path)
         return dp[key]
