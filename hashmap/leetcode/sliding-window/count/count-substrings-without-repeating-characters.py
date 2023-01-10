@@ -46,6 +46,7 @@ for s in [
     'abcabcbb',
     'bbbbb',
     'pwwkew',
+    'gffg',
     '',
     ' '
 ]:
