@@ -8,7 +8,7 @@ def main(nums):
     for i in range(n - 2, -1, -1):
         rightMax[i] = max(rightMax[i + 1], nums[i])
     res = 0
-    for i in range(1, n):
+    for i in range(1, n - 1):
         res += min(leftMax[i], rightMax[i]) - nums[i]
     return res
 
