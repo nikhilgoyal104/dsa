@@ -1,8 +1,11 @@
-from math import inf
+inputs = [
+    [7, 1, 5, 3, 6, 4],
+    [7, 6, 4, 3, 1]
+]
 
 
 # T=n²,S=1
-def x(nums):
+def main(nums):
     n, profit = len(nums), 0
     for i in range(n - 1):
         for j in range(i + 1, n):
@@ -10,16 +13,52 @@ def x(nums):
     return profit
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=1
-def y(nums):
-    least, profit = inf, 0
+def main(nums):
+    least, profit = float('inf'), 0
     for val in nums:
         profit = max(profit, val - least)
         least = min(least, val)
     return profit
 
 
-def z(nums):
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
+# T=2ⁿ,S=n
+def main(nums):
+    n = len(nums)
+
+    def dfs(i, stock, k):
+        if i == n or not k:
+            return 0
+        nothing = dfs(i + 1, stock, k)
+        if stock:
+            sell = dfs(i + 1, False, k - 1) + nums[i]
+            return max(sell, nothing)
+        buy = dfs(i + 1, True, k) - nums[i]
+        return max(buy, nothing)
+
+    return dfs(0, False, 1)
+
+
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
+# T=n,S=n
+def main(nums):
     n, dp = len(nums), {}
 
     def dfs(i, stock, k):
@@ -28,19 +67,17 @@ def z(nums):
         key = i, stock, k
         if key in dp:
             return dp[key]
+        nothing = dfs(i + 1, stock, k)
         if stock:
-            dp[key] = max(dfs(i + 1, False, k - 1) + nums[i], dfs(i + 1, stock, k))
-        else:
-            dp[key] = max(dfs(i + 1, True, k) - nums[i], dfs(i + 1, stock, k))
+            sell = dfs(i + 1, False, k - 1) + nums[i]
+            dp[key] = max(sell, nothing)
+            return dp[key]
+        buy = dfs(i + 1, True, k) - nums[i]
+        dp[key] = max(buy, nothing)
         return dp[key]
 
     return dfs(0, False, 1)
 
 
-for nums in [
-    [7, 1, 5, 3, 6, 4],
-    [7, 6, 4, 3, 1]
-]:
-    print(x(nums), end=' ')
-    print(y(nums), end=' ')
-    print(z(nums))
+for nums in inputs:
+    print(main(nums), end=' ')

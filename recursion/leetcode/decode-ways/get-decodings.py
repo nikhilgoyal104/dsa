@@ -7,7 +7,7 @@ def construct():
 
 
 # T=n,S=n
-def x(s):
+def main(s):
     dp = {'': ['']}
     decoder = construct()
 
@@ -30,4 +30,4 @@ def x(s):
 for s in [
     '12', '123', '226', '0', '06', '27', '1201234'
 ]:
-    print(x(s))
+    print(main(s))
