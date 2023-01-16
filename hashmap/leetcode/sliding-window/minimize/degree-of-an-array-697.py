@@ -1,10 +1,9 @@
-from math import inf
 from collections import Counter
 
 
 # T=n,S=n
 def main(nums):
-    res, n = inf, len(nums)
+    res, n = float('inf'), len(nums)
     degree = max(Counter(nums).values())
     left, freq = 0, Counter()
     for right in range(n):

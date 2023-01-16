@@ -1,5 +1,4 @@
 from collections import Counter
-from math import inf
 
 
 # T=m+n,S=m+n
@@ -7,7 +6,7 @@ def main(s, t):
     m, n = len(s), len(t)
     map1, map2 = Counter(), Counter(t)
     start = matched = left = 0
-    minLen = inf
+    minLen = float('inf')
     for right in range(m):
         map1[s[right]] += 1
         if map1[s[right]] <= map2[s[right]]:
@@ -19,7 +18,7 @@ def main(s, t):
             if map1[s[left]] < map2[s[left]]:
                 matched -= 1
             left += 1
-    return s[start:start + minLen if minLen != inf else 0]
+    return s[start:start + minLen if minLen != float('inf') else 0]
 
 
 for s, t in [

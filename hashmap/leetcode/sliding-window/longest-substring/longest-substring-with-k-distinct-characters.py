@@ -3,8 +3,9 @@ from collections import Counter
 
 # T=n,S=1
 def main(s, k):
-    res, n = 0, len(s)
-    freq, left = Counter(), 0
+    n = len(s)
+    freq = Counter()
+    res = left = 0
     for right in range(n):
         freq[s[right]] += 1
         while len(freq) > k:

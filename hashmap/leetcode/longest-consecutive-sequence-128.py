@@ -22,6 +22,24 @@ for nums in inputs:
 print()
 
 
+# T=n²,S=n
+def main(nums):
+    res = 0
+    numsSet = set(nums)
+    for val in nums:
+        size = 1
+        while val + size in numsSet:
+            size += 1
+        res = max(res, size)
+    return res
+
+
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=nlogn,S=1
 def main(nums):
     nums = sorted(nums)
@@ -43,7 +61,8 @@ print()
 
 # T=n,S=n
 def main(nums):
-    numsSet, res = set(nums), 0
+    res = 0
+    numsSet = set(nums)
     for val in nums:
         if val - 1 not in numsSet:
             size = 1

@@ -27,8 +27,9 @@ def y(s):
 
 # T=n,S=1
 def z(s):
-    res, n = 0, len(s)
-    freq, left = Counter(), 0
+    n = len(s)
+    res = left = 0
+    freq = Counter()
     for right in range(n):
         freq[s[right]] += 1
         while freq[s[right]] > 1:

@@ -13,13 +13,12 @@ def main(s, k):
             if not freq[s[left]]:
                 del freq[s[left]]
             left += 1
-        res += (right - left + 1)
+        res = max(res, right - left + 1)
     return res
 
 
 for s, k in [
     ('aaaaa', 3),
-    ('aabcbcdbca', 2),
     ('aabacbebebe', 3),
     ('ddacbbaccdedacebb', 3),
     ('loveleetcode', 4),
