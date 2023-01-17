@@ -5,7 +5,10 @@ from linked.util import build
 def main(head):
     prev, curr = None, head
     while curr:
-        curr.next, prev, curr = prev, curr, curr.next
+        future = curr.next
+        curr.next = prev
+        prev = curr
+        curr = future
     return prev
 
 
@@ -21,14 +24,15 @@ print()
 
 # T=n,S=n
 def main(head):
-    def rec(head):
+    def dfs(head):
         if not head or not head.next:
             return head
-        last = rec(head.next)
-        head.next.next, head.next = head, None
+        last = dfs(head.next)
+        head.next.next = head
+        head.next = None
         return last
 
-    return rec(head)
+    return dfs(head)
 
 
 for head in [
