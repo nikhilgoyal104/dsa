@@ -1,9 +1,6 @@
-from math import inf
-
-
 def main(nums):
     nums.sort(key=lambda x: x[1])
-    res, prevEnd = 0, -inf
+    res, prevEnd = 0, float('-inf')
     for currStart, currEnd in nums:
         if currStart > prevEnd:
             prevEnd, res = currEnd, res + 1
