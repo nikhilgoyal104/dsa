@@ -14,9 +14,10 @@ def x(nums):
 
 # T=n,S=n
 def y(nums):
-    res, n = 0, len(nums)
+    n = len(nums)
+    res = sum = 0
+    sumToIndex = {0: -1}
     nums = [-1 if not val else 1 for val in nums]
-    sum, sumToIndex = 0, {0: -1}
     for i in range(n):
         sum += nums[i]
         if sum in sumToIndex:

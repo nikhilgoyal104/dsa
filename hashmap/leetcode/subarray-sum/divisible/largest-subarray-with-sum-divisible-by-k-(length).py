@@ -1,7 +1,8 @@
 # T=n,S=k
 def main(nums, k):
-    res, n = 0, len(nums)
-    sum, remainderToIndex = 0, {0: -1}
+    n = len(nums)
+    res = sum = 0
+    remainderToIndex = {0: -1}
     for i in range(n):
         sum += nums[i]
         remainder = sum % k

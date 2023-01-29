@@ -3,8 +3,9 @@ from collections import Counter
 
 # T=n,S=k
 def main(nums, k):
-    res, n = 0, len(nums)
-    sum, remainderFreq = 0, Counter({0: 1})
+    n = len(nums)
+    res = sum = 0
+    remainderFreq = Counter({0: 1})
     for i in range(n):
         sum += nums[i]
         res += remainderFreq[sum % k]

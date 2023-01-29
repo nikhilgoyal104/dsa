@@ -4,10 +4,10 @@ from collections import Counter
 # T=n,S=n
 def main(nums):
     remainders = [val % 60 for val in nums]
-    res, freq = 0, Counter(remainders)
+    res, remainderFreq = 0, Counter(remainders)
     for remainder in remainders:
         complement = 60 - remainder
-        res += freq[complement] if remainder else freq[0]
+        res += remainderFreq[complement] if remainder else remainderFreq[0]
         if remainder == complement or not remainder:
             res -= 1
     return res // 2

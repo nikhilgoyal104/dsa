@@ -1,11 +1,8 @@
-from math import inf
-
-
 # T=n²,S=1
 def main(nums):
     res, n = 1, len(nums)
     for i in range(n):
-        minEle, maxEle = inf, -inf
+        minEle, maxEle = float('inf'), float('-inf')
         for j in range(i, n):
             minEle = min(minEle, nums[j])
             maxEle = max(maxEle, nums[j])

@@ -5,7 +5,7 @@ from math import inf
 def main(nums):
     res, n = 0, len(nums)
     for i in range(n):
-        minEle, maxEle, vis = inf, -inf, set()
+        minEle, maxEle, vis = float('inf'), float('-inf'), set()
         for j in range(i, n):
             if nums[j] in vis:
                 break

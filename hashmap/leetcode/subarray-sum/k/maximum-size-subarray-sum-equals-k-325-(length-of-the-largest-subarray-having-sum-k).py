@@ -12,8 +12,9 @@ def x(nums, k):
 
 # T=n,S=n
 def y(nums, k):
-    res, n = 0, len(nums)
-    sum, sumToIndex = 0, {0: -1}
+    n = len(nums)
+    res = sum = 0
+    sumToIndex = {0: -1}
     for i in range(n):
         sum += nums[i]
         if sum - k in sumToIndex:

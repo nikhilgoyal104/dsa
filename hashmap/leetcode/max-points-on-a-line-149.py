@@ -1,5 +1,4 @@
 from collections import Counter
-from math import inf
 
 
 # T=n²,S=n
@@ -11,7 +10,7 @@ def main(points):
         for j in range(i + 1, n):
             x2, y2 = points[j][0], points[j][1]
             num, den = y2 - y1, x2 - x1
-            slope = num / den if den else inf
+            slope = num / den if den else float('inf')
             slopeFreq[slope] += 1
         res = max(res, 1 + max(slopeFreq.values(), default=0))
     return res
