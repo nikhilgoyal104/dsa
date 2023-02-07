@@ -1,7 +1,5 @@
 from binarytree import build2
 from collections import deque, defaultdict
-from math import inf
-from heapq import heappop, heappush, heapify
 
 inputs = [
     build2([3, 9, 20, None, None, 15, 7]),
@@ -17,7 +15,7 @@ inputs = [
 def main(root):
     queue = deque([(root, 0, 0)])
     colToValues = defaultdict(list)
-    minCol, maxCol = inf, -inf
+    minCol, maxCol = float('inf'), float('-inf')
     while queue:
         node, row, col = queue.popleft()
         minCol, maxCol = min(minCol, col), max(maxCol, col)

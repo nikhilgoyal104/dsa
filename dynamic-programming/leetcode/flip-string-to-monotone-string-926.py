@@ -1,6 +1,3 @@
-from math import inf
-
-
 # T=n,S=1
 def main(s):
     res = ones = 0

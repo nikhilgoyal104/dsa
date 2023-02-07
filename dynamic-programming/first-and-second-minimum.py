@@ -1,7 +1,7 @@
 from math import inf
 
 nums = [1, 2, 1, -5, 3, 4, -5, -1, -2]
-firstMin, secondMin = inf, inf
+firstMin = secondMin = float('inf')
 
 for val in nums:
     if val < firstMin:
@@ -12,7 +12,7 @@ for val in nums:
 print(firstMin, secondMin)
 
 nums = [1, 2, 1, -5, 3, 4, -5, -1, -2]
-firstMin, secondMin = inf, inf
+firstMin = secondMin = float('inf')
 
 for val in nums:
     if val < firstMin:
