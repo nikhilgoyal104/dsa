@@ -1,6 +1,6 @@
 from graphs.util import build
 
-edgesList = [
+inputs = [
     [(0, 1), (2, 3), (4, 5), (4, 6), (5, 6)]
 ]
 
@@ -25,5 +25,5 @@ def main(edges):
     return res
 
 
-for edges in edgesList:
+for edges in inputs:
     print(main(edges))

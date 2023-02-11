@@ -1,7 +1,7 @@
 from collections import defaultdict, deque
 from graphs.util import build
 
-edgesList = [
+inputs = [
     [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (0, 3), (4, 6)],
     [(0, 1), (2, 3), (4, 5), (4, 6), (5, 6)]
 ]
@@ -26,7 +26,7 @@ def main(edges):
             bfs(src)
 
 
-for edges in edgesList:
+for edges in inputs:
     main(edges)
     print()
 
@@ -54,7 +54,7 @@ def main(edges):
             bfs(src)
 
 
-for edges in edgesList:
+for edges in inputs:
     main(edges)
     print()
 
@@ -78,6 +78,6 @@ def main(edges):
             bfs(src)
 
 
-for edges in edgesList:
+for edges in inputs:
     main(edges)
     print()

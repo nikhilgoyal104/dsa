@@ -16,7 +16,6 @@ def cyclic(graph, src, vis, path):
 
 def main(n, edges):
     graph, vis = build3(n, edges), set()
-    path = set()
     for src in range(n):
         if src not in vis:
             if cyclic(graph, src, vis, path):
