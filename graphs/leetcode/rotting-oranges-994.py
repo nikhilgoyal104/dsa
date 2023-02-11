@@ -18,11 +18,13 @@ def main(grid):
 
 
 def bfs(grid, fresh, rotten):
-    m, n, minutes = len(grid), len(grid[0]), 0
+    m, n = len(grid), len(grid[0])
+    minutes = 0
+    offsets = (-1, 0), (0, 1), (1, 0), (0, -1)
     while rotten:
         for _ in range(len(rotten)):
             ri, ci = rotten.popleft()
-            for i, j in (-1, 0), (0, 1), (1, 0), (0, -1):
+            for i, j in offsets:
                 if outside(ri + i, ci + j, m, n) or grid[ri + i][ci + j] in [0, 2]:
                     continue
                 grid[ri + i][ci + j] = 2

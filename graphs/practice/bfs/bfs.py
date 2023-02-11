@@ -8,7 +8,8 @@ inputs = [
 
 
 def main(edges):
-    graph, vis = build(edges), set()
+    graph = build(edges)
+    vis = set()
 
     def bfs(src):
         queue = deque([src])
@@ -34,7 +35,8 @@ print()
 
 
 def main(edges):
-    graph, vis = build(edges), set()
+    graph = build(edges)
+    vis = set()
 
     def bfs(src):
         queue = deque([src])
@@ -60,7 +62,8 @@ for edges in inputs:
 
 
 def main(edges):
-    graph, vis = build(edges), set()
+    graph = build(edges)
+    vis = set()
 
     def bfs(src):
         queue = deque([src])

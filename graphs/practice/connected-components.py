@@ -6,7 +6,8 @@ inputs = [
 
 
 def main(edges):
-    graph, vis = build(edges), set()
+    graph = build(edges)
+    vis = set()
     res = []
 
     def dfs(src):

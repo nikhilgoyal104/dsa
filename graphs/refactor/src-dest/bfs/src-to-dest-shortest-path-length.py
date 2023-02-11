@@ -7,7 +7,8 @@ def add(graph, u, v):
 
 
 def bfs(graph, src, dest):
-    queue, vis = deque([(src, 0)]), {src}
+    queue = deque([(src, 0)])
+    vis = {src}
     while queue:
         src, dist = queue.popleft()
         if src == dest:

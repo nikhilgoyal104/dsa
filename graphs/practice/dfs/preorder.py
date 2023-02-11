@@ -3,8 +3,9 @@ from graphs.util import build
 
 
 def main(edges):
-    graph, vis = build(edges), set()
     res = []
+    graph = build(edges)
+    vis = set()
 
     def dfs(src):
         vis.add(src)

@@ -12,7 +12,8 @@ def build(edges, directed):
 
 def main(edges, directed, src, dest):
     graph = build(edges, directed)
-    path, vis = [], set()
+    vis = set()
+    path = []
 
     def dfs(src):
         path.append(src)

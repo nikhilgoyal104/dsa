@@ -6,9 +6,9 @@ def outside(m, n, ri, ci):
 
 
 def main(grid):
-    vis = set()
     m, n = len(grid), len(grid[0])
     offsets = (-1, 0), (0, 1), (1, 0), (0, -1)
+    vis = set()
 
     def dfs(ri, ci):
         if outside(m, n, ri, ci) or (ri, ci) in vis:

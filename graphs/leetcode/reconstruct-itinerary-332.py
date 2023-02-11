@@ -3,7 +3,8 @@ from heapq import *
 
 
 def main(edges):
-    res, graph = [], defaultdict(list)
+    res = []
+    graph = defaultdict(list)
     for src, dest in edges:
         heappush(graph[src], dest)
 

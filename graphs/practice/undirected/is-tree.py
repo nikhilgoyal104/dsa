@@ -9,7 +9,8 @@ inputs = [
 
 
 def main(n, edges):
-    graph, vis = build2(n, edges), set()
+    graph = build2(n, edges)
+    vis = set()
 
     def dfs(src, parent):
         vis.add(src)
@@ -31,7 +32,8 @@ print()
 
 
 def main(n, edges):
-    graph, vis = build2(n, edges), set()
+    graph = build2(n, edges)
+    vis = set()
 
     def dfs(src):
         vis.add(src)

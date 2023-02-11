@@ -3,7 +3,8 @@ from graphs.util import build3
 
 def main(n, edges):
     graph = build3(n, edges)
-    path, vis = [], set()
+    vis = set()
+    path = []
 
     def dfs(src):
         vis.add(src)
