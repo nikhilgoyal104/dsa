@@ -1,11 +1,11 @@
 # T=n,S=n
 def main(s):
-    def rec(low, high):
+    def dfs(low, high):
         if low < high:
             s[low], s[high] = s[high], s[low]
-            rec(low + 1, high - 1)
+            dfs(low + 1, high - 1)
 
-    rec(0, len(s) - 1)
+    dfs(0, len(s) - 1)
 
 
 for s in [
