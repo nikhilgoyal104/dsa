@@ -1,3 +1,31 @@
+inputs = [
+    [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1],
+    [4, 2, 0, 3, 2, 5],
+    [3, 0, 0, 2, 0, 4],
+    [2, 0, 2]
+]
+
+
+# T=n²,S=1
+def main(nums):
+    n = len(nums)
+    res = 0
+    for i in range(n):
+        leftMax = rightMax = nums[i]
+        for j in range(i):
+            leftMax = max(leftMax, nums[j])
+        for k in range(i + 1, n):
+            rightMax = max(rightMax, nums[k])
+        res += min(leftMax, rightMax) - nums[i]
+    return res
+
+
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=n
 def main(nums):
     n = len(nums)
@@ -15,8 +43,5 @@ def main(nums):
     return res
 
 
-for nums in [
-    [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1],
-    [3, 0, 0, 2, 0, 4]
-]:
-    print(main(nums))
+for nums in inputs:
+    print(main(nums), end=' ')
