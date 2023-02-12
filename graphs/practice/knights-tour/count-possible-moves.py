@@ -19,6 +19,7 @@ for grid, sri, sci in [(
             [0, 1, 1, 1],
             [1, 1, 0, 1],
             [0, 1, 1, 1]
-        ], 2, 2)
+        ],
+        2, 2)
 ]:
     print(main(grid, sri, sri))
