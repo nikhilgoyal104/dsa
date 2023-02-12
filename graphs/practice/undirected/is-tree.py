@@ -22,7 +22,9 @@ def main(n, edges):
                 return True
         return False
 
-    return False if dfs(0, -1) else len(vis) == n
+    if dfs(0, -1):
+        return False
+    return len(vis) == n
 
 
 for n, edges in inputs:

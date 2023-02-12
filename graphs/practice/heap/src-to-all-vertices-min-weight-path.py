@@ -1,18 +1,13 @@
 from heapq import heappush, heappop
-
-
-def build(n, edges):
-    graph = {i: [] for i in range(n)}
-    for src, dest, cost in edges:
-        graph[src].append((dest, cost))
-        graph[dest].append((src, cost))
-    return graph
+from graphs.util import build4
 
 
 def main(n, edges):
-    res, vis = 0, set()
-    heap, graph = [], build(n, edges)
+    res = 0
+    graph = build4(n, edges)
+    heap = []
     heappush(heap, (0, 0, [0]))
+    vis = set()
     while heap:
         weightSoFar, src, pathSoFar = heappop(heap)
         if src in vis:

@@ -1,7 +1,13 @@
 from graphs.util import build
 
+inputs = [
+    ([(0, 1), (0, 3), (1, 2), (3, 2), (3, 4), (4, 5), (4, 6), (5, 6)], [(0, 6), (2, 5)]),
+    ([(0, 1), (0, 3), (1, 2), (3, 2), (4, 5), (4, 6), (5, 6)], [(0, 2), (2, 5)])
+]
 
-def x(graph, src, dest):
+
+def main(edges, src, dest):
+    graph = build(edges)
     vis = set()
 
     def dfs(src):
@@ -19,8 +25,17 @@ def x(graph, src, dest):
     return dfs(src)
 
 
-def y(graph, src, dest):
-    dp, vis = {dest: [[dest]]}, set()
+for edges, data in inputs:
+    for src, dest in data:
+        print(main(edges, src, dest))
+
+print()
+
+
+def main(edges, src, dest):
+    graph = build(edges)
+    vis = set()
+    dp = {dest: [[dest]]}
 
     def dfs(src):
         if src in dp:
@@ -37,15 +52,6 @@ def y(graph, src, dest):
     return dfs(src)
 
 
-def main(edges, src, dest):
-    graph = build(edges)
-    print(x(graph, src, dest))
-    print(y(graph, src, dest))
-
-
-for edges, data in [
-    ([(0, 1), (0, 3), (1, 2), (3, 2), (3, 4), (4, 5), (4, 6), (5, 6)], [(0, 6), (2, 5)]),
-    ([(0, 1), (0, 3), (1, 2), (3, 2), (4, 5), (4, 6), (5, 6)], [(0, 2), (2, 5)]),
-]:
-    [main(edges, src, dest) for src, dest in data]
-    print()
+for edges, data in inputs:
+    for src, dest in data:
+        print(main(edges, src, dest))

@@ -39,7 +39,8 @@ print()
 def main(grid):
     m, n = len(grid), len(grid[0])
     offsets = (0, 1), (1, 0), (0, -1), (-1, 0)
-    queue, vis = deque([(0, 0)]), {(0, 0)}
+    queue = deque([(0, 0)])
+    vis = {(0, 0)}
     while queue:
         for _ in range(len(queue)):
             ri, ci = queue.popleft()

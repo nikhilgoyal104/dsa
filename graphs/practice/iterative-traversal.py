@@ -3,9 +3,10 @@ from graphs.util import build
 
 
 def main(edges):
-    graph, vis = build(edges), set()
+    graph = build(edges)
+    vis = set()
 
-    def travel(src):
+    def dfs(src):
         stack = [src]
         vis.add(src)
         while stack:
@@ -18,7 +19,7 @@ def main(edges):
 
     for src in graph:
         if src not in vis:
-            travel(src)
+            dfs(src)
             print()
 
 

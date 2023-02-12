@@ -3,9 +3,9 @@ def outside(ri, ci, m, n):
 
 
 def main(grid, sri, sci):
+    res = 0
     m, n = len(grid), len(grid[0])
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
-    res = 0
     for i, j in offsets:
         if outside(sri + i, sci + j, m, n) or grid[sri + i][sci + j]:
             continue

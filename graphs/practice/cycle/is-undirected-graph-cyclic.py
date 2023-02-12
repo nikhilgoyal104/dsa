@@ -17,7 +17,12 @@ def main(n, edges):
                 return True
         return False
 
-    return dfs(0, -1)
+    for src in graph:
+        if src not in vis:
+            if dfs(src, -1):
+                return True
+
+    return False
 
 
 for n, edges in [

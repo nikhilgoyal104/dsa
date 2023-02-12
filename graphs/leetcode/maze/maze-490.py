@@ -11,8 +11,8 @@ def roll(grid, ri, ci, i, j):
 
 
 def main(grid, sri, sci, dri, dci):
-    vis = set()
     offsets = (-1, 0), (0, 1), (1, 0), (0, -1)
+    vis = set()
 
     def dfs(ri, ci):
         if (ri, ci) in vis:

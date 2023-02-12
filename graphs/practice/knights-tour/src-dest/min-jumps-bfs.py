@@ -9,7 +9,8 @@ def outside(m, n, ri, ci):
 # T=n²,S=n²
 def bfs(m, n, sri, sci, dri, dci):
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
-    queue, vis = deque([(sri, sci, 0)]), {(sri, sci)}
+    queue = deque([(sri, sci, 0)])
+    vis = {(sri, sci)}
     while queue:
         ri, ci, dist = queue.popleft()
         if (ri, ci) == (dri, dci):

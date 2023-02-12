@@ -3,8 +3,10 @@ from graphs.util import build
 
 
 def main(edges):
-    graph, vis = build(edges), {0}
-    queue, res = deque([(0, 0)]), 0
+    res = 0
+    graph = build(edges)
+    queue = deque([(0, 0)])
+    vis = {0}
     while queue:
         src, dist = queue.popleft()
         if dist == 2:

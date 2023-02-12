@@ -12,7 +12,8 @@ def construct(wordList):
 
 def getSize(graph, beginWord, endWord):
     n = len(beginWord)
-    queue, vis = deque([(beginWord, 1)]), set()
+    queue = deque([(beginWord, 1)])
+    vis = set()
     while queue:
         src, dist = queue.popleft()
         if src == endWord:

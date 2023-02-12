@@ -34,8 +34,8 @@ for m, n, sri, sci, dri, dci in inputs:
 
 
 def main(m, n, sri, sci, dri, dci):
-    vis = set()
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
+    vis = set()
 
     def dfs(ri, ci):
         if outside(m, n, ri, ci) or (ri, ci) in vis:

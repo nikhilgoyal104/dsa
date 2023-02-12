@@ -1,12 +1,9 @@
 from collections import defaultdict, deque
+from graphs.util import build
 
 
-def add(graph, u, v):
-    graph[u].append(v)
-    graph[v].append(u)
-
-
-def bfs(graph, src, dest):
+def bfs(edges, src, dest):
+    graph = build(edges)
     queue = deque([(src, 0)])
     vis = {src}
     while queue:
@@ -20,15 +17,9 @@ def bfs(graph, src, dest):
     return -1
 
 
-def main(edges, src, dest):
-    graph = defaultdict(list)
-    [add(graph, u, v) for u, v in edges]
-    print(bfs(graph, src, dest))
-
-
 for edges, data in [
     ([(0, 1), (0, 3), (1, 2), (3, 2), (3, 4), (4, 5), (4, 6), (5, 6)], [(0, 6), (2, 5)]),
     ([(0, 1), (0, 3), (1, 2), (3, 2), (4, 5), (4, 6), (5, 6)], [(0, 2), (2, 5)]),
 ]:
-    [main(edges, src, dest) for src, dest in data]
-    print()
+    for src, dest in data:
+        print(bfs(edges, src, dest))

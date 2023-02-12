@@ -3,7 +3,8 @@ from graphs.util import build
 
 def main(edges, src, dest):
     graph = build(edges)
-    path, vis = [], set()
+    vis = set()
+    path = []
 
     def dfs(src):
         if src == dest:

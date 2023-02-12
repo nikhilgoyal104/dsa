@@ -3,7 +3,9 @@ from graphs.util import build
 
 
 def main(edges):
-    graph, vis = build(edges), set()
+    res = 0
+    graph = build(edges)
+    vis = set()
 
     def dfs(src):
         vis.add(src)
@@ -13,13 +15,12 @@ def main(edges):
                 res += dfs(nbr)
         return res
 
-    countPerClub = []
+    count = []
     for src in graph:
         if src not in vis:
-            countPerClub.append(dfs(src))
-    res = 0
-    for i in range(len(countPerClub)):
-        res += countPerClub[i] * sum(countPerClub[i + 1:])
+            count.append(dfs(src))
+    for i in range(len(count)):
+        res += count[i] * sum(count[i + 1:])
     return res
 
 

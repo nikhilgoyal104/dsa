@@ -16,7 +16,8 @@ def main(beginWord, endWord, wordList):
     n = len(beginWord)
     wordList.append(beginWord)
     graph = construct(wordList)
-    queue, vis = deque([(beginWord, 1)]), set()
+    queue = deque([(beginWord, 1)])
+    vis = set()
     while queue:
         src, dist = queue.popleft()
         if src == endWord:
