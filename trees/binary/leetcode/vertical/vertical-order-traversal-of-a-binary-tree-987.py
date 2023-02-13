@@ -30,4 +30,5 @@ def main(root):
 
 
 for root in inputs:
+    print(root)
     print(main(root))

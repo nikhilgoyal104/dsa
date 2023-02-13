@@ -19,6 +19,7 @@ def main(root):
 
 for root in [
     build2([1, 2, 3, None, 5, None, 4]),
-    build2([]),
+    build2([])
 ]:
+    print(root)
     print(main(root))

@@ -1,15 +1,15 @@
 from binarytree import build2, build
 from collections import defaultdict, deque
-from math import inf
 
 
 # T=n,S=n
 def main(root):
     if not root:
         return []
-    res, colToValues = [], {}
+    res = []
+    colToValues = {}
     queue = deque([(root, 0)])
-    minCol, maxCol = inf, -inf
+    minCol, maxCol = float('inf'), float('-inf')
     while queue:
         node, col = queue.popleft()
         minCol, maxCol = min(minCol, col), max(maxCol, col)
@@ -27,4 +27,5 @@ for root in [
     build2([1, 2, 3, 4, 5, 6, 7]),
     build2([1, 2, 3, None, 4, None, None, None, 5, None, 6])
 ]:
+    print(root)
     print(main(root))

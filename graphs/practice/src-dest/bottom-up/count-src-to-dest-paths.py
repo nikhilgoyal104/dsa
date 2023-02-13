@@ -12,13 +12,12 @@ def main(edges, src, dest):
 
     def dfs(src):
         if src == dest:
-            return [[dest]]
+            return 1
         vis.add(src)
-        res = []
+        res = 0
         for nbr in graph[src]:
             if nbr not in vis:
-                for path in dfs(nbr):
-                    res.append([src] + path)
+                res += dfs(nbr)
         vis.remove(src)
         return res
 
@@ -27,25 +26,24 @@ def main(edges, src, dest):
 
 for edges, data in inputs:
     for src, dest in data:
-        print(main(edges, src, dest))
+        print(main(edges, src, dest), end=' ')
 
 print()
 
 
 def main(edges, src, dest):
     graph = build(edges)
+    dp = {dest: 1}
     vis = set()
-    dp = {dest: [[dest]]}
 
     def dfs(src):
         if src in dp:
             return dp[src]
         vis.add(src)
-        dp[src] = []
+        dp[src] = 0
         for nbr in graph[src]:
             if nbr not in vis:
-                for path in dfs(nbr):
-                    dp[src].append([src] + path)
+                dp[src] += dfs(nbr)
         vis.remove(src)
         return dp[src]
 
@@ -54,4 +52,4 @@ def main(edges, src, dest):
 
 for edges, data in inputs:
     for src, dest in data:
-        print(main(edges, src, dest))
+        print(main(edges, src, dest), end=' ')

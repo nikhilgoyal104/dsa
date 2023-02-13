@@ -13,6 +13,7 @@ inputs = [
 def main(root):
     if not root:
         return []
+    res = []
     queue = deque([(root, 0)])
     colIndexToValues = defaultdict(list)
     while queue:
@@ -21,10 +22,13 @@ def main(root):
         for child, offset in (node.left, -1), (node.right, 1):
             if child:
                 queue.append((child, colIndex + offset))
-    return [colIndexToValues[colIndex] for colIndex in sorted(colIndexToValues)]
+    for colIndex in sorted(colIndexToValues):
+        res.append(colIndexToValues[colIndex])
+    return res
 
 
 for root in inputs:
+    print(root)
     print(main(root))
 
 print()
@@ -34,6 +38,7 @@ print()
 def main(root):
     if not root:
         return []
+    res = []
     queue = deque([(root, 0)])
     colToValues = defaultdict(list)
     minCol, maxCol = float('inf'), float('-inf')
@@ -44,8 +49,11 @@ def main(root):
         for child, offset in (node.left, -1), (node.right, 1):
             if child:
                 queue.append((child, col + offset))
-    return [colToValues[col] for col in range(minCol, maxCol + 1)]
+    for col in range(minCol, maxCol + 1):
+        res.append(colToValues[col])
+    return res
 
 
 for root in inputs:
+    print(root)
     print(main(root))

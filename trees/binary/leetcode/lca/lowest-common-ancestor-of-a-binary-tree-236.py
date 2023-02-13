@@ -13,7 +13,7 @@ inputs = [
 # T=n,S=n
 def main(root, p, q):
     def dfs(root):
-        if not root or root in [p, q]:
+        if root in [None, p, q]:
             return root
         left = dfs(root.left)
         right = dfs(root.right)

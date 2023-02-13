@@ -1,15 +1,20 @@
 from graphs.util import build
-from math import inf
+
+inputs = [
+    ([(0, 1), (0, 3), (1, 2), (3, 2), (3, 4), (4, 5), (4, 6), (5, 6)], [(0, 6), (2, 5)]),
+    ([(0, 1), (0, 3), (1, 2), (3, 2), (4, 5), (4, 6), (5, 6)], [(0, 2), (2, 5)])
+]
 
 
-def x(graph, src, dest):
+def main(edges, src, dest):
+    graph = build(edges)
     vis = set()
 
     def dfs(src):
         if src == dest:
             return 1
         vis.add(src)
-        res = inf
+        res = float('inf')
         for nbr in graph[src]:
             if nbr not in vis:
                 res = min(res, 1 + dfs(nbr))
@@ -19,14 +24,23 @@ def x(graph, src, dest):
     return dfs(src)
 
 
-def y(graph, src, dest):
-    dp, vis = {dest: 1}, set()
+for edges, data in inputs:
+    for src, dest in data:
+        print(main(edges, src, dest))
+
+print()
+
+
+def main(edges, src, dest):
+    graph = build(edges)
+    dp = {dest: 1}
+    vis = set()
 
     def dfs(src):
         if src in dp:
             return dp[src]
         vis.add(src)
-        dp[src] = inf
+        dp[src] = float('inf')
         for nbr in graph[src]:
             if nbr not in vis:
                 dp[src] = min(dp[src], 1 + dfs(nbr))
@@ -36,15 +50,6 @@ def y(graph, src, dest):
     return dfs(src)
 
 
-def main(edges, src, dest):
-    graph = build(edges)
-    print(x(graph, src, dest), end=' ')
-    print(y(graph, src, dest))
-
-
-for edges, data in [
-    ([(0, 1), (0, 3), (1, 2), (3, 2), (3, 4), (4, 5), (4, 6), (5, 6)], [(0, 6), (2, 5)]),
-    ([(0, 1), (0, 3), (1, 2), (3, 2), (4, 5), (4, 6), (5, 6)], [(0, 2), (2, 5)]),
-]:
-    [main(edges, src, dest) for src, dest in data]
-    print()
+for edges, data in inputs:
+    for src, dest in data:
+        print(main(edges, src, dest))

@@ -1,8 +1,8 @@
-from binarytree import build
+from binarytree import build2
 from collections import deque
 
 inputs = [
-    build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None])
+    build2([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70])
 ]
 
 
@@ -18,6 +18,7 @@ def main(root):
 
 
 for root in inputs:
+    print(root)
     main(root)
 
 print()
@@ -37,4 +38,5 @@ def main(root):
 
 
 for root in inputs:
+    print(root)
     main(root)

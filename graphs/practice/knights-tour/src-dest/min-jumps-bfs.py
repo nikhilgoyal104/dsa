@@ -1,5 +1,4 @@
 from collections import deque
-from math import inf
 
 
 def outside(m, n, ri, ci):

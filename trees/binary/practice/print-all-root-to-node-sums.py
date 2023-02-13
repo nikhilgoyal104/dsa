@@ -1,7 +1,6 @@
 from binarytree import build2
 
 inputs = [build2([10, 5, -3, 3, 2, None, 11, 3, -2, None, 1])]
-print(inputs[0])
 
 
 def main(root):
@@ -17,4 +16,5 @@ def main(root):
 
 
 for root in inputs:
+    print(root)
     main(root)

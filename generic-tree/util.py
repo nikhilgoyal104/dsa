@@ -10,7 +10,8 @@ class Tree:
 
 
 def construct(lst):
-    n, tree = len(lst), Tree()
+    n = len(lst)
+    tree = Tree()
     node = Node(lst[0])
     tree.root, stack = node, [node]
     for i in range(1, n):
