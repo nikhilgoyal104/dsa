@@ -1,5 +1,4 @@
 from collections import deque
-from math import inf
 
 inputs = [
     ([1, 3, -1, -3, 5, 3, 6, 7], 3),
@@ -13,7 +12,7 @@ inputs = [
 def main(nums, k):
     n, res = len(nums), []
     for i in range(n - k + 1):
-        largest = -inf
+        largest = float('-inf')
         for j in range(k):
             largest = max(largest, nums[i + j])
         res.append(largest)

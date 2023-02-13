@@ -5,7 +5,8 @@ from heapq import *
 # T=k+nklogk,S=k
 def main(arrays):
     heap = []
-    start, end, maxVal = -inf, inf, -inf
+    start = maxVal = -inf
+    end = inf
     for i in range(len(arrays)):
         heap.append((arrays[i][0], i, 0, len(arrays[i])))
         maxVal = max(maxVal, arrays[i][0])
