@@ -49,3 +49,12 @@ def build6(grid):
             if cost:
                 graph[ri].append((ci, cost))
     return graph
+
+
+def build7(edges, directed):
+    graph = defaultdict(list)
+    for src, dest in edges:
+        graph[src].append(dest)
+        if not directed:
+            graph[dest].append(src)
+    return graph

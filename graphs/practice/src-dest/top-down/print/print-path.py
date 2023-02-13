@@ -1,17 +1,9 @@
 from collections import defaultdict
-
-
-def build(edges, directed):
-    graph = defaultdict(list)
-    for src, dest in edges:
-        graph[src].append(dest)
-        if not directed:
-            graph[dest].append(src)
-    return graph
+from graphs.util import build7
 
 
 def main(edges, directed, src, dest):
-    graph = build(edges, directed)
+    graph = build7(edges, directed)
     vis = set()
     path = []
 
