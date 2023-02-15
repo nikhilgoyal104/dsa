@@ -7,21 +7,21 @@ def main(n, edges):
     vis = set()
     path = set()
 
-    def dfs(src, vis):
+    def dfs(src):
         vis.add(src)
         path.add(src)
         for nbr in graph[src]:
             if nbr in path:
                 return True
             if nbr not in vis:
-                if dfs(nbr, vis):
+                if dfs(nbr):
                     return True
         path.remove(src)
         return False
 
     for src in range(n):
         if src not in vis:
-            if dfs(src, vis):
+            if dfs(src):
                 return True
     return False
 

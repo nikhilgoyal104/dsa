@@ -5,8 +5,7 @@ def main(n):
     range = 2 ** 31
     n = abs(n)
     while n:
-        digit = n % 10
-        res = 10 * res + digit
+        res = 10 * res + n % 10
         n //= 10
     if res < -range or res > range:
         return 0

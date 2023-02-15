@@ -1,6 +1,3 @@
-from collections import deque
-
-
 def main(grid):
     m, n = len(grid), len(grid[0])
     offsets = (1, 0), (0, 1), (-1, 0), (0, -1)
