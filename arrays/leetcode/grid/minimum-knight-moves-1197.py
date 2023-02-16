@@ -2,7 +2,8 @@ from collections import deque
 
 
 def main(dri, dci):
-    queue, vis = deque([(0, 0, 0)]), {(0, 0)}
+    queue = deque([(0, 0, 0)])
+    vis = {(0, 0)}
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
     while queue:
         ri, ci, dist = queue.popleft()

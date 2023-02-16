@@ -1,5 +1,5 @@
 # S=n
-def x(nums, k):
+def main(nums, k):
     if sum(nums) % k != 0:
         return False
     n, total, vis = len(nums), sum(nums) // k, set()
@@ -28,4 +28,4 @@ for nums, k in [
     ([4, 3, 2, 3, 5, 2, 1], 4),
     ([1, 2, 3, 4], 3),
 ]:
-    print(x(nums, k))
+    print(main(nums, k))

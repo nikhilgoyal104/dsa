@@ -1,7 +1,8 @@
 # T=logn,S=logn
 def main(x, n):
     if n < 0:
-        n, x = -n, 1 / x
+        n = -n
+        x = 1 / x
 
     def dfs(n):
         if not n:

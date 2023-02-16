@@ -1,5 +1,5 @@
 # T=nk,S=nk
-def x(n, k):
+def main(n, k):
     dp = {}
 
     def dfs(n, k):
@@ -19,4 +19,4 @@ def x(n, k):
 for n, k in [
     (4, 3), (3, 2), (3, 1)
 ]:
-    print(x(n, k))
+    print(main(n, k))

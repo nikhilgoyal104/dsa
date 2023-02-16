@@ -3,11 +3,11 @@ def x(s, words):
     def dfs(s):
         if not s:
             return 1
-        count = 0
+        res = 0
         for word in words:
             if s.startswith(word):
-                count += dfs(s[len(word):])
-        return count
+                res += dfs(s[len(word):])
+        return res
 
     return dfs(s)
 
@@ -19,12 +19,12 @@ def y(s, words):
     def dfs(s):
         if not s:
             return 1
-        count = 0
+        res = 0
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if prefix in words:
-                count += dfs(suffix)
-        return count
+                res += dfs(suffix)
+        return res
 
     return dfs(s)
 
