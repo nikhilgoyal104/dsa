@@ -6,6 +6,26 @@ inputs = [
 ]
 
 
+# T=n²,S=1
+def main(nums):
+    n = len(nums)
+    res = []
+    leftProduct = 1
+    for i in range(n):
+        rightProduct = 1
+        for j in range(i + 1, n):
+            rightProduct *= nums[j]
+        res.append(leftProduct * rightProduct)
+        leftProduct *= nums[i]
+    return res
+
+
+for nums in inputs:
+    print(main(nums))
+
+print()
+
+
 # T=n,S=1
 def main(nums):
     n = len(nums)

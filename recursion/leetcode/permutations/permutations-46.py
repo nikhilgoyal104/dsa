@@ -1,5 +1,6 @@
 def w(nums):
-    res, path = [], []
+    res = []
+    path = []
 
     def dfs(nums):
         if not nums:
@@ -15,7 +16,8 @@ def w(nums):
 
 
 def x(nums):
-    n, vis = len(nums), set()
+    n = len(nums)
+    vis = set()
 
     def dfs():
         if len(vis) == n:
@@ -34,7 +36,11 @@ def x(nums):
 
 
 def y(nums):
-    n, res, path, vis = len(nums), [], [], set()
+    n = len(nums)
+    nums = sorted(nums)
+    res = []
+    path = []
+    vis = set()
 
     def dfs():
         if len(vis) == n:

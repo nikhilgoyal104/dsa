@@ -1,5 +1,3 @@
-from math import inf
-
 grids = [
     [[1, 3, 1], [1, 5, 1], [4, 2, 1]],
     [[1, 2, 3], [4, 5, 6]]
@@ -14,11 +12,11 @@ def main(grid):
         if ri == m - 1 and ci == n - 1:
             return grid[ri][ci]
         if ri == m or ci == n:
-            return inf
+            return float('inf')
         key = ri, ci
         if key in dp:
             return dp[key]
-        dp[key] = inf
+        dp[key] = float('inf')
         for i, j in (0, 1), (1, 0):
             dp[key] = min(dp[key], grid[ri][ci] + dfs(ri + i, ci + j))
         return dp[key]

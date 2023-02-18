@@ -2,7 +2,8 @@ def x(nums):
     def dfs(nums):
         if not nums:
             return [[]]
-        res, subproblem = [], dfs(nums[1:])
+        res = []
+        subproblem = dfs(nums[1:])
         for val in subproblem:
             res.append([nums[0]] + val)
         res += subproblem
@@ -17,7 +18,8 @@ def y(nums):
     def dfs(i):
         if i == n:
             return [[]]
-        res, subproblem = [], dfs(i + 1)
+        res = []
+        subproblem = dfs(i + 1)
         for val in subproblem:
             res.append([nums[i]] + val)
         res += subproblem

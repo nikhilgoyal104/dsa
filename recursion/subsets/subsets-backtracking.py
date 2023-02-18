@@ -14,7 +14,9 @@ def v(nums):
 
 # S=n
 def w(nums):
-    n, path, res = len(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
 
     def dfs(i):
         if i == n:
@@ -31,7 +33,8 @@ def w(nums):
 
 # S=n
 def x(nums):
-    n, res = len(nums), []
+    n = len(nums)
+    res = []
 
     def dfs(i, path):
         if i == n:
@@ -46,7 +49,8 @@ def x(nums):
 
 # S=n²
 def y(nums):
-    n, res = len(nums), []
+    n = len(nums)
+    res = []
 
     def dfs(start, path):
         res.append(path)
@@ -59,7 +63,9 @@ def y(nums):
 
 # S=n
 def z(nums):
-    n, path, res = len(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
 
     def dfs(start):
         res.append(path[:])

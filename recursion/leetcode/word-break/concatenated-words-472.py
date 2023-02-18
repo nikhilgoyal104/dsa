@@ -1,5 +1,9 @@
 # T=n³w
 def main(words):
+    words.sort(key=len)
+    res = []
+    prewords = set()
+
     def dfs(s, prewords, dp):
         if s in dp:
             return dp[s]
@@ -11,8 +15,6 @@ def main(words):
                 return dp[s]
         return dp[s]
 
-    words.sort(key=len)
-    res, prewords = [], set()
     for word in words:
         if not word:
             continue

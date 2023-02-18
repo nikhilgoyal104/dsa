@@ -15,6 +15,8 @@ for s in [
     main(s)
     print(s)
 
+print()
+
 
 # T=n,S=1
 def main(s):

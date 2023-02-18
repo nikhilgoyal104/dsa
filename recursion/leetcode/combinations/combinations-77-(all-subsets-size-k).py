@@ -1,12 +1,12 @@
 def x(nums, k):
     n = len(nums)
 
-    def dfs(start, count):
-        if count == k:
+    def dfs(start, size):
+        if size == k:
             return [[]]
         res = []
         for i in range(start, n):
-            for path in dfs(i + 1, count + 1):
+            for path in dfs(i + 1, size + 1):
                 res.append([nums[i]] + path)
         return res
 
@@ -15,15 +15,17 @@ def x(nums, k):
 
 # T=kⁿcₖ,S=kⁿcₖ
 def y(nums, k):
-    n, path, res = len(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
 
-    def dfs(start, count):
-        if count == k:
+    def dfs(start, size):
+        if size == k:
             res.append(path[:])
             return
         for i in range(start, n):
             path.append(nums[i])
-            dfs(i + 1, count + 1)
+            dfs(i + 1, size + 1)
             path.pop()
 
     dfs(0, 0)

@@ -1,6 +1,8 @@
 # T=n2ⁿ
 def main(nums):
-    n, res, path = len(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
 
     def dfs(start):
         res.append(path[:])

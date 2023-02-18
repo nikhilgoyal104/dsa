@@ -9,8 +9,6 @@ def main(grid):
         while low < high:
             grid[i][low], grid[i][high] = grid[i][high], grid[i][low]
             low, high = low + 1, high - 1
-    for row in grid:
-        print(row)
 
 
 for grid in [
@@ -22,3 +20,4 @@ for grid in [
     ]
 ]:
     main(grid)
+    print(grid)

@@ -33,14 +33,16 @@ print()
 
 
 def x(nums):
-    n, nums, vis = len(nums), sorted(nums), set()
+    n = len(nums)
+    nums = sorted(nums)
+    vis = set()
 
     def dfs():
         if len(vis) == n:
             return [[]]
         res = []
         for i in range(n):
-            if (i in vis) or (i and i - 1 not in vis and nums[i] == nums[i - 1]):
+            if (i in vis) or (i and (i - 1 not in vis) and (nums[i] == nums[i - 1])):
                 continue
             vis.add(i)
             for path in dfs():
@@ -52,7 +54,11 @@ def x(nums):
 
 
 def y(nums):
-    n, nums, path, res, vis = len(nums), sorted(nums), [], [], set()
+    n = len(nums)
+    nums = sorted(nums)
+    res = []
+    path = []
+    vis = set()
 
     def dfs():
         if len(vis) == n:

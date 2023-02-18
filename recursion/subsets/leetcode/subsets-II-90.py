@@ -1,5 +1,7 @@
 def v(nums):
-    n, res, nums = len(nums), [], sorted(nums)
+    n = len(nums)
+    res = []
+    nums = sorted(nums)
 
     def dfs(start, path):
         res.append(path)
@@ -13,7 +15,8 @@ def v(nums):
 
 
 def w(nums):
-    n, nums = len(nums), sorted(nums)
+    n = len(nums)
+    nums = sorted(nums)
 
     def dfs(i, path):
         if i == n:
@@ -28,7 +31,10 @@ def w(nums):
 
 
 def x(nums):
-    n, nums, res, path = len(nums), sorted(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
+    nums = sorted(nums)
 
     def dfs(i):
         if i == n:
@@ -46,7 +52,9 @@ def x(nums):
 
 
 def y(nums):
-    res, n, nums = [], len(nums), sorted(nums)
+    n = len(nums)
+    res = []
+    nums = sorted(nums)
 
     def dfs(start, path):
         res.append(path)
@@ -60,7 +68,10 @@ def y(nums):
 
 
 def z(nums):
-    n, nums, res, path = len(nums), sorted(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
+    nums = sorted(nums)
 
     def dfs(start):
         res.append(path[:])
