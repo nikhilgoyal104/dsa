@@ -20,7 +20,7 @@ inputs = [
 ]
 
 
-# T=n²,S=1
+# T=n²,S=n²
 def main(grid):
     n = len(grid)
     res = [[0] * n for _ in range(n)]
