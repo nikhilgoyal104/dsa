@@ -1,16 +1,16 @@
 # T=n,S=n
 def x(s):
-    dp = {'': 1}
+    cache = {'': 1}
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
+        if s in cache:
+            return cache[s]
         if s[0] == '0':
             return 0
-        dp[s] = dfs(s[1:])
+        cache[s] = dfs(s[1:])
         if len(s) >= 2 and int(s[:2]) <= 26:
-            dp[s] += dfs(s[2:])
-        return dp[s]
+            cache[s] += dfs(s[2:])
+        return cache[s]
 
     return dfs(s)
 
@@ -18,17 +18,17 @@ def x(s):
 # T=n,S=n
 def y(s):
     n = len(s)
-    dp = {n: 1}
+    cache = {n: 1}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
+        if i in cache:
+            return cache[i]
         if s[i] == '0':
             return 0
-        dp[i] = dfs(i + 1)
+        cache[i] = dfs(i + 1)
         if i < n - 1 and int(s[i:i + 2]) <= 26:
-            dp[i] += dfs(i + 2)
-        return dp[i]
+            cache[i] += dfs(i + 2)
+        return cache[i]
 
     return dfs(0)
 

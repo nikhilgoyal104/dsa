@@ -33,19 +33,19 @@ print()
 
 def main(edges, src, dest):
     graph = build(edges)
-    dp = {dest: 1}
+    cache = {dest: 1}
     vis = set()
 
     def dfs(src):
-        if src in dp:
-            return dp[src]
+        if src in cache:
+            return cache[src]
         vis.add(src)
-        dp[src] = 0
+        cache[src] = 0
         for nbr in graph[src]:
             if nbr not in vis:
-                dp[src] += dfs(nbr)
+                cache[src] += dfs(nbr)
         vis.remove(src)
-        return dp[src]
+        return cache[src]
 
     return dfs(src)
 

@@ -1,15 +1,15 @@
 def main(n):
-    dp = {n: 1}
+    cache = {n: 1}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = 0
+        if i in cache:
+            return cache[i]
+        cache[i] = 0
         for digit in range(10):
             if not i and not digit:
                 continue
-            dp[i] += dfs(i + 1)
-        return dp[i]
+            cache[i] += dfs(i + 1)
+        return cache[i]
 
     return dfs(0)
 

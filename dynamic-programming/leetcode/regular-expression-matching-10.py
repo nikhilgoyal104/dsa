@@ -12,20 +12,20 @@ def x(s, p):
 
 # T=sp,S=sp
 def y(s, p):
-    dp = {}
+    cache = {}
 
     def dfs(s, p):
         if not p:
             return not s
         key = s, p
-        if key in dp:
-            return dp[key]
+        if key in cache:
+            return cache[key]
         firstMatch = s and p[0] in {s[0], '.'}
         if len(p) > 1 and p[1] == '*':
-            dp[key] = firstMatch and dfs(s[1:], p) or dfs(s, p[2:])
-            return dp[key]
-        dp[key] = firstMatch and dfs(s[1:], p[1:])
-        return dp[key]
+            cache[key] = firstMatch and dfs(s[1:], p) or dfs(s, p[2:])
+            return cache[key]
+        cache[key] = firstMatch and dfs(s[1:], p[1:])
+        return cache[key]
 
     return dfs(s, p)
 

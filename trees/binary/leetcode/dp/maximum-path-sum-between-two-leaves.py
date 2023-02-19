@@ -3,15 +3,15 @@ from binarytree import build2
 
 # T=n,S=n
 def main(root):
-    dp = {None: 0}
+    cache = {None: 0}
 
     def maxRootToLeafSum(root):
         if not root:
             return 0
         left = maxRootToLeafSum(root.left)
         right = maxRootToLeafSum(root.right)
-        dp[root] = root.val + max(left, right)
-        return dp[root]
+        cache[root] = root.val + max(left, right)
+        return cache[root]
 
     maxRootToLeafSum(root)
 
@@ -20,7 +20,7 @@ def main(root):
             return 0
         maxLeafToLeafSumLeft = dfs(root.left)
         maxLeafToLeafSumRight = dfs(root.right)
-        return max(maxLeafToLeafSumLeft, maxLeafToLeafSumRight, root.val + dp[root.left] + dp[root.right])
+        return max(maxLeafToLeafSumLeft, maxLeafToLeafSumRight, root.val + cache[root.left] + cache[root.right])
 
     return dfs(root)
 

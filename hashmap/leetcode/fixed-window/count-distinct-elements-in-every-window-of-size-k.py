@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=n,S=n
 def main(nums, k):
-    n, freq = len(nums), Counter(nums[:k])
+    n = len(nums)
+    freq = Counter(nums[:k])
     res = [len(freq)]
     for i in range(k, n):
         freq[nums[i - k]] -= 1

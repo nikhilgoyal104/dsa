@@ -36,29 +36,29 @@ print()
 
 
 def x(nums):
-    n, dp = len(nums), {}
+    n, cache = len(nums), {}
 
     def dfs(i, sum):
         if i >= n:
             return sum
         key = i, sum
-        if key in dp:
-            return dp[key]
-        dp[key] = max(dfs(i + 2, sum + nums[i]), dfs(i + 1, sum))
-        return dp[key]
+        if key in cache:
+            return cache[key]
+        cache[key] = max(dfs(i + 2, sum + nums[i]), dfs(i + 1, sum))
+        return cache[key]
 
     return dfs(0, 0)
 
 
 def y(nums):
-    n, res, dp = len(nums), [0], {}
+    n, res, cache = len(nums), [0], {}
 
     def dfs(start, sum):
         key = start, sum
-        if key in dp:
+        if key in cache:
             return
         res[0] = max(res[0], sum)
-        dp[key] = res[0]
+        cache[key] = res[0]
         for i in range(start, n):
             dfs(i + 2, sum + nums[i])
 

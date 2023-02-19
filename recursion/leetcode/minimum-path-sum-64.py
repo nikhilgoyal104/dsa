@@ -6,7 +6,7 @@ grids = [
 
 # T=mn,S=mn
 def main(grid):
-    m, n, dp = len(grid), len(grid[0]), {}
+    m, n, cache = len(grid), len(grid[0]), {}
 
     def dfs(ri, ci):
         if ri == m - 1 and ci == n - 1:
@@ -14,12 +14,12 @@ def main(grid):
         if ri == m or ci == n:
             return float('inf')
         key = ri, ci
-        if key in dp:
-            return dp[key]
-        dp[key] = float('inf')
+        if key in cache:
+            return cache[key]
+        cache[key] = float('inf')
         for i, j in (0, 1), (1, 0):
-            dp[key] = min(dp[key], grid[ri][ci] + dfs(ri + i, ci + j))
-        return dp[key]
+            cache[key] = min(cache[key], grid[ri][ci] + dfs(ri + i, ci + j))
+        return cache[key]
 
     return dfs(0, 0)
 

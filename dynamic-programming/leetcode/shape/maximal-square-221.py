@@ -37,18 +37,18 @@ def x(grid):
 
 # T=mn,S=mn
 def y(grid):
-    m, n, dp = len(grid), len(grid[0]), {}
+    m, n, cache = len(grid), len(grid[0]), {}
 
     def dfs(ri, ci):
         if ri == m or ci == n or not int(grid[ri][ci]):
             return 0
         key = ri, ci
-        if key in dp:
-            return dp[key]
-        dp[key] = inf
+        if key in cache:
+            return cache[key]
+        cache[key] = inf
         for i, j in (0, 1), (1, 0), (1, 1):
-            dp[key] = min(dp[key], 1 + dfs(ri + i, ci + j))
-        return dp[key]
+            cache[key] = min(cache[key], 1 + dfs(ri + i, ci + j))
+        return cache[key]
 
     return max((dfs(i, j) for i in range(m) for j in range(n) if int(grid[i][j])), default=0) ** 2
 
@@ -56,16 +56,16 @@ def y(grid):
 # T=mn,S=mn
 def z(grid):
     m, n = len(grid), len(grid[0])
-    dp, side = [[0] * n for _ in range(m)], 0
+    cache, side = [[0] * n for _ in range(m)], 0
     for i in range(m):
-        dp[i][-1], side = int(grid[i][-1]), max(side, int(grid[i][-1]))
+        cache[i][-1], side = int(grid[i][-1]), max(side, int(grid[i][-1]))
     for j in range(n):
-        dp[-1][j], side = int(grid[-1][j]), max(side, int(grid[-1][j]))
+        cache[-1][j], side = int(grid[-1][j]), max(side, int(grid[-1][j]))
     for i in range(m - 2, -1, -1):
         for j in range(n - 2, -1, -1):
             if int(grid[i][j]):
-                dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j + 1], dp[i + 1][j + 1])
-            side = max(side, dp[i][j])
+                cache[i][j] = 1 + min(cache[i + 1][j], cache[i][j + 1], cache[i + 1][j + 1])
+            side = max(side, cache[i][j])
     return side ** 2
 
 

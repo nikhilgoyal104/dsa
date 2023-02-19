@@ -31,22 +31,22 @@ print()
 
 # T=n,S=n
 def main(root):
-    dp = {None: -1}
+    cache = {None: -1}
 
     def height(root):
         if not root:
             return -1
         left = height(root.left)
         right = height(root.right)
-        dp[root] = 1 + max(left, right)
-        return dp[root]
+        cache[root] = 1 + max(left, right)
+        return cache[root]
 
     def dfs(root):
         if not root:
             return 0
         leftDiameter = dfs(root.left)
         rightDiameter = dfs(root.right)
-        return max(leftDiameter, rightDiameter, dp[root.left] + dp[root.right] + 2)
+        return max(leftDiameter, rightDiameter, cache[root.left] + cache[root.right] + 2)
 
     height(root)
     return dfs(root)

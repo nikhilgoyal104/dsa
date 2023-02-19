@@ -30,19 +30,19 @@ print()
 
 # T=n²m,S=nm
 def x(nums, m):
-    dp = {}
+    cache = {}
 
     def dfs(nums, m):
         if m == 1:
             return sum(nums)
         key = tuple(nums), m
-        if key in dp:
-            return dp[key]
-        dp[key] = inf
+        if key in cache:
+            return cache[key]
+        cache[key] = inf
         for i in range(1, len(nums) - m + 2):
             left, right = sum(nums[:i]), dfs(nums[i:], m - 1)
-            dp[key] = min(dp[key], max(left, right))
-        return dp[key]
+            cache[key] = min(cache[key], max(left, right))
+        return cache[key]
 
     return dfs(nums, m)
 

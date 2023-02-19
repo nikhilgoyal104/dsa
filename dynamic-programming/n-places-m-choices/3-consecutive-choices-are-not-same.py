@@ -13,20 +13,20 @@ def x(n, k):
 
 
 def y(n, k):
-    dp = {}
+    cache = {}
 
     def dfs(i, prev1, prev2):
         if i == n:
             return 1
         key = i, prev1, prev2
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for choice in range(1, k + 1):
             if choice == prev1 == prev2:
                 continue
-            dp[key] += dfs(i + 1, choice, prev1)
-        return dp[key]
+            cache[key] += dfs(i + 1, choice, prev1)
+        return cache[key]
 
     return dfs(0, 0, 0)
 

@@ -3,15 +3,15 @@ from binarytree import Node as TreeNode
 
 # T=n²,S=n
 def main(n):
-    dp = {0: 1}
+    cache = {0: 1}
 
     def dfs(n):
-        if n in dp:
-            return dp[n]
-        dp[n] = 0
+        if n in cache:
+            return cache[n]
+        cache[n] = 0
         for i in range(n):
-            dp[n] += dfs(i) * dfs(n - 1 - i)
-        return dp[n]
+            cache[n] += dfs(i) * dfs(n - 1 - i)
+        return cache[n]
 
     return dfs(n)
 

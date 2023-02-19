@@ -1,16 +1,16 @@
 # T=n³,S=n
 def x(s, words):
-    dp = {'': True}
+    cache = {'': True}
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
-        dp[s] = False
+        if s in cache:
+            return cache[s]
+        cache[s] = False
         for word in words:
             if s.startswith(word) and dfs(s[len(word):]):
-                dp[s] = True
-                return dp[s]
-        return dp[s]
+                cache[s] = True
+                return cache[s]
+        return cache[s]
 
     return dfs(s)
 
@@ -18,18 +18,18 @@ def x(s, words):
 # T=n³,S=n
 def y(s, words):
     n, words = len(s), set(words)
-    dp = {'': True}
+    cache = {'': True}
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
-        dp[s] = False
+        if s in cache:
+            return cache[s]
+        cache[s] = False
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if prefix in words and dfs(suffix):
-                dp[s] = True
-                return dp[s]
-        return dp[s]
+                cache[s] = True
+                return cache[s]
+        return cache[s]
 
     return dfs(s)
 
@@ -37,17 +37,17 @@ def y(s, words):
 # T=n³,S=n
 def z(s, words):
     n, words = len(s), set(words)
-    dp = {n: True}
+    cache = {n: True}
 
     def dfs(start):
-        if start in dp:
-            return dp[start]
-        dp[start] = False
+        if start in cache:
+            return cache[start]
+        cache[start] = False
         for end in range(start + 1, n + 1):
             if s[start:end] in words and dfs(end):
-                dp[start] = True
-                return dp[start]
-        return dp[start]
+                cache[start] = True
+                return cache[start]
+        return cache[start]
 
     return dfs(0)
 

@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=n²,S=n²
 def main(nums1, nums2, nums3, nums4):
-    res, n = 0, len(nums1)
+    n = len(nums1)
+    res = 0
     sumFreq = Counter()
     for val1 in nums1:
         for val2 in nums2:

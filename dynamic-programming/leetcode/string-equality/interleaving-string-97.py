@@ -1,7 +1,7 @@
 # T=mn
 def main(s1, s2, s3):
     m, n, o = len(s1), len(s2), len(s3)
-    dp = {}
+    cache = {}
     if m + n != o:
         return False
 
@@ -9,15 +9,15 @@ def main(s1, s2, s3):
         if k == o:
             return True
         key = i, j
-        if key in dp:
-            return dp[key]
+        if key in cache:
+            return cache[key]
         f1 = f2 = False
         if i < m and s1[i] == s3[k]:
             f1 = dfs(i + 1, j, k + 1)
         if j < n and s2[j] == s3[k]:
             f2 = dfs(i, j + 1, k + 1)
-        dp[key] = f1 or f2
-        return dp[key]
+        cache[key] = f1 or f2
+        return cache[key]
 
     return dfs(0, 0, 0)
 

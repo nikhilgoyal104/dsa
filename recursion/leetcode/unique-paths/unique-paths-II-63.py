@@ -1,18 +1,18 @@
 # T=mn,S=mn
 def x(grid):
     m, n = len(grid), len(grid[0])
-    dp = {(m - 1, n - 1): 1}
+    cache = {(m - 1, n - 1): 1}
 
     def dfs(ri, ci):
         if ri == m or ci == n or grid[ri][ci]:
             return 0
         key = ri, ci
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for i, j in (1, 0), (0, 1):
-            dp[key] += dfs(ri + i, ci + j)
-        return dp[key]
+            cache[key] += dfs(ri + i, ci + j)
+        return cache[key]
 
     return dfs(0, 0)
 

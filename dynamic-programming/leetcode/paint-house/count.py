@@ -11,11 +11,11 @@ def x(n, k):
 
 
 def y(n, k):
-    dp = [0] * n
-    dp[0] = k
+    cache = [0] * n
+    cache[0] = k
     for i in range(1, n):
-        dp[i] = (k - 1) * dp[i - 1]
-    return dp[-1]
+        cache[i] = (k - 1) * cache[i - 1]
+    return cache[-1]
 
 
 for n, k in [

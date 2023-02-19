@@ -17,7 +17,7 @@ def w(nums, total):
 
 
 def x(nums, total):
-    n, dp = len(nums), {}
+    n, cache = len(nums), {}
 
     def dfs(i, sum):
         if sum > total:
@@ -25,29 +25,29 @@ def x(nums, total):
         if sum == total or i == n:
             return 0
         key = i, sum
-        if key in dp:
-            return dp[key]
+        if key in cache:
+            return cache[key]
         inc = nums[i] + dfs(i + 1, sum + nums[i])
         exc = dfs(i + 1, sum)
-        dp[key] = max(inc, exc)
-        return dp[key]
+        cache[key] = max(inc, exc)
+        return cache[key]
 
     return dfs(0, 0)
 
 
 def y(nums, total):
-    n, dp = len(nums), {}
+    n, cache = len(nums), {}
 
     def dfs(start, sum):
         if sum > total:
             return -inf
         key = start, sum
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for i in range(start, n):
-            dp[key] = max(dp[key], nums[i] + dfs(i + 1, sum + nums[i]))
-        return dp[key]
+            cache[key] = max(cache[key], nums[i] + dfs(i + 1, sum + nums[i]))
+        return cache[key]
 
     return dfs(0, 0)
 

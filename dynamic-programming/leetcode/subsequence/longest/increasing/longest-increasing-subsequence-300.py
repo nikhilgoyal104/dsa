@@ -16,14 +16,14 @@ def clean(nums):
 def w(nums):
     nums1, nums2 = nums, clean(sorted(nums))
     m, n = len(nums1), len(nums2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    cache = [[0] * (n + 1) for _ in range(m + 1)]
     for i in range(1, m + 1):
         for j in range(1, n + 1):
             if nums1[i - 1] == nums2[j - 1]:
-                dp[i][j] = 1 + dp[i - 1][j - 1]
+                cache[i][j] = 1 + cache[i - 1][j - 1]
             else:
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-    return dp[-1][-1]
+                cache[i][j] = max(cache[i - 1][j], cache[i][j - 1])
+    return cache[-1][-1]
 
 
 # T=2ⁿ,S=n
@@ -54,15 +54,15 @@ def y(nums):
 
 
 # T=n²,S=n
-# dp[i] length of LIS ending with nums[i]
+# cache[i] length of LIS ending with nums[i]
 def z(nums):
     n = len(nums)
-    dp = [1] * n
+    cache = [1] * n
     for i in range(1, n):
         for j in range(i):
             if nums[j] < nums[i]:
-                dp[i] = max(dp[i], 1 + dp[j])
-    return max(dp)
+                cache[i] = max(cache[i], 1 + cache[j])
+    return max(cache)
 
 
 for nums in [

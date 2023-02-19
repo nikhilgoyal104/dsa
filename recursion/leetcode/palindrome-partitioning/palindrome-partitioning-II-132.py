@@ -22,17 +22,17 @@ def x(s):
 
 # T=n²n,S=n
 def y(s):
-    dp = {'': -1}
+    cache = {'': -1}
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
-        dp[s] = inf
+        if s in cache:
+            return cache[s]
+        cache[s] = inf
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if isPalindrome(prefix):
-                dp[s] = min(dp[s], 1 + dfs(suffix))
-        return dp[s]
+                cache[s] = min(cache[s], 1 + dfs(suffix))
+        return cache[s]
 
     return dfs(s)
 

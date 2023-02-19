@@ -1,15 +1,15 @@
 # T=n²,S=n
 def w(nums):
     target = len(nums) - 1
-    dp = {target: True}
+    cache = {target: True}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = False
+        if i in cache:
+            return cache[i]
+        cache[i] = False
         for val in range(min(nums[i], target - i), 0, -1):
             if dfs(i + val):
-                dp[i] = True
+                cache[i] = True
                 return True
         return False
 
@@ -19,27 +19,27 @@ def w(nums):
 # T=n²,S=n
 def x(nums):
     n = len(nums)
-    dp = [False] * n
-    dp[0] = True
+    cache = [False] * n
+    cache[0] = True
     for i in range(1, n):
         for j in range(i):
-            if dp[j] and j + nums[j] >= i:
-                dp[i] = True
+            if cache[j] and j + nums[j] >= i:
+                cache[i] = True
                 break
-    return dp[-1]
+    return cache[-1]
 
 
 # T=n²,S=n
 def y(nums):
     n = len(nums)
-    dp = [False] * n
-    dp[-1] = True
+    cache = [False] * n
+    cache[-1] = True
     for i in range(n - 2, -1, -1):
         for j in range(1, nums[i] + 1):
-            if i + j < n and dp[i + j]:
-                dp[i] = True
+            if i + j < n and cache[i + j]:
+                cache[i] = True
                 break
-    return dp[0]
+    return cache[0]
 
 
 # T=n,S=1

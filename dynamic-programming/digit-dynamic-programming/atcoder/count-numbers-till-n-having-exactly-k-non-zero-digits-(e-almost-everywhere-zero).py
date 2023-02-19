@@ -26,7 +26,7 @@ print()
 
 
 def main(n, k):
-    n, dp = str(n), {}
+    n, cache = str(n), {}
     size = len(n)
 
     def dfs(i, restrict, nzcount):
@@ -35,12 +35,12 @@ def main(n, k):
         if i == size:
             return nzcount == k
         key = i, restrict, nzcount
-        if key in dp:
-            return dp[key]
-        dp[key], limit = 0, int(n[i]) if restrict else 9
+        if key in cache:
+            return cache[key]
+        cache[key], limit = 0, int(n[i]) if restrict else 9
         for digit in range(limit + 1):
-            dp[key] += dfs(i + 1, False if digit < limit else restrict, nzcount + 1 if digit else nzcount)
-        return dp[key]
+            cache[key] += dfs(i + 1, False if digit < limit else restrict, nzcount + 1 if digit else nzcount)
+        return cache[key]
 
     return dfs(0, True, 0)
 

@@ -1,6 +1,6 @@
 # T=nk,S=nk
 def main(n, k):
-    dp = {}
+    cache = {}
 
     def dfs(n, k):
         if not n or not k or k > n:
@@ -8,10 +8,10 @@ def main(n, k):
         if n == k or k == 1:
             return 1
         key = n, k
-        if key in dp:
-            return dp[key]
-        dp[key] = dfs(n - 1, k - 1) + k * dfs(n - 1, k)
-        return dp[key]
+        if key in cache:
+            return cache[key]
+        cache[key] = dfs(n - 1, k - 1) + k * dfs(n - 1, k)
+        return cache[key]
 
     return dfs(n, k)
 

@@ -8,21 +8,21 @@ def construct():
 
 # T=n,S=n
 def main(s):
-    dp = {'': ['']}
+    cache = {'': ['']}
     decoder = construct()
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
+        if s in cache:
+            return cache[s]
         if s[0] == '0':
             return []
-        dp[s] = []
+        cache[s] = []
         for path in dfs(s[1:]):
-            dp[s].append(decoder[s[:1]] + path)
+            cache[s].append(decoder[s[:1]] + path)
         if len(s) >= 2 and int(s[:2]) <= 26:
             for path in dfs(s[2:]):
-                dp[s].append(decoder[s[:2]] + path)
-        return dp[s]
+                cache[s].append(decoder[s[:2]] + path)
+        return cache[s]
 
     return dfs(s)
 

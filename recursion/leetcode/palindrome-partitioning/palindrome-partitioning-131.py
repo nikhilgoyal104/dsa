@@ -39,18 +39,18 @@ def y(s):
 
 # T=n2ⁿ,S=n²
 def z(s):
-    dp = {'': [[]]}
+    cache = {'': [[]]}
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
-        dp[s] = []
+        if s in cache:
+            return cache[s]
+        cache[s] = []
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if isPalindrome(prefix):
                 for path in dfs(suffix):
-                    dp[s].append([prefix] + path)
-        return dp[s]
+                    cache[s].append([prefix] + path)
+        return cache[s]
 
     return dfs(s)
 

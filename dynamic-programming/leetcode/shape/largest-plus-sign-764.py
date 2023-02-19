@@ -15,27 +15,27 @@ def x(n, mines):
 # T=n²,S=n²
 def y(n, mines):
     banned = {tuple(mine) for mine in mines}
-    res, dp = 0, [[0] * n for _ in range(n)]
+    res, cache = 0, [[0] * n for _ in range(n)]
     for i in range(n):
         count = 0
         for j in range(n):
             count = 0 if (i, j) in banned else count + 1
-            dp[i][j] = count
+            cache[i][j] = count
         count = 0
         for j in range(n - 1, -1, -1):
             count = 0 if (i, j) in banned else count + 1
-            dp[i][j] = min(dp[i][j], count)
+            cache[i][j] = min(cache[i][j], count)
 
     for j in range(n):
         count = 0
         for i in range(n):
             count = 0 if (i, j) in banned else count + 1
-            dp[i][j] = min(dp[i][j], count)
+            cache[i][j] = min(cache[i][j], count)
         count = 0
         for i in range(n - 1, -1, -1):
             count = 0 if (i, j) in banned else count + 1
-            dp[i][j] = min(dp[i][j], count)
-            res = max(res, dp[i][j])
+            cache[i][j] = min(cache[i][j], count)
+            res = max(res, cache[i][j])
     return res
 
 

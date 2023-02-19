@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=m+n,S=min(m,n)
 def x(nums1, nums2):
-    freq, res = Counter(nums1), []
+    res = []
+    freq = Counter(nums1)
     for val in nums2:
         if val in freq and freq[val]:
             res.append(val)
@@ -13,7 +14,8 @@ def x(nums1, nums2):
 
 # T=m+n,S=min(m,n)
 def y(nums1, nums2):
-    freq, res = Counter(nums2), []
+    res = []
+    freq = Counter(nums2)
     for val in nums1:
         if val in freq and freq[val]:
             res.append(val)

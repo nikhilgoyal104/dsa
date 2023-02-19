@@ -3,17 +3,17 @@ from binarytree import build
 
 # T=n,S=n
 def main(root):
-    dp = {None: 0}
+    cache = {None: 0}
 
     def dfs(root):
-        if root in dp:
-            return dp[root]
+        if root in cache:
+            return cache[root]
         inc, exc = root.val, 0
         for child in [root.left, root.right]:
             inc += dfs(child.left) + dfs(child.right) if child else 0
             exc += dfs(child)
-        dp[root] = max(inc, exc)
-        return dp[root]
+        cache[root] = max(inc, exc)
+        return cache[root]
 
     return dfs(root)
 

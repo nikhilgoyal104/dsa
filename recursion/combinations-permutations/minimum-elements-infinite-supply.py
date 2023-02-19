@@ -3,7 +3,7 @@ from collections import deque
 
 
 def w(nums, total):
-    n, dp = len(nums), {}
+    n, cache = len(nums), {}
 
     def dfs(start, sum):
         if sum == total:
@@ -11,28 +11,28 @@ def w(nums, total):
         if sum > total:
             return inf
         key = start, sum
-        if key in dp:
-            return dp[key]
-        dp[key] = inf
+        if key in cache:
+            return cache[key]
+        cache[key] = inf
         for i in range(start, n):
-            dp[key] = min(dp[key], 1 + dfs(i, sum + nums[i]))
-        return dp[key]
+            cache[key] = min(cache[key], 1 + dfs(i, sum + nums[i]))
+        return cache[key]
 
     return dfs(0, 0)
 
 
 def x(nums, total):
-    dp = {total: 0}
+    cache = {total: 0}
 
     def dfs(sum):
         if sum > total:
             return inf
-        if sum in dp:
-            return dp[sum]
-        dp[sum] = inf
+        if sum in cache:
+            return cache[sum]
+        cache[sum] = inf
         for val in nums:
-            dp[sum] = min(dp[sum], 1 + dfs(sum + val))
-        return dp[sum]
+            cache[sum] = min(cache[sum], 1 + dfs(sum + val))
+        return cache[sum]
 
     return dfs(0)
 
@@ -64,16 +64,16 @@ print()
 # T=ns,S=ns
 def z(nums, total):
     n = len(nums)
-    dp = [[inf] * (total + 1) for _ in range(n)]
+    cache = [[inf] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
         quot, rem = divmod(j, nums[0])
-        dp[0][j] = quot if not rem else inf
+        cache[0][j] = quot if not rem else inf
     for i in range(n):
-        dp[i][0] = 0
+        cache[i][0] = 0
     for i in range(1, n):
         for j in range(1, total + 1):
-            dp[i][j] = min(dp[i - 1][j], 1 + (dp[i][j - nums[i]] if j >= nums[i] else inf))
-    return dp[-1][-1]
+            cache[i][j] = min(cache[i - 1][j], 1 + (cache[i][j - nums[i]] if j >= nums[i] else inf))
+    return cache[-1][-1]
 
 
 for nums, total in [

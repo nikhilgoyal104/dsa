@@ -17,7 +17,7 @@ def x(n, moves, sri, sci):
 
 # T=n²k,S=n²k
 def y(n, moves, sri, sci):
-    dp = {}
+    cache = {}
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
 
     def dfs(ri, ci, moves):
@@ -26,12 +26,12 @@ def y(n, moves, sri, sci):
         if not moves:
             return 1
         key = ri, ci, moves
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for i, j in offsets:
-            dp[key] += dfs(ri + i, ci + j, moves - 1) / 8
-        return dp[key]
+            cache[key] += dfs(ri + i, ci + j, moves - 1) / 8
+        return cache[key]
 
     return dfs(sri, sci, moves)
 

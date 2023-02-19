@@ -2,13 +2,13 @@ from math import inf
 
 
 # T=n²,S=n
-# dp[i] length of LIS ending with nums[i]
+# cache[i] length of LIS ending with nums[i]
 def x(nums):
     n = len(nums)
-    dp = [1] * n
+    cache = [1] * n
     for i in range(n):
-        dp[i] = 1 + max((dp[j] for j in range(i) if nums[j] < nums[i]), default=0)
-        if dp[i] == 3:
+        cache[i] = 1 + max((cache[j] for j in range(i) if nums[j] < nums[i]), default=0)
+        if cache[i] == 3:
             return True
     return False
 

@@ -8,17 +8,17 @@ def p(nums, x, y):
     if nums[n - 1] == '1':
         return False
 
-    def dfs(i, dp):
+    def dfs(i, cache):
         if i > n - 1 or nums[i] == '1':
             return False
         if i == n - 1:
             return True
-        if i in dp:
-            return dp[i]
-        dp[i] = False
+        if i in cache:
+            return cache[i]
+        cache[i] = False
         for val in range(x, y + 1):
-            if dfs(i + val, dp):
-                dp[i] = True
+            if dfs(i + val, cache):
+                cache[i] = True
                 return True
         return False
 
@@ -28,31 +28,31 @@ def p(nums, x, y):
 # T=nk,S=n
 def q(nums, x, y):
     n = len(nums)
-    dp = [False] * n
-    dp[0] = True
+    cache = [False] * n
+    cache[0] = True
     for i in range(1, n):
         if nums[i] == '1':
             continue
         for j in range(x, y + 1):
-            if i - j > -1 and dp[i - j]:
-                dp[i] = True
+            if i - j > -1 and cache[i - j]:
+                cache[i] = True
                 break
-    return dp[-1]
+    return cache[-1]
 
 
 # T=nk,S=n
 def r(nums, x, y):
     n = len(nums)
-    dp = [False] * n
-    dp[-1] = True
+    cache = [False] * n
+    cache[-1] = True
     for i in range(n - 2, -1, -1):
         if nums[i] == '1':
             continue
         for j in range(x, y + 1):
-            if i + j < n and dp[i + j]:
-                dp[i] = True
+            if i + j < n and cache[i + j]:
+                cache[i] = True
                 break
-    return dp[0]
+    return cache[0]
 
 
 # T=nk,S=n

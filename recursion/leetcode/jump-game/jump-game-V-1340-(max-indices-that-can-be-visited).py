@@ -13,15 +13,15 @@ def nbrs(i, nums, d, n):
 
 # T=nd,S=n
 def x(nums, d):
-    dp, n = {}, len(nums)
+    cache, n = {}, len(nums)
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = 1
+        if i in cache:
+            return cache[i]
+        cache[i] = 1
         for nbr in nbrs(i, nums, d, n):
-            dp[i] = max(dp[i], 1 + dfs(nbr))
-        return dp[i]
+            cache[i] = max(cache[i], 1 + dfs(nbr))
+        return cache[i]
 
     return max(dfs(i) for i in range(n))
 

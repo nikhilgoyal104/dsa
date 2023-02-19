@@ -10,18 +10,18 @@ def u(n):
 
 
 def v(n):
-    dp = {}
+    cache = {}
 
     def dfs(i, prev):
         if i == n:
             return 1
         key = i, prev
-        if key in dp:
-            return dp[key]
-        dp[key] = dfs(i + 1, 0)
+        if key in cache:
+            return cache[key]
+        cache[key] = dfs(i + 1, 0)
         if not prev:
-            dp[key] += dfs(i + 1, 1)
-        return dp[key]
+            cache[key] += dfs(i + 1, 1)
+        return cache[key]
 
     return dfs(0, 0)
 
@@ -41,20 +41,20 @@ def w(n):
 
 
 def x(n):
-    dp = {}
+    cache = {}
 
     def dfs(i, prev):
         if i == n:
             return 1
         key = i, prev
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for digit in [0, 1]:
             if prev and digit:
                 continue
-            dp[key] += dfs(i + 1, digit)
-        return dp[key]
+            cache[key] += dfs(i + 1, digit)
+        return cache[key]
 
     return dfs(0, 0)
 

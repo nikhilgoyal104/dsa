@@ -30,16 +30,16 @@ print()
 
 def main(graph):
     dest = len(graph) - 1
-    dp = {dest: [[dest]]}
+    cache = {dest: [[dest]]}
 
     def dfs(src):
-        if src in dp:
-            return dp[src]
-        dp[src] = []
+        if src in cache:
+            return cache[src]
+        cache[src] = []
         for nbr in graph[src]:
             for path in dfs(nbr):
-                dp[src].append([src] + path)
-        return dp[src]
+                cache[src].append([src] + path)
+        return cache[src]
 
     return dfs(0)
 

@@ -8,13 +8,13 @@ def w(n):
 
 
 def x(n):
-    dp = {n: 1}
+    cache = {n: 1}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = dfs(i + 1) + dfs(i + 1)
-        return dp[i]
+        if i in cache:
+            return cache[i]
+        cache[i] = dfs(i + 1) + dfs(i + 1)
+        return cache[i]
 
     return dfs(0)
 
@@ -32,15 +32,15 @@ def y(n):
 
 
 def z(n):
-    dp = {n: 1}
+    cache = {n: 1}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = 0
+        if i in cache:
+            return cache[i]
+        cache[i] = 0
         for _ in [0, 1]:
-            dp[i] += dfs(i + 1)
-        return dp[i]
+            cache[i] += dfs(i + 1)
+        return cache[i]
 
     return dfs(0)
 

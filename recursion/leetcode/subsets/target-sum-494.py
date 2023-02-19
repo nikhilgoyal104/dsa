@@ -1,15 +1,15 @@
 # T=ns,S=ns
 def main(nums, total):
-    n, dp = len(nums), {}
+    n, cache = len(nums), {}
 
     def dfs(i, sum):
         if i == n:
             return int(sum == total)
         key = i, sum
-        if key in dp:
-            return dp[key]
-        dp[key] = dfs(i + 1, sum + nums[i]) + dfs(i + 1, sum - nums[i])
-        return dp[key]
+        if key in cache:
+            return cache[key]
+        cache[key] = dfs(i + 1, sum + nums[i]) + dfs(i + 1, sum - nums[i])
+        return cache[key]
 
     return dfs(0, 0)
 

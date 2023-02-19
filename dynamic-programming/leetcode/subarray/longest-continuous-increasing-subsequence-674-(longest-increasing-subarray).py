@@ -14,7 +14,8 @@ def x(nums):
 
 # T=n,S=1
 def y(nums):
-    n, i = len(nums), 0
+    n = len(nums)
+    i = 0
     res = 1
     while i < n:
         j = i + 1

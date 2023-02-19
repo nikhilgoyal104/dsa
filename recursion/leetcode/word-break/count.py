@@ -32,17 +32,17 @@ def y(s, words):
 # T=n²+2ⁿ+w,S=2ⁿnw
 def z(s, words):
     words = set(words)
-    dp = {'': 1}
+    cache = {'': 1}
 
     def dfs(s):
-        if s in dp:
-            return dp[s]
-        dp[s] = 0
+        if s in cache:
+            return cache[s]
+        cache[s] = 0
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if prefix in words:
-                dp[s] += dfs(suffix)
-        return dp[s]
+                cache[s] += dfs(suffix)
+        return cache[s]
 
     return dfs(s)
 

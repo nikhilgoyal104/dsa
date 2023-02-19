@@ -11,13 +11,13 @@ def x(n, k):
 
 # T=n,S=n
 def y(n, k):
-    dp = {1: k, 2: k * k}
+    cache = {1: k, 2: k * k}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = (k - 1) * (dfs(i - 1) + dfs(i - 2))
-        return dp[i]
+        if i in cache:
+            return cache[i]
+        cache[i] = (k - 1) * (dfs(i - 1) + dfs(i - 2))
+        return cache[i]
 
     return dfs(n)
 
@@ -26,11 +26,11 @@ def y(n, k):
 def z(n, k):
     if n == 1:
         return k
-    dp = [0] * n
-    dp[0], dp[1] = k, k * k
+    cache = [0] * n
+    cache[0], cache[1] = k, k * k
     for i in range(2, n):
-        dp[i] = (k - 1) * (dp[i - 1] + dp[i - 2])
-    return dp[-1]
+        cache[i] = (k - 1) * (cache[i - 1] + cache[i - 2])
+    return cache[-1]
 
 
 for n, k in [

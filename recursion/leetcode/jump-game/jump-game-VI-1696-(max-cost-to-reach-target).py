@@ -23,17 +23,17 @@ def x(nums, k):
 # T=kn,S=n
 def y(nums, k):
     n = len(nums)
-    dp = {n - 1: nums[n - 1]}
+    cache = {n - 1: nums[n - 1]}
 
     def dfs(i):
         if i > n - 1:
             return -inf
-        if i in dp:
-            return dp[i]
-        dp[i] = -inf
+        if i in cache:
+            return cache[i]
+        cache[i] = -inf
         for val in range(1, k + 1):
-            dp[i] = max(dp[i], nums[i] + dfs(i + val))
-        return dp[i]
+            cache[i] = max(cache[i], nums[i] + dfs(i + val))
+        return cache[i]
 
     return dfs(0)
 
@@ -41,40 +41,40 @@ def y(nums, k):
 # T=kn,S=n
 def p(nums, k):
     n = len(nums)
-    dp = [-inf] * n
-    dp[0] = nums[0]
+    cache = [-inf] * n
+    cache[0] = nums[0]
     for i in range(1, n):
         for j in range(1, k + 1):
             if i - j > -1:
-                dp[i] = max(dp[i], dp[i - j] + nums[i])
-    return dp[-1]
+                cache[i] = max(cache[i], cache[i - j] + nums[i])
+    return cache[-1]
 
 
 # T=kn,S=n
 def q(nums, k):
     n = len(nums)
-    dp = [-inf] * n
-    dp[n - 1] = nums[n - 1]
+    cache = [-inf] * n
+    cache[n - 1] = nums[n - 1]
     for i in range(n - 2, -1, -1):
         for j in range(1, k + 1):
             if i + j < n:
-                dp[i] = max(dp[i], dp[i + j] + nums[i])
-    return dp[0]
+                cache[i] = max(cache[i], cache[i + j] + nums[i])
+    return cache[0]
 
 
 # T=n,S=n
 def r(nums, k):
     n = len(nums)
-    dp, dq = [0] * n, deque([0])
-    dp[0] = nums[0]
+    cache, dq = [0] * n, deque([0])
+    cache[0] = nums[0]
     for i in range(1, n):
-        dp[i] = dp[dq[0]] + nums[i]
-        while dq and dp[i] > dp[dq[-1]]:
+        cache[i] = cache[dq[0]] + nums[i]
+        while dq and cache[i] > cache[dq[-1]]:
             dq.pop()
         dq.append(i)
         if dq[0] == i - k:
             dq.popleft()
-    return dp[-1]
+    return cache[-1]
 
 
 # T=n,S=k

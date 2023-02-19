@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=m+n,S=m+n
 def x(nums1, nums2):
-    hm, res = Counter(nums1), []
+    res = []
+    hm = Counter(nums1)
     for val in nums2:
         if val in hm:
             res.append(val)
@@ -13,11 +14,12 @@ def x(nums1, nums2):
 
 # T=m+n,S=m+n
 def y(nums1, nums2):
-    nums1, res = set(nums1), []
+    res = []
+    nums1Set = set(nums1)
     for val in nums2:
-        if val in nums1:
+        if val in nums1Set:
             res.append(val)
-            nums1.remove(val)
+            nums1Set.remove(val)
     return res
 
 

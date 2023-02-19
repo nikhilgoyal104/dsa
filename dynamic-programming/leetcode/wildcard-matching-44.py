@@ -15,7 +15,7 @@ def clean(p):
 # min(s,p) time for the string equality check
 # s+p time to create s[1:] and p[1:]
 def main(s, p):
-    dp = {}
+    cache = {}
 
     def dfs(s, p):
         if s == p or p == '*':
@@ -23,16 +23,16 @@ def main(s, p):
         if not s or not p:
             return False
         key = s, p
-        if key in dp:
-            return dp[key]
+        if key in cache:
+            return cache[key]
         if p[0] in {s[0], '?'}:
-            dp[key] = dfs(s[1:], p[1:])
-            return dp[key]
+            cache[key] = dfs(s[1:], p[1:])
+            return cache[key]
         if p[0] == '*':
             for i in range(len(s) + 1):
                 if dfs(s[i:], p[1:]):
-                    dp[key] = True
-                    return dp[key]
+                    cache[key] = True
+                    return cache[key]
         return False
 
     return dfs(s, clean(p))

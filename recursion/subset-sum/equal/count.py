@@ -31,18 +31,18 @@ def y(nums, total):
 
 
 # T=ns,S=ns
-# dp[i][j] = number of ways of making sum j from numbers till index i
+# cache[i][j] = number of ways of making sum j from numbers till index i
 def z(nums, total):
     n = len(nums)
-    dp = [[0] * (total + 1) for _ in range(n)]
+    cache = [[0] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
-        dp[0][j] = int(nums[0] == j)
+        cache[0][j] = int(nums[0] == j)
     for i in range(n):
-        dp[i][0] = 1
+        cache[i][0] = 1
     for i in range(1, n):
         for j in range(1, total + 1):
-            dp[i][j] = dp[i - 1][j] + (dp[i - 1][j - nums[i]] if j >= nums[i] else 0)
-    return dp[-1][-1]
+            cache[i][j] = cache[i - 1][j] + (cache[i - 1][j - nums[i]] if j >= nums[i] else 0)
+    return cache[-1][-1]
 
 
 for nums, total in [

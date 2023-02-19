@@ -23,17 +23,17 @@ print()
 
 # T=n,S=n
 def main(n):
-    dp = {0: 1}
+    cache = {0: 1}
 
     def dfs(target):
-        if target in dp:
-            return dp[target]
+        if target in cache:
+            return cache[target]
         if target < 0:
             return 0
-        dp[target] = 0
+        cache[target] = 0
         for jump in [1, 2]:
-            dp[target] += dfs(target - jump)
-        return dp[target]
+            cache[target] += dfs(target - jump)
+        return cache[target]
 
     return dfs(n)
 
@@ -46,13 +46,13 @@ for n in [
 
 # T=n,S=n
 def main(n):
-    dp = [0] * (n + 1)
-    dp[0] = 1
+    cache = [0] * (n + 1)
+    cache[0] = 1
     for target in range(1, n + 1):
         for coin in [1, 2]:
             if target >= coin:
-                dp[target] += dp[target - coin]
-    return dp[-1]
+                cache[target] += cache[target - coin]
+    return cache[-1]
 
 
 for n in [

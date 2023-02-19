@@ -1,32 +1,32 @@
 # T=mn,S=mn
 def x(nums1, nums2):
     m, n = len(nums1), len(nums2)
-    dp = {}
+    cache = {}
 
     def dfs(i, j, count):
         if i == m or j == n:
             return count
         key = i, j, count
-        if key in dp:
-            return dp[key]
+        if key in cache:
+            return cache[key]
         if nums1[i] == nums2[j]:
             count = dfs(i + 1, j + 1, count + 1)
-        dp[key] = max(count, dfs(i + 1, j, 0), dfs(i, j + 1, 0))
-        return dp[key]
+        cache[key] = max(count, dfs(i + 1, j, 0), dfs(i, j + 1, 0))
+        return cache[key]
 
     return dfs(0, 0, 0)
 
 
 # T=mn,S=mn
-# dp[i][j] = longest common suffix of nums1[:i] and nums2[:j]
+# cache[i][j] = longest common suffix of nums1[:i] and nums2[:j]
 def y(nums1, nums2):
     m, n = len(nums1), len(nums2)
-    res, dp = 0, [[0] * (n + 1) for _ in range(m + 1)]
+    res, cache = 0, [[0] * (n + 1) for _ in range(m + 1)]
     for i in range(1, m + 1):
         for j in range(1, n + 1):
             if nums1[i - 1] == nums2[j - 1]:
-                dp[i][j] = 1 + dp[i - 1][j - 1]
-                res = max(res, dp[i][j])
+                cache[i][j] = 1 + cache[i - 1][j - 1]
+                res = max(res, cache[i][j])
     return res
 
 

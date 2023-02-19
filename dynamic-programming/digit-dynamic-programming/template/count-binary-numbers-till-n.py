@@ -15,18 +15,18 @@ def x(n):
 
 def y(n):
     n = bin(n)[2:]
-    size, dp = len(n), {}
+    size, cache = len(n), {}
 
     def dfs(i, restrict):
         if i == size:
             return 1
         key = i, restrict
-        if key in dp:
-            return dp[key]
-        dp[key], limit = 0, int(n[i]) if restrict else 1
+        if key in cache:
+            return cache[key]
+        cache[key], limit = 0, int(n[i]) if restrict else 1
         for digit in range(limit + 1):
-            dp[key] += dfs(i + 1, False if digit < limit else restrict)
-        return dp[key]
+            cache[key] += dfs(i + 1, False if digit < limit else restrict)
+        return cache[key]
 
     return dfs(0, True)
 

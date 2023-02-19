@@ -12,16 +12,16 @@ def x(nums):
 
 # T=ns,S=ns
 def y(nums):
-    n, dp = len(nums), {}
+    n, cache = len(nums), {}
 
     def dfs(i, sum1, sum2):
         if i == n:
             return abs(sum1 - sum2)
         key = i, sum1, sum2
-        if key in dp:
-            return dp[key]
-        dp[key] = min(dfs(i + 1, sum1 + nums[i], sum2), dfs(i + 1, sum1, sum2 + nums[i]))
-        return dp[key]
+        if key in cache:
+            return cache[key]
+        cache[key] = min(dfs(i + 1, sum1 + nums[i], sum2), dfs(i + 1, sum1, sum2 + nums[i]))
+        return cache[key]
 
     return dfs(0, 0, 0)
 

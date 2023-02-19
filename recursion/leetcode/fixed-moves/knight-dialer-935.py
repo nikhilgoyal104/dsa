@@ -5,7 +5,7 @@ sys.setrecursionlimit(550000)
 
 # T=n,S=n
 def x(length):
-    dp, grid = {}, [[1, 1, 1], [1, 1, 1], [1, 1, 1], [0, 1, 0]]
+    cache, grid = {}, [[1, 1, 1], [1, 1, 1], [1, 1, 1], [0, 1, 0]]
     m, n = 4, 3
     offsets = (-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)
 
@@ -15,12 +15,12 @@ def x(length):
         if length == 1:
             return 1
         key = ri, ci, length
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for i, j in offsets:
-            dp[key] += dfs(ri + i, ci + j, length - 1)
-        return dp[key]
+            cache[key] += dfs(ri + i, ci + j, length - 1)
+        return cache[key]
 
     return sum(dfs(i, j, length) for i in range(m) for j in range(n) if grid[i][j]) % (pow(10, 9) + 7)
 
@@ -39,18 +39,18 @@ def y(length):
         9: (2, 4),
         0: (4, 6)
     }
-    dp = {}
+    cache = {}
 
     def dfs(src, length):
         if length == 1:
             return 1
         key = src, length
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for nbr in graph[src]:
-            dp[key] += dfs(nbr, length - 1)
-        return dp[key]
+            cache[key] += dfs(nbr, length - 1)
+        return cache[key]
 
     return sum(dfs(src, length) for src in graph) % (pow(10, 9) + 7)
 

@@ -61,21 +61,21 @@ print()
 
 # T=logn,S=logn
 def z(n):
-    n, dp = bin(n)[2:], {}
+    n, cache = bin(n)[2:], {}
     size = len(n)
 
     def dfs(i, restrict, prev):
         if i == size:
             return 1
         key = i, restrict, prev
-        if key in dp:
-            return dp[key]
-        dp[key], limit = 0, int(n[i]) if restrict else 1
+        if key in cache:
+            return cache[key]
+        cache[key], limit = 0, int(n[i]) if restrict else 1
         for digit in range(limit + 1):
             if prev and digit:
                 continue
-            dp[key] += dfs(i + 1, False if digit < limit else restrict, digit)
-        return dp[key]
+            cache[key] += dfs(i + 1, False if digit < limit else restrict, digit)
+        return cache[key]
 
     return dfs(0, True, 0)
 

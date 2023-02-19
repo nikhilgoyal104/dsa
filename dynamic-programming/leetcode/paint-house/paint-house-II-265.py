@@ -14,15 +14,15 @@ def getFirstAndSecondMin(row):
 # T=nk,S=nk
 def main(grid):
     m, n = len(grid), len(grid[0])
-    dp = [[0] * n for _ in range(m)]
+    cache = [[0] * n for _ in range(m)]
     for j in range(n):
-        dp[0][j] = grid[0][j]
-    firstMin, secondMin = getFirstAndSecondMin(dp[0])
+        cache[0][j] = grid[0][j]
+    firstMin, secondMin = getFirstAndSecondMin(cache[0])
     for i in range(1, m):
         for j in range(n):
-            dp[i][j] = grid[i][j] + (firstMin if dp[i - 1][j] != firstMin else secondMin)
-        firstMin, secondMin = getFirstAndSecondMin(dp[i])
-    return min(dp[-1])
+            cache[i][j] = grid[i][j] + (firstMin if cache[i - 1][j] != firstMin else secondMin)
+        firstMin, secondMin = getFirstAndSecondMin(cache[i])
+    return min(cache[-1])
 
 
 for grid in [

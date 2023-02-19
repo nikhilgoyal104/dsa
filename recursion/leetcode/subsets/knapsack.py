@@ -31,18 +31,18 @@ def y(nums, profits, total):
 
 
 # T=ns,S=ns
-# dp[i][j] = max profit for capacity j from the first i elements
+# cache[i][j] = max profit for capacity j from the first i elements
 def z(nums, profits, total):
     n = len(nums)
-    dp = [[0] * (total + 1) for _ in range(n)]
+    cache = [[0] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
-        dp[0][j] = profits[0] if nums[0] <= j else 0
+        cache[0][j] = profits[0] if nums[0] <= j else 0
     for i in range(n):
-        dp[i][0] = 0
+        cache[i][0] = 0
     for i in range(1, n):
         for j in range(1, total + 1):
-            dp[i][j] = max(dp[i - 1][j], (profits[i] + dp[i - 1][j - nums[i]]) if j >= nums[i] else 0)
-    return dp[-1][-1]
+            cache[i][j] = max(cache[i - 1][j], (profits[i] + cache[i - 1][j - nums[i]]) if j >= nums[i] else 0)
+    return cache[-1][-1]
 
 
 for nums, profits, total in [

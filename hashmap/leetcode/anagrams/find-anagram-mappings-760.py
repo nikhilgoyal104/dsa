@@ -3,7 +3,8 @@ from collections import defaultdict, deque
 
 # T=n,S=n
 def main(nums1, nums2):
-    res, mapping = [], defaultdict(deque)
+    res = []
+    mapping = defaultdict(deque)
     for i, v in enumerate(nums2):
         mapping[v].append(i)
     return [mapping[val].popleft() for val in nums1]

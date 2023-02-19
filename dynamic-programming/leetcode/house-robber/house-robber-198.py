@@ -22,15 +22,15 @@ print('\n')
 # T=n,S=n
 def x(nums):
     n = len(nums)
-    dp = {}
+    cache = {}
 
     def dfs(i):
         if i >= n:
             return 0
-        if i in dp:
-            return dp[i]
-        dp[i] = max(nums[i] + dfs(i + 2), dfs(i + 1))
-        return dp[i]
+        if i in cache:
+            return cache[i]
+        cache[i] = max(nums[i] + dfs(i + 2), dfs(i + 1))
+        return cache[i]
 
     return dfs(0)
 
@@ -38,11 +38,11 @@ def x(nums):
 # T=n,S=n
 def y(nums):
     n = len(nums)
-    dp = [0] * n
-    dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+    cache = [0] * n
+    cache[0], cache[1] = nums[0], max(nums[0], nums[1])
     for i in range(2, n):
-        dp[i] = max(nums[i] + dp[i - 2], dp[i - 1])
-    return dp[-1]
+        cache[i] = max(nums[i] + cache[i - 2], cache[i - 1])
+    return cache[-1]
 
 
 for nums in [

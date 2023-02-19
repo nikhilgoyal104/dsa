@@ -24,7 +24,7 @@ print()
 
 # T=mnk,S=mnk
 def y(m, n, sri, sci, moves):
-    dp = {}
+    cache = {}
 
     def dfs(ri, ci, moves):
         if ri in [-1, m] or ci in [-1, n]:
@@ -32,12 +32,12 @@ def y(m, n, sri, sci, moves):
         if not moves:
             return 0
         key = ri, ci, moves
-        if key in dp:
-            return dp[key]
-        dp[key] = 0
+        if key in cache:
+            return cache[key]
+        cache[key] = 0
         for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
-            dp[key] += dfs(ri + i, ci + j, moves - 1)
-        return dp[key]
+            cache[key] += dfs(ri + i, ci + j, moves - 1)
+        return cache[key]
 
     return dfs(sri, sci, moves) % (pow(10, 9) + 7)
 

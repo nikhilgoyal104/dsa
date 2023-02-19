@@ -4,16 +4,16 @@ def main(words):
     res = []
     prewords = set()
 
-    def dfs(s, prewords, dp):
-        if s in dp:
-            return dp[s]
-        dp[s] = False
+    def dfs(s, prewords, cache):
+        if s in cache:
+            return cache[s]
+        cache[s] = False
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
-            if prefix in prewords and dfs(suffix, prewords, dp):
-                dp[s] = True
-                return dp[s]
-        return dp[s]
+            if prefix in prewords and dfs(suffix, prewords, cache):
+                cache[s] = True
+                return cache[s]
+        return cache[s]
 
     for word in words:
         if not word:

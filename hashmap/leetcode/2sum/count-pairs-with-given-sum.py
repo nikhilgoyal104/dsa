@@ -8,7 +8,8 @@ def nCr(n, r):
 
 # T=n,S=1
 def x(nums, target):
-    res, freq = 0, Counter(nums)
+    res = 0
+    freq = Counter(nums)
     for val in freq:
         complement = target - val
         if val == complement and freq[val] > 1:
@@ -20,7 +21,8 @@ def x(nums, target):
 
 # T=n,S=1
 def y(nums, target):
-    res, freq = 0, Counter(nums)
+    res = 0
+    freq = Counter(nums)
     for val in nums:
         complement = target - val
         res += freq[complement]

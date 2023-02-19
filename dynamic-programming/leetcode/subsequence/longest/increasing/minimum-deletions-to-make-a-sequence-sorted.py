@@ -1,13 +1,13 @@
 # T=n²,S=n
-# dp[i] length of LIS ending with nums[i]
+# cache[i] length of LIS ending with nums[i]
 def main(nums):
     n = len(nums)
-    dp = [1] * n
+    cache = [1] * n
     for i in range(1, n):
         for j in range(i):
             if nums[j] < nums[i]:
-                dp[i] = max(dp[i], 1 + dp[j])
-    return n - max(dp)
+                cache[i] = max(cache[i], 1 + cache[j])
+    return n - max(cache)
 
 
 for nums in [

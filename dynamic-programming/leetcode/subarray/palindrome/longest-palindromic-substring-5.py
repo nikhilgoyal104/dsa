@@ -1,13 +1,13 @@
 # T=n²,S=n²
-# dp[i][j] = is s[i:j+1] a palindrome
+# cache[i][j] = is s[i:j+1] a palindrome
 def x(s):
     n = len(s)
     maxLen = start = end = 0
-    dp = [[False] * n for _ in range(n)]
+    cache = [[False] * n for _ in range(n)]
     for i in range(n - 1, -1, -1):
         for j in range(i, n):
-            dp[i][j] = s[i] == s[j] and (j - i < 2 or dp[i + 1][j - 1])
-            if dp[i][j] and j - i + 1 > maxLen:
+            cache[i][j] = s[i] == s[j] and (j - i < 2 or cache[i + 1][j - 1])
+            if cache[i][j] and j - i + 1 > maxLen:
                 maxLen, start, end = j - i + 1, i, j
     return s[start:end + 1]
 

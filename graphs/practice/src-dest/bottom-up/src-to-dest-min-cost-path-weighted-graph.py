@@ -45,19 +45,19 @@ print()
 
 def main(grid, src, dest):
     graph = build6(grid)
-    dp = {dest: 0}
+    cache = {dest: 0}
     vis = set()
 
     def dfs(src):
-        if src in dp:
-            return dp[src]
+        if src in cache:
+            return cache[src]
         vis.add(src)
-        dp[src] = float('inf')
+        cache[src] = float('inf')
         for nbr, cost in graph[src]:
             if nbr not in vis:
-                dp[src] = min(dp[src], cost + dfs(nbr))
+                cache[src] = min(cache[src], cost + dfs(nbr))
         vis.remove(src)
-        return dp[src]
+        return cache[src]
 
     return dfs(src)
 

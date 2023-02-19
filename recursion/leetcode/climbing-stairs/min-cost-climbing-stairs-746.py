@@ -30,17 +30,17 @@ for nums in inputs:
 # T=n,S=n
 def main(nums):
     n = len(nums)
-    dp = {n: 0}
+    cache = {n: 0}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
+        if i in cache:
+            return cache[i]
         if i > n:
             return inf
-        dp[i] = inf
+        cache[i] = inf
         for jump in [1, 2]:
-            dp[i] = min(dp[i], nums[i] + dfs(i + jump))
-        return dp[i]
+            cache[i] = min(cache[i], nums[i] + dfs(i + jump))
+        return cache[i]
 
     return min(dfs(i) for i in [0, 1])
 
@@ -73,17 +73,17 @@ for nums in inputs:
 # T=n,S=n
 def main(nums):
     n = len(nums)
-    dp = {0: 0, 1: 0}
+    cache = {0: 0, 1: 0}
 
     def dfs(i):
-        if i in dp:
-            return dp[i]
+        if i in cache:
+            return cache[i]
         if i < 0:
             return inf
-        dp[i] = inf
+        cache[i] = inf
         for jump in [1, 2]:
-            dp[i] = min(dp[i], nums[i - jump] + dfs(i - jump))
-        return dp[i]
+            cache[i] = min(cache[i], nums[i - jump] + dfs(i - jump))
+        return cache[i]
 
     return dfs(n)
 
@@ -95,11 +95,11 @@ for nums in inputs:
 # T=n,S=n
 def main(nums):
     n = len(nums)
-    dp = [0] * (n + 1)
-    dp[0], dp[1] = 0, 0
+    cache = [0] * (n + 1)
+    cache[0], cache[1] = 0, 0
     for i in range(2, n + 1):
-        dp[i] = min(nums[i - 1] + dp[i - 1], nums[i - 2] + dp[i - 2])
-    return dp[-1]
+        cache[i] = min(nums[i - 1] + cache[i - 1], nums[i - 2] + cache[i - 2])
+    return cache[-1]
 
 
 for nums in inputs:

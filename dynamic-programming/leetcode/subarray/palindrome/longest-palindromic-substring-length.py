@@ -16,7 +16,7 @@ def x(s):
 
 # T=n²,S=n²
 def y(s):
-    n, dp = len(s), {}
+    n, cache = len(s), {}
 
     def dfs(i, j):
         if i == j:
@@ -24,13 +24,13 @@ def y(s):
         if i > j:
             return 0
         key = i, j
-        if key in dp:
-            return dp[key]
+        if key in cache:
+            return cache[key]
         if s[i] == s[j] and j - i - 1 == dfs(i + 1, j - 1):
-            dp[key] = 2 + (j - i - 1)
-            return dp[key]
-        dp[key] = max(dfs(i + 1, j), dfs(i, j - 1))
-        return dp[key]
+            cache[key] = 2 + (j - i - 1)
+            return cache[key]
+        cache[key] = max(dfs(i + 1, j), dfs(i, j - 1))
+        return cache[key]
 
     return dfs(0, n - 1)
 
