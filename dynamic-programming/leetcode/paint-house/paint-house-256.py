@@ -8,18 +8,19 @@ def x(grid):
     def dfs(ri, ci):
         if ri == m - 1:
             return grid[ri][ci]
-        mcost = inf
+        res = inf
         for j in range(n):
             if j != ci:
-                mcost = min(mcost, grid[ri][ci] + dfs(ri + 1, j))
-        return mcost
+                res = min(res, grid[ri][ci] + dfs(ri + 1, j))
+        return res
 
     return min(dfs(0, j) for j in range(n))
 
 
 # T=nk²,S=nk
 def y(grid):
-    m, n, dp = len(grid), len(grid[0]), {}
+    m, n = len(grid), len(grid[0])
+    dp = {}
 
     def dfs(ri, ci):
         if ri == m - 1:

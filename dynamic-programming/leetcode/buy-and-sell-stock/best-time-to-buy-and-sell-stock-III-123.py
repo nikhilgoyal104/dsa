@@ -1,6 +1,7 @@
 # T=n,S=n
 def main(nums):
-    n, dp = len(nums), {}
+    n = len(nums)
+    dp = {}
 
     def dfs(i, bought, k):
         if i == n or k == 0:

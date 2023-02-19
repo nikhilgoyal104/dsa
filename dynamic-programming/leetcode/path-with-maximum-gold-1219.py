@@ -23,14 +23,15 @@ inputs = [
 def main(grid):
     m, n = len(grid), len(grid[0])
     offsets = (0, 1), (1, 0), (-1, 0), (0, -1)
+    vis = set()
 
-    def dfs(ri, ci, vis):
+    def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or not grid[ri][ci] or (ri, ci) in vis:
             return 0
         vis.add((ri, ci))
         res = 0
         for i, j in offsets:
-            res = max(res, grid[ri][ci] + dfs(ri + i, ci + j, vis))
+            res = max(res, grid[ri][ci] + dfs(ri + i, ci + j))
         vis.remove((ri, ci))
         return res
 
@@ -38,7 +39,7 @@ def main(grid):
     for i in range(m):
         for j in range(n):
             if grid[i][j]:
-                res = max(res, dfs(i, j, set()))
+                res = max(res, dfs(i, j))
     return res
 
 

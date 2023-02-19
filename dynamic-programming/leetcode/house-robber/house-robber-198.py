@@ -21,7 +21,8 @@ print('\n')
 
 # T=n,S=n
 def x(nums):
-    n, dp = len(nums), {}
+    n = len(nums)
+    dp = {}
 
     def dfs(i):
         if i >= n:

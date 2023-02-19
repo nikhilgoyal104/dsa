@@ -14,7 +14,8 @@ def x(s1, s2):
 
 # T=mn,S=mn
 def y(s1, s2):
-    m, n, dp = len(s1), len(s2), {}
+    m, n = len(s1), len(s2)
+    dp = {}
 
     def dfs(i, j):
         if i == m or j == n:

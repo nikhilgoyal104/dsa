@@ -1,9 +1,7 @@
-from math import inf
-
-
 # T=n³,S=1
 def x(nums):
-    n, res = len(nums), -inf
+    n = len(nums)
+    res = float('-inf')
     for i in range(n):
         for j in range(i, n):
             res = max(res, sum(nums[i:j + 1]))
@@ -12,7 +10,8 @@ def x(nums):
 
 # T=n²,S=1
 def y(nums):
-    n, res = len(nums), -inf
+    n = len(nums)
+    res = float('-inf')
     for i in range(n):
         sum = 0
         for j in range(i, n):
@@ -23,7 +22,8 @@ def y(nums):
 
 # T=n,S=1
 def z(nums):
-    sum, res = 0, -inf
+    res = float('-inf')
+    sum = 0
     for val in nums:
         sum = max(sum + val, val)
         res = max(res, sum)

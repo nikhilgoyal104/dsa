@@ -1,6 +1,4 @@
-from math import inf
-
-tests = [
+inputs = [
     [0],
     [1],
     [5, 4, -1, 7, 8],
@@ -14,7 +12,8 @@ tests = [
 
 
 def x(nums):
-    sum, res = 0, -inf
+    res = float('-inf')
+    sum = 0
     for val in nums:
         sum += val
         if sum < val:
@@ -23,7 +22,7 @@ def x(nums):
     return res
 
 
-for nums in tests:
+for nums in inputs:
     print(x(nums), end=' ')
 
 print('\n')
@@ -31,30 +30,33 @@ print('\n')
 
 def y(nums):
     n = len(nums)
-    sum, res = 0, -inf
-    start = end = 0
+    res = float('-inf')
+    sum = start = end = 0
     for i in range(n):
         sum += nums[i]
         if sum < nums[i]:
-            start, sum = i, nums[i]
+            start = i
+            sum = nums[i]
         if sum > res:
-            end, res = i, sum
+            end = i
+            res = sum
     return res, start, end
 
 
-for nums in tests:
+for nums in inputs:
     print(y(nums))
 
 print()
 
 
 def z(nums):
-    sum, res = 0, -inf
+    res = float('-inf')
+    sum = 0
     for val in nums:
         sum = max(sum + val, val)
         res = max(res, sum)
     return res
 
 
-for nums in tests:
+for nums in inputs:
     print(z(nums), end=' ')

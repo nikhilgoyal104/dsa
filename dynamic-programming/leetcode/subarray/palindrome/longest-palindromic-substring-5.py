@@ -39,10 +39,14 @@ def z(s):
     for i in range(n):
         currMaxLen, currStart, currEnd = expand(i, i)
         if currMaxLen > maxLen:
-            maxLen, start, end = currMaxLen, currStart, currEnd
+            maxLen = currMaxLen
+            start = currStart
+            end = currEnd
         currMaxLen, currStart, currEnd = expand(i, i + 1)
         if currMaxLen > maxLen:
-            maxLen, start, end = currMaxLen, currStart, currEnd
+            maxLen = currMaxLen
+            start = currStart
+            end = currEnd
     return s[start:end + 1]
 
 

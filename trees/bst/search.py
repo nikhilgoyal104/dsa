@@ -6,13 +6,16 @@ inputs = [
 ]
 
 
+# T=h
 def main(root, target):
     def dfs(root):
         if not root:
             return False
         if target == root.val:
             return True
-        return dfs(root.right) if target > root.val else dfs(root.left)
+        if target > root.val:
+            return dfs(root.right)
+        return dfs(root.left)
 
     return dfs(root)
 
@@ -23,11 +26,15 @@ for root, target in inputs:
 print()
 
 
+# T=h
 def main(root, target):
     while root:
         if target == root.val:
             return True
-        root = root.right if target > root.val else root.left
+        if target > root.val:
+            root = root.right
+        else:
+            root = root.left
     return False
 
 

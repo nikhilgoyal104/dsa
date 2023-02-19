@@ -5,14 +5,14 @@ from heapq import *
 def main(edges):
     res = []
     graph = defaultdict(list)
-    for src, dest in edges:
-        heappush(graph[src], dest)
 
     def dfs(src):
         while graph[src]:
             dfs(heappop(graph[src]))
         res.append(src)
 
+    for src, dest in edges:
+        heappush(graph[src], dest)
     dfs('JFK')
     return res[::-1]
 

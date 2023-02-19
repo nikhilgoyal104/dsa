@@ -1,6 +1,7 @@
 # T=n³
-def x(nums):
-    res, n = [], len(nums)
+def main(nums):
+    n = len(nums)
+    res = []
     for i in range(n):
         for j in range(i, n):
             res.append(nums[i:j + 1])
@@ -10,14 +11,15 @@ def x(nums):
 for nums in [
     [], [1], [1, 2, 3]
 ]:
-    print(x(nums))
+    print(main(nums))
 
 print()
 
 
 # T=n³
-def x(s):
-    res, n = [], len(s)
+def main(s):
+    n = len(s)
+    res = []
     for i in range(n):
         for j in range(i, n):
             res.append(s[i:j + 1])
@@ -27,4 +29,4 @@ def x(s):
 for s in [
     '', 'a', 'abc'
 ]:
-    print(x(s))
+    print(main(s))

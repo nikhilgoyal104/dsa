@@ -1,5 +1,3 @@
-from math import inf
-
 inputs = [
     [-2],
     [2, 3, -2, 4],
@@ -11,7 +9,8 @@ inputs = [
 
 # T=n²,S=1
 def main(nums):
-    res, n = -inf, len(nums)
+    n = len(nums)
+    res = float('-inf')
     for i in range(n):
         prod = 1
         for j in range(i, n):
@@ -28,7 +27,8 @@ print()
 
 # T=n,S=1
 def main(nums):
-    res, n = -inf, len(nums)
+    n = len(nums)
+    res = float('-inf')
     prod = 1
     for i in range(n):
         prod *= nums[i]

@@ -46,7 +46,8 @@ def w(s):
 
 # T=n²,S=n²
 def x(s):
-    n, dp = len(s), {}
+    n = len(s)
+    dp = {}
 
     def dfs(i, j):
         if i == j:

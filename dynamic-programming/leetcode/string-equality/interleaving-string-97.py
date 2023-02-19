@@ -1,6 +1,7 @@
 # T=mn
 def main(s1, s2, s3):
-    m, n, o, dp = len(s1), len(s2), len(s3), {}
+    m, n, o = len(s1), len(s2), len(s3)
+    dp = {}
     if m + n != o:
         return False
 

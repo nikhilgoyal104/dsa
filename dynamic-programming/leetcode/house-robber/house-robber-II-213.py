@@ -1,4 +1,4 @@
-def x(nums):
+def main(nums):
     n = len(nums)
     if n == 1:
         return nums[0]
@@ -20,6 +20,10 @@ def x(nums):
 
 
 for nums in [
-    [2, 3, 2], [1, 2, 3, 1], [0], [1], [1, 2]
+    [2, 3, 2],
+    [1, 2, 3, 1],
+    [0],
+    [1],
+    [1, 2]
 ]:
-    print(x(nums))
+    print(main(nums))

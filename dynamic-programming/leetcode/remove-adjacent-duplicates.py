@@ -1,5 +1,7 @@
-def clean(p):
-    i, n, res = 0, len(p), []
+def main(p):
+    n = len(p)
+    i = 0
+    res = []
     while i < n:
         res.append(p[i])
         while i + 1 < n and p[i] == p[i + 1] == '*':
@@ -11,4 +13,4 @@ def clean(p):
 for p in [
     'a***b', 'a***b*****', '*', '**'
 ]:
-    print(clean(p))
+    print(main(p))

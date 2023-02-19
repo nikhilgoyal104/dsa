@@ -1,5 +1,7 @@
 def clean(p):
-    i, n, res = 0, len(p), []
+    n = len(p)
+    i = 0
+    res = []
     while i < n:
         res.append(p[i])
         while i + 1 < n and p[i] == p[i + 1] == '*':
@@ -12,7 +14,7 @@ def clean(p):
 # s+p time to create a hash of tuple s,p the first time
 # min(s,p) time for the string equality check
 # s+p time to create s[1:] and p[1:]
-def x(s, p):
+def main(s, p):
     dp = {}
 
     def dfs(s, p):
@@ -58,4 +60,4 @@ for s, p in [
             '*ba**b*a****a*bb*a*b***bbab*bbb**bb****b*b**aaa*b*babab*b*b*a*b***abb**aa**a*****a**bb****a*bb*a***ababb'
     )
 ]:
-    print(x(s, p))
+    print(main(s, p))

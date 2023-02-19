@@ -11,7 +11,9 @@ def main(root, target):
     def dfs(root):
         if not root or target == root.val:
             return root
-        return dfs(root.right) if target > root.val else dfs(root.left)
+        if target > root.val:
+            return dfs(root.right)
+        return dfs(root.left)
 
     return dfs(root)
 
@@ -27,7 +29,10 @@ def main(root, target):
     while root:
         if target == root.val:
             return root
-        root = root.right if target > root.val else root.left
+        if target > root.val:
+            root = root.right
+        else:
+            root = root.left
     return root
 
 

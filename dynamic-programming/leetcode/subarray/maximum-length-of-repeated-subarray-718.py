@@ -1,6 +1,7 @@
 # T=mn,S=mn
 def x(nums1, nums2):
-    m, n, dp = len(nums1), len(nums2), {}
+    m, n = len(nums1), len(nums2)
+    dp = {}
 
     def dfs(i, j, count):
         if i == m or j == n:

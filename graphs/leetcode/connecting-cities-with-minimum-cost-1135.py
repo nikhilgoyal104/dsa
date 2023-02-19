@@ -18,8 +18,10 @@ def build(n, edges):
 
 # T=nlogn,S=n
 def main(n, connections):
-    res, vis = 0, set()
-    heap, graph = [], build(n, connections)
+    res = 0
+    vis = set()
+    heap = []
+    graph = build(n, connections)
     heappush(heap, (0, 1))
     while heap:
         weight, src = heappop(heap)

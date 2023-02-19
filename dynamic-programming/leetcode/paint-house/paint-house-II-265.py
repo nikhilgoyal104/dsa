@@ -1,7 +1,7 @@
 from math import inf
 
 
-def mins(row):
+def getFirstAndSecondMin(row):
     firstMin, secondMin = inf, inf
     for val in row:
         if val < firstMin:
@@ -12,16 +12,16 @@ def mins(row):
 
 
 # T=nk,S=nk
-def x(grid):
+def main(grid):
     m, n = len(grid), len(grid[0])
     dp = [[0] * n for _ in range(m)]
     for j in range(n):
         dp[0][j] = grid[0][j]
-    firstMin, secondMin = mins(dp[0])
+    firstMin, secondMin = getFirstAndSecondMin(dp[0])
     for i in range(1, m):
         for j in range(n):
             dp[i][j] = grid[i][j] + (firstMin if dp[i - 1][j] != firstMin else secondMin)
-        firstMin, secondMin = mins(dp[i])
+        firstMin, secondMin = getFirstAndSecondMin(dp[i])
     return min(dp[-1])
 
 
@@ -41,4 +41,4 @@ for grid in [
         [12, 14, 27, 7, 8, 9]
     ]
 ]:
-    print(x(grid))
+    print(main(grid))

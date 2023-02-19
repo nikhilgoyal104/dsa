@@ -14,7 +14,8 @@ def x(s1, s2):
 
 # T=mn,S=mn
 def y(s1, s2):
-    m, n, dp = len(s1), len(s2), {}
+    m, n = len(s1), len(s2)
+    dp = {}
 
     def dfs(i, j, count):
         if i == m or j == n:
@@ -33,7 +34,8 @@ def y(s1, s2):
 # T=mn,S=mn
 # dp[i][j] = longest common suffix of s1[:i] and s2[:j]
 def z(s1, s2):
-    m, n, res = len(s1), len(s2), 0
+    m, n = len(s1), len(s2)
+    res = 0
     dp = [[0] * (n + 1) for _ in range(m + 1)]
     for i in range(1, m + 1):
         for j in range(1, n + 1):
