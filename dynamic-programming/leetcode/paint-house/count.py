@@ -1,6 +1,3 @@
-from math import inf
-
-
 def x(n, k):
     def dfs(i):
         if i == 1:

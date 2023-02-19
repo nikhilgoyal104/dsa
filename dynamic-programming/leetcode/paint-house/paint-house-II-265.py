@@ -1,8 +1,5 @@
-from math import inf
-
-
 def getFirstAndSecondMin(row):
-    firstMin, secondMin = inf, inf
+    firstMin = secondMin = float('inf')
     for val in row:
         if val < firstMin:
             secondMin, firstMin = firstMin, val

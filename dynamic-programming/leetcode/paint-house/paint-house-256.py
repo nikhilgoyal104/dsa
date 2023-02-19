@@ -8,7 +8,7 @@ def x(grid):
     def dfs(ri, ci):
         if ri == m - 1:
             return grid[ri][ci]
-        res = inf
+        res = float('inf')
         for j in range(n):
             if j != ci:
                 res = min(res, grid[ri][ci] + dfs(ri + 1, j))
@@ -28,7 +28,7 @@ def y(grid):
         key = ri, ci
         if key in cache:
             return cache[key]
-        cache[key] = inf
+        cache[key] = float('inf')
         for j in range(n):
             if j != ci:
                 cache[key] = min(cache[key], grid[ri][ci] + dfs(ri + 1, j))
