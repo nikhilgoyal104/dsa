@@ -2,7 +2,8 @@ from heapq import *
 
 
 def main(nums):
-    heap, n = [], len(nums)
+    n = len(nums)
+    heap = []
     for val in nums:
         heappush(heap, val)
     for _ in range(n):

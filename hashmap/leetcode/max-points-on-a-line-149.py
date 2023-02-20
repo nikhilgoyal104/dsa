@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=n²,S=n
 def main(points):
-    res, n = 0, len(points)
+    n = len(points)
+    res = 0
     for i in range(n):
         x1, y1 = points[i][0], points[i][1]
         slopeFreq = Counter()

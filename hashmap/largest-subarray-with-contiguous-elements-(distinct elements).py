@@ -1,6 +1,7 @@
 # T=n²,S=1
 def main(nums):
-    res, n = 1, len(nums)
+    n = len(nums)
+    res = 1
     for i in range(n):
         minEle, maxEle = float('inf'), float('-inf')
         for j in range(i, n):

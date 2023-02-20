@@ -1,6 +1,7 @@
 # T=n,S=n
 def main(nums):
-    numsSet, maxSize, longestConsecutiveSeq = set(nums), 0, []
+    numsSet, maxSize = set(nums), 0
+    longestConsecutiveSeq = []
     for val in nums:
         if val - 1 not in numsSet:
             size, seq = 1, [val]

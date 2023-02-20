@@ -1,4 +1,6 @@
 def w(nums):
+    res = []
+    nums = sorted(nums)
     res, nums = [], sorted(nums)
     for i in range(len(nums)):
         if i and nums[i] == nums[i - 1]:
@@ -8,7 +10,8 @@ def w(nums):
 
 
 def x(nums):
-    res, nums = [], sorted(nums)
+    res = []
+    nums = sorted(nums)
     for i in range(len(nums)):
         if not i or nums[i] != nums[i - 1]:
             res.append(nums[i])

@@ -2,7 +2,8 @@ from collections import Counter
 
 
 def main(s):
-    count, res = Counter(s), s[0]
+    res = s[0]
+    freq = Counter(s)
     for ch in count:
         if count[ch] > count[res]:
             res = ch

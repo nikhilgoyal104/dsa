@@ -1,6 +1,8 @@
 # T=n,S=n
 def main(mapping):
-    start, sources, destinations = None, mapping.keys(), set(mapping.values())
+    start = None
+    sources = mapping.keys()
+    destinations = set(mapping.values())
     for source in sources:
         if source not in destinations:
             start = source

@@ -1,11 +1,10 @@
-from math import inf
-
-
 # T=n²,S=1
 def main(nums):
-    res, n = 0, len(nums)
+    n = len(nums)
+    res = 0
     for i in range(n):
-        minEle, maxEle, vis = float('inf'), float('-inf'), set()
+        minEle, maxEle = float('inf'), float('-inf')
+        vis = set()
         for j in range(i, n):
             if nums[j] in vis:
                 break

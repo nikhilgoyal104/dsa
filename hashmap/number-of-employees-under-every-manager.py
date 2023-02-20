@@ -2,7 +2,8 @@ from pprint import pprint
 
 
 def construct(mapping):
-    graph, src = {person: [] for person in mapping.keys()}, None
+    graph = {person: [] for person in mapping.keys()}
+    src = None
     for employee, manager in mapping.items():
         if employee != manager:
             graph[manager].append(employee)
