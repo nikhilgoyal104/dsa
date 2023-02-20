@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=n,S=1
 def main(s):
-    res, vis = 0, set()
+    res = 0
+    vis = set()
     for count in Counter(s).values():
         while count and count in vis:
             count -= 1

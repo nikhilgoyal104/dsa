@@ -1,6 +1,3 @@
-from math import inf
-
-
 # T=kⁿ,S=k
 def x(grid):
     m, n = len(grid), len(grid[0])
