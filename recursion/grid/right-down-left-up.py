@@ -2,7 +2,8 @@ from math import inf
 
 
 def w(grid):
-    m, n, vis = len(grid), len(grid[0]), set()
+    m, n = len(grid), len(grid[0])
+    vis = set()
 
     def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis:
@@ -10,17 +11,18 @@ def w(grid):
         if ri == m - 1 and ci == n - 1:
             return 1
         vis.add((ri, ci))
-        count = 0
+        res = 0
         for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
-            count += dfs(ri + i, ci + j)
+            res += dfs(ri + i, ci + j)
         vis.remove((ri, ci))
-        return count
+        return res
 
     return dfs(0, 0)
 
 
 def x(grid):
-    m, n, vis = len(grid), len(grid[0]), set()
+    m, n = len(grid), len(grid[0])
+    vis = set()
 
     def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis:
@@ -41,7 +43,8 @@ def x(grid):
 
 
 def y(grid):
-    m, n, vis = len(grid), len(grid[0]), set()
+    m, n = len(grid), len(grid[0])
+    vis = set()
 
     def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis:
@@ -49,17 +52,18 @@ def y(grid):
         if ri == m - 1 and ci == n - 1:
             return 1
         vis.add((ri, ci))
-        minimum = inf
+        res = inf
         for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
-            minimum = min(minimum, 1 + dfs(ri + i, ci + j))
+            res = min(res, 1 + dfs(ri + i, ci + j))
         vis.remove((ri, ci))
-        return minimum
+        return res
 
     return dfs(0, 0)
 
 
 def z(grid):
-    m, n, vis = len(grid), len(grid[0]), set()
+    m, n = len(grid), len(grid[0])
+    vis = set()
 
     def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis:
@@ -67,11 +71,11 @@ def z(grid):
         if ri == m - 1 and ci == n - 1:
             return grid[-1][-1]
         vis.add((ri, ci))
-        mcost = inf
+        res = inf
         for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
-            mcost = min(mcost, grid[ri][ci] + dfs(ri + i, ci + j))
+            res = min(res, grid[ri][ci] + dfs(ri + i, ci + j))
         vis.remove((ri, ci))
-        return mcost
+        return res
 
     return dfs(0, 0)
 

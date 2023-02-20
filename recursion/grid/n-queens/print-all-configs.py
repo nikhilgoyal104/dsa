@@ -1,4 +1,4 @@
-def x(n):
+def main(n):
     grid = [[0] * n for _ in range(n)]
     cols, diags, antidiags = set(), set(), set()
 
@@ -23,4 +23,4 @@ def x(n):
 
 
 for n in [1, 2, 3, 4]:
-    x(n)
+    main(n)

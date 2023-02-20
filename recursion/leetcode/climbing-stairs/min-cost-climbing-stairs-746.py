@@ -1,5 +1,3 @@
-from math import inf
-
 inputs = [
     [10, 15, 20],
     [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
@@ -14,8 +12,8 @@ def main(nums):
         if i == n:
             return 0
         if i > n:
-            return inf
-        res = inf
+            return float('inf')
+        res = float('inf')
         for jump in [1, 2]:
             res = min(res, nums[i] + dfs(i + jump))
         return res
@@ -36,8 +34,8 @@ def main(nums):
         if i in cache:
             return cache[i]
         if i > n:
-            return inf
-        cache[i] = inf
+            return float('inf')
+        cache[i] = float('inf')
         for jump in [1, 2]:
             cache[i] = min(cache[i], nums[i] + dfs(i + jump))
         return cache[i]
@@ -57,7 +55,7 @@ def main(nums):
         if i in [0, 1]:
             return 0
         if i < 0:
-            return inf
+            return float('inf')
         res = inf
         for jump in [1, 2]:
             res = min(res, nums[i - jump] + dfs(i - jump))
@@ -79,8 +77,8 @@ def main(nums):
         if i in cache:
             return cache[i]
         if i < 0:
-            return inf
-        cache[i] = inf
+            return float('inf')
+        cache[i] = float('inf')
         for jump in [1, 2]:
             cache[i] = min(cache[i], nums[i - jump] + dfs(i - jump))
         return cache[i]

@@ -1,6 +1,3 @@
-from math import inf
-
-
 def w(grid):
     m, n = len(grid), len(grid[0])
     cache = {(m - 1, n - 1): 1}
@@ -46,11 +43,11 @@ def y(grid):
 
     def dfs(ri, ci):
         if ri == m or ci == n:
-            return inf
+            return float('inf')
         key = ri, ci
         if key in cache:
             return cache[key]
-        cache[key] = inf
+        cache[key] = float('inf')
         for i, j in (0, 1), (1, 0):
             cache[key] = min(cache[key], 1 + dfs(ri + i, ci + j))
         return cache[key]
@@ -64,11 +61,11 @@ def z(grid):
 
     def dfs(ri, ci):
         if ri == m or ci == n:
-            return inf
+            return float('inf')
         key = ri, ci
         if key in cache:
             return cache[key]
-        cache[key] = inf
+        cache[key] = float('inf')
         for i, j in (0, 1), (1, 0):
             cache[key] = min(cache[key], grid[ri][ci] + dfs(ri + i, ci + j))
         return cache[key]
