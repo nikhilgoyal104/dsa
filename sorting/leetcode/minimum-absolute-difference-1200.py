@@ -1,7 +1,9 @@
 # T=nlogn
 def x(nums):
     nums.sort()
-    n, least, res = len(nums), float('inf'), []
+    n = len(nums)
+    least = float('inf')
+    res = []
     for i in range(n - 1):
         least = min(least, nums[i + 1] - nums[i])
     for i in range(n - 1):

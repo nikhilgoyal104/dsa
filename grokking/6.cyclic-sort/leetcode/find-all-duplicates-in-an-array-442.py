@@ -1,12 +1,16 @@
 # T=n,S=1
 def main(nums):
     n = len(nums)
+    res = []
     for i in range(n):
         dest = nums[i] - 1
         while nums[i] != nums[dest]:
             nums[i], nums[dest] = nums[dest], nums[i]
             dest = nums[i] - 1
-    return [nums[i] for i in range(n) if i != nums[i] - 1]
+    for i in range(n):
+        if i != nums[i] - 1:
+            res.append(nums[i])
+    return res
 
 
 for nums in [

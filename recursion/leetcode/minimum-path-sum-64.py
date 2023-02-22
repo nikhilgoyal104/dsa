@@ -6,7 +6,8 @@ grids = [
 
 # T=mn,S=mn
 def main(grid):
-    m, n, cache = len(grid), len(grid[0]), {}
+    m, n = len(grid), len(grid[0])
+    cache = {}
 
     def dfs(ri, ci):
         if ri == m - 1 and ci == n - 1:

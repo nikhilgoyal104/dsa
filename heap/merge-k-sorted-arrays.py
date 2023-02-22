@@ -58,7 +58,8 @@ print()
 
 # T=k+Nlogk,S=k+N
 def main(arrays):
-    res, heap = [], []
+    res = []
+    heap = []
     for arr in arrays:
         if arr:
             heap.append((arr[0], 0, arr))

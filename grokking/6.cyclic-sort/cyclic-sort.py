@@ -11,7 +11,8 @@ def x(nums):
 
 # T=n,S=1
 def y(nums):
-    i, n = 0, len(nums)
+    n = len(nums)
+    i = 0
     while i < n:
         dest = nums[i] - 1
         if nums[i] != nums[dest]:

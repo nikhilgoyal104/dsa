@@ -1,10 +1,12 @@
 inputs = [
+    ([1, 2, 3], 4),
     ([2, 3, 5, 6, 7], 12),
 ]
 
 
 def main(nums, total):
-    n, vis = len(nums), set()
+    n = len(nums)
+    vis = set()
 
     def dfs(sum):
         if sum == total:
@@ -28,7 +30,8 @@ for nums, total in inputs:
 
 
 def main(nums, total):
-    n, vis = len(nums), set()
+    n = len(nums)
+    vis = set()
 
     def dfs(sum):
         if sum == total:

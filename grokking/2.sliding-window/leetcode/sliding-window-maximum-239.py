@@ -10,7 +10,8 @@ inputs = [
 
 # T=nk
 def main(nums, k):
-    n, res = len(nums), []
+    n = len(nums)
+    res = []
     for i in range(n - k + 1):
         largest = float('-inf')
         for j in range(k):
@@ -33,7 +34,8 @@ print()
 
 # T=n,S=k
 def main(nums, k):
-    n, queue = len(nums), deque()
+    n = len(nums)
+    queue = deque()
     for i in range(k):
         push(queue, nums, i)
     res = [nums[queue[0]]]

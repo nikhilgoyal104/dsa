@@ -40,7 +40,8 @@ print()
 
 # T=nlogn,S=1
 def main(nums):
-    nums, res = sorted(nums), 1
+    nums = sorted(nums)
+    res = 1
     for i in range(len(nums)):
         if nums[i] > res:
             return res

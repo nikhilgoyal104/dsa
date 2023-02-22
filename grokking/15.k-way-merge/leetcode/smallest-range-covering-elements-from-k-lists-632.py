@@ -1,12 +1,11 @@
-from math import inf
 from heapq import *
 
 
 # T=k+nklogk,S=k
 def main(arrays):
     heap = []
-    start = maxVal = -inf
-    end = inf
+    start = maxVal = float('-inf')
+    end = float('inf')
     for i in range(len(arrays)):
         heap.append((arrays[i][0], i, 0, len(arrays[i])))
         maxVal = max(maxVal, arrays[i][0])

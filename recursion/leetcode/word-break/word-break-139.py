@@ -17,14 +17,15 @@ def x(s, words):
 
 # T=n³,S=n
 def y(s, words):
-    n, words = len(s), set(words)
+    n = len(s)
+    words = set(words)
     cache = {'': True}
 
     def dfs(s):
         if s in cache:
             return cache[s]
         cache[s] = False
-        for i in range(len(s)):
+        for i in range(n):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if prefix in words and dfs(suffix):
                 cache[s] = True
@@ -36,7 +37,8 @@ def y(s, words):
 
 # T=n³,S=n
 def z(s, words):
-    n, words = len(s), set(words)
+    n = len(s)
+    words = set(words)
     cache = {n: True}
 
     def dfs(start):

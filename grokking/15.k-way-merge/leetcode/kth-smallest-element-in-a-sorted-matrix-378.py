@@ -28,7 +28,8 @@ print()
 # Let x=min(k,n)
 # T=x+klogx,S=x
 def main(grid, k):
-    res, n = None, len(grid)
+    n = len(grid)
+    res = float('inf')
     heap = [(grid[ri][0], ri, 0) for ri in range(min(k, n))]
     heapify(heap)
     for _ in range(k):

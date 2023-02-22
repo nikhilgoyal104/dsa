@@ -3,13 +3,13 @@ def main(k, n):
     total, nums = n, [i for i in range(1, 10)]
 
     def dfs(start, sum, count):
-        if sum == total and count == k:
+        if sum == total and size == k:
             return [[]]
         if sum > total:
             return []
         res = []
         for i in range(start, 9):
-            for path in dfs(i + 1, sum + nums[i], count + 1):
+            for path in dfs(i + 1, sum + nums[i], size + 1):
                 res.append([nums[i]] + path)
         return res
 

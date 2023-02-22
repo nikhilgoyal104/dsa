@@ -3,7 +3,8 @@ from collections import deque
 
 
 def w(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(start, sum):
         if sum == total:

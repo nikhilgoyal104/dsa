@@ -34,7 +34,8 @@ def main(s, p):
     res = []
     if n > m:
         return res
-    map1, map2 = Counter(s[:n]), Counter(p)
+    map1 = Counter(s[:n])
+    map2 = Counter(p)
     if map1 == map2:
         res.append(0)
     for i in range(n, m):

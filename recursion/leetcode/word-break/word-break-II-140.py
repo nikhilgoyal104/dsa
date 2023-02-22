@@ -17,7 +17,8 @@ def x(s, words):
 
 # T=n²+2ⁿ+w,S=2ⁿnw
 def y(s, words):
-    words, cache = set(words), {'': ['']}
+    cache = {'': ['']}
+    words = set(words)
 
     def dfs(s):
         if s in cache:

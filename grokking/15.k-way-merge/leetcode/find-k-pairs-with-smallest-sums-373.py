@@ -22,7 +22,8 @@ def y(nums1, nums2, k):
 # Let x=min(m,k)
 # T=x+klogx,S=x
 def z(nums1, nums2, k):
-    res, heap = [], []
+    res = []
+    heap = []
     for ri in range(min(len(nums1), k)):
         heap.append((nums1[ri] + nums2[0], [nums1[ri], nums2[0]], 0))
     heapify(heap)

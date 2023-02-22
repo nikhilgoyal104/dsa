@@ -15,7 +15,8 @@ def x(nums, total):
 
 
 def y(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(start, sum):
         if sum == total:
@@ -79,7 +80,8 @@ def x(nums, total):
 
 
 def y(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(start, sum):
         if sum == total:
@@ -99,9 +101,10 @@ def y(nums, total):
 
 
 for nums, total in [
-    ([1, 2, 3], 4),
+    # ([1, 2, 3], 4),
+    # ([1, 2, 3], 5),
     ([1, 2, 5], 11),
-    ([4, 2, 7, 1, 3], 10)
+    # ([4, 2, 7, 1, 3], 10)
 ]:
     print(x(nums, total))
     print(y(nums, total))

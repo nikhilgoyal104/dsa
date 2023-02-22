@@ -26,7 +26,8 @@ for key in keys:
 
 
 def content(root):
-    path, res = [], []
+    res = []
+    path = []
 
     def dfs(root):
         path.append(root.val)
