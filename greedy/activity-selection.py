@@ -1,10 +1,8 @@
-from math import inf
-
-
 # T=nlogn
 def main(nums):
     nums.sort(key=lambda x: x[1])
-    res, prevEnd = [], -inf
+    res = []
+    prevEnd = float('-inf')
     for i, (currStart, currEnd) in enumerate(nums):
         if currStart >= prevEnd:
             prevEnd = currEnd

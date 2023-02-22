@@ -15,7 +15,8 @@ def x(nums):
 def y(nums):
     nums.sort()
     for i in range(len(nums) - 1):
-        curr, next = nums[i], nums[i + 1]
+        curr = nums[i]
+        next = nums[i + 1]
         if next[0] < curr[1]:
             return False
     return True

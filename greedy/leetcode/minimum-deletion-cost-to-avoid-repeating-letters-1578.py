@@ -1,6 +1,7 @@
 # T=n,S=1
 def main(s, cost):
-    res, n = 0, len(s)
+    n = len(s)
+    res = 0
     for i in range(1, n):
         if s[i] == s[i - 1]:
             res += min(cost[i], cost[i - 1])
