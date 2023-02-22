@@ -58,7 +58,8 @@ class Trie:
 
 
 def main(products, searchWord):
-    res, trie = [], Trie()
+    res = []
+    trie = Trie()
     for product in products:
         trie.insert(product)
     for i in range(len(searchWord)):
@@ -73,7 +74,8 @@ print()
 
 
 def main(products, searchWord):
-    res, products = [], sorted(products)
+    res = []
+    products = sorted(products)
     for i in range(len(searchWord)):
         matching = []
         for product in products:

@@ -1,5 +1,3 @@
-from math import inf
-
 tests = [
     [5, 7, 2, 3, 1, 1, 6],
     [5, 5, 2, 2, 1, 1, 1],
@@ -78,7 +76,7 @@ print()
 
 
 class Node:
-    def __init__(self, val=0, min=inf, next=None):
+    def __init__(self, val=0, min=float('inf'), next=None):
         self.val = val
         self.min = min
         self.next = next

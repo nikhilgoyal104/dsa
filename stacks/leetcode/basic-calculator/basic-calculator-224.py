@@ -16,8 +16,10 @@ def main(s):
     s = s.replace(' ', '')
     if s[0] == '-':
         s = '0' + s
-    i, n = 0, len(s)
-    nums, operators = [], []
+    n = len(s)
+    i = 0
+    nums = []
+    operators = []
     while i < n:
         if s[i].isdigit():
             num = 0

@@ -54,7 +54,8 @@ class Trie:
 
 
 def main(products, searchWord):
-    res, trie = [], Trie()
+    res = []
+    trie = Trie()
     for product in products:
         trie.insert(product)
     for i in range(len(searchWord)):

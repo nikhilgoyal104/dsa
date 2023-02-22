@@ -20,8 +20,10 @@ def apply(operator, num2, num1):
 # T=n,S=n
 def main(s):
     s = s.replace(' ', '')
-    i, n = 0, len(s)
-    nums, operators = [], []
+    n = len(s)
+    i = 0
+    nums = []
+    operators = []
     while i < n:
         if s[i].isdigit():
             num = 0
