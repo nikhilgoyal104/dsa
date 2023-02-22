@@ -23,11 +23,12 @@ def search(low, high, nums, target):
 
 # T=logn,S=1
 def main(nums, target):
-    n, pi = len(nums), pivot(nums)
-    if nums[pi] == target:
-        return pi
-    res = search(0, pi - 1, nums, target)
-    return res if res != -1 else search(pi + 1, n - 1, nums, target)
+    n = len(nums)
+    pivotIndex = pivot(nums)
+    if nums[pivotIndex] == target:
+        return pivotIndex
+    res = search(0, pivotIndex - 1, nums, target)
+    return res if res != -1 else search(pivotIndex + 1, n - 1, nums, target)
 
 
 for nums, target in [

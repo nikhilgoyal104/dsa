@@ -81,12 +81,14 @@ print()
 # T=nlog(sum),S=1
 def x(nums, m):
     def count(mid):
-        sum, count = 0, 1
+        sum = 0
+        res = 1
         for i in range(len(nums)):
             sum += nums[i]
             if sum > mid:
-                sum, count = nums[i], count + 1
-        return count
+                sum = nums[i]
+                res += 1
+        return res
 
     low, high = max(nums), sum(nums)
     while low <= high:

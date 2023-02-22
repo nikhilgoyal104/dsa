@@ -37,15 +37,18 @@ def y(nums, k):
 # T=nlogn+log(w)n
 def z(nums, k):
     def count(mid):
-        n, count, j = len(nums), 0, 1
+        n = len(nums)
+        res = 0
+        j = 1
         for i in range(n - 1):
             while j < n and (nums[j] - nums[i]) <= mid:
                 j += 1
-            count += j - i - 1
-        return count
+            res += j - i - 1
+        return res
 
     nums.sort()
-    low, high = min(nums[i + 1] - nums[i] for i in range(len(nums) - 1)), max(nums) - min(nums)
+    low = min(nums[i + 1] - nums[i] for i in range(len(nums) - 1))
+    high = max(nums) - min(nums)
     while low <= high:
         mid = low + (high - low) // 2
         if count(mid) >= k:

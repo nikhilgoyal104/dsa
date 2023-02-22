@@ -1,3 +1,4 @@
+# T=logn,S=1
 def main(nums):
     low, high = 0, len(nums) - 1
     while low < high:

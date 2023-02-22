@@ -40,10 +40,11 @@ print()
 # T=log(w)n
 def y(nums, k):
     def count(target):
-        i, count = 0, 0
+        res = i = 0
         while i < len(nums) and nums[i] <= target:
-            i, count = i + 1, count + 1
-        return count
+            i += 1
+            res += 1
+        return res
 
     low, high = nums[0], nums[-1]
     while low <= high:
