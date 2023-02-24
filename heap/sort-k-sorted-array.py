@@ -2,7 +2,8 @@ from heapq import *
 
 
 def main(nums, k):
-    heap, n = [], len(nums)
+    n = len(nums)
+    heap = []
     for i in range(n):
         if i < k + 1:
             heappush(heap, nums[i])

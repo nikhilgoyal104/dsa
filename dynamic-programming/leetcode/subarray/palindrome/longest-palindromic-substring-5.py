@@ -14,7 +14,8 @@ def x(s):
 
 # T=n²,S=1
 def y(s):
-    res, n = '', len(s)
+    n = len(s)
+    res = ''
 
     def expand(low, high):
         while low > -1 and high < n and s[low] == s[high]:

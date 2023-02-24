@@ -2,7 +2,9 @@ from math import inf
 
 
 def clean(nums):
-    i, n, res = 0, len(nums), []
+    n = len(nums)
+    res = []
+    i = 0
     while i < n:
         res.append(nums[i])
         while i + 1 < n and nums[i] == nums[i + 1]:

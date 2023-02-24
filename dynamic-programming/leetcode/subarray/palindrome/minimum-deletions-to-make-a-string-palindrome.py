@@ -14,7 +14,8 @@ def x(s):
 
 # T=n²,S=n²
 def y(s):
-    n, cache = len(s), {}
+    n = len(s)
+    cache = {}
 
     def dfs(i, j):
         if i >= j:

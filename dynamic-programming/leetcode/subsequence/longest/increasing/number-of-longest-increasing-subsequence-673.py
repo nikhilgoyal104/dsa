@@ -2,7 +2,8 @@
 # length[i] = length of LIS ending with nums[i]
 # count[i] = count of LIS ending with nums[i]
 def main(nums):
-    n, maxLen = len(nums), 0
+    n = len(nums)
+    maxLen = len(nums)
     length, count = [1] * n, [1] * n
     for i in range(n):
         for j in range(i):

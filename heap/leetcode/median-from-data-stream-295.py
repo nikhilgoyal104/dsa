@@ -1,6 +1,7 @@
 from heapq import *
 
-minhp, maxhp = [], []
+minhp = []
+maxhp = []
 
 
 def add(val):

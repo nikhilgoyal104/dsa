@@ -43,7 +43,8 @@ print()
 # T=nlogn,S=1
 def main(nums):
     nums = sorted(nums)
-    n, res = len(nums), 0
+    n = len(nums)
+    res = 0
     for i in range(1, n):
         size = 1
         while i < n and nums[i] - nums[i - 1] == 1:

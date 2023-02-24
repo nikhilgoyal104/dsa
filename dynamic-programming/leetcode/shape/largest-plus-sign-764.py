@@ -1,6 +1,7 @@
 # T=n³,S=len(mines)
 def x(n, mines):
-    banned, res = {tuple(mine) for mine in mines}, 0
+    banned = {tuple(mine) for mine in mines}
+    res = 0
     for i in range(n):
         for j in range(n):
             k = 0
@@ -15,7 +16,8 @@ def x(n, mines):
 # T=n²,S=n²
 def y(n, mines):
     banned = {tuple(mine) for mine in mines}
-    res, cache = 0, [[0] * n for _ in range(n)]
+    res = 0
+    cache = [[0] * n for _ in range(n)]
     for i in range(n):
         count = 0
         for j in range(n):

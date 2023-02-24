@@ -1,6 +1,7 @@
 # T=n,S=n
 def main(s):
-    stack, mapping = [], {'(': ')', '{': '}', '[': ']'}
+    stack = []
+    mapping = {'(': ')', '{': '}', '[': ']'}
     for char in s:
         if char in mapping:
             stack.append(char)

@@ -6,7 +6,8 @@ inputs = [
 
 # T=n²,S=1
 def main(nums):
-    n, profit = len(nums), 0
+    n = len(nums)
+    profit = 0
     for i in range(n - 1):
         for j in range(i + 1, n):
             profit = max(profit, nums[j] - nums[i])
@@ -21,7 +22,8 @@ print()
 
 # T=n,S=1
 def main(nums):
-    least, profit = float('inf'), 0
+    least = float('inf')
+    profit = 0
     for val in nums:
         profit = max(profit, val - least)
         least = min(least, val)
@@ -59,7 +61,8 @@ print()
 
 # T=n,S=n
 def main(nums):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(i, bought, k):
         if i == n or k == 0:

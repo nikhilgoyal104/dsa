@@ -9,7 +9,8 @@ def isPalindrome(s):
 
 # T=n³,S=1
 def x(s):
-    res, n = 0, len(s)
+    n = len(s)
+    res = 0
     for i in range(n):
         for j in range(i, n):
             res += isPalindrome(s[i:j + 1])
@@ -20,7 +21,8 @@ def x(s):
 # cache[i][j] = is s[i:j+1] a palindrome
 def y(s):
     n = len(s)
-    res, cache = 0, [[False] * n for _ in range(n)]
+    res = 0
+    res = [[False] * n for _ in range(n)]
     for i in range(n - 1, -1, -1):
         for j in range(i, n):
             cache[i][j] = s[i] == s[j] and (j - i < 2 or cache[i + 1][j - 1])
@@ -33,10 +35,12 @@ def z(s):
     n = len(s)
 
     def expand(low, high):
-        count = 0
+        res = 0
         while -1 < low and high < n and s[low] == s[high]:
-            low, high, count = low - 1, high + 1, count + 1
-        return count
+            low -= 1
+            high += 1
+            res += 1
+        return res
 
     return sum(expand(i, i) + expand(i, i + 1) for i in range(n))
 

@@ -3,13 +3,15 @@ from math import inf
 
 def largestSquare(nums):
     n = len(nums)
-    stack, left = [], [-1] * n
+    stack = []
+    left = [-1] * n
     for i in range(n):
         while stack and nums[stack[-1]] >= nums[i]:
             stack.pop()
         left[i] = stack[-1] if stack else -1
         stack.append(i)
-    stack, right = [], [n] * n
+    stack = []
+    right = [n] * n
     for i in range(n):
         while stack and nums[stack[-1]] > nums[i]:
             right[stack.pop()] = i
@@ -26,7 +28,8 @@ def largestSquare(nums):
 def x(grid):
     if not grid:
         return 0
-    m, n, heights = len(grid), len(grid[0]), list(map(int, grid[0]))
+    m, n = len(grid), len(grid[0])
+    heights = list(map(int, grid[0]))
     res = largestSquare(heights)
     for i in range(1, m):
         for j in range(n):
@@ -37,7 +40,8 @@ def x(grid):
 
 # T=mn,S=mn
 def y(grid):
-    m, n, cache = len(grid), len(grid[0]), {}
+    m, n = len(grid), len(grid[0])
+    cache = {}
 
     def dfs(ri, ci):
         if ri == m or ci == n or not int(grid[ri][ci]):

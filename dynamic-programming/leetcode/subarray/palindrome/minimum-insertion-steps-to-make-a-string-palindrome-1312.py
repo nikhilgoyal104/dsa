@@ -1,8 +1,9 @@
 # f(s) = len(s) - LPS(s)
 # LPS(s) = LCS(s,reverse(s))
 # T=n²,S=n²
-def x(s):
-    n, cache = len(s), {}
+def main(s):
+    n = len(s)
+    cache = {}
 
     def dfs(i, j):
         if i == n or j == -1:
@@ -24,4 +25,4 @@ for s in [
     'mbadm',
     'leetcode'
 ]:
-    print(x(s))
+    print(main(s))

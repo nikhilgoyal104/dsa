@@ -25,7 +25,8 @@ print()
 
 def merge(nums, b):
     m, n = len(nums), len(b)
-    res, i, j = [], 0, 0
+    res = []
+    i = j = 0
     while i < m and j < n:
         if nums[i] < b[j]:
             res.append(nums[i])

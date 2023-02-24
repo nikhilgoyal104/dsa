@@ -10,7 +10,8 @@ inputs = [
 
 # T=n³,S=n
 def main(s):
-    res, n = 0, len(s)
+    n = len(s)
+    res = 0
     for i in range(n):
         for j in range(i, n):
             freq = Counter(s[i:j + 1])
