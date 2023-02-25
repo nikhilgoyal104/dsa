@@ -40,7 +40,7 @@ for nums in inputs:
 print()
 
 
-# T=nlogn,S=1
+# T=nlogn,S=n
 def main(nums):
     nums = sorted(nums)
     n = len(nums)

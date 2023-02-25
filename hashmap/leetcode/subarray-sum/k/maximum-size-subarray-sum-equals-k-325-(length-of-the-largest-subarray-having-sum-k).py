@@ -1,6 +1,7 @@
 # T=n²,S=1
 def x(nums, k):
-    res, n = 0, len(nums)
+    n = len(nums)
+    res = 0
     for i in range(n):
         sum = 0
         for j in range(i, n):

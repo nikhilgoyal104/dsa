@@ -28,7 +28,7 @@ for s, p in inputs:
 print()
 
 
-# T=n+(m-n),S=1
+# T=n+(m-n),S=n
 def main(s, p):
     m, n = len(s), len(p)
     res = []

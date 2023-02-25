@@ -1,12 +1,13 @@
 from collections import Counter
 
 
-# T=m+26(n-m),S=1
+# T=m+(n-m),S=m
 def main(s1, s2):
     m, n = len(s1), len(s2)
     if m > n:
         return False
-    map1, map2 = Counter(s1), Counter(s2[:m])
+    map1 = Counter(s1)
+    map2 = Counter(s2[:m])
     if map1 == map2:
         return True
     for i in range(m, n):
