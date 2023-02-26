@@ -46,23 +46,24 @@ def main(grid, words):
     m, n = len(grid), len(grid[0])
     offsets = (0, 1), (0, -1), (-1, 0), (1, 0)
 
-    def dfs(ri, ci, word, vis):
+    def dfs(ri, ci, word):
         if not word:
             return True
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis or word[0] != grid[ri][ci]:
             return False
         vis.add((ri, ci))
         for i, j in offsets:
-            if dfs(ri + i, ci + j, word[1:], vis):
+            if dfs(ri + i, ci + j, word[1:]):
                 return True
         vis.remove((ri, ci))
         return False
 
     res = set()
     for word in words:
+        vis = set()
         for ri in range(m):
             for ci in range(n):
-                if word[0] == grid[ri][ci] and dfs(ri, ci, word, set()):
+                if word[0] == grid[ri][ci] and dfs(ri, ci, word):
                     res.add(word)
     return res
 
