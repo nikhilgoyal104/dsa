@@ -18,7 +18,8 @@ def w(nums):
 # T=n,S=1
 def x(nums):
     n = len(nums)
-    expected, actual = (n * (n + 1)) // 2, sum(nums)
+    expected = (n * (n + 1)) // 2
+    actual = sum(nums)
     return expected - actual
 
 

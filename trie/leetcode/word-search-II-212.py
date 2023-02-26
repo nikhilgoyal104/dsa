@@ -334,7 +334,8 @@ class Trie:
 def main(grid, words):
     m, n = len(grid), len(grid[0])
     offsets = (0, 1), (0, -1), (-1, 0), (1, 0)
-    res, trie = [], Trie()
+    res = []
+    trie = Trie()
     for word in words:
         trie.insert(word)
 

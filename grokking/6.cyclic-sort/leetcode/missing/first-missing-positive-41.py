@@ -26,7 +26,8 @@ print()
 
 # T=n,S=n
 def main(nums):
-    numsSet, res = set(nums), 1
+    res = 1
+    numSet = set(nums)
     while res in numsSet:
         res += 1
     return res

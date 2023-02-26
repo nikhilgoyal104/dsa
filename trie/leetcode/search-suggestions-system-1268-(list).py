@@ -7,22 +7,21 @@ inputs = [
 
 
 class TrieNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self):
         self.word = False
         self.children = [None] * 26
 
 
 class Trie:
     def __init__(self):
-        self.root = TrieNode('')
+        self.root = TrieNode()
 
     def insert(self, word):
         node = self.root
         for char in word:
             index = ord(char) - ord('a')
             if not node.children[index]:
-                node.children[index] = TrieNode(char)
+                node.children[index] = TrieNode()
             node = node.children[index]
         node.word = True
 
@@ -43,9 +42,9 @@ class Trie:
                 return
             if root.word:
                 res.append(path)
-            for child in root.children:
-                if child:
-                    dfs(child, path + child.val)
+            for i in range(26):
+                if root.children[i]:
+                    dfs(root.children[i], path + chr(i + 97))
 
         dfs(root, start)
         return res

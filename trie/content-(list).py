@@ -1,27 +1,25 @@
 class TrieNode:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self):
         self.word = False
         self.children = [None] * 26
 
 
 class Trie:
     def __init__(self):
-        self.root = TrieNode('')
+        self.root = TrieNode()
 
     def insert(self, word):
         node = self.root
         for char in word:
             index = ord(char) - ord('a')
             if not node.children[index]:
-                node.children[index] = TrieNode(char)
+                node.children[index] = TrieNode()
             node = node.children[index]
         node.word = True
 
 
-keys = ['the', 'a', 'there', 'their', 'nikhil', 'b']
 trie = Trie()
-for key in keys:
+for key in ['the', 'a', 'there', 'camera', 'their', 'nikhil', 'b', 'cat']:
     trie.insert(key)
 
 
@@ -30,13 +28,13 @@ def content(root):
     path = []
 
     def dfs(root):
-        path.append(root.val)
         if root.word:
             res.append(''.join(path))
-        for child in root.children:
-            if child:
-                dfs(child)
-        path.pop()
+        for i in range(26):
+            if root.children[i]:
+                path.append(chr(i + 97))
+                dfs(root.children[i])
+                path.pop()
 
     dfs(root)
     return res
@@ -50,10 +48,10 @@ def content(root):
 
     def dfs(root, path):
         if root.word:
-            res.append(path)
-        for child in root.children:
-            if child:
-                dfs(child, path + child.val)
+            res.append(''.join(path))
+        for i in range(26):
+            if root.children[i]:
+                dfs(root.children[i], path + chr(i + 97))
 
     dfs(root, '')
     return res
