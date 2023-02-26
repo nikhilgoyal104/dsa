@@ -52,7 +52,8 @@ def getPosition(nums, target):
 
 # T=logn+k,S=k
 def main(nums, k, x):
-    n, position = len(nums), getPosition(nums, x)
+    n = len(nums)
+    position = getPosition(nums, x)
     low, high = position - 1, position
     while low > -1 and high < n and k:
         if abs(nums[high] - x) < abs(nums[low] - x):

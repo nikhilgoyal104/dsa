@@ -1,7 +1,8 @@
 # T=n,S=n
 def main(nums):
     n = len(nums)
-    stack, res = [], [0] * n
+    res = [0] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] < nums[i]:
             pos = stack.pop()

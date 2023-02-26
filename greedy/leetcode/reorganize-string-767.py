@@ -6,7 +6,8 @@ from heapq import *
 def main(s):
     heap = [[-count, char] for char, count in Counter(s).items()]
     heapify(heap)
-    res, prev = [], [0, '']
+    res = []
+    prev = [0, '']
     while heap:
         curr = heappop(heap)
         res.append(curr[1])

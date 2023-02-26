@@ -25,8 +25,9 @@ print()
 
 # T=nlogn,S=n
 def main(nums):
-    n, sortedNums = len(nums), sorted(nums)
-    left, right = 0, 0
+    n = len(nums)
+    sortedNums = sorted(nums)
+    left = right = 0
     for i in range(n):
         if nums[i] != sortedNums[i]:
             left = i

@@ -1,6 +1,8 @@
 # T=n,S=n
 def main(nums):
-    i, n, stack = 0, len(nums), []
+    n = len(nums)
+    i = 0
+    stack = []
     while i < n:
         while stack and i < n and nums[i] < 0 < stack[-1]:
             if stack[-1] < abs(nums[i]):

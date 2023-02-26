@@ -1,4 +1,4 @@
-def x(nums):
+def main(nums):
     low, high = 0, len(nums) - 1
     while low < high:
         mid = low + (high - low) // 2
@@ -29,4 +29,4 @@ for nums in [
     [5, 6, 7, 8, 9, 10, 1, 2, 3, 4],
     [10, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ]:
-    print(str(nums) + ' -> ' + str(x(nums)))
+    print(str(nums) + ' -> ' + str(main(nums)))

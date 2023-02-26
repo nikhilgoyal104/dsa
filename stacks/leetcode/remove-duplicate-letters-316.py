@@ -14,7 +14,8 @@ inputs = [
 
 # T=n,S=1
 def main(s):
-    freq, stack = Counter(s), []
+    stack = []
+    freq = Counter(s)
     for char in s:
         freq[char] -= 1
         if char not in stack:
@@ -32,7 +33,8 @@ print()
 
 # T=n,S=1
 def main(s):
-    lastOccurence, stack = {char: i for i, char in enumerate(s)}, []
+    stack = []
+    lastOccurence = {char: i for i, char in enumerate(s)}
     for i, char in enumerate(s):
         if char not in stack:
             while stack and stack[-1] > char and i < lastOccurence[stack[-1]]:

@@ -25,7 +25,8 @@ def largestRectangle(nums):
 def main(grid):
     if not grid:
         return 0
-    m, n, heights = len(grid), len(grid[0]), list(map(int, grid[0]))
+    m, n = len(grid), len(grid[0]),
+    heights = list(map(int, grid[0]))
     res = largestRectangle(heights)
     for i in range(1, m):
         for j in range(n):

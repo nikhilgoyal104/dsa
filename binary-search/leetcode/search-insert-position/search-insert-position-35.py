@@ -29,8 +29,7 @@ print()
 
 # T=logn,S=1
 def main(nums, target):
-    n = len(nums)
-    low, high = 0, n - 1
+    low, high = 0, len(nums) - 1
     while low <= high:
         mid = low + (high - low) // 2
         if target == nums[mid]:

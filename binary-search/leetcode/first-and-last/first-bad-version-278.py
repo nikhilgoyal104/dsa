@@ -7,7 +7,8 @@ def x(n):
 
 # T=logn
 def y(n):
-    low, high, res = 1, n, 1
+    res = 1
+    low, high = 1, n
     while low <= high:
         mid = low + (high - low) // 2
         if isBadVersion(mid):

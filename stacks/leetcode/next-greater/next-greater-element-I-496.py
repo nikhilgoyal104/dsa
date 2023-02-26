@@ -1,6 +1,7 @@
 # T=n,S=n
 def main(nums1, nums2):
-    stack, map = [], {}
+    stack = []
+    map = {}
     for val in nums2:
         while stack and stack[-1] < val:
             map[stack.pop()] = val
