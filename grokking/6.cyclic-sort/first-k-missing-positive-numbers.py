@@ -1,6 +1,7 @@
 # T=n+k,S=k
 def main(nums, k):
-    res, n = [], len(nums)
+    n = len(nums)
+    res = []
     for i in range(n):
         dest = nums[i] - 1
         while 1 <= nums[i] <= n and nums[i] != nums[dest]:
