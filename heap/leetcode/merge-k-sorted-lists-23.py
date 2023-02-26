@@ -76,3 +76,26 @@ for lists in [
     [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
 ]:
     print(main(lists), end=' ')
+
+
+# T=klogk+Nlogk,S=k
+def main(lists):
+    heap = []
+    for i, head in enumerate(lists):
+        if head:
+            heappush(heap, (head.val, i, head))
+    dummy = tail = ListNode(-1)
+    while heap:
+        val, i, head = heappop(heap)
+        tail.next = head
+        tail = tail.next
+        if head.next:
+            heappush(heap, (head.next.val, i, head.next))
+    return dummy.next
+
+
+for lists in [
+    [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
+    [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
+]:
+    print(main(lists), end=' ')

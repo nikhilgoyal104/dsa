@@ -75,3 +75,24 @@ def main(arrays):
 
 for arrays in inputs:
     print(main(arrays))
+
+print()
+
+
+# T=klogk+Nlogk,S=k+N
+def main(arrays):
+    res = []
+    heap = []
+    for arr in arrays:
+        if arr:
+            heappush(heap, (arr[0], 0, arr))
+    while heap:
+        val, i, arr = heappop(heap)
+        res.append(val)
+        if i + 1 < len(arr):
+            heappush(heap, (arr[i + 1], i + 1, arr))
+    return res
+
+
+for arrays in inputs:
+    print(main(arrays))
