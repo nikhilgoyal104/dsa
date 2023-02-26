@@ -3,8 +3,11 @@ from collections import Counter
 
 # T=n,S=n
 def main(s):
-    n, unique = len(s), len(set(s))
-    res, freq, left = n, Counter(), 0
+    n = len(s)
+    unique = len(set(s))
+    freq = Counter()
+    res = n
+    left = 0
     for right in range(n):
         freq[s[right]] += 1
         while len(freq) == unique:

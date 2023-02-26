@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=n³,S=1
 def x(s):
-    res, n = 0, len(s)
+    n = len(s)
+    res = 0
     for i in range(n):
         for j in range(i, n):
             if j - i + 1 == len(set(s[i:j + 1])):
@@ -13,7 +14,8 @@ def x(s):
 
 # T=n²,S=1
 def y(s):
-    res, n = 0, len(s)
+    n = len(s)
+    res = 0
     for i in range(n):
         vis = set()
         for j in range(i, n):

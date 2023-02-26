@@ -3,9 +3,11 @@ from collections import Counter
 
 # T=n,S=n
 def main(nums):
-    res, n = float('inf'), len(nums)
+    n = len(nums)
+    res = float('inf')
     degree = max(Counter(nums).values())
-    left, freq = 0, Counter()
+    freq = Counter()
+    left = 0
     for right in range(n):
         freq[nums[right]] += 1
         while freq[nums[right]] == degree:
