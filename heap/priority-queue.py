@@ -25,7 +25,8 @@ def remove():
 
 
 def downheapify(index):
-    n, minIndex = len(heap), index
+    n = len(heap)
+    minIndex = index
     leftChildIndex = 2 * index + 1
     if leftChildIndex < n and heap[leftChildIndex] < heap[minIndex]:
         minIndex = leftChildIndex
