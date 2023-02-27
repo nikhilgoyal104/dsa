@@ -3,7 +3,8 @@ from heapq import *
 
 # T=m+klogm,S=m+k
 def main(arrays, k):
-    res, heap = [], []
+    res = []
+    heap = []
     for i in range(len(arrays)):
         if arrays[i]:
             heap.append((arrays[i][0], i, 0, len(arrays[i])))

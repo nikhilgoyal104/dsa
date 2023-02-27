@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 # T=nlogn,S=1
 def x(nums):
     nums.sort()
@@ -21,11 +24,11 @@ print('\n')
 
 # T=n,S=n
 def w(nums):
-    freq = {}
+    freq = Counter()
     for val in nums:
         if val in freq:
             return val
-        freq[val] = freq.get(val, 0) + 1
+        freq[val] += 1
 
 
 # T=n,S=n
