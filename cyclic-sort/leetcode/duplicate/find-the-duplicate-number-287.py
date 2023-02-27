@@ -59,11 +59,11 @@ def y(nums):
 def z(nums):
     n = len(nums)
     for i in range(n):
-        dest = nums[i] - 1
-        while nums[i] != nums[dest]:
-            nums[i], nums[dest] = nums[dest], nums[i]
-            dest = nums[i] - 1
-    return nums[n - 1]
+        destIndex = nums[i] - 1
+        while nums[i] != nums[destIndex]:
+            nums[i], nums[destIndex] = nums[destIndex], nums[i]
+            destIndex = nums[i] - 1
+    return nums[-1]
 
 
 for nums in [

@@ -11,7 +11,7 @@ class Trie:
     def insert(self, word):
         node = self.root
         for char in word:
-            index = ord(char) - ord('a')
+            index = ord(char) - 97
             if not node.children[index]:
                 node.children[index] = TrieNode()
             node = node.children[index]
@@ -48,7 +48,7 @@ def content(root):
 
     def dfs(root, path):
         if root.word:
-            res.append(''.join(path))
+            res.append(path)
         for i in range(26):
             if root.children[i]:
                 dfs(root.children[i], path + chr(i + 97))

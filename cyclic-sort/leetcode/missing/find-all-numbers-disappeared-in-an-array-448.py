@@ -8,10 +8,10 @@ def y(nums):
     n = len(nums)
     res = []
     for i in range(n):
-        dest = nums[i] - 1
-        while nums[i] != nums[dest]:
-            nums[i], nums[dest] = nums[dest], nums[i]
-            dest = nums[i] - 1
+        destIndex = nums[i] - 1
+        while nums[i] != nums[destIndex]:
+            nums[i], nums[destIndex] = nums[destIndex], nums[i]
+            destIndex = nums[i] - 1
     for i in range(n):
         if i != nums[i] - 1:
             res.append(i + 1)

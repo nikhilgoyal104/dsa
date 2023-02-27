@@ -11,7 +11,7 @@ class Trie:
     def insert(self, word):
         node = self.root
         for char in word:
-            index = ord(char) - ord('a')
+            index = ord(char) - 97
             if not node.children[index]:
                 node.children[index] = TrieNode()
             node = node.children[index]
@@ -20,7 +20,7 @@ class Trie:
     def getLastNodeInPrefix(self, prefix):
         node = self.root
         for char in prefix:
-            index = ord(char) - ord('a')
+            index = ord(char) - 97
             if not node.children[index]:
                 return None
             node = node.children[index]

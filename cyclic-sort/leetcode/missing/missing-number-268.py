@@ -1,9 +1,9 @@
-# T=nlogn
+# T=nlogn,S=n
 def v(nums):
     nums = sorted(nums)
-    for val in range(len(nums)):
-        if val != nums[val]:
-            return val
+    for index in range(len(nums)):
+        if index != nums[index]:
+            return index
     return len(nums)
 
 
@@ -25,7 +25,8 @@ def x(nums):
 
 # T=n,S=1
 def y(nums):
-    n, res = len(nums), 0
+    n = len(nums)
+    res = 0
     for val in nums:
         res ^= val
     for i in range(n + 1):
@@ -37,10 +38,10 @@ def y(nums):
 def z(nums):
     n = len(nums)
     for i in range(n):
-        dest = nums[i]
-        while 0 <= nums[i] <= n - 1 and nums[i] != nums[dest]:
-            nums[i], nums[dest] = nums[dest], nums[i]
-            dest = nums[i]
+        destIndex = nums[i]
+        while 0 <= nums[i] <= n - 1 and nums[i] != nums[destIndex]:
+            nums[i], nums[destIndex] = nums[destIndex], nums[i]
+            destIndex = nums[i]
     for i in range(n):
         if i != nums[i]:
             return i
