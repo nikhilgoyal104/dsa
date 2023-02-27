@@ -68,7 +68,8 @@ inputs = [
 
 # T=n³,S=1
 def main(nums):
-    res, n = 0, len(nums)
+    n = len(nums)
+    res = 0
     for i in range(n):
         for j in range(i, n):
             res += min(nums[i:j + 1])
@@ -83,7 +84,8 @@ print()
 
 # T=n²,S=1
 def main(nums):
-    res, n = 0, len(nums)
+    n = len(nums)
+    res = 0
     for i in range(n):
         minVal = nums[i]
         for j in range(i, n):

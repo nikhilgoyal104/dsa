@@ -32,7 +32,8 @@ class MaxStack:
         return self.helper[-1]
 
     def popMax(self):
-        maxVal, buffer = self.helper[-1], []
+        maxVal = self.helper[-1]
+        buffer = []
         while self.top() != maxVal:
             buffer.append(self.pop())
         self.pop()

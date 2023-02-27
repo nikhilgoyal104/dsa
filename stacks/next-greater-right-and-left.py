@@ -1,7 +1,8 @@
 # T=n,S=n
 def x(nums):
     n = len(nums)
-    stack, res = [], [-1] * n
+    res = [-1] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] < nums[i]:
             res[stack.pop()] = nums[i]
@@ -12,7 +13,8 @@ def x(nums):
 # T=n,S=n
 def y(nums):
     n = len(nums)
-    stack, res = [], [-1] * n
+    res = [-1] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] < nums[i]:
             pos = stack.pop()
@@ -34,7 +36,8 @@ print()
 # T=n,S=n
 def x(nums):
     n = len(nums)
-    stack, res = [], [-1] * n
+    res = [-1] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] <= nums[i]:
             stack.pop()
@@ -46,7 +49,8 @@ def x(nums):
 # T=n,S=n
 def y(nums):
     n = len(nums)
-    stack, res = [], [-1] * n
+    res = [-1] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] <= nums[i]:
             stack.pop()

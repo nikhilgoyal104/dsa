@@ -113,7 +113,8 @@ inputs = [
 
 # T=n³
 def main(nums, k):
-    n, res = len(nums), 0
+    n = len(nums)
+    res = 0
     for i in range(k + 1):
         for j in range(k, n):
             res = max(res, min(nums[i:j + 1]) * (j - i + 1))
@@ -131,13 +132,15 @@ print()
 # right[i] = index of first smaller element on right of nums[i]
 def main(nums, k):
     n = len(nums)
-    stack, left = [], [-1] * n
+    left = [-1] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] >= nums[i]:
             stack.pop()
         left[i] = stack[-1] if stack else -1
         stack.append(i)
-    stack, right = [], [n] * n
+    right = [n] * n
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] > nums[i]:
             right[stack.pop()] = i
