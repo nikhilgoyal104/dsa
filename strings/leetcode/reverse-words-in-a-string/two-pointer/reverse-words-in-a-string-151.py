@@ -18,8 +18,9 @@ print()
 
 
 def clean(s):
-    n, res = len(s), []
-    low, high = 0, len(s) - 1
+    n = len(s)
+    res = []
+    low, high = 0, n - 1
     while low < n and s[low] == ' ':
         low += 1
     while high > -1 and s[high] == ' ':

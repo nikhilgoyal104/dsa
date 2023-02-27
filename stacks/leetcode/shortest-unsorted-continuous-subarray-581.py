@@ -48,12 +48,14 @@ print()
 # T=n,S=n
 def main(nums):
     n = len(nums)
-    left, stack = n - 1, []
+    left = n - 1
+    stack = []
     for i in range(n):
         while stack and nums[stack[-1]] > nums[i]:
             left = min(left, stack.pop())
         stack.append(i)
-    right, stack = 0, []
+    right = 0
+    stack = []
     for i in range(n - 1, -1, -1):
         while stack and nums[stack[-1]] < nums[i]:
             right = max(right, stack.pop())

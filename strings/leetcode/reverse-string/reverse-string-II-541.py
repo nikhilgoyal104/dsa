@@ -16,7 +16,9 @@ def reverse(s, low, high):
 
 # T=n,S=n
 def main(s, k):
-    n, s, start = len(s), list(s), 0
+    n = len(s)
+    s = list(s)
+    start = 0
     for i in range(n):
         if (i + 1) % (2 * k) == 0:
             reverse(s, start, start + k - 1)

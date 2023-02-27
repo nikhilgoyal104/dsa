@@ -3,12 +3,12 @@ def w(nums):
     n = len(nums)
     res = [None] * n
     for i in range(n):
-        nge = -1
+        nextGreater = -1
         for j in range(i + 1, n):
             if nums[j] > nums[i]:
-                nge = nums[j]
+                nextGreater = nums[j]
                 break
-        res[i] = nge
+        res[i] = nextGreater
     return res
 
 

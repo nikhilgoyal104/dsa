@@ -5,7 +5,8 @@ inputs = [
 
 
 def main(s):
-    vowels, res = 'aeiou', []
+    res = []
+    vowels = 'aeiou'
     for char in s:
         if char not in vowels:
             res.append(char)

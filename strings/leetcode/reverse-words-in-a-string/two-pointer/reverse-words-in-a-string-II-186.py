@@ -6,7 +6,8 @@ def reverse(s, low, high):
 
 # T=n,S=1
 def main(s):
-    n, start = len(s), 0
+    n = len(s)
+    start = 0
     for end in range(n + 1):
         if end == n or s[end] == ' ':
             reverse(s, start, end - 1)

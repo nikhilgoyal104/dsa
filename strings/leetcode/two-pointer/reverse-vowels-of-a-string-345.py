@@ -1,6 +1,7 @@
 # T=n,S=n
 def main(s):
-    n, s = len(s), list(s)
+    n = len(s)
+    s = list(s)
     low, high = 0, n - 1
     vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
     while low < high:
