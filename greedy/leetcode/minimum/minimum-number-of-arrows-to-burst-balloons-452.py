@@ -1,6 +1,6 @@
 def main(nums):
-    nums.sort(key=lambda x: x[1])
     res = 0
+    nums.sort(key=lambda x: x[1])
     prevEnd = float('-inf')
     for currStart, currEnd in nums:
         if currStart > prevEnd:

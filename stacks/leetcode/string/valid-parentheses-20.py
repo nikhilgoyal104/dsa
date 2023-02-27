@@ -1,14 +1,14 @@
 # T=n,S=n
 def main(s):
     stack = []
-    mapping = {'(': ')', '{': '}', '[': ']'}
+    openToCloseMap = {'(': ')', '{': '}', '[': ']'}
     for char in s:
-        if char in mapping:
+        if char in openToCloseMap:
             stack.append(char)
-        else:
-            top = stack.pop() if stack else ''
-            if char != mapping.get(top, ''):
-                return False
+            continue
+        top = stack.pop() if stack else ''
+        if char != openToCloseMap.get(top, ''):
+            return False
     return not stack
 
 

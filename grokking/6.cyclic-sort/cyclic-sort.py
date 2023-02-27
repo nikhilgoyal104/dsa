@@ -1,7 +1,6 @@
 # T=n,S=1
 def x(nums):
-    n = len(nums)
-    for i in range(n):
+    for i in range(len(nums)):
         dest = nums[i] - 1
         while nums[i] != nums[dest]:
             nums[i], nums[dest] = nums[dest], nums[i]
@@ -11,9 +10,8 @@ def x(nums):
 
 # T=n,S=1
 def y(nums):
-    n = len(nums)
     i = 0
-    while i < n:
+    while i < len(nums):
         dest = nums[i] - 1
         if nums[i] != nums[dest]:
             nums[i], nums[dest] = nums[dest], nums[i]

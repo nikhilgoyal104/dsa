@@ -2,7 +2,6 @@
 def x(nums):
     n = len(nums)
     res = 0
-    res, n = 0, len(nums)
     for i in range(n):
         for j in range(i + 1, n):
             res = max(res, (j - i) * min(nums[i], nums[j]))

@@ -13,7 +13,7 @@ class StockSpanner:
     def next(self, price):
         while self.stack and self.stack[-1][1] <= price:
             self.stack.pop()
-        res = self.index - self.stack[-1][0] if self.stack else self.index + 1
+        res = (self.index - self.stack[-1][0]) if self.stack else self.index + 1
         self.stack.append((self.index, price))
         self.index += 1
         return res
