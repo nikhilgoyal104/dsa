@@ -13,8 +13,9 @@ def main(nums):
     for i in range(n - 1):
         for j in range(i + 1, n):
             if nums[j] < nums[i]:
-                left, right = min(left, i), max(right, j)
-    return 0 if (left == n - 1 and right == 0) else right - left + 1
+                left = min(left, i)
+                right = max(right, j)
+    return 0 if (left == n - 1 and right == 0) else (right - left + 1)
 
 
 for nums in inputs:
@@ -36,7 +37,7 @@ def main(nums):
         if nums[i] != sortedNums[i]:
             right = i
             break
-    return 0 if left is right else right - left + 1
+    return 0 if left is right else (right - left + 1)
 
 
 for nums in inputs:

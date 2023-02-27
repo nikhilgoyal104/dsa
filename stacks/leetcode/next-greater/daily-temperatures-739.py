@@ -1,12 +1,11 @@
-# T=n,S=n
+# (right distance)T=n,S=n
 def main(nums):
     n = len(nums)
     res = [0] * n
     stack = []
     for i in range(n):
         while stack and nums[stack[-1]] < nums[i]:
-            pos = stack.pop()
-            res[pos] = i - pos
+            res[stack.pop()] = i - stack[-1]
         stack.append(i)
     return res
 

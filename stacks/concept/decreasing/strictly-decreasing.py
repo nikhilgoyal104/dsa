@@ -1,14 +1,14 @@
-# T=n,S=n
+# (value)T=n,S=n
 def x(nums):
     stack = []
-    for i in range(len(nums)):
-        while stack and stack[-1] <= nums[i]:
+    for val in nums:
+        while stack and stack[-1] <= val:
             stack.pop()
-        stack.append(nums[i])
+        stack.append(val)
     return stack
 
 
-# T=n,S=n
+# (index)T=n,S=n
 def y(nums):
     stack = []
     for i in range(len(nums)):
@@ -24,5 +24,7 @@ for nums in [
     [5, 4, 3, 2, 1],
     [1, 2, 3, 4, 5]
 ]:
-    print(x(nums), end=' ')
+    print(nums)
+    print(x(nums))
     print(y(nums))
+    print()

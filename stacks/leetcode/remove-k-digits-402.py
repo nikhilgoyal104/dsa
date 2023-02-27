@@ -11,8 +11,7 @@ def main(num, k):
     while k:
         stack.pop()
         k -= 1
-    output = ''.join(stack)
-    return output.lstrip('0') or '0'
+    return ''.join(stack).lstrip('0') or '0'
 
 
 for num, k in [

@@ -4,12 +4,12 @@ def main(s):
     for char in s:
         if char != ')':
             stack.append(char)
-        else:
-            if stack[-1] == '(':
-                return True
-            while stack and stack[-1] != '(':
-                stack.pop()
+            continue
+        if stack[-1] == '(':
+            return True
+        while stack and stack[-1] != '(':
             stack.pop()
+        stack.pop()
     return False
 
 

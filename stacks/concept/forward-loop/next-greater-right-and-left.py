@@ -1,24 +1,23 @@
-# T=n,S=n
+# (right value)T=n,S=n
 def x(nums):
     n = len(nums)
     res = [-1] * n
     stack = []
     for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
+        while stack and nums[stack[-1]] < nums[i]:
             res[stack.pop()] = nums[i]
         stack.append(i)
     return res
 
 
-# T=n,S=n
+# (right distance)T=n,S=n
 def y(nums):
     n = len(nums)
     res = [-1] * n
     stack = []
     for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
-            pos = stack.pop()
-            res[pos] = i - pos
+        while stack and nums[stack[-1]] < nums[i]:
+            res[stack.pop()] = i - stack[-1]
         stack.append(i)
     return res
 
@@ -27,34 +26,32 @@ for nums in [
     [5, 3, 1, 2, 4],
     [1, 1, 2, 3, 4, 4]
 ]:
+    print(nums)
     print(x(nums))
     print(y(nums))
+    print()
 
-print()
 
-
-# T=n,S=n
+# (left value)T=n,S=n
 def x(nums):
-    n = len(nums)
-    res = [-1] * n
+    res = []
     stack = []
-    for i in range(n):
-        while stack and nums[stack[-1]] >= nums[i]:
+    for val in nums:
+        while stack and stack[-1] <= val:
             stack.pop()
-        res[i] = nums[stack[-1]] if stack else -1
-        stack.append(i)
+        res.append(stack[-1] if stack else -1)
+        stack.append(val)
     return res
 
 
-# T=n,S=n
+# (left distance)T=n,S=n
 def y(nums):
-    n = len(nums)
-    res = [-1] * n
+    res = []
     stack = []
-    for i in range(n):
-        while stack and nums[stack[-1]] >= nums[i]:
+    for i in range(len(nums)):
+        while stack and nums[stack[-1]] <= nums[i]:
             stack.pop()
-        res[i] = i - stack[-1] if stack else -1
+        res.append(i - stack[-1] if stack else -1)
         stack.append(i)
     return res
 
@@ -63,5 +60,7 @@ for nums in [
     [5, 3, 1, 2, 4],
     [1, 1, 2, 3, 4, 4]
 ]:
+    print(nums)
     print(x(nums))
     print(y(nums))
+    print()

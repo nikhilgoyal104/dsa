@@ -1,52 +1,48 @@
-# T=n²,S=1
+# (value)T=n²,S=1
 def w(nums):
-    n = len(nums)
-    res = [None] * n
-    for i in range(n):
+    res = []
+    for i in range(len(nums)):
         nextGreater = -1
         for j in range(i - 1, -1, -1):
             if nums[j] > nums[i]:
                 nextGreater = nums[j]
                 break
-        res[i] = nextGreater
+        res.append(nextGreater)
     return res
 
 
-# T=n,S=n
+# (value)T=n,S=n
 def x(nums):
-    n = len(nums)
-    res = [None] * n
+    res = []
     stack = []
-    for i in range(n):
-        while stack and stack[-1] <= nums[i]:
+    for val in nums:
+        while stack and stack[-1] <= val:
             stack.pop()
-        res[i] = stack[-1] if stack else -1
-        stack.append(nums[i])
+        res.append(stack[-1] if stack else -1)
+        stack.append(val)
     return res
 
 
-# T=n,S=n
+# (index)T=n,S=n
 def y(nums):
-    n = len(nums)
-    res = [None] * n
+    res = []
     stack = []
-    for i in range(n):
+    for i in range(len(nums)):
         while stack and nums[stack[-1]] <= nums[i]:
             stack.pop()
-        res[i] = stack[-1] if stack else -1
+        res.append(stack[-1] if stack else -1)
         stack.append(i)
     return res
 
 
-# T=n,S=n
+# (distance)T=n,S=n
 def z(nums):
-    n = len(nums)
-    res = [None] * n
+    res = []
     stack = []
-    for i in range(n):
+    for i in range(len(nums)):
         while stack and nums[stack[-1]] <= nums[i]:
             stack.pop()
-        res[i] = i - stack[-1] if stack else -1
+        res.append(i - stack[-1] if stack else -1)
         stack.append(i)
     return res
 
@@ -55,8 +51,9 @@ for nums in [
     [4, 5, 2, 25],
     [13, 7, 6, 12]
 ]:
-    print(w(nums), end=' ')
-    print(x(nums), end=' ')
-    print(y(nums), end=' ')
+    print(nums)
+    print(w(nums))
+    print(x(nums))
+    print(y(nums))
     print(z(nums))
     print()
