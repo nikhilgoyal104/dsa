@@ -3,10 +3,10 @@ def main(nums, k):
     n = len(nums)
     res = []
     for i in range(n):
-        destIndex = nums[i] - 1
-        while 1 <= nums[i] <= n and nums[i] != nums[destIndex]:
-            nums[i], nums[destIndex] = nums[destIndex], nums[i]
-            destIndex = nums[i] - 1
+        correctIndex = nums[i] - 1
+        while 1 <= nums[i] <= n and nums[i] != nums[correctIndex]:
+            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
+            correctIndex = nums[i] - 1
     extra = set()
     for i in range(n):
         if len(res) < k and i != nums[i] - 1:

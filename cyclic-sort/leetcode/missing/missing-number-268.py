@@ -38,10 +38,10 @@ def y(nums):
 def z(nums):
     n = len(nums)
     for i in range(n):
-        destIndex = nums[i]
-        while 0 <= nums[i] <= n - 1 and nums[i] != nums[destIndex]:
-            nums[i], nums[destIndex] = nums[destIndex], nums[i]
-            destIndex = nums[i]
+        correctIndex = nums[i]
+        while 0 <= nums[i] <= n - 1 and nums[i] != nums[correctIndex]:
+            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
+            correctIndex = nums[i]
     for i in range(n):
         if i != nums[i]:
             return i

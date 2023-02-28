@@ -1,10 +1,10 @@
 # T=n,S=1
 def x(nums):
     for i in range(len(nums)):
-        destIndex = nums[i] - 1
-        while nums[i] != nums[destIndex]:
-            nums[i], nums[destIndex] = nums[destIndex], nums[i]
-            destIndex = nums[i] - 1
+        correctIndex = nums[i] - 1
+        while nums[i] != nums[correctIndex]:
+            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
+            correctIndex = nums[i] - 1
     return nums
 
 
@@ -12,9 +12,9 @@ def x(nums):
 def y(nums):
     i = 0
     while i < len(nums):
-        destIndex = nums[i] - 1
-        if nums[i] != nums[destIndex]:
-            nums[i], nums[destIndex] = nums[destIndex], nums[i]
+        correctIndex = nums[i] - 1
+        if nums[i] != nums[correctIndex]:
+            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
         else:
             i += 1
     return nums

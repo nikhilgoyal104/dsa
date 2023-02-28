@@ -2,10 +2,10 @@
 def main(nums):
     n = len(nums)
     for i in range(n):
-        destIndex = nums[i] - 1
-        while nums[i] != nums[destIndex]:
-            nums[i], nums[destIndex] = nums[destIndex], nums[i]
-            destIndex = nums[i] - 1
+        correctIndex = nums[i] - 1
+        while nums[i] != nums[correctIndex]:
+            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
+            correctIndex = nums[i] - 1
     for i in range(n):
         if i != nums[i] - 1:
             return [nums[i], i + 1]
