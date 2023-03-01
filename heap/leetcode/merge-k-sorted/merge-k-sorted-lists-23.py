@@ -1,5 +1,5 @@
 from heapq import *
-from util import b, ListNode
+from heap.leetcode.util import b, ListNode
 
 
 # T=Nlog(N),S=N

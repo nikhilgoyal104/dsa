@@ -1,7 +1,7 @@
 from heapq import *
 
 
-# T=nlogn
+# T=nlogn,S=n
 def x(nums, k):
     return sorted(nums)[-k]
 

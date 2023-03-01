@@ -46,6 +46,7 @@ def peek():
 
 for data in [10, 20, 30, 40]:
     add(data)
+
 print(peek())
 add(50)
 for i in range(4):
