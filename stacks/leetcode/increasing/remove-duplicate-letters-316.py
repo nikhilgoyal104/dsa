@@ -1,9 +1,9 @@
 from collections import Counter
 
 inputs = [
-    # 'aaa',
-    # 'abacb',
-    # 'bcabc',
+    'aaa',
+    'abacb',
+    'bcabc',
     'cbacdcbc',
     'cdadabcc',
     'bbcaac',

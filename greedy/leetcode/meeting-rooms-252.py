@@ -8,7 +8,7 @@ def overlap(i1, i2):
     return min(i1[1], i2[1]) > max(i1[0], i2[0])
 
 
-# T=n²
+# T=n²,S=1
 def main(nums):
     n = len(nums)
     for i in range(n):
@@ -24,13 +24,13 @@ for nums in inputs:
 print()
 
 
-# T=nlogn
+# T=nlogn,S=n
 def main(nums):
     nums.sort()
     for i in range(len(nums) - 1):
         curr = nums[i]
         next = nums[i + 1]
-        if next[0] < curr[1]:
+        if curr[1] > next[0]:
             return False
     return True
 

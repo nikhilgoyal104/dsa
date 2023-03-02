@@ -12,7 +12,8 @@ def main(nums):
     res = 0
     for left in range(n):
         for right in range(left + 1, n):
-            res = max(res, (right - left) * min(nums[left], nums[right]))
+            area = min(nums[left], nums[right]) * (right - left)
+            res = max(res, area)
     return res
 
 
@@ -24,10 +25,11 @@ print()
 
 # T=n,S=1
 def main(nums):
-    left, right = 0, len(nums) - 1
-    res = 0
+    res = left = 0
+    right = len(nums) - 1
     while left < right:
-        res = max(res, (right - left) * min(nums[left], nums[right]))
+        area = min(nums[left], nums[right]) * (right - left)
+        res = max(res, area)
         if nums[left] < nums[right]:
             left += 1
         else:

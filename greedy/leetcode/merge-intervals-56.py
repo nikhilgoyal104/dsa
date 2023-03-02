@@ -5,8 +5,8 @@ def main(nums):
     for val in nums:
         if not res or res[-1][1] < val[0]:
             res.append(val)
-        else:
-            res[-1][1] = max(res[-1][1], val[1])
+            continue
+        res[-1][1] = max(res[-1][1], val[1])
     return res
 
 
