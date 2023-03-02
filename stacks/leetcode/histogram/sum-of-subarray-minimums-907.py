@@ -1,5 +1,3 @@
-from math import inf
-
 inputs = [
     [3, 1, 2, 4],
     [11, 81, 94, 43, 3],

@@ -25,4 +25,3 @@ for nums in [
     heapify(nums)
     print(nums)
     print(nums[0])
-    print()

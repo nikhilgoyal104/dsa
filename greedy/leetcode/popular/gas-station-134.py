@@ -1,5 +1,11 @@
+inputs = [
+    ([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]),
+    ([2, 3, 4], [3, 4, 3])
+]
+
+
 # T=n²,S=1
-def x(gas, cost):
+def main(gas, cost):
     n = len(gas)
     for i in range(n):
         tank = 0
@@ -12,8 +18,14 @@ def x(gas, cost):
     return -1
 
 
+for gas, cost in inputs:
+    print(main(gas, cost), end=' ')
+
+print()
+
+
 # T=n,S=1
-def y(gas, cost):
+def main(gas, cost):
     if sum(gas) < sum(cost):
         return -1
     tank = res = 0
@@ -25,9 +37,5 @@ def y(gas, cost):
     return res
 
 
-for gas, cost in [
-    ([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]),
-    ([2, 3, 4], [3, 4, 3])
-]:
-    print(x(gas, cost), end=' ')
-    print(y(gas, cost))
+for gas, cost in inputs:
+    print(main(gas, cost), end=' ')

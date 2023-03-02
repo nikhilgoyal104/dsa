@@ -1,9 +1,9 @@
 from collections import Counter
 
 inputs = [
-    'aaa',
-    'abacb',
-    'bcabc',
+    # 'aaa',
+    # 'abacb',
+    # 'bcabc',
     'cbacdcbc',
     'cdadabcc',
     'bbcaac',
@@ -18,10 +18,11 @@ def main(s):
     freq = Counter(s)
     for char in s:
         freq[char] -= 1
-        if char not in stack:
-            while stack and stack[-1] > char and freq[stack[-1]] > 0:
-                stack.pop()
-            stack.append(char)
+        if char in stack:
+            continue
+        while stack and stack[-1] > char and freq[stack[-1]] > 0:
+            stack.pop()
+        stack.append(char)
     return ''.join(stack)
 
 
@@ -36,10 +37,11 @@ def main(s):
     stack = []
     lastOccurence = {char: i for i, char in enumerate(s)}
     for i, char in enumerate(s):
-        if char not in stack:
-            while stack and stack[-1] > char and i < lastOccurence[stack[-1]]:
-                stack.pop()
-            stack.append(char)
+        if char in stack:
+            continue
+        while stack and stack[-1] > char and i < lastOccurence[stack[-1]]:
+            stack.pop()
+        stack.append(char)
     return ''.join(stack)
 
 
