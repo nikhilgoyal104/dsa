@@ -23,6 +23,7 @@ print()
 
 
 # T=n,S=n
+# res[i] = distance of next smaller element on left of nums[i]
 def main(nums):
     res = []
     stack = []

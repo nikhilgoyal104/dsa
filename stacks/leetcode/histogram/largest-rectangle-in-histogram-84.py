@@ -47,6 +47,31 @@ for nums in inputs:
 print()
 
 
+# T=n²,S=1
+def main(nums):
+    n = len(nums)
+    res = 0
+    for i in range(n):
+        left = -1
+        for j in range(i - 1, -1, -1):
+            if nums[j] < nums[i]:
+                left = j
+                break
+        right = n
+        for j in range(i + 1, n):
+            if nums[j] < nums[i]:
+                right = j
+                break
+        res = max(res, nums[i] * (right - left - 1))
+    return res
+
+
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=n
 # left[i] = index of next smaller element on left of nums[i]
 # right[i] = index of next smaller element on right of nums[i]

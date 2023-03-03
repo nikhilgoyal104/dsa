@@ -22,6 +22,7 @@ print()
 
 
 # T=n,S=n
+# res[i] = distance of next greater element on right of nums[i]
 def main(nums):
     res = [-1] * len(nums)
     stack = []

@@ -1,17 +1,17 @@
 # T=n,S=n
 def main(s):
     stack = []
-    close = {
+    openToCloseMap = {
         '(': ')',
         '{': '}',
         '[': ']'
     }
     for char in s:
-        if char in close:
+        if char in openToCloseMap:
             stack.append(char)
             continue
         bracket = stack.pop() if stack else ''
-        if char != close.get(bracket):
+        if char != openToCloseMap.get(bracket):
             return False
     return not stack
 

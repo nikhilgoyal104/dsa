@@ -1,4 +1,4 @@
-# (right distance)T=n,S=n
+# T=n,S=n
 def main(nums):
     n = len(nums)
     res = [0] * n

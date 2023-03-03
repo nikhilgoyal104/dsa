@@ -6,10 +6,9 @@ inputs = [
 
 # T=n,S=n
 def main(nums):
-    n = len(nums)
-    res = [-1] * n
+    res = [-1] * len(nums)
     stack = []
-    for i in range(n):
+    for i in range(len(nums)):
         while stack and nums[stack[-1]] > nums[i]:
             res[stack.pop()] = nums[i]
         stack.append(i)
@@ -23,11 +22,11 @@ print()
 
 
 # T=n,S=n
+# res[i] = distance of next smaller element on right of nums[i]
 def main(nums):
-    n = len(nums)
-    res = [-1] * n
+    res = [-1] * len(nums)
     stack = []
-    for i in range(n):
+    for i in range(len(nums)):
         while stack and nums[stack[-1]] > nums[i]:
             res[stack.pop()] = i - stack[-1]
         stack.append(i)
