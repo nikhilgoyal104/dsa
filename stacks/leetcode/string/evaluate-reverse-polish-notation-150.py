@@ -15,8 +15,8 @@ def main(s):
     for char in s:
         if char not in '+-*/':
             stack.append(int(char))
-        else:
-            stack.append(apply(char, stack.pop(), stack.pop()))
+            continue
+        stack.append(apply(char, stack.pop(), stack.pop()))
     return stack.pop()
 
 

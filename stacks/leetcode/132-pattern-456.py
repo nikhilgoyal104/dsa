@@ -1,8 +1,16 @@
 from math import inf
 
+inputs = [
+    [-2],
+    [1, 2, 3, 4],
+    [3, 1, 4, 2],
+    [-1, 3, 2, 0],
+    [3, 5, 0, 3, 4]
+]
+
 
 # T=n³,S=1
-def x(nums):
+def main(nums):
     n = len(nums)
     for i in range(n - 2):
         for j in range(i + 1, n - 1):
@@ -12,8 +20,14 @@ def x(nums):
     return False
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n²,S=1
-def y(nums):
+def main(nums):
     n = len(nums)
     minSoFar = [0] * n
     minSoFar[0] = nums[0]
@@ -26,8 +40,14 @@ def y(nums):
     return False
 
 
+for nums in inputs:
+    print(main(nums), end=' ')
+
+print()
+
+
 # T=n,S=n
-def z(nums):
+def main(nums):
     n = len(nums)
     if n < 3:
         return False
@@ -45,13 +65,5 @@ def z(nums):
     return False
 
 
-for nums in [
-    [-2],
-    [1, 2, 3, 4],
-    [3, 1, 4, 2],
-    [-1, 3, 2, 0],
-    [3, 5, 0, 3, 4]
-]:
-    print(x(nums), end=' ')
-    print(y(nums), end=' ')
-    print(z(nums))
+for nums in inputs:
+    print(main(nums), end=' ')
