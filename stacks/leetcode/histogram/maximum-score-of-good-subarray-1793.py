@@ -128,8 +128,8 @@ print()
 
 
 # T=n,S=n
-# left[i] = index of first smaller element on left of nums[i]
-# right[i] = index of first smaller element on right of nums[i]
+# left[i] = index of next smaller element on left of nums[i]
+# right[i] = index of next smaller element on right of nums[i]
 def main(nums, k):
     n = len(nums)
     left = [-1] * n

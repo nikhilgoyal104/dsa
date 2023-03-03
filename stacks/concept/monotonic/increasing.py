@@ -1,5 +1,14 @@
-# (value)T=n,S=n
-def x(nums):
+inputs = [
+    [7, 6, 6, 5, 5, 4, 3, 2, 1],
+    [7, 6, 6, 5, 5, 4, 3, 8, 2, 1],
+    [5, 4, 3, 2, 1],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 3, 5, 1]
+]
+
+
+# T=n,S=n
+def main(nums):
     stack = []
     for val in nums:
         while stack and stack[-1] >= val:
@@ -8,8 +17,14 @@ def x(nums):
     return stack
 
 
-# (index)T=n,S=n
-def y(nums):
+for nums in inputs:
+    print(main(nums))
+
+print()
+
+
+# T=n,S=n
+def main(nums):
     stack = []
     for i in range(len(nums)):
         while stack and nums[stack[-1]] >= nums[i]:
@@ -18,14 +33,5 @@ def y(nums):
     return stack
 
 
-for nums in [
-    [7, 6, 6, 5, 5, 4, 3, 2, 1],
-    [7, 6, 6, 5, 5, 4, 3, 8, 2, 1],
-    [5, 4, 3, 2, 1],
-    [1, 2, 3, 4, 5],
-    [1, 2, 3, 4, 3, 5, 1]
-]:
-    print(nums)
-    print(x(nums))
-    print(y(nums))
-    print()
+for nums in inputs:
+    print(main(nums))
