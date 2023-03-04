@@ -3,8 +3,7 @@ from collections import Counter
 
 # T=n,S=n
 def main(nums):
-    n = len(nums)
-    res = float('inf')
+    res = n = len(nums)
     degree = max(Counter(nums).values())
     freq = Counter()
     left = 0
