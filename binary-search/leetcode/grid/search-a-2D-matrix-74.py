@@ -56,7 +56,7 @@ def y(grid, target):
     return False
 
 
-def potential(grid, target):
+def potentialRowIndex(grid, target):
     low, high = 0, len(grid) - 1
     while low <= high:
         mid = low + (high - low) // 2
@@ -84,13 +84,23 @@ def search(nums, target):
 
 # T=log(mn),S=1
 def z(grid, target):
-    ri = potential(grid, target)
-    return search(grid[ri], target) if ri != -1 else False
+    rowIndex = potentialRowIndex(grid, target)
+    if rowIndex == -1:
+        return False
+    return search(grid[ri], target)
 
 
 for grid, target in [
-    ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3),
-    ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13)
+    ([
+         [1, 3, 5, 7],
+         [10, 11, 16, 20],
+         [23, 30, 34, 60]
+     ], 3),
+    ([
+         [1, 3, 5, 7],
+         [10, 11, 16, 20],
+         [23, 30, 34, 60]
+     ], 13)
 ]:
     print(v(grid, target), end=' ')
     print(w(grid, target), end=' ')

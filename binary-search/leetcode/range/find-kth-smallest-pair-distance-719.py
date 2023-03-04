@@ -21,7 +21,9 @@ def x(nums, k):
 
 # T=(nlogn)+(n+klogn)=n+(n+k)logn,S=n
 def y(nums, k):
-    res, heap, n = None, [], len(nums)
+    n = len(nums)
+    res = None
+    heap = []
     nums = sorted(nums)
     for i in range(n - 1):
         ri, ci = i, i + 1

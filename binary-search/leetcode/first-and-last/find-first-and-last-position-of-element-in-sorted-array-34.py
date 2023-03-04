@@ -1,6 +1,6 @@
 # T=logn,S=1
 def main(nums, target):
-    def first():
+    def getFirstPosition():
         low, high, res = 0, len(nums) - 1, -1
         while low <= high:
             mid = low + (high - low) // 2
@@ -12,7 +12,7 @@ def main(nums, target):
                 res, high = mid, mid - 1
         return res
 
-    def last():
+    def getLastPosition():
         low, high, res = 0, len(nums) - 1, -1
         while low <= high:
             mid = low + (high - low) // 2
@@ -24,8 +24,10 @@ def main(nums, target):
                 res, low = mid, mid + 1
         return res
 
-    f = first()
-    return [-1, -1] if f == -1 else [f, last()]
+    firstPosition = getFirstPosition()
+    if firstPosition == -1:
+        return [-1, -1]
+    return [firstPosition, getLastPosition()]
 
 
 for nums, target in [

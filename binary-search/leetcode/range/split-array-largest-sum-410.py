@@ -2,7 +2,7 @@ from math import inf
 
 
 # T=nᵐ,S=n
-def x(nums, m):
+def main(nums, m):
     def dfs(nums, m):
         if m == 1:
             return sum(nums)
@@ -23,13 +23,13 @@ for nums, m in [
     ([1, 2, 3, 4], 3),
     ([1, 1, 2], 2),
 ]:
-    print(x(nums, m), end=' ')
+    print(main(nums, m), end=' ')
 
 print()
 
 
 # T=n²m,S=nm
-def x(nums, m):
+def main(nums, m):
     cache = {}
 
     def dfs(nums, m):
@@ -73,13 +73,13 @@ for nums, m in [
       7712, 6648, 1607, 1575, 3741, 1493, 7770, 3018, 5398, 6215, 8601, 6244, 7551, 2587, 2254, 3607, 1147, 5184, 9173,
       8680, 8610, 1597, 1763, 7914, 3441, 7006, 1318, 7044, 7267, 8206, 9684, 4814, 9748, 4497, 2239], 9),
 ]:
-    print(x(nums, m), end=' ')
+    print(main(nums, m), end=' ')
 
 print()
 
 
 # T=nlog(sum),S=1
-def x(nums, m):
+def main(nums, m):
     def count(mid):
         sum = 0
         res = 1
@@ -147,4 +147,4 @@ for nums, m in [
       54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27,
       26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 50),
 ]:
-    print(x(nums, m), end=' ')
+    print(main(nums, m), end=' ')

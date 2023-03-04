@@ -60,7 +60,8 @@ def main(nums):
     def swap(i, j):
         nums[i], nums[j] = nums[j], nums[i]
 
-    beg, mid, end = 0, 0, len(nums) - 1
+    beg = mid = 0
+    end = len(nums) - 1
     while mid <= end:
         if nums[mid] == 0:
             swap(beg, mid)

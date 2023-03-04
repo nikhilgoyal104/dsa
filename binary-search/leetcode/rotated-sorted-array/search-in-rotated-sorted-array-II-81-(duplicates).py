@@ -32,7 +32,9 @@ def main(nums, target):
     pivotIndex = pivot(nums)
     if nums[pivotIndex] == target:
         return True
-    return True if search(0, pivotIndex - 1, nums, target) else search(pivotIndex + 1, n - 1, nums, target)
+    if search(0, pivotIndex - 1, nums, target):
+        return True
+    return search(pivotIndex + 1, n - 1, nums, target)
 
 
 for nums, target in [
