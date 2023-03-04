@@ -3,7 +3,8 @@ from linked.util import build
 
 # T=n,S=1
 def main(head):
-    prev, curr = None, head
+    prev = None
+    curr = head
     while curr:
         future = curr.next
         curr.next = prev

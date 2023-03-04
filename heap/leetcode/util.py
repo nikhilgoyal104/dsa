@@ -1,13 +1,11 @@
-from dataclasses import dataclass
-
-
-@dataclass
 class ListNode:
-    val: int = 0
-    next: 'ListNode' = None
+    def __init__(self, val):
+        self.val = val
+        self.next = None
 
     def __str__(self):
-        temp, nums = self, []
+        temp = self
+        nums = []
         while temp:
             nums.append(temp.val)
             temp = temp.next
@@ -24,7 +22,7 @@ def add(head, val):
     return head
 
 
-def b(nums):
+def build(nums):
     head = None
     for val in nums:
         head = add(head, val)
