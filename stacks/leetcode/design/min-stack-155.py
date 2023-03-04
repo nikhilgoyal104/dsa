@@ -76,10 +76,10 @@ print()
 
 
 class Node:
-    def __init__(self, val=0, min=float('inf'), next=None):
+    def __init__(self, val, next, min):
         self.val = val
-        self.min = min
         self.next = next
+        self.min = min
 
 
 # T=1,S=n
@@ -90,9 +90,10 @@ class MinStack:
 
     def push(self, val):
         if not self.head:
-            self.head = Node(val, val)
-        else:
-            self.head = Node(val, min(self.head.min, val), self.head)
+            self.head = Node(val=val, next=None, min=val)
+            return
+        minElement = min(self.head.min, val)
+        self.head = Node(val=val, next=self.head, min=minElement)
 
     def pop(self):
         self.head = self.head.next
