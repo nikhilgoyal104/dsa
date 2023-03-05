@@ -1,14 +1,17 @@
 def priority(operator):
-    if operator in ['+', '-']:
-        return 1
-    return 0
+    map = {
+        '+': 1,
+        '-': 1
+    }
+    return map.get(operator, 0)
 
 
-def apply(operator, num2, num1):
-    if operator == '+':
-        return num1 + num2
-    if operator == '-':
-        return num1 - num2
+def compute(operator, num2, num1):
+    map = {
+        '+': num1 + num2,
+        '-': num1 - num2
+    }
+    return map[operator]
 
 
 # T=n,S=n
@@ -32,15 +35,15 @@ def main(s):
             operators.append('(')
         elif s[i] == ')':
             while operators and operators[-1] != '(':
-                nums.append(apply(operators.pop(), nums.pop(), nums.pop()))
+                nums.append(compute(operators.pop(), nums.pop(), nums.pop()))
             operators.pop()
         else:
             while operators and priority(operators[-1]) >= priority(s[i]):
-                nums.append(apply(operators.pop(), nums.pop(), nums.pop()))
+                nums.append(compute(operators.pop(), nums.pop(), nums.pop()))
             operators.append(s[i])
         i += 1
     while operators:
-        nums.append(apply(operators.pop(), nums.pop(), nums.pop()))
+        nums.append(compute(operators.pop(), nums.pop(), nums.pop()))
     return nums.pop()
 
 

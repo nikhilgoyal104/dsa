@@ -1,20 +1,21 @@
 def priority(operator):
-    if operator in ['+', '-']:
-        return 1
-    if operator in ['/', '*']:
-        return 2
-    return 0
+    map = {
+        '+': 1,
+        '-': 1,
+        '/': 2,
+        '*': 2
+    }
+    return map[operator]
 
 
-def apply(operator, num2, num1):
-    if operator == '+':
-        return num1 + num2
-    if operator == '-':
-        return num1 - num2
-    if operator == '*':
-        return num1 * num2
-    if operator == '/':
-        return int(num1 / num2)
+def compute(operator, num2, num1):
+    map = {
+        '+': num1 + num2,
+        '-': num1 - num2,
+        '*': num1 * num2,
+        '/': int(num1 / num2)
+    }
+    return map[operator]
 
 
 # T=n,S=n
@@ -34,11 +35,11 @@ def main(s):
             i -= 1
         else:
             while operators and priority(operators[-1]) >= priority(s[i]):
-                nums.append(apply(operators.pop(), nums.pop(), nums.pop()))
+                nums.append(compute(operators.pop(), nums.pop(), nums.pop()))
             operators.append(s[i])
         i += 1
     while operators:
-        nums.append(apply(operators.pop(), nums.pop(), nums.pop()))
+        nums.append(compute(operators.pop(), nums.pop(), nums.pop()))
     return nums.pop()
 
 
