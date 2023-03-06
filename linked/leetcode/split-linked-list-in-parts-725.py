@@ -4,7 +4,8 @@ from linked.util import build
 def size(head):
     size = 0
     while head:
-        size, head = size + 1, head.next
+        size += 1
+        head = head.next
     return size
 
 
@@ -12,12 +13,15 @@ def size(head):
 def main(head, k):
     res = []
     width, rem = divmod(size(head), k)
-    i, prev, curr = 0, None, head
+    i = 0
+    prev = None
+    curr = head
     while i < k and curr:
         res.append(curr)
         for _ in range(width - (0 if i < rem else 1)):
             curr = curr.next
-        prev, curr = curr, curr.next
+        prev = curr
+        curr = curr.next
         prev.next = None
         i += 1
     return res if i == k else res + (k - i) * [None]

@@ -5,13 +5,17 @@ from linked.util import build, ListNode
 def main(head, k):
     if not head:
         return head
-    tail, n = head, 1
+    tail = head
+    n = 1
     while tail.next:
-        n, tail = n + 1, tail.next
-    tail.next, k = head, k % n
+        n += 1
+        tail = tail.next
+    tail.next = head
+    k %= n
     for i in range(n - k):
         tail = tail.next
-    res, tail.next = tail.next, None
+    res = tail.next
+    tail.next = None
     return res
 
 
