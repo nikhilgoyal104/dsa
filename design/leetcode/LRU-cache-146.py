@@ -2,8 +2,8 @@ class Node:
     def __init__(self, key=0, val=0, prev=None, next=None):
         self.key = key
         self.val = val
-        self.next = next
         self.prev = prev
+        self.next = next
 
 
 class DoublyLinkedList:
@@ -30,6 +30,7 @@ class DoublyLinkedList:
         return self.head
 
 
+# T=1,S=capacity
 class LRUCache:
 
     def __init__(self, capacity):
