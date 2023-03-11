@@ -41,31 +41,25 @@ class LRUCache:
         if key not in self.cache:
             return -1
         value = self.cache[key].val
-        self.moveToFront(key, value)
+        self._delete(key=key, address=self.cache[key])
+        self._add(key, value)
         return value
 
     def put(self, key, value):
         if key in self.cache:
-            self.moveToFront(key, value)
-        elif self.isFull():
-            self.evictAndAdd(key, value)
-        else:
-            self.add(key, value)
+            self._delete(key=key, address=self.cache[key])
+        elif self._isFull():
+            self._delete(key=self.dll.tail.key, address=self.dll.tail)
+        self._add(key, value)
 
-    def moveToFront(self, key, value):
-        self.dll.delete(self.cache[key])
+    def _delete(self, key, address):
         del self.cache[key]
-        self.add(key, value)
+        self.dll.delete(address)
 
-    def evictAndAdd(self, key, value):
-        del self.cache[self.dll.tail.key]
-        self.dll.delete(self.dll.tail)
-        self.add(key, value)
-
-    def add(self, key, value):
+    def _add(self, key, value):
         self.cache[key] = self.dll.addAtFront(key, value)
 
-    def isFull(self):
+    def _isFull(self):
         return len(self.cache) == self.capacity
 
 
