@@ -5,7 +5,7 @@ def main(nums):
         time.append((start, 1))
         time.append((end, -1))
     time.sort()
-    count = res = 0
+    res = count = 0
     for _, room in time:
         count += room
         res = max(res, count)
