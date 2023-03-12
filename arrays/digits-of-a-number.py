@@ -1,25 +1,28 @@
 def x(n):
-    res, quot = [], n
+    res = []
+    quot = n
     while quot:
-        quot, rem = divmod(quot, 10)
-        res.append(rem)
+        res.append(quot % 10)
+        quot //= 10
     res.reverse()
     return res
 
 
 def y(n):
-    res, quot = 0, n
+    res = 0
+    quot = n
     while quot:
-        quot, rem = divmod(quot, 10)
-        res += rem
+        res += quot % 10
+        quot //= 10
     return res
 
 
 def z(n):
-    res, quot = 0, n
+    res = 0
+    quot = n
     while quot:
-        quot, rem = divmod(quot, 10)
-        res = res * 10 + rem
+        res = res * 10 + quot % 10
+        quot //= 10
     return res
 
 

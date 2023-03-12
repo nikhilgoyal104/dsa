@@ -1,7 +1,8 @@
 # T=n³,S=n
 def x(nums, target):
     n = len(nums)
-    res, nums = set(), sorted(nums)
+    res = set()
+    nums = sorted(nums)
     for i in range(n - 3):
         for j in range(i + 1, n - 2):
             low, high = j + 1, n - 1
@@ -20,7 +21,8 @@ def x(nums, target):
 # T=n³,S=n
 def y(nums, target):
     n = len(nums)
-    res, nums = [], sorted(nums)
+    res = []
+    nums = sorted(nums)
     for i in range(n - 3):
         if i > 0 and nums[i] == nums[i - 1]:
             continue

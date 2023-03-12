@@ -7,7 +7,8 @@ def outside(ri, ci, m, n):
 
 def main(grid):
     m, n = len(grid), len(grid[0])
-    fresh, rotten = 0, deque()
+    fresh = 0
+    rotten = deque()
     for i in range(m):
         for j in range(n):
             if grid[i][j] == 1:
