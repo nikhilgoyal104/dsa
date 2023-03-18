@@ -11,8 +11,8 @@ def main(s):
     for i in range(1, len(s)):
         if s[i] != s[i - 1]:
             groups.append(1)
-        else:
-            groups[-1] += 1
+            continue
+        groups[-1] += 1
     res = 0
     for i in range(1, len(groups)):
         res += min(groups[i - 1], groups[i])
@@ -27,14 +27,15 @@ print()
 
 # T=n,S=1
 def main(s):
-    res = 0
-    previous, current = 0, 1
+    res = previous = 0
+    current = 1
     for i in range(1, len(s)):
         if s[i] != s[i - 1]:
             res += min(previous, current)
-            previous, current = current, 1
-        else:
-            current += 1
+            previous = current
+            current = 1
+            continue
+        current += 1
     return res + min(previous, current)
 
 

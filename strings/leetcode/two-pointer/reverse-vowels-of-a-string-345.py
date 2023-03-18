@@ -3,7 +3,7 @@ def main(s):
     n = len(s)
     s = list(s)
     low, high = 0, n - 1
-    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+    vowels = 'aeiouAEIOU'
     while low < high:
         while low < high and s[low] not in vowels:
             low += 1
