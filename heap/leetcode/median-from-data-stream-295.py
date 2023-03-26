@@ -1,25 +1,26 @@
 from heapq import *
 
-minhp = []
-maxhp = []
+minHeap = []
+maxHeap = []
 
 
 def add(val):
-    heappush(maxhp, -val)
-    heappush(minhp, -heappop(maxhp))
-    if len(maxhp) < len(minhp):
-        heappush(maxhp, -heappop(minhp))
+    heappush(maxHeap, -val)
+    heappush(minHeap, -heappop(maxHeap))
+    if len(maxHeap) < len(minHeap):
+        heappush(maxHeap, -heappop(minHeap))
 
 
 def peek():
-    if len(maxhp) > len(minhp):
-        return -maxhp[0]
-    return (minhp[0] + -maxhp[0]) / 2
+    if len(maxHeap) > len(minHeap):
+        return -maxHeap[0]
+    return (minHeap[0] + -maxHeap[0]) / 2
 
 
 def main(nums):
-    global minhp, maxhp
-    minhp, maxhp = [], []
+    global minHeap, maxHeap
+    minHeap = []
+    maxHeap = []
     for val in nums:
         add(val)
         print(peek(), end=' ')
