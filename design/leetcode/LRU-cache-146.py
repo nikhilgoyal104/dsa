@@ -42,20 +42,20 @@ class LRUCache:
         if key not in self.cache:
             return -1
         value = self.cache[key].val
-        self._delete(key=key, address=self.cache[key])
+        self._delete(cacheKey=key, dllAddress=self.cache[key])
         self._add(key, value)
         return value
 
     def put(self, key, value):
         if key in self.cache:
-            self._delete(key=key, address=self.cache[key])
+            self._delete(cacheKey=key, dllAddress=self.cache[key])
         elif self._isFull():
-            self._delete(key=self.dll.tail.key, address=self.dll.tail)
+            self._delete(cacheKey=self.dll.tail.key, dllAddress=self.dll.tail)
         self._add(key, value)
 
-    def _delete(self, key, address):
-        del self.cache[key]
-        self.dll.delete(address)
+    def _delete(self, cacheKey, dllAddress):
+        del self.cache[cacheKey]
+        self.dll.delete(dllAddress)
 
     def _add(self, key, value):
         self.cache[key] = self.dll.addAtFront(key, value)

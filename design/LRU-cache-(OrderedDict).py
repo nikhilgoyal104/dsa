@@ -16,9 +16,12 @@ class LRUCache:
     def put(self, key, value):
         if key in self.cache:
             self.cache.move_to_end(key)
-        elif len(self.cache) == self.capacity:
+        elif self._isFull():
             self.cache.popitem(last=False)
         self.cache[key] = value
+
+    def _isFull(self):
+        return len(self.cache) == self.capacity
 
 
 lru = LRUCache(2)
