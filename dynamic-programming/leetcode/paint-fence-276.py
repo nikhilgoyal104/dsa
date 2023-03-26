@@ -27,7 +27,8 @@ def z(n, k):
     if n == 1:
         return k
     cache = [0] * n
-    cache[0], cache[1] = k, k * k
+    cache[0] = k
+    cache[1] = k * k
     for i in range(2, n):
         cache[i] = (k - 1) * (cache[i - 1] + cache[i - 2])
     return cache[-1]
