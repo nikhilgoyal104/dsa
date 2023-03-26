@@ -13,7 +13,8 @@ def main(s, t):
             matched += 1
         while matched == n:
             if right - left + 1 < minLen:
-                start, minLen = left, right - left + 1
+                start = left
+                minLen = right - left + 1
             map1[s[left]] -= 1
             if map1[s[left]] < map2[s[left]]:
                 matched -= 1
