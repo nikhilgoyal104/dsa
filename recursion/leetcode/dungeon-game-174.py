@@ -1,14 +1,12 @@
-from math import inf
-
-
 def main(grid):
-    m, n, cache = len(grid), len(grid[0]), {}
+    m, n = len(grid), len(grid[0])
+    cache = {}
 
     def dfs(ri, ci):
         if ri == m - 1 and ci == n - 1:
             return 1 + (-grid[ri][ci]) if grid[ri][ci] <= 0 else 1
         if ri == m or ci == n:
-            return inf
+            return float('inf')
         key = ri, ci
         if key in cache:
             return cache[key]

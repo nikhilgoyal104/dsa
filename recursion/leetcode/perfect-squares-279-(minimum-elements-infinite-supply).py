@@ -2,9 +2,10 @@ from math import inf, sqrt
 
 
 # T=n√n,S=n
-def x(n):
+def main(n):
     nums = [i ** 2 for i in range(1, int(sqrt(n)) + 1)]
-    total, size = n, len(nums)
+    total = n
+    size = len(nums)
     cache = [[inf] * (total + 1) for _ in range(size)]
     for j in range(total + 1):
         quot, rem = divmod(j, nums[0])
@@ -20,4 +21,4 @@ def x(n):
 for n in [
     12, 13, 40, 143, 6554, 7168
 ]:
-    print(x(n))
+    print(main(n))

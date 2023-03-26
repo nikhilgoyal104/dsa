@@ -3,14 +3,18 @@ def main(pattern, s):
     words = s.split()
     if len(pattern) != len(words):
         return False
-    n, letterToWord, wordToLetter = len(pattern), {}, {}
+    n = len(pattern)
+    letterToWord = {}
+    wordToLetter = {}
     for i in range(n):
-        letter, word = pattern[i], words[i]
+        letter = pattern[i]
+        word = words[i]
         if letter in letterToWord and letterToWord[letter] != word:
             return False
         letterToWord[letter] = word
     for i in range(n):
-        letter, word = pattern[i], words[i]
+        letter = pattern[i]
+        word = words[i]
         if word in wordToLetter and wordToLetter[word] != letter:
             return False
         wordToLetter[word] = letter

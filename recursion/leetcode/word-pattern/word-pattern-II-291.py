@@ -1,5 +1,6 @@
 def main(pattern, s):
-    map, vis = {}, set()
+    map = {}
+    vis = set()
 
     def dfs(pattern, s):
         if not pattern and not s:
