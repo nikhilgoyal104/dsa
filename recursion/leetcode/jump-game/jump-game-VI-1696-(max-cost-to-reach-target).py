@@ -1,4 +1,3 @@
-from math import inf
 from heapq import *
 from collections import deque
 
@@ -11,11 +10,11 @@ def x(nums, k):
         if i == n - 1:
             return nums[i]
         if i > n - 1:
-            return -inf
-        maximum = -inf
+            return float('-inf')
+        res = float('-inf')
         for val in range(1, k + 1):
-            maximum = max(maximum, nums[i] + dfs(i + val))
-        return maximum
+            res = max(res, nums[i] + dfs(i + val))
+        return res
 
     return dfs(0)
 
@@ -27,10 +26,10 @@ def y(nums, k):
 
     def dfs(i):
         if i > n - 1:
-            return -inf
+            return float('-inf')
         if i in cache:
             return cache[i]
-        cache[i] = -inf
+        cache[i] = float('-inf')
         for val in range(1, k + 1):
             cache[i] = max(cache[i], nums[i] + dfs(i + val))
         return cache[i]
@@ -41,7 +40,7 @@ def y(nums, k):
 # T=kn,S=n
 def p(nums, k):
     n = len(nums)
-    cache = [-inf] * n
+    cache = [float('-inf')] * n
     cache[0] = nums[0]
     for i in range(1, n):
         for j in range(1, k + 1):
@@ -53,7 +52,7 @@ def p(nums, k):
 # T=kn,S=n
 def q(nums, k):
     n = len(nums)
-    cache = [-inf] * n
+    cache = [float('-inf')] * n
     cache[n - 1] = nums[n - 1]
     for i in range(n - 2, -1, -1):
         for j in range(1, k + 1):
@@ -65,29 +64,31 @@ def q(nums, k):
 # T=n,S=n
 def r(nums, k):
     n = len(nums)
-    cache, dq = [0] * n, deque([0])
+    cache = [0] * n
+    queue = deque([0])
     cache[0] = nums[0]
     for i in range(1, n):
-        cache[i] = cache[dq[0]] + nums[i]
-        while dq and cache[i] > cache[dq[-1]]:
-            dq.pop()
-        dq.append(i)
-        if dq[0] == i - k:
-            dq.popleft()
+        cache[i] = cache[queue[0]] + nums[i]
+        while queue and cache[i] > cache[queue[-1]]:
+            queue.pop()
+        queue.append(i)
+        if queue[0] == i - k:
+            queue.popleft()
     return cache[-1]
 
 
 # T=n,S=k
 def s(nums, k):
     n = len(nums)
-    dq, res = deque([(0, nums[0])]), nums[0]
+    queue = deque([(0, nums[0])])
+    res = nums[0]
     for i in range(1, n):
-        res = dq[0][1] + nums[i]
-        while dq and res > dq[-1][1]:
-            dq.pop()
-        dq.append((i, nums[i]))
-        if dq[0][0] == i - k:
-            dq.popleft()
+        res = queue[0][1] + nums[i]
+        while queue and res > queue[-1][1]:
+            queue.pop()
+        queue.append((i, nums[i]))
+        if queue[0][0] == i - k:
+            queue.popleft()
     return res
 
 

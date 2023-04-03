@@ -58,7 +58,8 @@ def r(nums, x, y):
 # T=nk,S=n
 def s(nums, x, y):
     n = len(nums)
-    queue, vis = deque([0]), {0}
+    queue = deque([0])
+    vis = {0}
     while queue:
         i = queue.popleft()
         if i == n - 1:
@@ -73,13 +74,14 @@ def s(nums, x, y):
 # T=n,S=n
 def t(nums, x, y):
     n = len(nums)
-    queue, mvi = deque([0]), 0
+    queue = deque([0])
+    mvi = 0
     while queue:
         i = queue.popleft()
         if i == n - 1:
             return True
-        nbrs = range(max(i + x, mvi + 1), min(i + y, n - 1) + 1)
-        for nbr in nbrs:
+        neighbours = range(max(i + x, mvi + 1), min(i + y, n - 1) + 1)
+        for nbr in neighbours:
             if nums[nbr] == '0':
                 queue.append(nbr)
         mvi = i + y

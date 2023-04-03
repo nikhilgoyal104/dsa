@@ -1,18 +1,18 @@
-from math import inf
 from collections import deque, defaultdict
 
 
 # T=kⁿ,S=n
 def x(nums):
-    n, vis = len(nums), set()
+    n = len(nums)
+    vis = set()
 
     def dfs(i):
         if i == n - 1:
             return 0
         if i < 0 or i > n - 1 or i in vis:
-            return inf
+            return float('inf')
         vis.add(i)
-        res = inf
+        res = float('inf')
         for val in [i + 1, i - 1] + [j for j in range(n) if nums[i] == nums[j] and i != j]:
             res = min(res, 1 + dfs(val))
         vis.remove(i)

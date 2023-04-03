@@ -1,6 +1,3 @@
-from math import inf
-
-
 # T=n²,S=n
 def x(nums):
     target = len(nums) - 1
@@ -9,7 +6,7 @@ def x(nums):
     def dfs(i):
         if i in cache:
             return cache[i]
-        cache[i] = inf
+        cache[i] = float('inf')
         for val in range(min(nums[i], target - i), 0, -1):
             cache[i] = min(cache[i], 1 + dfs(i + val))
         return cache[i]
@@ -20,7 +17,7 @@ def x(nums):
 # T=n²,S=n
 def y(nums):
     n = len(nums)
-    cache = [inf] * n
+    cache = [float('inf')] * n
     cache[0] = 0
     for i in range(1, n):
         for j in range(i):
@@ -32,7 +29,7 @@ def y(nums):
 # T=n²,S=n
 def z(nums):
     n = len(nums)
-    cache = [inf] * n
+    cache = [float('inf')] * n
     cache[-1] = 0
     for i in range(n - 2, -1, -1):
         for j in range(1, nums[i] + 1):

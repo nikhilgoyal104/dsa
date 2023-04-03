@@ -1,6 +1,8 @@
 # T=n,S=n
 def main(s):
-    n, stack, indicesToRemove = len(s), [], set()
+    n = len(s)
+    stack = []
+    indicesToRemove = set()
     for i in range(n):
         if s[i] != ')':
             stack.append(i)

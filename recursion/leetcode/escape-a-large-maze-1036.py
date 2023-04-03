@@ -9,7 +9,8 @@ def main(blocked, source, target):
     def bfs(source, target):
         sri, sci = source
         dri, dci = target
-        queue, vis = deque([(sri, sci)]), {(sri, sci)}
+        queue = deque([(sri, sci)]),
+        vis = {(sri, sci)}
         while queue:
             ri, ci = queue.popleft()
             if (ri, ci) == (dri, dci) or abs(ri - sri) == 200 or abs(ci - sci) == 200:

@@ -14,7 +14,9 @@ def valid(s):
 
 
 def removeCount(s):
-    n, stack, countToRemove = len(s), [], 0
+    n = len(s)
+    stack = []
+    countToRemove = 0
     for i in range(n):
         if s[i] != ')':
             stack.append(i)

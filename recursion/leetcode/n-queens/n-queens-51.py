@@ -1,5 +1,6 @@
 def x(n):
-    grid, res = [['.'] * n for _ in range(n)], []
+    res = []
+    grid = [['.'] * n for _ in range(n)]
 
     def safe(grid, ri, ci):
         for i in range(ri - 1, -1, -1):
@@ -29,8 +30,11 @@ def x(n):
 
 # T=n!,S=n²
 def y(n):
+    res = []
     grid = [['.'] * n for _ in range(n)]
-    cols, diags, antidiags, res = set(), set(), set(), []
+    cols = set()
+    diags = set()
+    antidiags = set()
 
     def choose(ri, ci):
         cols.add(ci)

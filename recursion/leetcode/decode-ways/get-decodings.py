@@ -1,5 +1,6 @@
 def construct():
-    decoder, char = {}, 'a'
+    decoder = {}
+    char = 'a'
     for i in range(1, 27):
         decoder[str(i)] = char
         char = chr(ord(char) + 1)

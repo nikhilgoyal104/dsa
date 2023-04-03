@@ -1,5 +1,5 @@
-def nbrs(i, nums, d, n):
-    nbrs = []
+def neighbours(i, nums, d, n):
+    neighbours = []
     for val in range(1, d + 1):
         if i + val > n - 1 or nums[i + val] >= nums[i]:
             break
@@ -13,13 +13,14 @@ def nbrs(i, nums, d, n):
 
 # T=nd,S=n
 def x(nums, d):
-    cache, n = {}, len(nums)
+    n = len(nums)
+    cache = {}
 
     def dfs(i):
         if i in cache:
             return cache[i]
         cache[i] = 1
-        for nbr in nbrs(i, nums, d, n):
+        for nbr in neighbours(i, nums, d, n):
             cache[i] = max(cache[i], 1 + dfs(nbr))
         return cache[i]
 

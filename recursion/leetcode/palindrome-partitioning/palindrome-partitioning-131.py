@@ -4,7 +4,8 @@ def isPalindrome(s):
 
 # T=n2ⁿ,S=n
 def x(s):
-    res, path = [], []
+    res = []
+    path = []
 
     def dfs(s):
         if not s:

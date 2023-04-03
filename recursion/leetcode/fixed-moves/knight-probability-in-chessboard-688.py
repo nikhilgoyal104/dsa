@@ -7,10 +7,10 @@ def x(n, moves, sri, sci):
             return 0
         if not moves:
             return 1
-        prob = 0
+        res = 0
         for i, j in offsets:
-            prob += dfs(ri + i, ci + j, moves - 1) / 8
-        return prob
+            res += dfs(ri + i, ci + j, moves - 1) / 8
+        return res
 
     return dfs(sri, sci, moves)
 

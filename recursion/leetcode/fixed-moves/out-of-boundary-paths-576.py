@@ -1,14 +1,16 @@
 # T=4ᵏ,S=k
 def x(m, n, sri, sci, moves):
+    offsets = (0, 1), (1, 0), (-1, 0), (0, -1)
+
     def dfs(ri, ci, moves):
         if ri in [-1, m] or ci in [-1, n]:
             return 1
         if not moves:
             return 0
-        count = 0
-        for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
-            count += dfs(ri + i, ci + j, moves - 1)
-        return count
+        res = 0
+        for i, j in offsets:
+            res += dfs(ri + i, ci + j, moves - 1)
+        return res
 
     return dfs(sri, sci, moves) % (pow(10, 9) + 7)
 

@@ -1,5 +1,3 @@
-from math import inf
-
 grids = [
     [[0, 1, -1], [1, 0, -1], [1, 1, 1]],
     [
@@ -34,7 +32,7 @@ def main(grid):
         return cherries
 
     res = dfs(0, 0, 0, 0)
-    return 0 if res == -inf else res
+    return 0 if res == float('-inf') else res
 
 
 for grid in grids:
@@ -55,11 +53,11 @@ def main(grid):
             return cache[key]
         cache[key] = grid[r1][c1] if (r1, c1) == (r2, c2) else grid[r1][c1] + grid[r2][c2]
         cache[key] += max(dfs(r1 + 1, c1, r2 + 1, c2), dfs(r1 + 1, c1, r2, c2 + 1),
-                       dfs(r1, c1 + 1, r2 + 1, c2), dfs(r1, c1 + 1, r2, c2 + 1))
+                          dfs(r1, c1 + 1, r2 + 1, c2), dfs(r1, c1 + 1, r2, c2 + 1))
         return cache[key]
 
     res = dfs(0, 0, 0, 0)
-    return 0 if res == -inf else res
+    return 0 if res == float('-inf') else res
 
 
 for grid in grids:
