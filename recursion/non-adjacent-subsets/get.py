@@ -10,7 +10,8 @@ def x(nums):
 
 
 def y(nums):
-    n, res = len(nums), []
+    n = len(nums)
+    res = []
 
     def dfs(start, path):
         res.append(path)

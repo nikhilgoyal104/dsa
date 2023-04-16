@@ -1,5 +1,4 @@
 from binarytree import build2
-from math import inf
 
 inputs = [
     build2([3, 1, 4, 3, None, 1, 5])
@@ -20,7 +19,7 @@ def main(root):
         dfs(root.left, largest)
         dfs(root.right, largest)
 
-    dfs(root, -inf)
+    dfs(root, float('-inf'))
     return res
 
 
@@ -36,7 +35,7 @@ def main(root):
         largest = max(largest, root.val)
         return int(root.val == largest) + dfs(root.left, largest) + dfs(root.right, largest)
 
-    return dfs(root, -inf)
+    return dfs(root, float('-inf'))
 
 
 for root in inputs:

@@ -1,5 +1,4 @@
 from heapq import *
-from math import inf
 
 inputs = [
     ([], [1, 2, 3], 2),
@@ -52,10 +51,10 @@ def main(nums1, nums2, k):
     while low <= high:
         nums1LeftCount = low + (high - low) // 2
         nums2LeftCount = k - nums1LeftCount
-        nums1LeftMax = -inf if nums1LeftCount == 0 else nums1[nums1LeftCount - 1]
-        nums1RightMin = inf if nums1LeftCount == m else nums1[nums1LeftCount]
-        nums2LeftMax = -inf if nums2LeftCount == 0 else nums2[nums2LeftCount - 1]
-        nums2RightMin = inf if nums2LeftCount == n else nums2[nums2LeftCount]
+        nums1LeftMax = float('-inf') if nums1LeftCount == 0 else nums1[nums1LeftCount - 1]
+        nums1RightMin = float('inf') if nums1LeftCount == m else nums1[nums1LeftCount]
+        nums2LeftMax = float('-inf') if nums2LeftCount == 0 else nums2[nums2LeftCount - 1]
+        nums2RightMin = float('inf') if nums2LeftCount == n else nums2[nums2LeftCount]
         if nums1LeftMax > nums2RightMin:
             high = nums1LeftCount - 1
         elif nums2LeftMax > nums1RightMin:

@@ -1,4 +1,4 @@
-from trees.generic.util import build
+from generic.util import build
 
 root = build([1, 2, 5, -1, 6, -1, -1, 3, 7, -1, 8, 11, -1, 12, -1, -1, 9, -1, -1, 4, 10, -1, -1, -1])
 
@@ -8,7 +8,7 @@ def main(root, data):
         if root.val == data:
             return path
         for child in root.children:
-            res = dfs(child, path + [child.data])
+            res = dfs(child, path + [child.val])
             if res:
                 return res
         return []

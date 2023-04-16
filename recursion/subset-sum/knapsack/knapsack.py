@@ -1,12 +1,9 @@
-from math import inf
-
-
 def w(nums, total):
     n = len(nums)
 
     def dfs(i, sum):
         if sum > total:
-            return -inf
+            return float('-inf')
         if sum == total or i == n:
             return 0
         inc = nums[i] + dfs(i + 1, sum + nums[i])
@@ -17,11 +14,12 @@ def w(nums, total):
 
 
 def x(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(i, sum):
         if sum > total:
-            return -inf
+            return float('-inf')
         if sum == total or i == n:
             return 0
         key = i, sum
@@ -36,11 +34,12 @@ def x(nums, total):
 
 
 def y(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(start, sum):
         if sum > total:
-            return -inf
+            return float('-inf')
         key = start, sum
         if key in cache:
             return cache[key]

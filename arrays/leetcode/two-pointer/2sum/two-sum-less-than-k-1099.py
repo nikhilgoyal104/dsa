@@ -1,9 +1,7 @@
-from math import inf
-
-
 # T=nlogn,S=1
 def main(nums, k):
-    res, n = -inf, len(nums)
+    n = len(nums)
+    res = float('-inf')
     nums = sorted(nums)
     low, high = 0, n - 1
     while low < high:
@@ -13,7 +11,7 @@ def main(nums, k):
             low += 1
         else:
             high -= 1
-    return res if res != -inf else -1
+    return res if res != float('-inf') else -1
 
 
 for nums, k in [

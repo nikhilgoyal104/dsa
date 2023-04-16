@@ -1,6 +1,3 @@
-from math import inf
-
-
 def w(grid):
     m, n = len(grid), len(grid[0])
     vis = set()
@@ -48,11 +45,11 @@ def y(grid):
 
     def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis:
-            return inf
+            return float('inf')
         if ri == m - 1 and ci == n - 1:
             return 1
         vis.add((ri, ci))
-        res = inf
+        res = float('inf')
         for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
             res = min(res, 1 + dfs(ri + i, ci + j))
         vis.remove((ri, ci))
@@ -67,11 +64,11 @@ def z(grid):
 
     def dfs(ri, ci):
         if ri in [-1, m] or ci in [-1, n] or (ri, ci) in vis:
-            return inf
+            return float('inf')
         if ri == m - 1 and ci == n - 1:
             return grid[-1][-1]
         vis.add((ri, ci))
-        res = inf
+        res = float('inf')
         for i, j in (0, 1), (1, 0), (-1, 0), (0, -1):
             res = min(res, grid[ri][ci] + dfs(ri + i, ci + j))
         vis.remove((ri, ci))

@@ -6,7 +6,8 @@ from collections import deque
 def main(root):
     if not root:
         return []
-    res, queue = [], deque([root])
+    res = []
+    queue = deque([root])
     while queue:
         res.append(queue[-1].val)
         for _ in range(len(queue)):

@@ -1,4 +1,4 @@
-from binarytree import build
+from binarytree import build2
 
 
 # T=n,S=n
@@ -8,9 +8,11 @@ def main(root):
     def dfs(root):
         if root in cache:
             return cache[root]
-        inc, exc = root.val, 0
+        inc = root.val
+        exc = 0
         for child in [root.left, root.right]:
-            inc += dfs(child.left) + dfs(child.right) if child else 0
+            if child:
+                inc += dfs(child.left) + dfs(child.right)
             exc += dfs(child)
         cache[root] = max(inc, exc)
         return cache[root]
@@ -19,7 +21,7 @@ def main(root):
 
 
 for root in [
-    build([3, 2, 3, None, 3, None, 1]),
-    build([3, 4, 5, 1, 3, None, 1])
+    build2([3, 2, 3, None, 3, None, 1]),
+    build2([3, 4, 5, 1, 3, None, 1])
 ]:
     print(main(root))

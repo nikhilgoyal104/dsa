@@ -1,10 +1,7 @@
-from math import inf
-
-
 # T=n²
 def x(nums):
     n = len(nums)
-    least = inf
+    least = float('inf')
     for i in range(n - 1):
         for j in range(i + 1, n):
             least = min(least, abs(nums[j] - nums[i]))

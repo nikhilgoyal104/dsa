@@ -1,9 +1,9 @@
-from binarytree import build
+from binarytree import build2
 
 inputs = [
-    (build([3, 1, 4, None, 2]), 1),
-    (build([5, 3, 6, 2, 4, None, None, 1]), 1),
-    (build([5, 3, 6, 2, 4, None, None, 1]), 3),
+    (build2([3, 1, 4, None, 2]), 1),
+    (build2([5, 3, 6, 2, 4, None, None, 1]), 1),
+    (build2([5, 3, 6, 2, 4, None, None, 1]), 3),
 ]
 
 
@@ -23,20 +23,23 @@ print()
 
 # T=h+k,S=h
 def main(root, k):
-    hm = {'k': k, 'res': None}
+    map = {
+        'k': k,
+        'res': None
+    }
 
     def dfs(root):
-        if not root or hm['k'] < 0:
+        if not root or map['k'] < 0:
             return
         dfs(root.left)
-        hm['k'] -= 1
-        if not hm['k']:
-            hm['res'] = root.val
+        map['k'] -= 1
+        if not map['k']:
+            map['res'] = root.val
             return
         dfs(root.right)
 
     dfs(root)
-    return hm['res']
+    return map['res']
 
 
 for root, k in inputs:

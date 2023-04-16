@@ -1,22 +1,23 @@
-from binarytree import build
-from math import inf
+from binarytree import build2
 
 inputs = [
-    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 62.42),
-    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 75.48),
-    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 10),
-    (build([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70, None, None]), 90),
-    (build([4, 2, 5, 1, 3]), 3.714286),
-    (build([1]), 4.428571),
-    (build([1]), -2.424),
-    (build([1]), 1),
+    (build2([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70]), 62.42),
+    (build2([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70]), 75.48),
+    (build2([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70]), 10),
+    (build2([50, 25, 75, 12, 37, 62, 87, None, None, 30, None, None, 70]), 90),
+    (build2([4, 2, 5, 1, 3]), 3.714286),
+    (build2([1]), 4.428571),
+    (build2([1]), -2.424),
+    (build2([1]), 1),
 ]
 
 
 # T=n,S=n
 def main(root, target):
     def dfs(root):
-        return dfs(root.left) + [root.val] + dfs(root.right) if root else []
+        if not root:
+            return []
+        return dfs(root.left) + [root.val] + dfs(root.right)
 
     return min(dfs(root), key=lambda x: abs(x - target))
 

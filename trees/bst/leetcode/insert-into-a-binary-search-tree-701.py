@@ -1,4 +1,4 @@
-from binarytree import build, Node as TreeNode
+from binarytree import build2, Node as TreeNode
 
 
 # T=h,S=h
@@ -16,9 +16,9 @@ def main(root, val):
 
 
 for root, val in [
-    (build([4, 2, 7, 1, 3]), 5),
-    (build([40, 20, 60, 10, 30, 50, 70]), 25),
-    (build([4, 2, 7, 1, 3, None, None, None, None, None, None]), 5)
+    (build2([4, 2, 7, 1, 3]), 5),
+    (build2([40, 20, 60, 10, 30, 50, 70]), 25),
+    (build2([4, 2, 7, 1, 3]), 5)
 ]:
     print(main(root, val))
 
@@ -29,7 +29,8 @@ print()
 def main(root, val):
     if not root:
         return TreeNode(val)
-    node, parent = root, None
+    node = root
+    parent = None
     while node:
         parent = node
         node = node.right if val > node.val else node.left
@@ -41,8 +42,8 @@ def main(root, val):
 
 
 for root, val in [
-    (build([4, 2, 7, 1, 3]), 5),
-    (build([40, 20, 60, 10, 30, 50, 70]), 25),
-    (build([4, 2, 7, 1, 3, None, None, None, None, None, None]), 5)
+    (build2([4, 2, 7, 1, 3]), 5),
+    (build2([40, 20, 60, 10, 30, 50, 70]), 25),
+    (build2([4, 2, 7, 1, 3]), 5)
 ]:
     print(main(root, val))

@@ -1,6 +1,7 @@
 # T=ns,S=ns
 def main(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(i, sum):
         if i == n:

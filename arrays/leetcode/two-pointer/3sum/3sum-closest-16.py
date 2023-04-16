@@ -1,10 +1,8 @@
-from math import inf
-
-
 # T=n²,S=1
 def main(nums, target):
     n = len(nums)
-    nums, res = sorted(nums), inf
+    res = float('inf')
+    nums = sorted(nums)
     for i in range(n - 2):
         low, high = i + 1, n - 1
         while low < high:

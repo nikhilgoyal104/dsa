@@ -1,6 +1,3 @@
-from math import inf
-
-
 def clean(nums):
     n = len(nums)
     res = []
@@ -16,7 +13,8 @@ def clean(nums):
 # LIS(nums) = LCS(nums,removeDuplicates(sorted(nums)))
 # T=n²,S=n²
 def w(nums):
-    nums1, nums2 = nums, clean(sorted(nums))
+    nums1 = nums
+    nums2 = clean(sorted(nums))
     m, n = len(nums1), len(nums2)
     cache = [[0] * (n + 1) for _ in range(m + 1)]
     for i in range(1, m + 1):
@@ -38,7 +36,7 @@ def x(nums):
         inc = 1 + dfs(i + 1, nums[i]) if prev < nums[i] else 0
         return max(inc, dfs(i + 1, prev))
 
-    return dfs(0, -inf)
+    return dfs(0, float('-inf'))
 
 
 # T=2ⁿ,S=n
@@ -52,7 +50,7 @@ def y(nums):
                 res = max(res, 1 + dfs(i + 1, nums[i]))
         return res
 
-    return dfs(0, -inf)
+    return dfs(0, float('-inf'))
 
 
 # T=n²,S=n

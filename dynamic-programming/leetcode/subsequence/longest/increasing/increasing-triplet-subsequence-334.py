@@ -1,6 +1,3 @@
-from math import inf
-
-
 # T=n²,S=n
 # cache[i] length of LIS ending with nums[i]
 def x(nums):
@@ -31,7 +28,7 @@ def y(nums):
 
 # T=n,S=1
 def z(nums):
-    left, mid = inf, inf
+    left = mid = float('inf')
     for right in nums:
         if right > mid:
             return True

@@ -1,6 +1,3 @@
-from math import inf
-
-
 def x(nums):
     n = len(nums)
 
@@ -13,7 +10,8 @@ def x(nums):
 
 
 def y(nums):
-    n, res = len(nums), [0]
+    n = len(nums)
+    res = [0]
 
     def dfs(start, sum):
         res[0] = max(res[0], sum)
@@ -36,7 +34,8 @@ print()
 
 
 def x(nums):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(i, sum):
         if i >= n:
@@ -51,7 +50,9 @@ def x(nums):
 
 
 def y(nums):
-    n, res, cache = len(nums), [0], {}
+    n = len(nums)
+    res = [0]
+    cache = {}
 
     def dfs(start, sum):
         key = start, sum

@@ -9,10 +9,12 @@ def main(root):
     res = []
     colToValues = {}
     queue = deque([(root, 0)])
-    minCol, maxCol = float('inf'), float('-inf')
+    minCol = float('inf'),
+    maxCol = float('-inf')
     while queue:
         node, col = queue.popleft()
-        minCol, maxCol = min(minCol, col), max(maxCol, col)
+        minCol = min(minCol, col)
+        maxCol = max(maxCol, col)
         if col not in colToValues:
             colToValues[col] = node.val
         for child, offset in (node.left, -1), (node.right, 1):

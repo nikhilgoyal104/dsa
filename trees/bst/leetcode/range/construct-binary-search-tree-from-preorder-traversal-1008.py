@@ -1,6 +1,5 @@
 from binarytree import Node as TreeNode
 from collections import deque
-from math import inf
 
 
 # T=n,S=n
@@ -16,7 +15,7 @@ def main(preorder):
         root.right = dfs(val, high)
         return root
 
-    return dfs(-inf, inf)
+    return dfs(float('-inf'), float('inf'))
 
 
 for preorder in [

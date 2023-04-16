@@ -1,6 +1,3 @@
-from math import inf
-
-
 def x(grid):
     m, n = len(grid), len(grid[0])
     dest = grid[m - 1][n - 1]
@@ -8,7 +5,7 @@ def x(grid):
 
     def dfs(ri, ci):
         if ri == m or ci == n:
-            return inf, []
+            return float('inf'), []
         key = ri, ci
         if key in cache:
             return cache[key]
@@ -29,7 +26,7 @@ def y(grid):
 
     def dfs(ri, ci):
         if ri == m or ci == n:
-            return inf, []
+            return float('inf'), []
         key = ri, ci
         if key in cache:
             return cache[key]

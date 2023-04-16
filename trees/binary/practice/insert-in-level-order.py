@@ -1,5 +1,5 @@
 from collections import deque
-from binarytree import build, Node
+from binarytree import build2, Node
 
 
 def main(root, val):
@@ -21,6 +21,6 @@ def main(root, val):
 
 
 for root in [
-    build([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None])
+    build2([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9])
 ]:
     print(main(root, 12))

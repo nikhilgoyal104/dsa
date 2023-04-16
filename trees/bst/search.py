@@ -1,8 +1,8 @@
-from binarytree import build
+from binarytree import build2
 
 inputs = [
-    (build([4, 2, 7, 1, 3]), 2),
-    (build([4, 2, 7, 1, 3]), 5)
+    (build2([4, 2, 7, 1, 3]), 2),
+    (build2([4, 2, 7, 1, 3]), 5)
 ]
 
 

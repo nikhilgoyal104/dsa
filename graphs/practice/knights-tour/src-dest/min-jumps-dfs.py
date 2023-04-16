@@ -1,5 +1,3 @@
-from math import inf
-
 inputs = [
     (3, 3, 0, 0, 2, 2)
 ]
@@ -15,14 +13,14 @@ def main(m, n, sri, sci, dri, dci):
 
     def dfs(ri, ci, move):
         if outside(m, n, ri, ci) or grid[ri][ci]:
-            return inf
+            return float('inf')
         if (ri, ci) == (dri, dci):
             grid[ri][ci] = move
             print(grid)
             grid[ri][ci] = 0
             return 0
         grid[ri][ci] = move
-        res = inf
+        res = float('inf')
         for i, j in offsets:
             res = min(1 + dfs(ri + i, ci + j, move + 1), res)
         grid[ri][ci] = 0
@@ -41,11 +39,11 @@ def main(m, n, sri, sci, dri, dci):
 
     def dfs(ri, ci):
         if outside(m, n, ri, ci) or (ri, ci) in vis:
-            return inf
+            return float('inf')
         if (ri, ci) == (dri, dci):
             return 0
         vis.add((ri, ci))
-        res = inf
+        res = float('inf')
         for i, j in offsets:
             res = min(1 + dfs(ri + i, ci + j), res)
         vis.remove((ri, ci))

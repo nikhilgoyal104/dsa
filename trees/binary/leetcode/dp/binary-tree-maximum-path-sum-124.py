@@ -1,10 +1,9 @@
 from binarytree import build2
-from math import inf
 
 
 # T=n,S=h
 def main(root):
-    res = -inf
+    res = float('-inf')
 
     def dfs(root):
         nonlocal res

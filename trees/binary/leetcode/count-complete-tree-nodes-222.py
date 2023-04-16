@@ -1,4 +1,4 @@
-from binarytree import build
+from binarytree import build2
 
 
 # T=n
@@ -12,10 +12,10 @@ def main(root):
 
 
 for root in [
-    build([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
-    build([1, 2, 3, 4, 5, 6]),
-    build([]),
-    build([1])
+    build2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
+    build2([1, 2, 3, 4, 5, 6]),
+    build2([]),
+    build2([1])
 ]:
     print(main(root), end=' ')
 
@@ -53,9 +53,9 @@ def main(root):
 
 
 for root in [
-    build([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
-    build([1, 2, 3, 4, 5, 6]),
-    build([]),
-    build([1])
+    build2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),
+    build2([1, 2, 3, 4, 5, 6]),
+    build2([]),
+    build2([1])
 ]:
     print(main(root), end=' ')

@@ -1,6 +1,7 @@
 # T=n²,S=1
 def main(nums, target):
-    res, n = 0, len(nums)
+    n = len(nums)
+    res = 0
     nums = sorted(nums)
     for i in range(n - 2):
         low, high = i + 1, n - 1

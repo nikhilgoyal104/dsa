@@ -1,6 +1,3 @@
-from math import inf
-
-
 # T=n
 def x(nums, target):
     return min(nums, key=lambda val: abs(val - target))
@@ -8,7 +5,7 @@ def x(nums, target):
 
 # T=n
 def y(nums, target):
-    prev = -inf
+    prev = float('-inf')
     for val in nums:
         if prev <= target < val:
             return min(prev, val, key=lambda val: abs(val - target))

@@ -1,6 +1,3 @@
-from math import inf
-
-
 def isPalindrome(s):
     return s == s[::-1]
 
@@ -10,7 +7,7 @@ def x(s):
     def dfs(s):
         if not s:
             return -1
-        res = inf
+        res = float('inf')
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if isPalindrome(prefix):
@@ -27,7 +24,7 @@ def y(s):
     def dfs(s):
         if s in cache:
             return cache[s]
-        cache[s] = inf
+        cache[s] = float('inf')
         for i in range(len(s)):
             prefix, suffix = s[:i + 1], s[i + 1:]
             if isPalindrome(prefix):

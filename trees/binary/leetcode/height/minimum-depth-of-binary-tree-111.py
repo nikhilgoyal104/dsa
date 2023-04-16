@@ -1,9 +1,8 @@
 from binarytree import build2
 from collections import deque
-from math import inf
 
 inputs = [
-    build2([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9, None, None]),
+    build2([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9]),
     build2([3, 9, 20, None, None, 15, 7]),
     build2([2, None, 3, None, 4, None, 5, None, 6]),
     build2([])

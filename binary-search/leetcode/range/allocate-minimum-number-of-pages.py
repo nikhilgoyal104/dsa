@@ -1,12 +1,9 @@
-from math import inf
-
-
 # T=nᵐ,S=n
 def x(nums, m):
     def dfs(nums, m):
         if m == 1:
             return sum(nums)
-        res = inf
+        res = float('inf')
         for i in range(1, len(nums) - m + 2):
             left, right = sum(nums[:i]), dfs(nums[i:], m - 1)
             res = min(res, max(left, right))
@@ -25,7 +22,7 @@ def y(nums, m):
         key = tuple(nums), m
         if key in cache:
             return cache[key]
-        cache[key] = inf
+        cache[key] = float('inf')
         for i in range(1, len(nums) - m + 2):
             left, right = sum(nums[:i]), dfs(nums[i:], m - 1)
             cache[key] = min(cache[key], max(left, right))
@@ -37,7 +34,8 @@ def y(nums, m):
 # T=nlog(sum),S=1
 def z(nums, m):
     def count(mid):
-        sum, count = 0, 1
+        sum = 0
+        count = 1
         for i in range(len(nums)):
             sum += nums[i]
             if sum > mid:

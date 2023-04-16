@@ -1,5 +1,4 @@
 from collections import Counter
-from math import inf
 
 print(-4 % 3)
 
@@ -13,9 +12,9 @@ print(freq)
 
 print(ord('c') - ord('a'))
 
-print(inf - 8)
-print(abs(8 - inf))
-print(abs(inf - 8))
+print(float('inf') - 8)
+print(abs(8 - float('inf')))
+print(abs(float('inf') - 8))
 
 print(8 % 2)
 

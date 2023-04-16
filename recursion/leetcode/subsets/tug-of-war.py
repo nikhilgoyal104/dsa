@@ -1,16 +1,17 @@
-from math import inf
-
-
 def main(nums):
-    res, n = [inf, None, None], len(nums)
-    path1, path2 = [], []
+    n = len(nums)
+    res = [float('inf'), None, None]
+    path1 = []
+    path2 = []
 
     def dfs(i, sum1, sum2):
         nonlocal res
         if i == n:
             diff = abs(sum1 - sum2)
             if diff < res[0]:
-                res[0], res[1], res[2] = diff, path1[:], path2[:]
+                res[0] = diff
+                res[1] = path1[:]
+                res[2] = path2[:]
             return
         if len(path1) < (n + 1) // 2:
             path1.append(nums[i])

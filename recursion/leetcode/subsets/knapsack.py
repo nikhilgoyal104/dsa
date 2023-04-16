@@ -1,13 +1,10 @@
-from math import inf
-
-
 # T=2ⁿ,S=n
 def x(nums, profits, total):
     n = len(nums)
 
     def dfs(start, sum):
         if sum > total:
-            return -inf
+            return float('-inf')
         res = 0
         for i in range(start, n):
             res = max(res, profits[i] + dfs(i + 1, sum + nums[i]))
@@ -22,7 +19,7 @@ def y(nums, profits, total):
 
     def dfs(i, sum):
         if sum > total:
-            return -inf
+            return float('-inf')
         if i == n or sum == total:
             return 0
         return max(profits[i] + dfs(i + 1, sum + nums[i]), dfs(i + 1, sum))

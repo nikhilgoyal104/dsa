@@ -1,6 +1,3 @@
-from math import inf
-
-
 def largestSquare(nums):
     n = len(nums)
     stack = []
@@ -49,7 +46,7 @@ def y(grid):
         key = ri, ci
         if key in cache:
             return cache[key]
-        cache[key] = inf
+        cache[key] = float('inf')
         for i, j in (0, 1), (1, 0), (1, 1):
             cache[key] = min(cache[key], 1 + dfs(ri + i, ci + j))
         return cache[key]

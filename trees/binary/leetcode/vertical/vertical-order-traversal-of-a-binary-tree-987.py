@@ -15,10 +15,12 @@ inputs = [
 def main(root):
     queue = deque([(root, 0, 0)])
     colToValues = defaultdict(list)
-    minCol, maxCol = float('inf'), float('-inf')
+    minCol = float('inf')
+    maxCol = float('-inf')
     while queue:
         node, row, col = queue.popleft()
-        minCol, maxCol = min(minCol, col), max(maxCol, col)
+        minCol = min(minCol, col)
+        maxCol = max(maxCol, col)
         colToValues[col].append((row, node.val))
         for child, offset in (node.left, -1), (node.right, 1):
             if child:

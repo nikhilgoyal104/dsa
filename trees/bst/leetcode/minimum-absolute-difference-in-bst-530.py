@@ -1,9 +1,8 @@
-from binarytree import build
-from math import inf
+from binarytree import build2
 
 inputs = [
-    build([4, 2, 6, 1, 3]),
-    build([1, 0, 48, None, None, 12, 49])
+    build2([4, 2, 6, 1, 3]),
+    build2([1, 0, 48, None, None, 12, 49])
 ]
 
 
@@ -24,18 +23,21 @@ print()
 
 # T=n,S=1
 def main(root):
-    hm = {'prev': -inf, 'res': inf}
+    map = {
+        'prev': float('-inf'),
+        'res': float('inf')
+    }
 
     def dfs(root):
         if not root:
             return
         dfs(root.left)
-        hm['res'] = min(hm['res'], root.val - hm['prev'])
-        hm['prev'] = root.val
+        map['res'] = min(map['res'], root.val - map['prev'])
+        map['prev'] = root.val
         dfs(root.right)
 
     dfs(root)
-    return hm['res']
+    return map['res']
 
 
 for root in inputs:
@@ -48,12 +50,12 @@ print()
 def main(root):
     def dfs(root, low, high):
         if not root:
-            return inf
+            return float('inf')
         left = dfs(root.left, low, root.val)
         right = dfs(root.right, root.val, high)
         return min(root.val - low, high - root.val, left, right)
 
-    return dfs(root, -inf, inf)
+    return dfs(root, float('-inf'), float('inf'))
 
 
 for root in inputs:

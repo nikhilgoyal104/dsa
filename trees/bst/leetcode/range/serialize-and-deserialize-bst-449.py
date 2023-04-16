@@ -1,6 +1,5 @@
 from binarytree import build2, Node as TreeNode
 from collections import deque
-from math import inf
 
 
 # T=n,S=n
@@ -26,7 +25,7 @@ class Codec:
             root.right = dfs(val, high)
             return root
 
-        return dfs(-inf, inf)
+        return dfs(float('-inf'), float('inf'))
 
 
 codec = Codec()

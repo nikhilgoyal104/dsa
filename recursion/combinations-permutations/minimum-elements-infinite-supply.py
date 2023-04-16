@@ -1,4 +1,3 @@
-from math import inf
 from collections import deque
 
 
@@ -10,11 +9,11 @@ def w(nums, total):
         if sum == total:
             return 0
         if sum > total:
-            return inf
+            return float('inf')
         key = start, sum
         if key in cache:
             return cache[key]
-        cache[key] = inf
+        cache[key] = float('inf')
         for i in range(start, n):
             cache[key] = min(cache[key], 1 + dfs(i, sum + nums[i]))
         return cache[key]
@@ -27,10 +26,10 @@ def x(nums, total):
 
     def dfs(sum):
         if sum > total:
-            return inf
+            return float('inf')
         if sum in cache:
             return cache[sum]
-        cache[sum] = inf
+        cache[sum] = float('inf')
         for val in nums:
             cache[sum] = min(cache[sum], 1 + dfs(sum + val))
         return cache[sum]
@@ -65,15 +64,15 @@ print()
 # T=ns,S=ns
 def z(nums, total):
     n = len(nums)
-    cache = [[inf] * (total + 1) for _ in range(n)]
+    cache = [[float('inf')] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
         quot, rem = divmod(j, nums[0])
-        cache[0][j] = quot if not rem else inf
+        cache[0][j] = quot if not rem else float('inf')
     for i in range(n):
         cache[i][0] = 0
     for i in range(1, n):
         for j in range(1, total + 1):
-            cache[i][j] = min(cache[i - 1][j], 1 + (cache[i][j - nums[i]] if j >= nums[i] else inf))
+            cache[i][j] = min(cache[i - 1][j], 1 + (cache[i][j - nums[i]] if j >= nums[i] else float('inf')))
     return cache[-1][-1]
 
 

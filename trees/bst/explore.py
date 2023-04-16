@@ -1,10 +1,8 @@
-from math import inf
-
-nums = inf
+nums = float('inf')
 b = 4
 print(b - nums)
 
-nums = -inf
+nums = float('-inf')
 b = 4
 print(b - nums)
 
