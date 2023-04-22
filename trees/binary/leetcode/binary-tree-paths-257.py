@@ -1,6 +1,7 @@
 from binarytree import build2
 
 inputs = [
+    build2([1, 2, 3, 4, 5, 6, 7, None, None, 8, None, None, 9]),
     build2([1, 2, 3, None, 5]),
     build2([1]),
 ]
