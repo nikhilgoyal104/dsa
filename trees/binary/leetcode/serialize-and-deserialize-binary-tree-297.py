@@ -37,4 +37,5 @@ for root in [
 ]:
     print(root)
     data = codec.serialize(root)
+    print(data)
     print(codec.deserialize(data))

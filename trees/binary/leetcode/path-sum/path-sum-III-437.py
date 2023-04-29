@@ -40,7 +40,8 @@ print()
 
 # T=n,S=n
 def main(root, target):
-    res, sumFreq = 0, Counter({0: 1})
+    res = 0
+    sumFreq = Counter({0: 1})
 
     def dfs(root, sum):
         nonlocal res
