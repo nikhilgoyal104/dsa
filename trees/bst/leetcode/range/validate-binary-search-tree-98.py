@@ -20,4 +20,5 @@ for root in [
     build2([1, 2]),
     build2([2, 1])
 ]:
+    print(root)
     print(main(root))
