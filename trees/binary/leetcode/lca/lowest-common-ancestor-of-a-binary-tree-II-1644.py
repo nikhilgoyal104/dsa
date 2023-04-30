@@ -38,6 +38,8 @@ for root, p, q in inputs:
     else:
         print(lca)
 
+print()
+
 
 def find(root, target):
     def dfs(root):
@@ -48,9 +50,6 @@ def find(root, target):
         return dfs(root.left) or dfs(root.right)
 
     return dfs(root)
-
-
-print()
 
 
 # T=n,S=n
