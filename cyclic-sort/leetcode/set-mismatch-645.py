@@ -1,14 +1,16 @@
 # T=n,S=1
 def main(nums):
     n = len(nums)
-    for i in range(n):
-        correctIndex = nums[i] - 1
-        while nums[i] != nums[correctIndex]:
-            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
-            correctIndex = nums[i] - 1
-    for i in range(n):
-        if i != nums[i] - 1:
-            return [nums[i], i + 1]
+    presentIndex = 0
+    while presentIndex < n:
+        correctIndex = nums[presentIndex] - 1
+        if -1 < correctIndex < n and nums[presentIndex] != nums[correctIndex]:
+            nums[correctIndex], nums[presentIndex] = nums[presentIndex], nums[correctIndex]
+        else:
+            presentIndex += 1
+    for presentIndex in range(n):
+        if presentIndex != nums[presentIndex] - 1:
+            return [nums[presentIndex], presentIndex + 1]
 
 
 for nums in [

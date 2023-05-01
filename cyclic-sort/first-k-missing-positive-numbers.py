@@ -1,17 +1,19 @@
 # T=n+k,S=k
 def main(nums, k):
-    n = len(nums)
     res = []
-    for i in range(n):
-        correctIndex = nums[i] - 1
-        while 1 <= nums[i] <= n and nums[i] != nums[correctIndex]:
-            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
-            correctIndex = nums[i] - 1
+    n = len(nums)
+    presentIndex = 0
+    while presentIndex < n:
+        correctIndex = nums[presentIndex] - 1
+        if -1 < correctIndex < n and nums[presentIndex] != nums[correctIndex]:
+            nums[correctIndex], nums[presentIndex] = nums[presentIndex], nums[correctIndex]
+        else:
+            presentIndex += 1
     extra = set()
-    for i in range(n):
-        if len(res) < k and i != nums[i] - 1:
-            res.append(i + 1)
-            extra.add(nums[i])
+    for presentIndex in range(n):
+        if len(res) < k and presentIndex != nums[presentIndex] - 1:
+            res.append(presentIndex + 1)
+            extra.add(nums[presentIndex])
     i = 1
     while len(res) < k:
         if i + n not in extra:

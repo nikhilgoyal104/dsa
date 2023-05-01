@@ -37,14 +37,16 @@ def y(nums):
 # T=n,S=1
 def z(nums):
     n = len(nums)
-    for i in range(n):
-        correctIndex = nums[i]
-        while 0 <= nums[i] <= n - 1 and nums[i] != nums[correctIndex]:
-            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
-            correctIndex = nums[i]
-    for i in range(n):
-        if i != nums[i]:
-            return i
+    presentIndex = 0
+    while presentIndex < n:
+        correctIndex = nums[presentIndex]
+        if -1 < correctIndex < n and nums[presentIndex] != nums[correctIndex]:
+            nums[correctIndex], nums[presentIndex] = nums[presentIndex], nums[correctIndex]
+        else:
+            presentIndex += 1
+    for presentIndex in range(n):
+        if presentIndex != nums[presentIndex]:
+            return presentIndex
     return n
 
 
@@ -62,4 +64,4 @@ for nums in [
     print(w(nums), end=' ')
     print(x(nums), end=' ')
     print(y(nums), end=' ')
-    print(z(nums))
+    print(z(nums), nums)

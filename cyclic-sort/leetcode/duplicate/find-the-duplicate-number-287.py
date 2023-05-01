@@ -58,11 +58,13 @@ def y(nums):
 # T=n,S=1
 def z(nums):
     n = len(nums)
-    for i in range(n):
-        correctIndex = nums[i] - 1
-        while nums[i] != nums[correctIndex]:
-            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
-            correctIndex = nums[i] - 1
+    presentIndex = 0
+    while presentIndex < n:
+        correctIndex = nums[presentIndex] - 1
+        if -1 < correctIndex < n and nums[presentIndex] != nums[correctIndex]:
+            nums[correctIndex], nums[presentIndex] = nums[presentIndex], nums[correctIndex]
+        else:
+            presentIndex += 1
     return nums[-1]
 
 

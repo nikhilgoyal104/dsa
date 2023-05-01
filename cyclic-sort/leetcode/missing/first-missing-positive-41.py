@@ -28,7 +28,7 @@ print()
 def main(nums):
     res = 1
     numSet = set(nums)
-    while res in numsSet:
+    while res in numSet:
         res += 1
     return res
 
@@ -60,16 +60,18 @@ print()
 # T=n,S=1
 def main(nums):
     n = len(nums)
-    for i in range(n):
-        correctIndex = nums[i] - 1
-        while 1 <= nums[i] <= n and nums[i] != nums[correctIndex]:
-            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
-            correctIndex = nums[i] - 1
-    for i in range(n):
-        if i != nums[i] - 1:
-            return i + 1
+    presentIndex = 0
+    while presentIndex < n:
+        correctIndex = nums[presentIndex] - 1
+        if -1 < correctIndex < n and nums[presentIndex] != nums[correctIndex]:
+            nums[correctIndex], nums[presentIndex] = nums[presentIndex], nums[correctIndex]
+        else:
+            presentIndex += 1
+    for presentIndex in range(n):
+        if presentIndex != nums[presentIndex] - 1:
+            return presentIndex + 1
     return n + 1
 
 
 for nums in inputs:
-    print(main(nums), end=' ')
+    print(main(nums), nums)

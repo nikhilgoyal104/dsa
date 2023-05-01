@@ -1,20 +1,23 @@
 # T=n,S=1
 def main(nums):
     n = len(nums)
-    for i in range(n):
-        correctIndex = nums[i] - 1
-        while 1 <= nums[i] <= n and nums[i] != nums[correctIndex]:
-            nums[i], nums[correctIndex] = nums[correctIndex], nums[i]
-            correctIndex = nums[i] - 1
-    for i in range(n):
-        if i != nums[i] - 1:
-            return i + 1
-    return n + 1
+    presentIndex = 0
+    while presentIndex < n:
+        correctIndex = nums[presentIndex] - 1
+        if -1 < correctIndex < n and nums[presentIndex] != nums[correctIndex]:
+            nums[correctIndex], nums[presentIndex] = nums[presentIndex], nums[correctIndex]
+        else:
+            presentIndex += 1
+    for presentIndex in range(n):
+        if presentIndex != nums[presentIndex] - 1:
+            return presentIndex + 1
+    return None
 
 
 for nums in [
-    [3, 2, 4, 6, 1],
+    [3, 2, 4, 42, 1],
+    [3, 2, 4, 5, 78],
     [1, 2, 4, 3],
     [2, 1, 3]
 ]:
-    print(main(nums))
+    print(main(nums), nums)
