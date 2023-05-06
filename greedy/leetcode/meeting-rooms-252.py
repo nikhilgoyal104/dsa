@@ -28,9 +28,9 @@ print()
 def main(nums):
     nums.sort()
     for i in range(len(nums) - 1):
-        curr = nums[i]
-        next = nums[i + 1]
-        if curr[1] > next[0]:
+        endTimeOfCurrentMeeting = nums[i][1]
+        startTimeOfNextMeeting = nums[i + 1][0]
+        if endTimeOfCurrentMeeting > startTimeOfNextMeeting:
             return False
     return True
 

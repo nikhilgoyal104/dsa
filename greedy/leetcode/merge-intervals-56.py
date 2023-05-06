@@ -1,12 +1,14 @@
 # T=nlogn,S=n
 def main(nums):
     nums.sort()
-    res = []
-    for val in nums:
-        if not res or res[-1][1] < val[0]:
-            res.append(val)
-            continue
-        res[-1][1] = max(res[-1][1], val[1])
+    res = [nums[0]]
+    for i in range(1, len(nums)):
+        startTimeOfNextInterval, endTimeOfNextInterval = nums[i]
+        endTimeOfCurrentInterval = res[-1][1]
+        if startTimeOfNextInterval > endTimeOfCurrentInterval:
+            res.append(nums[i])
+        else:
+            res[-1][1] = max(endTimeOfCurrentInterval, endTimeOfNextInterval)
     return res
 
 

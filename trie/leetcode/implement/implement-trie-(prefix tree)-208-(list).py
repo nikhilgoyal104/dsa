@@ -17,7 +17,7 @@ class Trie:
             node = node.children[index]
         node.word = True
 
-    def getLastNodeInPrefix(self, prefix):
+    def _getLastNodeInPrefix(self, prefix):
         node = self.root
         for char in prefix:
             index = ord(char) - 97
@@ -27,11 +27,11 @@ class Trie:
         return node
 
     def search(self, word):
-        lastNodeInPrefix = self.getLastNodeInPrefix(word)
+        lastNodeInPrefix = self._getLastNodeInPrefix(word)
         return lastNodeInPrefix is not None and lastNodeInPrefix.word
 
     def startsWith(self, prefix):
-        return self.getLastNodeInPrefix(prefix) is not None
+        return self._getLastNodeInPrefix(prefix) is not None
 
 
 keys = ['the', 'a', 'there', 'their']

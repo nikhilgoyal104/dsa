@@ -17,7 +17,7 @@ class Trie:
             node = node.children[char]
         node.count += count
 
-    def getLastNodeInPrefix(self, prefix):
+    def _getLastNodeInPrefix(self, prefix):
         node = self.root
         for char in prefix:
             if char not in node.children:
@@ -38,7 +38,7 @@ class Trie:
         return res
 
     def getSentencesStartingWithPrefix(self, prefix):
-        lastNodeInPrefix = self.getLastNodeInPrefix(prefix)
+        lastNodeInPrefix = self._getLastNodeInPrefix(prefix)
         if not lastNodeInPrefix:
             return []
         return self.content(lastNodeInPrefix, prefix)

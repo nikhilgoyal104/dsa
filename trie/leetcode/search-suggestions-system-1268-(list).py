@@ -25,7 +25,7 @@ class Trie:
             node = node.children[index]
         node.word = True
 
-    def getLastNodeInPrefix(self, word):
+    def _getLastNodeInPrefix(self, word):
         node = self.root
         for char in word:
             index = ord(char) - 97
@@ -50,7 +50,7 @@ class Trie:
         return res
 
     def getWordsStartingWithPrefix(self, prefix):
-        lastNodeInPrefix = self.getLastNodeInPrefix(prefix)
+        lastNodeInPrefix = self._getLastNodeInPrefix(prefix)
         if not lastNodeInPrefix:
             return []
         return self.content(lastNodeInPrefix, prefix)
