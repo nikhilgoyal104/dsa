@@ -1,9 +1,9 @@
 def heapify(nums):
     for i in range((len(nums) // 2) - 1, -1, -1):
-        downheapify(i, nums)
+        _downheapify(i, nums)
 
 
-def downheapify(index, nums):
+def _downheapify(index, nums):
     n = len(nums)
     minIndex = index
     leftChildIndex = 2 * index + 1
@@ -14,7 +14,7 @@ def downheapify(index, nums):
         minIndex = rightChildIndex
     if minIndex != index:
         nums[index], nums[minIndex] = nums[minIndex], nums[index]
-        downheapify(minIndex, nums)
+        _downheapify(minIndex, nums)
 
 
 for nums in [
