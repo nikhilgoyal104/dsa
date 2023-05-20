@@ -31,7 +31,8 @@ class Trie:
         return lastNodeInPrefix is not None and lastNodeInPrefix.word
 
     def startsWith(self, prefix):
-        return self._getLastNodeInPrefix(prefix) is not None
+        lastNodeInPrefix = self._getLastNodeInPrefix(prefix)
+        return lastNodeInPrefix is not None
 
 
 keys = ['the', 'a', 'there', 'their']

@@ -34,19 +34,19 @@ class Trie:
             node = node.children[index]
         return node
 
-    def content(self, root, start):
+    def content(self, root, prefix):
         res = []
 
-        def dfs(root, path):
+        def dfs(root, prefix):
             if len(res) == 3:
                 return
             if root.word:
-                res.append(path)
+                res.append(prefix)
             for i in range(26):
                 if root.children[i]:
-                    dfs(root.children[i], path + chr(i + 97))
+                    dfs(root.children[i], prefix + chr(i + 97))
 
-        dfs(root, start)
+        dfs(root, prefix)
         return res
 
     def getWordsStartingWithPrefix(self, prefix):
