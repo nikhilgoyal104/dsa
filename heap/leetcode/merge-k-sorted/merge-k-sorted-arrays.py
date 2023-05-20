@@ -60,16 +60,16 @@ print()
 # T=k+Nlogk,S=k+N
 def main(arrays):
     res = []
-    heap = []
+    nums = []
     for arr in arrays:
         if arr:
-            heap.append((arr[0], 0, arr))
-    heapify(heap)
-    while heap:
-        val, i, arr = heappop(heap)
+            nums.append((arr[0], 0, arr))
+    heapify(nums)
+    while nums:
+        val, i, arr = heappop(nums)
         res.append(val)
         if i + 1 < len(arr):
-            heappush(heap, (arr[i + 1], i + 1, arr))
+            heappush(nums, (arr[i + 1], i + 1, arr))
     return res
 
 

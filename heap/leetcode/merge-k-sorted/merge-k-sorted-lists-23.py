@@ -1,5 +1,5 @@
 from heapq import *
-from heap.leetcode.util import b, ListNode
+from heap.leetcode.util import build, ListNode
 
 
 # T=Nlog(N),S=N
@@ -18,8 +18,8 @@ def main(lists):
 
 
 for lists in [
-    [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
-    [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
+    [build([1, 4, 5]), build([1, 3, 4]), build([2, 6])],
+    [build([2, 6, 8]), build([3, 6, 7]), build([1, 3, 4])],
 ]:
     print(main(lists), end=' ')
 
@@ -46,8 +46,8 @@ def main(lists):
 
 
 for lists in [
-    [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
-    [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
+    [build([1, 4, 5]), build([1, 3, 4]), build([2, 6])],
+    [build([2, 6, 8]), build([3, 6, 7]), build([1, 3, 4])],
 ]:
     print(main(lists), end=' ')
 
@@ -56,26 +56,28 @@ print()
 
 # T=k+Nlogk,S=k
 def main(lists):
-    heap = []
+    nums = []
     for i, head in enumerate(lists):
         if head:
-            heap.append((head.val, i, head))
-    heapify(heap)
+            nums.append((head.val, i, head))
+    heapify(nums)
     dummy = tail = ListNode(-1)
-    while heap:
-        val, i, head = heappop(heap)
+    while nums:
+        val, i, head = heappop(nums)
         tail.next = head
         tail = tail.next
         if head.next:
-            heappush(heap, (head.next.val, i, head.next))
+            heappush(nums, (head.next.val, i, head.next))
     return dummy.next
 
 
 for lists in [
-    [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
-    [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
+    [build([1, 4, 5]), build([1, 3, 4]), build([2, 6])],
+    [build([2, 6, 8]), build([3, 6, 7]), build([1, 3, 4])],
 ]:
     print(main(lists), end=' ')
+
+print()
 
 
 # T=klogk+Nlogk,S=k
@@ -95,7 +97,7 @@ def main(lists):
 
 
 for lists in [
-    [b([1, 4, 5]), b([1, 3, 4]), b([2, 6])],
-    [b([2, 6, 8]), b([3, 6, 7]), b([1, 3, 4])],
+    [build([1, 4, 5]), build([1, 3, 4]), build([2, 6])],
+    [build([2, 6, 8]), build([3, 6, 7]), build([1, 3, 4])],
 ]:
     print(main(lists), end=' ')

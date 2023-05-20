@@ -1,7 +1,5 @@
-heap = []
-
-
-def add(data):
+# T=logn
+def heappush(heap, data):
     heap.append(data)
     _upheapify(len(heap) - 1)
 
@@ -11,14 +9,19 @@ def _upheapify(index):
         return
     parentIndex = (index - 1) // 2
     if heap[parentIndex] > heap[index]:
-        heap[parentIndex], heap[index] = heap[index], heap[parentIndex]
+        _swap(index, parentIndex)
         _upheapify(parentIndex)
 
 
-def remove():
+def _swap(i, j):
+    heap[i], heap[j] = heap[j], heap[i]
+
+
+# T=logn
+def heappop(heap):
     if not heap:
         return
-    heap[0], heap[-1] = heap[-1], heap[0]
+    _swap(0, -1)
     data = heap.pop()
     _downheapify(0)
     return data
@@ -34,23 +37,17 @@ def _downheapify(index):
     if rightChildIndex < n and heap[rightChildIndex] < heap[minIndex]:
         minIndex = rightChildIndex
     if minIndex != index:
-        heap[index], heap[minIndex] = heap[minIndex], heap[index]
+        _swap(index, minIndex)
         _downheapify(minIndex)
 
 
-def peek():
-    if not heap:
-        return
-    return heap[0]
+heap = []
+for val in [1, 2, 3, 4]:
+    heappush(heap, val)
 
-
-for data in [10, 20, 30, 40]:
-    add(data)
-
-print(peek())
-add(50)
-for i in range(4):
-    print(peek())
-    print(remove())
-
-print(peek())
+print(heap[0])
+heappush(heap, 5)
+print()
+for _ in range(4):
+    print(heap[0], end=' ')
+    print(heappop(heap))
