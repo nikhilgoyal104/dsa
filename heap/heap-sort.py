@@ -2,11 +2,10 @@ from heapq import *
 
 
 def main(nums):
-    n = len(nums)
     heap = []
     for val in nums:
         heappush(heap, val)
-    for _ in range(n):
+    for _ in range(len(nums)):
         print(heappop(heap), end=' ')
 
 

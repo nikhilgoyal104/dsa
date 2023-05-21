@@ -1,6 +1,6 @@
 # T=logn
-def heappush(heap, data):
-    heap.append(data)
+def heappush(heap, val):
+    heap.append(val)
     _upheapify(len(heap) - 1)
 
 
