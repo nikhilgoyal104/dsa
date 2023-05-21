@@ -22,9 +22,9 @@ def heappop(heap):
     if not heap:
         return
     _swap(0, -1)
-    data = heap.pop()
+    val = heap.pop()
     _downheapify(0)
-    return data
+    return val
 
 
 def _downheapify(index):

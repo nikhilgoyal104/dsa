@@ -2,7 +2,7 @@ from heapq import *
 from collections import Counter
 
 
-# T=nlogn,S=1
+# T=nlogn,S=n
 def x(nums, k):
     freq = Counter(nums)
     return sorted(freq.keys(), key=freq.get, reverse=True)[:k]
@@ -14,14 +14,16 @@ def y(nums, k):
     return nlargest(k, freq.keys(), key=freq.get)
 
 
-# T=nlogk,S=k
+# T=nlogk,S=n+k
 def z(nums, k):
     heap = []
     for val, count in Counter(nums).items():
         heappush(heap, (count, val))
         if len(heap) > k:
             heappop(heap)
-    return [val for _, val in heap]
+    while heap:
+        res.append(heappop(heap)[1])
+    return res
 
 
 for nums, k in [

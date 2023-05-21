@@ -34,6 +34,17 @@ for nums, k in inputs:
 print()
 
 
+# T=nlogk,S=k
+def main(nums, k):
+    return nsmallest(k, nums)[-1]
+
+
+for nums, k in inputs:
+    print(main(nums, k), end=' ')
+
+print()
+
+
 # T=n+klogn,S=1
 def main(nums, k):
     heapify(nums)
@@ -44,19 +55,4 @@ def main(nums, k):
 
 
 for nums, k in inputs:
-    print(main(nums, k), end=' ')
-
-print()
-
-
-# T=nlogk,S=k
-def main(nums, k):
-    return nsmallest(k, nums)[-1]
-
-
-for nums, k in [
-    ([3, 2, 1, 5, 6, 4], 2),
-    ([3, 2, 3, 1, 2, 4, 5, 5, 6], 4),
-    ([7, 4, 6, 3, 9, 1], 3)
-]:
     print(main(nums, k), end=' ')

@@ -7,7 +7,7 @@ inputs = [
 ]
 
 
-# T=nlogn,S=n
+# T=nlogn,S=1
 def main(nums, k):
     return sorted(nums)[-k]
 

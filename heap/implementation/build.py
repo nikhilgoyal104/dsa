@@ -1,6 +1,7 @@
 # T=n
 def heapify(nums):
-    for i in range((len(nums) // 2) - 1, -1, -1):
+    lastParentIndex = (len(nums) // 2) - 1
+    for i in range(lastParentIndex, -1, -1):
         _downheapify(i)
 
 
