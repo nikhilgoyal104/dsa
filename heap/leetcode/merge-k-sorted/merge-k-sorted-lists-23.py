@@ -10,8 +10,7 @@ def main(lists):
             values.append(head.val)
             head = head.next
     dummy = tail = ListNode(-1)
-    values.sort()
-    for val in values:
+    for val in sorted(values):
         tail.next = ListNode(val)
         tail = tail.next
     return dummy.next
