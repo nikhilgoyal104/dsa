@@ -87,7 +87,7 @@ def z(grid, target):
     rowIndex = potentialRowIndex(grid, target)
     if rowIndex == -1:
         return False
-    return search(grid[ri], target)
+    return search(grid[rowIndex], target)
 
 
 for grid, target in [
