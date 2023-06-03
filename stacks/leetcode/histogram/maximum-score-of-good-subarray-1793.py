@@ -127,26 +127,37 @@ for nums, k in inputs:
 print()
 
 
-# T=n,S=n
-# left[i] = index of next smaller element on left of nums[i]
-# right[i] = index of next smaller element on right of nums[i]
-def main(nums, k):
+def firstSmallerLeft(nums):
     n = len(nums)
-    left = [-1] * n
+    res = [-1] * n
     stack = []
     for i in range(n):
         while stack and nums[stack[-1]] >= nums[i]:
             stack.pop()
-        left[i] = stack[-1] if stack else -1
+        res[i] = stack[-1] if stack else -1
         stack.append(i)
-    right = [n] * n
+    return res
+
+
+def firstSmallerRight(nums):
+    n = len(nums)
+    res = [n] * n
     stack = []
     for i in range(n):
         while stack and nums[stack[-1]] > nums[i]:
-            right[stack.pop()] = i
+            res[stack.pop()] = i
         stack.append(i)
+    return res
+
+
+# T=n,S=n
+# left[i] = index of first smaller element on left of nums[i]
+# right[i] = index of first smaller element on right of nums[i]
+def main(nums, k):
+    left = firstSmallerLeft(nums)
+    right = firstSmallerRight(nums)
     res = 0
-    for i in range(n):
+    for i in range(len(nums)):
         if left[i] < k < right[i]:
             width = right[i] - left[i] - 1
             res = max(res, nums[i] * width)

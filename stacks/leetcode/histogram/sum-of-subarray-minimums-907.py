@@ -98,26 +98,37 @@ for nums in inputs:
 print()
 
 
+def firstSmallerLeft(nums):
+    n = len(nums)
+    res = [-1] * n
+    stack = []
+    for i in range(n):
+        while stack and nums[stack[-1]] >= nums[i]:
+            stack.pop()
+        res[i] = stack[-1] if stack else -1
+        stack.append(i)
+    return res
+
+
+def firstSmallerRight(nums):
+    n = len(nums)
+    res = [n] * n
+    stack = []
+    for i in range(n):
+        while stack and nums[stack[-1]] > nums[i]:
+            res[stack.pop()] = i
+        stack.append(i)
+    return res
+
+
 # T=n,S=n
 # left[i] = index of next smaller element on left of nums[i]
 # right[i] = index of next smaller element on right of nums[i]
 def main(nums):
-    n = len(nums)
-    left = [-1] * n
-    stack = []
-    for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
-            stack.pop()
-        left[i] = stack[-1] if stack else -1
-        stack.append(i)
-    right = [n] * n
-    stack = []
-    for i in range(n):
-        while stack and nums[stack[-1]] > nums[i]:
-            right[stack.pop()] = i
-        stack.append(i)
+    left = firstSmallerLeft(nums)
+    right = firstSmallerRight(nums)
     res = 0
-    for i in range(n):
+    for i in range(len(nums)):
         subarrays = (i - left[i]) * (right[i] - i)
         res += subarrays * nums[i]
     return res % (10 ** 9 + 7)
