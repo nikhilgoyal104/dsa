@@ -1,3 +1,10 @@
+def clean(s):
+    s = s.replace(' ', '')
+    if s[0] == '-':
+        s = '0' + s
+    return s
+
+
 def priority(operator):
     map = {
         '+': 1,
@@ -7,26 +14,22 @@ def priority(operator):
 
 
 def compute(operator, num2, num1):
-    map = {
-        '+': num1 + num2,
-        '-': num1 - num2
-    }
-    return map[operator]
+    if operator == '+':
+        return num1 + num2
+    if operator == '-':
+        return num1 - num2
 
 
 # T=n,S=n
 def main(s):
-    s = s.replace(' ', '')
-    if s[0] == '-':
-        s = '0' + s
-    n = len(s)
+    s = clean(s)
     i = 0
     nums = []
     operators = []
-    while i < n:
+    while i < len(s):
         if s[i].isdigit():
             num = 0
-            while i < n and s[i].isdigit():
+            while i < len(s) and s[i].isdigit():
                 num = 10 * num + int(s[i])
                 i += 1
             nums.append(num)

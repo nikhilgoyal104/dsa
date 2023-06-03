@@ -1,18 +1,25 @@
 # T=n,S=n
 def main(s):
     stack = []
-    openToCloseMap = {
+    openBracketToCloseBracketMap = {
         '(': ')',
         '{': '}',
         '[': ']'
     }
+
+    def isAnOpeningBracket(char):
+        return char in openBracketToCloseBracketMap
+
+    def getClosingBracket(char):
+        return openBracketToCloseBracketMap.get(char)
+
     for char in s:
-        if char in openToCloseMap:
+        if isAnOpeningBracket(char):
             stack.append(char)
-            continue
-        bracket = stack.pop() if stack else ''
-        if char != openToCloseMap.get(bracket):
-            return False
+        else:
+            top = stack.pop() if stack else ''
+            if char != getClosingBracket(top):
+                return False
     return not stack
 
 

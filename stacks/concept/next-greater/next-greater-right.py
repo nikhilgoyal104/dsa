@@ -4,6 +4,26 @@ inputs = [
 ]
 
 
+# T=n²,S=n
+def main(nums):
+    n = len(nums)
+    res = []
+    for i in range(n):
+        nge = -1
+        for j in range(i + 1, n):
+            if nums[j] > nums[i]:
+                nge = nums[j]
+                break
+        res.append(nge)
+    return res
+
+
+for nums in inputs:
+    print(main(nums))
+
+print()
+
+
 # T=n,S=n
 def main(nums):
     res = [-1] * len(nums)

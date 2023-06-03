@@ -9,26 +9,26 @@ def priority(operator):
 
 
 def compute(operator, num2, num1):
-    map = {
-        '+': num1 + num2,
-        '-': num1 - num2,
-        '*': num1 * num2,
-        '/': int(num1 / num2)
-    }
-    return map[operator]
+    if operator == '+':
+        return num1 + num2
+    if operator == '-':
+        return num1 - num2
+    if operator == '*':
+        return num1 * num2
+    if operator == '/':
+        return int(num1 / num2)
 
 
 # T=n,S=n
 def main(s):
     s = s.replace(' ', '')
-    n = len(s)
     i = 0
     nums = []
     operators = []
-    while i < n:
+    while i < len(s):
         if s[i].isdigit():
             num = 0
-            while i < n and s[i].isdigit():
+            while i < len(s) and s[i].isdigit():
                 num = 10 * num + int(s[i])
                 i += 1
             nums.append(num)
@@ -47,6 +47,8 @@ for s in [
     '2*5/2',
     '3+2*2',
     ' 3/2 ',
-    ' 3+5 / 2 '
+    ' 3+5 / 2 ',
+    '0+0',
+    '123+431-431'
 ]:
     print(str(s) + '->' + str(main(s)))

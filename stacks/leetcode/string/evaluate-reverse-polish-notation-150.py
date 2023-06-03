@@ -1,4 +1,4 @@
-def apply(operator, num2, num1):
+def compute(operator, num2, num1):
     if operator == '+':
         return num1 + num2
     if operator == '-':
@@ -15,8 +15,8 @@ def main(s):
     for char in s:
         if char not in '+-*/':
             stack.append(int(char))
-            continue
-        stack.append(apply(char, stack.pop(), stack.pop()))
+        else:
+            stack.append(compute(char, stack.pop(), stack.pop()))
     return stack.pop()
 
 
