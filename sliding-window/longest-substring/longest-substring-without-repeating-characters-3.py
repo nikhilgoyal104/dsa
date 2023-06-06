@@ -53,10 +53,9 @@ print()
 
 # T=n,S=1
 def main(s):
-    n = len(s)
     res = left = 0
     freq = Counter()
-    for right in range(n):
+    for right in range(len(s)):
         freq[s[right]] += 1
         while freq[s[right]] > 1:
             freq[s[left]] -= 1

@@ -3,10 +3,9 @@ from collections import Counter
 
 # T=n,S=1
 def main(s):
-    n = len(s)
     freq = Counter()
     res = left = 0
-    for right in range(n):
+    for right in range(len(s)):
         freq[s[right]] += 1
         while len(freq) > 2:
             char = s[left]

@@ -1,8 +1,7 @@
 # T=n,S=1
 def main(nums):
-    n = len(nums)
     res = left = zeros = 0
-    for right in range(n):
+    for right in range(len(nums)):
         zeros += (nums[right] == 0)
         while zeros > 1:
             zeros -= (nums[left] == 0)

@@ -4,10 +4,9 @@ from collections import Counter
 # T=n,S=1
 def main(nums, k):
     def atMost(k):
-        n = len(nums)
         freq = Counter()
         res = left = 0
-        for right in range(n):
+        for right in range(len(nums)):
             freq[nums[right]] += 1
             while len(freq) > k:
                 freq[nums[left]] -= 1
