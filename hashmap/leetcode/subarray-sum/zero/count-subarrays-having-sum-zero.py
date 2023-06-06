@@ -3,7 +3,8 @@ from collections import Counter
 
 # T=n²,S=1
 def x(nums):
-    n, res = len(nums), 0
+    n = len(nums)
+    res = 0
     for i in range(n):
         sum = 0
         for j in range(i, n):
@@ -15,10 +16,9 @@ def x(nums):
 
 # T=n,S=n
 def y(nums):
-    n = len(nums)
     res = sum = 0
     sumFreq = Counter({0: 1})
-    for i in range(n):
+    for i in range(len(nums)):
         sum += nums[i]
         res += sumFreq[sum]
         sumFreq[sum] += 1

@@ -3,8 +3,9 @@ from collections import Counter
 
 # T=n,S=n
 def main(nums):
+    res = 0
     remainders = [val % 60 for val in nums]
-    res, remainderFreq = 0, Counter(remainders)
+    remainderFreq = Counter(remainders)
     for remainder in remainders:
         complement = 60 - remainder
         res += remainderFreq[complement] if remainder else remainderFreq[0]

@@ -13,10 +13,9 @@ def x(nums, k):
 
 # T=n,S=n
 def y(nums, k):
-    n = len(nums)
     res = sum = 0
     sumToIndex = {0: -1}
-    for i in range(n):
+    for i in range(len(nums)):
         sum += nums[i]
         if sum - k in sumToIndex:
             res = max(res, i - sumToIndex[sum - k])

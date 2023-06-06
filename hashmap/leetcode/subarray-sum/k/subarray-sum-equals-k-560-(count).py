@@ -16,10 +16,9 @@ def x(nums, k):
 
 # T=n,S=n
 def y(nums, k):
-    n = len(nums)
     res = sum = 0
     sumFreq = Counter({0: 1})
-    for i in range(n):
+    for i in range(len(nums)):
         sum += nums[i]
         res += sumFreq[sum - k]
         sumFreq[sum] += 1
