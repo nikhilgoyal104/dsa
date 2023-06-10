@@ -1,5 +1,6 @@
 def main(nums, total):
-    n, nums = len(nums), sorted(nums)
+    n = len(nums)
+    nums = sorted(nums)
 
     def dfs(start, sum):
         if sum == total:

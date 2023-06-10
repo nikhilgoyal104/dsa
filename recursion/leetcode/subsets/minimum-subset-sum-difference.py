@@ -12,7 +12,8 @@ def x(nums):
 
 # T=ns,S=ns
 def y(nums):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(i, sum1, sum2):
         if i == n:

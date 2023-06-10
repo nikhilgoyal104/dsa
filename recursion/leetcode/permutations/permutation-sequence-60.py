@@ -22,8 +22,10 @@ def x(n, k):
 
 # T=n²,S=n
 def y(n, k):
-    res, nums = [], list(range(1, n + 1))
-    k, fact = k - 1, [1] * n
+    res = []
+    nums = list(range(1, n + 1))
+    k -= 1
+    fact = [1] * n
     for i in range(1, n):
         fact[i] = fact[i - 1] * i
     for i in range(n - 1, -1, -1):

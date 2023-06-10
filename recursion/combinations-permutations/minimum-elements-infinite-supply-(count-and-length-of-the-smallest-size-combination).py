@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def w(nums, total):
+def x(nums, total):
     n = len(nums)
     cache = {}
 
@@ -21,7 +21,7 @@ def w(nums, total):
     return dfs(0, 0)
 
 
-def x(nums, total):
+def y(nums, total):
     cache = {total: 0}
 
     def dfs(sum):
@@ -37,7 +37,7 @@ def x(nums, total):
     return dfs(0)
 
 
-def y(nums, total):
+def z(nums, total):
     queue = deque([(0, 0)])
     while queue:
         sum, count = queue.popleft()
@@ -51,18 +51,18 @@ def y(nums, total):
 
 for nums, total in [
     ([1, 2, 3], 4),
-    ([1, 2, 5], 11),
+    ([1, 2, 5], 10),
     ([1, 2, 5], 11),
 ]:
-    print(w(nums, total), end=' ')
     print(x(nums, total), end=' ')
-    print(y(nums, total))
+    print(y(nums, total), end=' ')
+    print(z(nums, total))
 
 print()
 
 
 # T=ns,S=ns
-def z(nums, total):
+def main(nums, total):
     n = len(nums)
     cache = [[float('inf')] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
@@ -78,7 +78,7 @@ def z(nums, total):
 
 for nums, total in [
     ([1, 2, 3], 4),
-    ([1, 2, 5], 11),
+    ([1, 2, 5], 10),
     ([1, 2, 5], 11),
     ([2], 3),
     ([1], 0),
@@ -86,4 +86,4 @@ for nums, total in [
     ([3, 7, 405, 436], 8839),
     ([474, 83, 404, 3], 264)
 ]:
-    print(z(nums, total))
+    print(main(nums, total))

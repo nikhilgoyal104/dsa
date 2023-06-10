@@ -1,6 +1,8 @@
 # T=n!,S=n²
 def main(n):
-    cols, diags, antidiags = set(), set(), set()
+    cols = set()
+    diags = set()
+    antidiags = set()
 
     def choose(ri, ci):
         cols.add(ci)

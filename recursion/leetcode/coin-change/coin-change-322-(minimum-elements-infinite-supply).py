@@ -5,7 +5,8 @@ sys.setrecursionlimit(10000)
 
 # T=sn,S=n
 def x(nums, total):
-    n, cache = len(nums), {}
+    n = len(nums)
+    cache = {}
 
     def dfs(start, sum):
         if sum == total:

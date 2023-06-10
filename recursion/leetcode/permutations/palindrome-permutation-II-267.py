@@ -11,16 +11,19 @@ def possible(s):
 
 
 # T=n!
-def x(s):
+def main(s):
     if not possible(s):
         return []
-    items, vis = Counter(s).items(), set()
-    mid, half = '', ''.join(char * (count // 2) for char, count in items)
+    items = Counter(s).items()
+    vis = set()
+    mid = ''
+    half = ''.join(char * (count // 2) for char, count in items)
     for char, count in items:
         if count % 2:
             mid = char
             break
-    s, n = half, len(half)
+    s = half
+    n = len(half)
 
     def dfs():
         if len(vis) == n:
@@ -49,4 +52,4 @@ for s in [
     'ddddaaaa',
     'aabbhijkkjih'
 ]:
-    print(x(s))
+    print(main(s))

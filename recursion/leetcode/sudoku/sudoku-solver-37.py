@@ -1,6 +1,8 @@
 # T=nn!,S=n²
 def main(grid):
-    values, vis, n = '123456789', set(), 9
+    values = '123456789'
+    vis = set()
+    n = 9
 
     for i, row in enumerate(grid):
         for j, val in enumerate(row):

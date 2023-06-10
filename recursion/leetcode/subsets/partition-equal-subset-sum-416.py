@@ -2,7 +2,9 @@
 def x(nums):
     if sum(nums) % 2:
         return False
-    n, total, cache = len(nums), sum(nums) // 2, {}
+    n = len(nums)
+    total = sum(nums) // 2
+    cache = {}
 
     def dfs(start, sum):
         if sum == total:
@@ -26,7 +28,9 @@ def x(nums):
 def y(nums):
     if sum(nums) % 2:
         return False
-    n, total, cache = len(nums), sum(nums) // 2, {}
+    n = len(nums)
+    total = sum(nums) // 2
+    cache = {}
 
     def dfs(i, sum):
         if sum == total:
@@ -47,7 +51,8 @@ def y(nums):
 def z(nums):
     if sum(nums) % 2:
         return False
-    n, total = len(nums), sum(nums) // 2
+    n = len(nums)
+    total = sum(nums) // 2
     cache = [[False] * (total + 1) for _ in range(n)]
     for j in range(total + 1):
         cache[0][j] = nums[0] == j

@@ -17,7 +17,9 @@ def x(nums, total):
 
 # T=(total/m)nᵗ/ᵐ,S=total/m(nᵗ/ᵐ)
 def y(nums, total):
-    n, path, res = len(nums), [], []
+    n = len(nums)
+    res = []
+    path = []
 
     def dfs(start, sum):
         if sum == total:

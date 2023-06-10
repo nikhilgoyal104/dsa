@@ -1,6 +1,7 @@
 # T=kⁿcₖ,S=kⁿcₖ
 def main(k, n):
-    total, nums = n, [i for i in range(1, 10)]
+    total = n
+    nums = [i for i in range(1, 10)]
 
     def dfs(start, sum, count):
         if sum == total and size == k:

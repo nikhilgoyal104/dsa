@@ -32,8 +32,11 @@ def removeCount(s):
 
 # T=2ⁿ,S=n
 def x(s):
-    n, res, k = len(s), [], removeCount(s)
-    queue, vis = deque([(s, k)]), set()
+    n = len(s)
+    res = []
+    vis = set()
+    k = removeCount(s)
+    queue = deque([(s, k)])
     vis.add(s)
     while queue:
         s, k = queue.popleft()
@@ -50,7 +53,10 @@ def x(s):
 
 # T=2ⁿ,S=n
 def y(s):
-    n, res, vis, k = len(s), [], set(), removeCount(s)
+    n = len(s)
+    res = []
+    vis = set()
+    k = removeCount(s)
 
     def dfs(s, k):
         if not k:

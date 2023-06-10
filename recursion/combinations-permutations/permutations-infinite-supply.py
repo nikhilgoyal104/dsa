@@ -3,11 +3,6 @@ inputs1 = [
     ([1, 2, 5], 11),
 ]
 
-inputs2 = [
-    ([1, 2, 3], 4),
-    ([2, 3, 5], 7),
-]
-
 
 def main(nums, total):
     def dfs(sum):
@@ -48,7 +43,12 @@ def main(nums, total):
 for nums, total in inputs1:
     print(main(nums, total), end=' ')
 
-print()
+print('\n')
+
+inputs2 = [
+    ([1, 2, 3], 4),
+    ([2, 3, 5], 7),
+]
 
 
 def main(nums, total):
@@ -67,27 +67,4 @@ def main(nums, total):
 
 
 for nums, total in inputs2:
-    print(main(nums, total), end=' ')
-
-print()
-
-
-def main(nums, total):
-    cache = {total: [[]]}
-
-    def dfs(sum):
-        if sum > total:
-            return []
-        if sum in cache:
-            return cache[sum]
-        cache[sum] = []
-        for val in nums:
-            for path in dfs(sum + val):
-                cache[sum].append([val] + path)
-        return cache[sum]
-
-    return dfs(0)
-
-
-for nums, total in inputs2:
-    print(main(nums, total), end=' ')
+    print(main(nums, total))

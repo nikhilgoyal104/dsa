@@ -1,6 +1,7 @@
 # T=n,S=n
 def main(nums, start):
-    n, vis = len(nums), set()
+    n = len(nums)
+    vis = set()
 
     def dfs(i):
         if i < 0 or i > n - 1 or i in vis:
