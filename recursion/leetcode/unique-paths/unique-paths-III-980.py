@@ -13,7 +13,8 @@ def construct(grid):
 
 # T=3ⁿ,S=n
 def main(grid):
-    m, n, vis = len(grid), len(grid[0]), set()
+    m, n = len(grid), len(grid[0])
+    vis = set()
     sri, sci, nonObstacleCount = construct(grid)
     offsets = (1, 0), (0, 1), (-1, 0), (0, -1)
 
