@@ -3,7 +3,7 @@ def main(k, n):
     total = n
     nums = [i for i in range(1, 10)]
 
-    def dfs(start, sum, count):
+    def dfs(start, sum, size):
         if sum == total and size == k:
             return [[]]
         if sum > total:

@@ -5,6 +5,8 @@ def main(nums, total):
     def dfs(start, sum):
         if sum == total:
             return [[]]
+        if sum > total:
+            return []
         res = []
         for i in range(start, n):
             if i != start and nums[i] == nums[i - 1]:

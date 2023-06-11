@@ -1,5 +1,5 @@
-def x(nums, k):
-    n = len(nums)
+def x(n, k):
+    nums = [i for i in range(1, n + 1)]
 
     def dfs(start, size):
         if size == k:
@@ -14,8 +14,8 @@ def x(nums, k):
 
 
 # T=kⁿcₖ,S=kⁿcₖ
-def y(nums, k):
-    n = len(nums)
+def y(n, k):
+    nums = [i for i in range(1, n + 1)]
     res = []
     path = []
 
@@ -32,9 +32,10 @@ def y(nums, k):
     return res
 
 
-for nums, k in [
-    ([1, 2, 3], 2),
-    ([1, 2, 3, 4], 2)
+for n, k in [
+    (3, 2),
+    (4, 2),
+    (1, 1)
 ]:
-    print(x(nums, k))
-    print(y(nums, k))
+    print(x(n, k))
+    print(y(n, k))

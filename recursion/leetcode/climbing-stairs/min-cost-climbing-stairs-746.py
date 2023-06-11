@@ -5,8 +5,9 @@ inputs = [
 
 
 # T=2ⁿ,S=n
-def main(nums):
-    n = len(nums)
+def main(cost):
+    n = len(cost)
+    nums = [1, 2]
 
     def dfs(i):
         if i == n:
@@ -14,15 +15,15 @@ def main(nums):
         if i > n:
             return float('inf')
         res = float('inf')
-        for jump in [1, 2]:
-            res = min(res, nums[i] + dfs(i + jump))
+        for jump in nums:
+            res = min(res, cost[i] + dfs(i + jump))
         return res
 
     return min(dfs(i) for i in [0, 1])
 
 
-for nums in inputs:
-    print(main(nums))
+for cost in inputs:
+    print(main(cost))
 
 
 # T=n,S=n
