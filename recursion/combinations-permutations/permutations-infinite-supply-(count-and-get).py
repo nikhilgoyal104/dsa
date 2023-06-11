@@ -41,7 +41,7 @@ def main(nums, total):
 
 
 for nums, total in inputs1:
-    print('nums-' + str(nums) + ' total-' + str(total) + '->', str(main(nums, total)))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(main(nums, total)))
 
 print()
 
@@ -67,4 +67,4 @@ def main(nums, total):
 
 
 for nums, total in inputs2:
-    print('nums-' + str(nums) + ' total-' + str(total) + '->', str(main(nums, total)))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(main(nums, total)))

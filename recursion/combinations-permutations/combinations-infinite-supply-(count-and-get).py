@@ -55,9 +55,9 @@ for nums, total in [
     ([1, 2, 5], 11),
     ([4, 2, 7, 1, 3], 10)
 ]:
-    print(x(nums, total), end=' ')
-    print(y(nums, total), end=' ')
-    print(z(nums, total))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(x(nums, total)))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(y(nums, total)))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(z(nums, total)))
 
 print('\ncombinations\n')
 
@@ -85,4 +85,4 @@ for nums, total in [
     ([1, 2, 5], 11),
     ([4, 2, 7, 1, 3], 10)
 ]:
-    print(main(nums, total))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(main(nums, total)))

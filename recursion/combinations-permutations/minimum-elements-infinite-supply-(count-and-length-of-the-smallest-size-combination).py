@@ -54,9 +54,9 @@ for nums, total in [
     ([1, 2, 5], 10),
     ([1, 2, 5], 11),
 ]:
-    print(x(nums, total), end=' ')
-    print(y(nums, total), end=' ')
-    print(z(nums, total))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->', str(x(nums, total)))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->', str(y(nums, total)))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->', str(z(nums, total)))
 
 print()
 
@@ -86,4 +86,4 @@ for nums, total in [
     ([3, 7, 405, 436], 8839),
     ([474, 83, 404, 3], 264)
 ]:
-    print(main(nums, total))
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(main(nums, total)))
