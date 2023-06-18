@@ -7,27 +7,11 @@ inputs = [
 # T=n²,S=1
 def main(nums):
     n = len(nums)
-    profit = 0
+    res = 0
     for i in range(n - 1):
         for j in range(i + 1, n):
-            profit = max(profit, nums[j] - nums[i])
-    return profit
-
-
-for nums in inputs:
-    print(main(nums), end=' ')
-
-print()
-
-
-# T=n,S=1
-def main(nums):
-    least = float('inf')
-    profit = 0
-    for val in nums:
-        profit = max(profit, val - least)
-        least = min(least, val)
-    return profit
+            res = max(res, nums[j] - nums[i])
+    return res
 
 
 for nums in inputs:

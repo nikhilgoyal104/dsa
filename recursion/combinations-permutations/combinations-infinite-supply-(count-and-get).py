@@ -86,3 +86,35 @@ for nums, total in [
     ([4, 2, 7, 1, 3], 10)
 ]:
     print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(main(nums, total)))
+
+print('\ncombinations\n')
+
+
+def main(nums, total):
+    n = len(nums)
+    cache = {}
+
+    def dfs(start, sum):
+        if sum == total:
+            return [[]]
+        if sum > total:
+            return []
+        key = start, sum
+        if key in cache:
+            return cache[key]
+        cache[key] = []
+        for i in range(start, n):
+            for path in dfs(i, sum + nums[i]):
+                cache[key].append([nums[i]] + path)
+        return cache[key]
+
+    return dfs(0, 0)
+
+
+for nums, total in [
+    ([1, 2, 3], 4),
+    ([1, 2, 3], 5),
+    ([1, 2, 5], 11),
+    ([4, 2, 7, 1, 3], 10)
+]:
+    print('nums-' + str(nums) + ' total-' + str(total) + '->' + str(main(nums, total)))
