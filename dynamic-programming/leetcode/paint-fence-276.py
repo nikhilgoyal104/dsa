@@ -11,7 +11,10 @@ def x(n, k):
 
 # T=n,S=n
 def y(n, k):
-    cache = {1: k, 2: k * k}
+    cache = {
+        1: k,
+        2: k * k
+    }
 
     def dfs(i):
         if i in cache:

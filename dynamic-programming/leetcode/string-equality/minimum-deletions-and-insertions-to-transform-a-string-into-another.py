@@ -18,7 +18,8 @@ def y(s1, s2):
         return 1
 
     lcs = lcs(s1, s2)
-    minInsertions, minDeletions = m - lcs, n - lcs
+    minInsertions = m - lcs
+    minDeletions = n - lcs
     print(minInsertions, minDeletions)
 
 

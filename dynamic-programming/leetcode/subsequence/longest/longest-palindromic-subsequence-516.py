@@ -2,7 +2,8 @@
 # LPS(s) = LCS(s,reverse(s))
 def u(s):
     n = len(s)
-    s1, s2 = s, s[::-1]
+    s1 = s
+    s2 = s[::-1]
 
     def dfs(i, j):
         if i == n or j == n:

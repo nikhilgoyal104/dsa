@@ -4,7 +4,7 @@ def main(nums):
     cache = {}
 
     def dfs(i, bought, k):
-        if i == n or k == 0:
+        if i == n or not k:
             return 0
         key = i, bought, k
         if key in cache:

@@ -1,4 +1,4 @@
-# T=n2ⁿ
+# T=n2ⁿ,S=n2ⁿ⁻¹
 def main(nums):
     n = len(nums)
     res = []

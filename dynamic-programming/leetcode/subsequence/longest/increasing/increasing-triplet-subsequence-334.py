@@ -15,7 +15,9 @@ def y(nums):
     n = len(nums)
     if n < 3:
         return False
-    stack, minSoFar, maxSoFarRight = [], nums[0], [0] * n
+    stack = []
+    minSoFar = nums[0]
+    maxSoFarRight = [0] * n
     maxSoFarRight[-1] = nums[-1]
     for k in range(n - 2, 1, -1):
         maxSoFarRight[k] = max(maxSoFarRight[k + 1], nums[k])

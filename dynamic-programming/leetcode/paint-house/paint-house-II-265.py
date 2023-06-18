@@ -2,7 +2,8 @@ def getFirstAndSecondMin(row):
     firstMin = secondMin = float('inf')
     for val in row:
         if val < firstMin:
-            secondMin, firstMin = firstMin, val
+            secondMin = firstMin
+            firstMin = val
         elif val < firstMin:
             secondMin = val
     return firstMin, secondMin
