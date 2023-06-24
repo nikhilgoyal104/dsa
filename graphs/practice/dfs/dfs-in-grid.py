@@ -1,6 +1,3 @@
-from collections import deque
-
-
 def outside(m, n, ri, ci):
     return ri in [-1, m] or ci in [-1, n]
 
