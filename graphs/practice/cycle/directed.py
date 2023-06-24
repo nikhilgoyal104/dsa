@@ -1,7 +1,7 @@
 from graphs.util import build3
 
 
-# T=V+E,S=V
+# T=v+e,S=v
 def main(n, edges):
     graph = build3(n, edges)
     vis = set()

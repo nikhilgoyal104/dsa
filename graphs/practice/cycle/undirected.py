@@ -2,7 +2,7 @@ from collections import defaultdict
 from graphs.util import build2
 
 
-# T=V+E,S=V
+# T=v+e,S=v
 def main(n, edges):
     graph = build2(n, edges)
     vis = set()
