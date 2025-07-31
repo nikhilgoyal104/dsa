@@ -4,8 +4,8 @@ from collections import Counter
 def main(s):
     res = s[0]
     freq = Counter(s)
-    for ch in count:
-        if count[ch] > count[res]:
+    for ch in freq:
+        if freq[ch] > freq[res]:
             res = ch
     return res
 

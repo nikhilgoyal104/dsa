@@ -6,18 +6,16 @@ inputs = [
 ]
 
 
-def anagram(p, substring):
-    return Counter(p) == Counter(substring)
-
-
 # T=(m-n+1)n,S=(m-n+1)n
 def main(s, p):
     m, n = len(s), len(p)
     res = []
     if n > m:
         return res
+    freqP = Counter(p)
     for i in range(m - n + 1):
-        if anagram(p, s[i:i + n]):
+        freqS = Counter(s[i:i + n])
+        if freqP == freqS:
             res.append(i)
     return res
 
@@ -34,16 +32,18 @@ def main(s, p):
     res = []
     if n > m:
         return res
-    map1 = Counter(s[:n])
-    map2 = Counter(p)
-    if map1 == map2:
+    freqP = Counter(p)
+    freqS = Counter(s[:n])
+    if freqP == freqS:
         res.append(0)
     for i in range(n, m):
-        map1[s[i - n]] -= 1
-        if not map1[s[i - n]]:
-            del map1[s[i - n]]
-        map1[s[i]] += 1
-        if map1 == map2:
+        outgoing = s[i - n]
+        incoming = s[i]
+        freqS[outgoing] -= 1
+        if not freqS[outgoing]:
+            del freqS[outgoing]
+        freqS[incoming] += 1
+        if freqP == freqS:
             res.append(i - n + 1)
     return res
 

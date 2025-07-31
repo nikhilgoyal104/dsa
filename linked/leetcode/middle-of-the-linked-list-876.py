@@ -1,9 +1,31 @@
 from linked.util import build, ListNode
 
 inputs = [
+    build([1]),
+    build([1, 2]),
+    build([1, 2, 3]),
     build([1, 2, 3, 4, 5]),
     build([1, 2, 3, 4, 5, 6])
 ]
+
+
+# T=n,S=1
+def main(head):
+    count = 0
+    temp = head
+    while temp:
+        count += 1
+        temp = temp.next
+    temp = head
+    for i in range(count // 2):
+        temp = temp.next
+    return temp
+
+
+for head in inputs:
+    print(main(head))
+
+print()
 
 
 # T=n,S=1

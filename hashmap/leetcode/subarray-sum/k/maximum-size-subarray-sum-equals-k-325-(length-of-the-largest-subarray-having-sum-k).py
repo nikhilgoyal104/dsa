@@ -2,12 +2,12 @@
 def x(nums, k):
     n = len(nums)
     res = 0
-    for i in range(n):
+    for left in range(n):
         sum = 0
-        for j in range(i, n):
-            sum += nums[j]
+        for right in range(left, n):
+            sum += nums[right]
             if sum == k:
-                res = max(res, j - i + 1)
+                res = max(res, right - left + 1)
     return res
 
 
@@ -15,12 +15,27 @@ def x(nums, k):
 def y(nums, k):
     res = sum = 0
     sumToIndex = {0: -1}
-    for i in range(len(nums)):
-        sum += nums[i]
+    for right in range(len(nums)):
+        sum += nums[right]
         if sum - k in sumToIndex:
-            res = max(res, i - sumToIndex[sum - k])
+            res = max(res, right - sumToIndex[sum - k])
         if sum not in sumToIndex:
-            sumToIndex[sum] = i
+            sumToIndex[sum] = right
+    return res
+
+
+# T=n,S=n
+def z(nums, k):
+    res = sum = 0
+    sumToIndex = {}
+    for right in range(len(nums)):
+        sum += nums[right]
+        if sum == k:
+            res = right + 1
+        if sum - k in sumToIndex:
+            res = max(res, right - sumToIndex[sum - k])
+        if sum not in sumToIndex:
+            sumToIndex[sum] = right
     return res
 
 
@@ -31,4 +46,5 @@ for nums, k in [
     ([-2, -1, 2, 1], 1)
 ]:
     print(x(nums, k), end=' ')
-    print(y(nums, k))
+    print(y(nums, k), end=' ')
+    print(z(nums, k))

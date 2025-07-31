@@ -5,9 +5,10 @@ def main(grid):
         for j in range(i + 1, n):
             grid[i][j], grid[j][i] = grid[j][i], grid[i][j]
     for i in range(n):
+        row = grid[i]
         low, high = 0, n - 1
         while low < high:
-            grid[i][low], grid[i][high] = grid[i][high], grid[i][low]
+            row[low], row[high] = row[high], row[low]
             low, high = low + 1, high - 1
 
 

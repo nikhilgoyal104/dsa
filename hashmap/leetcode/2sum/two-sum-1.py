@@ -5,6 +5,7 @@ def x(nums, target):
         for j in range(i + 1, n):
             if nums[i] + nums[j] == target:
                 return [i, j]
+    return []
 
 
 # T=n,S=n
@@ -12,18 +13,22 @@ def y(nums, target):
     n = len(nums)
     valToIndex = {nums[i]: i for i in range(n)}
     for i in range(n):
-        key = target - nums[i]
-        if key in valToIndex and valToIndex[key] != i:
-            return [i, valToIndex[key]]
+        complement = target - nums[i]
+        if complement in valToIndex and valToIndex[complement] != i:
+            return [i, valToIndex[complement]]
+    return []
 
 
 # T=n,S=n
 def z(nums, target):
+    n = len(nums)
     valToIndex = {}
-    for i, val in enumerate(nums):
-        if target - val in valToIndex:
-            return [valToIndex[target - val], i]
-        valToIndex[val] = i
+    for i in range(n):
+        complement = target - nums[i]
+        if complement in valToIndex:
+            return [valToIndex[complement], i]
+        valToIndex[nums[i]] = i
+    return []
 
 
 for nums, target in [

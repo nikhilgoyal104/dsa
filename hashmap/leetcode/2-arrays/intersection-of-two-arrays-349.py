@@ -3,24 +3,22 @@ from collections import Counter
 
 # T=m+n,S=m+n
 def x(nums1, nums2):
-    res = []
-    hm = Counter(nums1)
+    res = set()
+    counter = Counter(nums1)
     for val in nums2:
-        if val in hm:
-            res.append(val)
-            del hm[val]
-    return res
+        if val in counter:
+            res.add(val)
+    return list(res)
 
 
 # T=m+n,S=m+n
 def y(nums1, nums2):
-    res = []
-    nums1Set = set(nums1)
+    res = set()
+    set1 = set(nums1)
     for val in nums2:
-        if val in nums1Set:
-            res.append(val)
-            nums1Set.remove(val)
-    return res
+        if val in set1:
+            res.add(val)
+    return list(res)
 
 
 # T=m+n,S=m+n

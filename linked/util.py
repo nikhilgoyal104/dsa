@@ -27,3 +27,46 @@ def build(nums):
     for val in nums:
         head = add(head, val)
     return head if head else []
+
+
+def getNode(head, pos):
+    temp = head
+    while pos:
+        temp = temp.next
+        pos -= 1
+    return temp
+
+
+def getTail(head):
+    temp = head
+    while temp.next:
+        temp = temp.next
+    return temp
+
+
+def getNodeAtVal(head, val):
+    temp = head
+    while temp:
+        if temp.val == val:
+            return temp
+        temp = temp.next
+    return None
+
+
+def cyclic(nums, pos):
+    head = build(nums)
+    if pos == -1:
+        return head
+    node = getNode(head, pos)
+    tail = getTail(head)
+    tail.next = node
+    return head
+
+
+def intersected(intersectVal, listA, listB, skipA, skipB):
+    if not intersectVal:
+        return build(listA), build(listB)
+    headA = build(listA)
+    headB = build(listB[:skipB])
+    getTail(headB).next = getNodeAtVal(headA, intersectVal)
+    return headA, headB

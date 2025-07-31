@@ -6,27 +6,29 @@ def main(head):
     prev = None
     curr = head
     while curr:
-        future = curr.next
+        _next = curr.next
         curr.next = prev
         prev = curr
-        curr = future
+        curr = _next
     return prev
 
 
 for head in [
+    build([]),
     build([1]),
-    build([1, 2, 3, 4, 5]),
-    build([1, 2])
+    build([1, 2]),
+    build([1, 2, 3, 4, 5])
 ]:
     print(main(head))
-
-print()
 
 
 # T=n,S=n
 def main(head):
+    if not head:
+        return None
+
     def dfs(head):
-        if not head or not head.next:
+        if not head.next:
             return head
         last = dfs(head.next)
         head.next.next = head
@@ -37,6 +39,7 @@ def main(head):
 
 
 for head in [
+    build([]),
     build([1]),
     build([1, 2]),
     build([1, 2, 3, 4, 5]),

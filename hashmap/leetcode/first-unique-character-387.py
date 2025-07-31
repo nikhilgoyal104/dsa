@@ -27,18 +27,11 @@ def y(s):
 
 # T=n,S=n
 def z(s):
-    res = float('inf')
+    n = len(s)
     map = {}
-    for i in range(len(s)):
-        ch = s[i]
-        if ch not in map:
-            map[ch] = i
-        else:
-            map[ch] = -1
-    for i in map.values():
-        if i != -1:
-            res = min(res, i)
-    return -1 if res == float('inf') else res
+    for i in range(n):
+        map[s[i]] = i if s[i] not in map else -1
+    return min((i for i in map.values() if i != -1), default=-1)
 
 
 for s in ['leetcode', 'loveleetcode', 'aabb']:

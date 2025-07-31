@@ -1,15 +1,15 @@
 # T=logn,S=1
 def main(n):
     res = 0
-    factor = -1 if n < 0 else 1
-    range = 2 ** 31
+    sign = -1 if n < 0 else 1
     n = abs(n)
     while n:
-        res = 10 * res + n % 10
+        lastDigit = n % 10
+        res = 10 * res + lastDigit
         n //= 10
-    if res < -range or res > range:
+    if res < -2 ** 31 or res > 2 ** 31:
         return 0
-    return factor * res
+    return sign * res
 
 
 for n in [

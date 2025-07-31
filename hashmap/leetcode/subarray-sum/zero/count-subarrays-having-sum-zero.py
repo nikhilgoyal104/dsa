@@ -5,10 +5,10 @@ from collections import Counter
 def x(nums):
     n = len(nums)
     res = 0
-    for i in range(n):
+    for left in range(n):
         sum = 0
-        for j in range(i, n):
-            sum += nums[j]
+        for right in range(left, n):
+            sum += nums[right]
             if not sum:
                 res += 1
     return res
@@ -18,8 +18,8 @@ def x(nums):
 def y(nums):
     res = sum = 0
     sumFreq = Counter({0: 1})
-    for i in range(len(nums)):
-        sum += nums[i]
+    for right in range(len(nums)):
+        sum += nums[right]
         res += sumFreq[sum]
         sumFreq[sum] += 1
     return res

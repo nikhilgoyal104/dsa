@@ -1,7 +1,8 @@
 # T=n²,S=n
 def x(nums):
     n = len(nums)
-    res, nums = set(), sorted(nums)
+    res = set()
+    nums = sorted(nums)
     for i in range(n - 2):
         low, high = i + 1, n - 1
         while low < high:
@@ -19,7 +20,8 @@ def x(nums):
 # T=n²,S=n
 def y(nums):
     n = len(nums)
-    res, nums = [], sorted(nums)
+    res = []
+    nums = sorted(nums)
     for i in range(n - 2):
         if i and nums[i] == nums[i - 1]:
             continue

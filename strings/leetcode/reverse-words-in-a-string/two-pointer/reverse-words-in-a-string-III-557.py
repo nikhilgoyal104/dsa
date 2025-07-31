@@ -35,7 +35,9 @@ def z(s):
 
 
 for s in [
-    'Let\'s take LeetCode contest', 'God Ding'
+    'Let\'s take LeetCode contest',
+    'God Ding',
+    'Do or Die.'
 ]:
     print(x(s), end=' ')
     print(y(s), end=' ')

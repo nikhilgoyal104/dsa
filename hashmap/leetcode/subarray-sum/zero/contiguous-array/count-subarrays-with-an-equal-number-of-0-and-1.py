@@ -5,9 +5,8 @@ from collections import Counter
 def main(nums):
     res = sum = 0
     sumFreq = Counter({0: 1})
-    nums = [-1 if not val else 1 for val in nums]
-    for i in range(len(nums)):
-        sum += nums[i]
+    for right in range(len(nums)):
+        sum += 0 if not nums[right] else 1
         res += sumFreq[sum]
         sumFreq[sum] += 1
     return res
